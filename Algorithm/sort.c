@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 void swap(int *a, int *b) {
 	if(*a != *b) {
@@ -9,14 +10,24 @@ void swap(int *a, int *b) {
 	}
 }
 
-void insertionSort(int *t, int n) {
+void insertionSort(int *t, int gap, int start, int end) {
 	int i, j, el;
-	for(i = 0; i < n; i++) {
+	for(i = start + gap; i < end; i += gap) {
 		el = t[i];
-		for(j = i; j > 0 && t[j-1] > el; j--) {
-			t[j] = t[j-1];
+		for(j = i; j >= gap && t[j-gap] > el; j -= gap) {
+			t[j] = t[j - gap];
 		}
 		t[j] = el;
+	}
+}
+
+void shellSort(int *t, int n) {
+	int gap[] = {(int)n/4, (int)n/5, (int)n/6};
+	int ngap = sizeof(gap) / sizeof(*gap), i, j;
+	for(i = 0; i < ngap; i++) {
+		for(j = 0; j < gap[i]; j++) {
+			insertionSort(t, gap[i], i, n);
+		}
 	}
 }
 
@@ -63,6 +74,37 @@ void cocktailSort(int *t, int n) {
 	}
 }
 
+void merge(int *t, int m, int n) {
+	int i, j, k;
+	int *t0 = malloc(n * sizeof(*t0));
+	assert(t0);
+
+	for(i = k = 0, j = m; k < n; k++) {
+		if(j == n)
+			t0[k] = t[i++];
+		else if(i == m)
+			t0[k] = t[j++];
+		else if(t[j] < t[i])
+			t0[k] = t[j++];
+		else
+			t0[k] = t[i++];
+	}
+
+	for(i = 0; i < n; i++) {
+		t[i] = t0[i];
+	}
+
+	free(t0);
+}
+
+void mergeSort(int *t, int n) {
+	if(n < 2) return;
+	int mid = n/2;
+	mergeSort(t, mid);
+	mergeSort(t + mid, n - mid);
+	merge(t, mid, n);
+}
+
 void printTab(int *t, int n) {
 	int i;
 	for(i = 0; i < n; i++) {
@@ -76,6 +118,6 @@ int main(void) {
 	int n = sizeof(t)/sizeof(*t);
 
 	printf("BEFORE:\t"); printTab(t, n);
-	cocktailSort(t, n);
+	shellSort(t, n);
 	printf("AFTER:\t"); printTab(t, n);
 }
