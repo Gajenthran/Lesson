@@ -8,14 +8,14 @@ static unsigned char * stack = NULL;
 static int top = -1;
 
 void quit(void) {
-	if (stack)
+	if(stack)
 		free(stack);
 }	
 
 void stackInit(size_t s) {
 	sizeEl = s;
 
-	if (stack)
+	if(stack)
 		free(stack);
 	else
 		atexit(quit);
@@ -40,5 +40,5 @@ void push(void * data) {
 		assert(stack);
 	}
 
-	memcpy((void*)&stack[sizeEl * (++top)], data, sizeEl);
+	memcpy((void *)&stack[sizeEl * (++top)], data, sizeEl);
 }
