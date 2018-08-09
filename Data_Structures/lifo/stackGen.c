@@ -35,7 +35,7 @@ int empty(void) {
 }
 
 void push(void * data) {
-	if (top == (nEl-1)) {
+	if(top == (nEl-1)) {
 		stack = realloc(stack, (nEl *= 2) * sizeEl * sizeof *stack);
 		assert(stack);
 	}
