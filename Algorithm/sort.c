@@ -1,8 +1,18 @@
+/*!
+ * \file queue.c
+ * \brief a FIFO (first-in-first-out) data structure
+ * \author PANCHALINGAMOORTHY Gajenthran. Adapted from Farès Belhadj's course (code).
+ * \date 6 August 2018
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include "sort.h"
 
-void swap(int *a, int *b) {
+/*! \brief exchange the value of an element A with the value 
+ * of an element B */
+static void swap(int *a, int *b) {
 	if(*a != *b) {
 		*a ^= *b;
 		*b ^= *a;
@@ -10,6 +20,43 @@ void swap(int *a, int *b) {
 	}
 }
 
+/*! \brief display all the elements of the table. */
+static void printTab(int *t, int n) {
+	int i;
+	for(i = 0; i < n; i++) {
+		printf("%d - ", t[i]);
+	}
+	printf("\n");
+}
+
+/*! \brief complementary function to the mergeSort function. */
+static void merge(int *t, int m, int n) {
+	int i, j, k;
+	int *t0 = malloc(n * sizeof(*t0));
+	assert(t0);
+
+	for(i = k = 0, j = m; k < n; k++) {
+		if(j == n)
+			t0[k] = t[i++];
+		else if(i == m)
+			t0[k] = t[j++];
+		else if(t[j] < t[i])
+			t0[k] = t[j++];
+		else
+			t0[k] = t[i++];
+	}
+
+	for(i = 0; i < n; i++) {
+		t[i] = t0[i];
+	}
+
+	free(t0);
+}
+
+/*! \brief Insertion sort.
+ * Time complexity: n, n^2, n^2.
+ * Space: 1.
+ * Stable: Yes. */
 void insertionSort(int *t, int gap, int start, int end) {
 	int i, j, el;
 	for(i = start + gap; i < end; i += gap) {
@@ -21,6 +68,10 @@ void insertionSort(int *t, int gap, int start, int end) {
 	}
 }
 
+/*! \brief Shell sort.
+ * Time complexity: n, nlog^2(n), n^3/2.
+ * Space: 1.
+ * Stable: No. */
 void shellSort(int *t, int n) {
 	int gap[] = {(int)n/4, (int)n/5, (int)n/6};
 	int ngap = sizeof(gap) / sizeof(*gap), i, j;
@@ -31,6 +82,10 @@ void shellSort(int *t, int n) {
 	}
 }
 
+/*! \brief Selection sort.
+ * Time complexity: n^2, n^2, n^2.
+ * Space: 1.
+ * Stable: No. */
 void selectionSort(int *t, int n) {
 	int i, j, min, tmp;
 	for(i = 0; i < n-1; i++) {
@@ -42,6 +97,10 @@ void selectionSort(int *t, int n) {
 	}
 }
 
+/*! \brief Insertion sort.
+ * Time complexity: n, n^2, n^2.
+ * Space: 1.
+ * Stable: No. */
 void bubbleSort(int *t, int n) {
 	int i, j;
 	for(i = 0; i < n; i++)
@@ -50,6 +109,10 @@ void bubbleSort(int *t, int n) {
 				swap(&t[i], &t[j]);
 }
 
+/*! \brief Insertion sort.
+ * Time complexity: n, n^2, n^2.
+ * Space: 1.
+ * Stable: Yes. */
 void cocktailSort(int *t, int n) {
 	int swaping = 1, start = 0, end = n-2, i;
 
@@ -74,29 +137,10 @@ void cocktailSort(int *t, int n) {
 	}
 }
 
-void merge(int *t, int m, int n) {
-	int i, j, k;
-	int *t0 = malloc(n * sizeof(*t0));
-	assert(t0);
-
-	for(i = k = 0, j = m; k < n; k++) {
-		if(j == n)
-			t0[k] = t[i++];
-		else if(i == m)
-			t0[k] = t[j++];
-		else if(t[j] < t[i])
-			t0[k] = t[j++];
-		else
-			t0[k] = t[i++];
-	}
-
-	for(i = 0; i < n; i++) {
-		t[i] = t0[i];
-	}
-
-	free(t0);
-}
-
+/*! \brief Merge sort.
+ * Time complexity: nlog(n), nlog(n), nlog(n).
+ * Space: n.
+ * Stable: Yes. */
 void mergeSort(int *t, int n) {
 	if(n < 2) return;
 	int mid = n/2;
@@ -105,16 +149,8 @@ void mergeSort(int *t, int n) {
 	merge(t, mid, n);
 }
 
-void printTab(int *t, int n) {
-	int i;
-	for(i = 0; i < n; i++) {
-		printf("%d - ", t[i]);
-	}
-	printf("\n");
-}
-
 int main(void) {
-	int t[] = {9, 8, 2, 1, 3, 5, 9 };
+	int t[] = {9, 8, 2, 1, 3, 5, 9};
 	int n = sizeof(t)/sizeof(*t);
 
 	printf("BEFORE:\t"); printTab(t, n);
