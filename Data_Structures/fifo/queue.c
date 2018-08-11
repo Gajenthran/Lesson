@@ -10,7 +10,7 @@
 #include <assert.h>
 #include "fifo.h"
 
-/*! \brief the queue wich will stock all the elements. */
+/*! \brief the queue which will stock all the elements. */
 static int * queue = NULL;
 /*! \brief the actual size of the queue. */
 static int size;
@@ -38,7 +38,7 @@ extern void initQueue(void) {
 	}
 }
 
-/*! \brief enqueue an element. And resize */
+/*! \brief enqueue an element. And resize if the queue is full. */
 extern void enqueue(int v) {
 	queue[top++] = v;
 	if(top > size-1)

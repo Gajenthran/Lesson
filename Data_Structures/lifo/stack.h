@@ -3,10 +3,10 @@
 
 #define SIZE_STACK 1024 
 
-void 	initStack(void);
-void	push(int val);
-int		pop(void);
-int		empty(void);
-void	clean(void);
+extern void 	initStack(void);
+extern void	push(int val);
+extern int		pop(void);
+extern int		empty(void);
+extern void	clean(void);
 
 #endif

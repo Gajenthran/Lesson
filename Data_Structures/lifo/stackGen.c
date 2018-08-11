@@ -1,17 +1,26 @@
+/*!
+ * \file stackGen.c
+ * \brief a generic FIFO (first-in-first-out) data structure
+ * \author PANCHALINGAMOORTHY Gajenthran. Adapted from Farès Belhadj's course (code).
+ * \date 7 August 2018
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
 
-static size_t sizeEl = 1, nEl = 0;
+/*! \brief the stack which will stock all the elements. */
 static unsigned char * stack = NULL;
+/*! \brief the size of an element of the stack. */
+static size_t sizeEl = 1
+/*! \brief the number of elements in the stack. */
+static int nEl = 0;
+/*! \brief the top of the stack is the index of the 
+ * last pushed element. */
 static int top = -1;
 
-void quit(void) {
-	if(stack)
-		free(stack);
-}	
-
+/*! \brief initialize the stack if it's not the case. */
 void stackInit(size_t s) {
 	sizeEl = s;
 
@@ -25,15 +34,7 @@ void stackInit(size_t s) {
 	top = -1;
 }
 
-void * pop(void) {
-	return (void *)&stack[sizeEl * top--];
-}
-
-
-int empty(void) {
-	return top < 0;
-}
-
+/*! \brief push an element. And resize if the stack is full. */
 void push(void * data) {
 	if(top == (nEl-1)) {
 		stack = realloc(stack, (nEl *= 2) * sizeEl * sizeof *stack);
@@ -42,3 +43,20 @@ void push(void * data) {
 
 	memcpy((void *)&stack[sizeEl * (++top)], data, sizeEl);
 }
+
+/*! \brief pop an element. */
+void * pop(void) {
+	return (void *)&stack[sizeEl * top--];
+}
+
+/*! check if the stack is empty. */
+int empty(void) {
+	return top < 0;
+}
+
+/*! \brief clean the stack. */
+void clean(void) {
+	if(stack)
+		free(stack);
+	top = -1;
+}	
