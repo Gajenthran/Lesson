@@ -26,11 +26,11 @@ void bt_print(node_t ** bt) {
 	bt_print(&(*bt)->rc);
 }
 
-void bt_contains(node_t * bt, int v) {
+void bt_contains(node_t * bt, int value) {
 	if (bt == NULL)
 		return;
 
-	if (bt->v == v)
+	if (bt->v == value)
 		printf("CONTAINS !\n");
 
 	bt_contains(bt->lc, v);
