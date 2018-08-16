@@ -30,7 +30,7 @@ void vector_add(vector *v, int data) {
 
 void vector_set(vector *v, int index, int data) {
 	if(index < 0 || index >= v->size) {
-		fprintf(stderr, "Index out of bounds.\n");
+		fprintf(stderr, "Err: Index out of bounds.\n");
 		exit(0);
 	}
 
@@ -39,21 +39,20 @@ void vector_set(vector *v, int index, int data) {
 
 void vector_put(vector *v, int index, int data) {
 	if(index < 0 || index >= v->size) {
-		fprintf(stderr, "Index out of bounds.\n");
+		fprintf(stderr, "Err: Index out of bounds.\n");
 		exit(0);
 	}
-
-	int i;
-	for(i = index; i < v->size; i++)
-		v->data[i] = v->data[i+1];
+	v->size++;
+	int i, tmp;
+	for(i = v->size-2; i >= index; i--)
+		v->data[i+1] = v->data[i];
 
 	v->data[index] = data;
-	v->size++;
 }
 
 int vector_get(vector *v, int index) {
 	if(index < 0 || index >= v->size) {
-		fprintf(stderr, "Index out of bounds.\n");
+		fprintf(stderr, "Err: Index out of bounds.\n");
 		exit(0);
 	}
 	return v->data[index];
@@ -61,7 +60,7 @@ int vector_get(vector *v, int index) {
 
 void vector_delete(vector *v, int index) {
 	if(index < 0 || index >= v->size) {
-		fprintf(stderr, "Index out of bounds.\n");
+		fprintf(stderr, "Err: Index out of bounds.\n");
 		exit(0);
 	}
 
