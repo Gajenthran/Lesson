@@ -1,6 +1,6 @@
 /*!
- * \file queue.c
- * \brief a FIFO (first-in-first-out) data structure
+ * \file sort.c
+ * \brief Sorting algorithm
  * \author PANCHALINGAMOORTHY Gajenthran. Adapted from Farès Belhadj's course (code).
  * \date 6 August 2018
  */
