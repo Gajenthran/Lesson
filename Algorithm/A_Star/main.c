@@ -10,7 +10,7 @@ int 	in_position(int x0, int y0, int x1, int y1);
 void 	print_laby(void);
 int 	distance(int x0, int y0, int x1, int y1);
 
-enum { EMPTY, STARTING, ENDING, O_SET, C_SET, NCOLOR };
+enum { EMPTY = '.', STARTING = 'D', ENDING = 'E', O_SET = 'x', C_SET = '+', NCOLOR };
 enum { LEFT, UP, RIGHT, DOWN, NDIR };
 
 typedef struct cell cell;
@@ -75,16 +75,7 @@ void print_laby(void) {
 	int r, c, open, closed;
 	for(r = 0; r < _rows; r++) {
 		for(c = 0; c < _cols; c++) {
-			if(_grid[r * _cols + c].c == STARTING)
-				printf(" D ");
-			if(_grid[r * _cols + c].c == ENDING)
-				printf(" E ");
-			if(_grid[r * _cols + c].c == O_SET)
-				printf(" x ");
-			if(_grid[r * _cols + c].c == C_SET)
-				printf(" + ");
-			if(_grid[r * _cols + c].c == EMPTY)
-				printf(" . ");
+			printf(" %c ", _grid[r * _cols + c].c);
 		}
 		printf("\n");
 	}
