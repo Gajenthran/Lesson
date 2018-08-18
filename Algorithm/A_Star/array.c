@@ -23,6 +23,16 @@ int size_array(int iarray) {
 	return _top[iarray]+1;
 }
 
+int contains_array(int iarray, int value) {
+	int i;
+	for(i = 0; i < size_array(iarray); i++) {
+		if(_array[iarray][i] == value)
+			return 1;
+	}
+
+	return 0;
+}
+
 int in_array(int iarray, int value) {
 	int i;
 	for(i = 0; i < size_array(iarray); i++) {

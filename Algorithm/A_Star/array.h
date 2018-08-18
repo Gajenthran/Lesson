@@ -10,6 +10,7 @@ extern int 		pop_array(int iarray);
 extern int 		in_array(int iarray, int value);
 extern void 	remove_array(int iarray, int value);
 extern int 		get_array(int iarray, int index);
+extern int 		contains_array(int iarray, int value);
 extern int 		size_array(int iarray);
 extern int 		empty_array(int iarray);
 static void 	resize_array(int iarray);
