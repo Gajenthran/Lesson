@@ -5,12 +5,15 @@
 
 void 	a_star(void);
 void 	init(int rows, int cols);
+void 	init_grid(int rows, int cols);
 void 	print_laby(void);
 int 	in_position(int x0, int y0, int x1, int y1);
 void 	print_laby(void);
-int 	distance(int x0, int y0, int x1, int y1);
+int 	euclidean_distance(int x0, int y0, int x1, int y1);
+int 	manhattan_distance(int x0, int y0, int x1, int y1);
+int 	get_random_num(int n);
 
-enum { EMPTY = '.', STARTING = 'D', ENDING = 'E', O_SET = 'x', C_SET = '+', NCOLOR };
+enum { EMPTY = '.', WALL = '+', STARTING = 'D', ENDING = 'E', O_SET = 'o', C_SET = 'x', NCOLOR };
 enum { LEFT, UP, RIGHT, DOWN, NDIR };
 
 typedef struct cell cell;
@@ -37,8 +40,12 @@ void print_array(int iarray) {
 	printf("\n");
 }
 
-void init(int rows, int cols) {
-	int r, c;
+int get_random_num(int n) {
+	return(int)(n *(rand()/(RAND_MAX + 1.0)));
+}
+
+void init_grid(int rows, int cols) {
+	int r, c, f = 4;
 	_rows = rows;
 	_cols = cols;
 	if(_grid)
@@ -46,23 +53,28 @@ void init(int rows, int cols) {
 
 	_grid = malloc(_rows * _cols * sizeof(*_grid));
 	assert(_grid);
-	init_array();
 
 	for(r = 0; r < _rows; r++) {
 		for(c = 0; c < _cols; c++) {
 			_grid[r * _cols + c].x = c;
 			_grid[r * _cols + c].y = r;
 			_grid[r * _cols + c].f = _grid[r * _cols + c].g = _grid[r * _cols + c].h = 0;
-			_grid[r * _cols + c].c = EMPTY;
+			_grid[r * _cols + c].c = get_random_num(f) > 0 ? EMPTY : WALL;
 		}
 	}
+}
 
-	_start = _grid[0];
-	_grid[0].c = _start.c = STARTING;
-	_end = _grid[4];
-	_grid[4].c = _end.c = ENDING;
-
+void init_target(int istart, int iend) {
+	_start = _grid[istart];
+	_grid[istart].c = _start.c = STARTING;
+	_end = _grid[iend];
+	_grid[iend].c = _end.c = ENDING;
 	push_array(OPEN_SET, _start.y * _cols + _start.x);
+}
+void init(int rows, int cols) {
+	init_grid(rows, cols);
+	init_array();
+	init_target(1 * _cols + 2, 1 * _cols + 6);
 	a_star();
 }
 
@@ -107,12 +119,16 @@ void a_star(void) {
 		_grid[current].c = C_SET;
 
 		for(d = 0; d < NDIR; d++) {
-			if(x + _dirx[d] < 0 || x + _dirx[d] > _cols ||
-				 y + _diry[d] < 0 || y + _diry[d] > _rows) {
+			int nx = x + _dirx[d], ny = y + _diry[d];
+			if( nx < 0 || nx >= _cols ||
+				ny < 0 || ny >= _rows ) {
 				continue;
 			}
 
-			neighbor = (y + _diry[d]) * _cols + (x + _dirx[d]);
+			neighbor = ny * _cols + nx;
+			if(_grid[neighbor].c == WALL)
+				continue;
+
 			if(!contains_array(CLOSED_SET, neighbor)) {
 				 tmp_g = _grid[current].g + 1;
 
@@ -128,19 +144,22 @@ void a_star(void) {
 					_grid[current].c = O_SET;
 				}
 
-				_grid[neighbor].h = distance(_grid[neighbor].x, _grid[neighbor].y, _end.x, _end.y);
+				_grid[neighbor].h = manhattan_distance(_grid[neighbor].x, _grid[neighbor].y, _end.x, _end.y);
 				_grid[neighbor].f = _grid [neighbor].h + _grid[neighbor].g;
 			}
 		}
 	}
 }
 
-int distance(int x0, int y0, int x1, int y1) {
+int manhattan_distance(int x0, int y0, int x1, int y1) {
+	return abs(x1 - x0) + abs(y1 - y0);
+}
+
+int euclidean_distance(int x0, int y0, int x1, int y1) {
 	return ((x1 - x0) * (x1 - x0)) + ((y1 - y0) * (y1 - y0));
 }
 
 int main(void) {
-	init(5, 5);
-
+	init(10, 10);
 	return 0;
 }
