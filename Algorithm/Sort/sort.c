@@ -21,7 +21,7 @@ static void swap(int *a, int *b) {
 }
 
 /*! \brief display all the elements of the table. */
-static void printTab(int *t, int n) {
+static void printArray(int *t, int n) {
 	int i;
 	for(i = 0; i < n; i++) {
 		printf("%d - ", t[i]);
@@ -29,7 +29,7 @@ static void printTab(int *t, int n) {
 	printf("\n");
 }
 
-/*! \brief complementary function to the mergeSort function. */
+/*! \brief complementary function of the mergeSort function. */
 static void merge(int *t, int m, int n) {
 	int i, j, k;
 	int *t0 = malloc(n * sizeof(*t0));
@@ -53,6 +53,45 @@ static void merge(int *t, int m, int n) {
 	free(t0);
 }
 
+/*! \brief Merge sort.
+ * Time complexity: nlog(n), nlog(n), nlog(n).
+ * Space: n.
+ * Stable: Yes. */
+void mergeSort(int *t, int n) {
+	if(n < 2) return;
+	int mid = n/2;
+	mergeSort(t, mid);
+	mergeSort(t + mid, n - mid);
+	merge(t, mid, n);
+}
+
+/*! \brief complementary function of the quickSort function. */
+static int partition(int *t, int start, int end) {
+	int pivot = t[end];
+	int i = start-1, j;
+	for(j = start; j < end; j++) {
+		if(t[j] <= pivot) {
+			i++;
+			swap(&t[i], &t[j]);
+		}
+	}
+
+	swap(&t[i+1], &t[end]);
+	return (i + 1);
+}
+
+/*! \brief Quick sort.
+ * Time complexity: nlog(n), nlog(n), n^2.
+ * Space: log(n), n.
+ * Stable: Non. */
+void quickSort(int *t, int start, int end) {
+	if(start < end) {
+		int p = partition(t, start, end);
+		quickSort(t, start, p-1);
+		quickSort(t, p+1, end);
+	}
+}
+
 /*! \brief Insertion sort.
  * Time complexity: n, n^2, n^2.
  * Space: 1.
@@ -69,7 +108,7 @@ void insertionSort(int *t, int gap, int start, int end) {
 }
 
 /*! \brief Shell sort.
- * Time complexity: n, nlog^2(n), n^3/2.
+ * Time complexity: n, nlog^2(n), nlog^2(n).
  * Space: 1.
  * Stable: No. */
 void shellSort(int *t, int n) {
@@ -109,7 +148,7 @@ void bubbleSort(int *t, int n) {
 				swap(&t[i], &t[j]);
 }
 
-/*! \brief Insertion sort.
+/*! \brief Cocktail sort.
  * Time complexity: n, n^2, n^2.
  * Space: 1.
  * Stable: Yes. */
@@ -137,23 +176,11 @@ void cocktailSort(int *t, int n) {
 	}
 }
 
-/*! \brief Merge sort.
- * Time complexity: nlog(n), nlog(n), nlog(n).
- * Space: n.
- * Stable: Yes. */
-void mergeSort(int *t, int n) {
-	if(n < 2) return;
-	int mid = n/2;
-	mergeSort(t, mid);
-	mergeSort(t + mid, n - mid);
-	merge(t, mid, n);
-}
-
 int main(void) {
 	int t[] = {9, 8, 2, 1, 3, 5, 9};
 	int n = sizeof(t)/sizeof(*t);
 
-	printf("BEFORE:\t"); printTab(t, n);
-	shellSort(t, n);
-	printf("AFTER:\t"); printTab(t, n);
+	printf("BEFORE:\t"); printArray(t, n);
+	mergeSort(t, n);
+	printf("AFTER:\t"); printArray(t, n);
 }

@@ -1,3 +1,10 @@
+/*!
+ * \file sort.c
+ * \brief Sorting algorithm
+ * \author PANCHALINGAMOORTHY Gajenthran. Adapted from Farès Belhadj's course (code).
+ * \date 14 August 2018
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
