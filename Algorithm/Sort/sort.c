@@ -8,7 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <time.h>
 #include "sort.h"
+
+#define N 10000
 
 /*! \brief exchange the value of an element A with the value 
  * of an element B */
@@ -21,7 +24,7 @@ static void swap(int *a, int *b) {
 }
 
 /*! \brief display all the elements of the table. */
-static void printArray(int *t, int n) {
+static void printTab(int *t, int n) {
 	int i;
 	for(i = 0; i < n; i++) {
 		printf("%d - ", t[i]);
@@ -80,44 +83,34 @@ static int partition(int *t, int start, int end) {
 	return (i + 1);
 }
 
+static void quick(int *t, int start, int end) {
+	if(start < end) {
+		int p = partition(t, start, end);
+		quick(t, start, p-1);
+		quick(t, p+1, end);
+	}
+}
+
 /*! \brief Quick sort.
  * Time complexity: nlog(n), nlog(n), n^2.
  * Space: log(n), n.
- * Stable: Non. */
-void quickSort(int *t, int start, int end) {
-	if(start < end) {
-		int p = partition(t, start, end);
-		quickSort(t, start, p-1);
-		quickSort(t, p+1, end);
-	}
+ * Stable: No. */
+void quickSort(int *t, int n) {
+	quick(t, 0, n-1);
 }
 
 /*! \brief Insertion sort.
  * Time complexity: n, n^2, n^2.
  * Space: 1.
  * Stable: Yes. */
-void insertionSort(int *t, int gap, int start, int end) {
+void insertionSort(int *t, int n) {
 	int i, j, el;
-	for(i = start + gap; i < end; i += gap) {
+	for(i = 1; i < n; i++) {
 		el = t[i];
-		for(j = i; j >= gap && t[j-gap] > el; j -= gap) {
-			t[j] = t[j - gap];
+		for(j = i; j >= 1 && t[j-1] > el; j--) {
+			t[j] = t[j-1];
 		}
 		t[j] = el;
-	}
-}
-
-/*! \brief Shell sort.
- * Time complexity: n, nlog^2(n), nlog^2(n).
- * Space: 1.
- * Stable: No. */
-void shellSort(int *t, int n) {
-	int gap[] = {(int)n/4, (int)n/5, (int)n/6};
-	int ngap = sizeof(gap) / sizeof(*gap), i, j;
-	for(i = 0; i < ngap; i++) {
-		for(j = 0; j < gap[i]; j++) {
-			insertionSort(t, gap[i], i, n);
-		}
 	}
 }
 
@@ -176,11 +169,39 @@ void cocktailSort(int *t, int n) {
 	}
 }
 
-int main(void) {
-	int t[] = {9, 8, 2, 1, 3, 5, 9};
-	int n = sizeof(t)/sizeof(*t);
+/*! \brief Initialize the values of the table. */
+void init(int *t, int n) {
+	int i;
+	srand(time(NULL));
+	for(i = 0; i < n; i++)
+		t[i] = n * (rand() / (RAND_MAX + 1.));
+}
 
-	printf("BEFORE:\t"); printArray(t, n);
-	mergeSort(t, n);
-	printf("AFTER:\t"); printArray(t, n);
+/*! \brief Use different sorting algorithm and compare their times. */
+void sort(int *t, int n, sorting * s) {
+	clock_t start, end, dt;
+	while(s->fct) {
+		init(t, n);
+		start = clock();
+		s->fct(t, n);
+		end = clock();
+		dt = end - start;
+		fprintf(stderr, "%s with %d elements:\t %lu ms.\n", s->name, n, dt);
+		s++;
+	}
+}
+
+int main(void) {
+	int t[N] = {0};
+	sorting s[] = {
+		{"Bubble",		bubbleSort},
+		{"Selection", 	selectionSort},
+		{"Cocktail", 	cocktailSort},
+		{"Insertion", 	insertionSort},
+		{"Quicksort", 		quickSort},
+		{"Mergesort", 		mergeSort},
+		{"", 			NULL}
+	};
+	sort(t, N, s);
+	return 0;
 }
