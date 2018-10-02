@@ -1,11 +1,14 @@
 window.onload = main
 
 var _wW = window.innerWidth;
-var _square = null;
-var _sqrCoord = [3, 0];
+var _square = new Array(2);
+var _sqrSide = 170;
+var _sqrCoord = [[0, 0], [-_wW, 0]];
 
 function main(){
-    _square = initSquare(_sqrCoord[0], _sqrCoord[1], 30, 30, "red");
+	for(let i = 0; i < 2; i++) {
+    	_square[i] = initSquare(_sqrCoord[i][0], _sqrCoord[i][1], _sqrSide, _sqrSide, "red");
+	}
     window.requestAnimationFrame(frameloop);
 	window.cancelAnimationFrame(frameloop); 
 }
@@ -19,27 +22,28 @@ function initSquare(x, y, width, height, color) {
 	square.style.position = "absolute";
 	square.style.backgroundColor = color;
 	document.body.appendChild(square);
-	
+
 	return square;
 }
 
 function moveSquare(dx, dy) {
-	_sqrCoord[0] += dx;
-	_sqrCoord[1] += dy;
-
-	_square.style.left = _sqrCoord[0] + "px";
-	_square.style.top = _sqrCoord[1] + "px";
-	console.log(_square.style.left);
+	for(let i = 0; i < 2; i++) {
+		_square[i].style.left = (_sqrCoord[i][0] += dx) + "px";
+		_square[i].style.top = (_sqrCoord[i][1] += dy) + "px";
+	}
 }
 
 function isLimit() {
-	if(_sqrCoord[0] >= _wW)
-		_sqrCoord[0] = 0; 
+	for(let i = 0; i < 2; i++) {
+		if(_sqrCoord[i][0] >= _wW)
+			_sqrCoord[i][0] = -_wW;
+		console.log(_sqrCoord[0][0] + " - " + _sqrCoord[1][0])
+	}
 }
 
 function frameloop(time){
     requestAnimationFrame(frameloop);
-    moveSquare(6, 0);
+    moveSquare(4, 0);
     isLimit();
 
 }
