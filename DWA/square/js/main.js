@@ -6,9 +6,8 @@ var _sqrSide = 170;
 var _sqrCoord = [[0, 0], [-_wW, 0]];
 
 function main(){
-	for(let i = 0; i < 2; i++) {
-    	_square[i] = initSquare(_sqrCoord[i][0], _sqrCoord[i][1], _sqrSide, _sqrSide, "red");
-	}
+	for(let i = 0; i < 2; i++)
+    	_square[i] = initSquare(_sqrCoord[i][0], _sqrCoord[i][1], _sqrSide, _sqrSide, "#ff9900");
     window.requestAnimationFrame(frameloop);
 	window.cancelAnimationFrame(frameloop); 
 }
@@ -37,13 +36,12 @@ function isLimit() {
 	for(let i = 0; i < 2; i++) {
 		if(_sqrCoord[i][0] >= _wW)
 			_sqrCoord[i][0] = -_wW;
-		console.log(_sqrCoord[0][0] + " - " + _sqrCoord[1][0])
 	}
 }
 
 function frameloop(time){
     requestAnimationFrame(frameloop);
-    moveSquare(4, 0);
+    moveSquare(3, 0);
     isLimit();
 
 }
