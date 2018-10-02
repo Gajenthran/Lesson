@@ -1,0 +1,45 @@
+Exercice 1.
+1. Les unités lexicales sont : 
+- Variables 
+- Lambda
+- Point
+- Parenthèse ouvrante
+- Parenthèse fermante
+
+
+2. Les expressions régulières correspondantes sont :
+- Variables = [a-zA-Z]+
+- Lambda = λ
+- Point = .
+- Parenthèse ouvrante = (
+- Parenthèse fermante = )
+
+
+3. Le diagramme de transitions correspondant : 
+_Ei ([a-zA-Z]+) --> _Ev ([a-zA-Z]+) --> _Ev
+|                   |
+|                   |_  (*)   --> __Variable
+|
+|_  (λ) --> __Lambda
+|
+|_  (.) --> __Point
+|
+|_  ( ( ) --> __ParentheseOuvrante
+|
+|_  ( ) ) --> __ParentheseFermante
+
+
+4. La table de transition de l’automate fini déterministe correspondante :
+(_Ei, [a-zA-Z]+)  -> _Ev
+(_Ei, λ )         -> __Lambda
+(_Ei, . )         -> __Point
+(_Ei, ( )         -> __ParentheseOuvrante
+(_Ei, ) )         -> __ParentheseFermante
+(_Ev, [a-zA-Z]+)  -> _Ev
+(_Ev, *)          -> __Variable
+
+
+Exercice 3.
+1. Pour déclarer des tokens, nous allons utiliser "define-tokens" ou encore "define-empty-tokens".
+
+

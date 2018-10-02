@@ -1,0 +1,31 @@
+1) Carré
+	Créer un carré de couleur qui se déplace de 3px vers la droite 60 fois par seconde
+	Dès qu'il commence à  sortir de l'écran, il rentre à  nouveau sur la gauche, puis on boucle
+	Le carré sera donc à  droite et à  gauche en même temps lorsqu'il sort.
+	
+
+2) Table
+	Cloner le git suivant : https://github.com/marak/Faker.js/
+	Lire rapidement la documentation
+	Initialiser la librairie Faker avec locale "fr"
+	Générer un tableau de 500 personnes : {nom, prénom, ville, métier}
+	Créer un élément "table" avec une colonne pour chaque propriété
+	L'en-tête des colonnes contient un bouton ayant pour texte la propriété de la colonne
+	Ajouter toutes les personnes à la table
+	Lorsqu'on clique sur un en-tête, classer le tableau par ordre alphabétique sur la propriété concernée
+		utiliser la méthode Array.sort()
+		classer le tableau
+		redessiner l'élément table
+	
+
+3) Canvas & Zoom
+	Créer un élément canvas 800x600px
+	Créer un élément img qui ne sera pas ajouté au corps de page
+	Donner une source à  ce dernier
+	Une fois chargée, dessiner l'image sur le canvas à  l'aide de la méthode "drawImage"
+	Lorsque le curseur bouge au dessus du canvas, programmer un effet de loupe carrée :
+		Copier les pixels de l'image originale vers la zone du canvas située sous le curseur en doublant la taille des pixels concernés
+		La méthode "drawImage" prend 9 arguments, voir la documentation MDN
+	
+	Bonus : programmer l'effet loupe avec un rond plutot qu'un carré
+ 
