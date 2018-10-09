@@ -1,0 +1,36 @@
+Exercice 1.
+1. Les symboles terminaux sont : "λ", ".", "(", ")" et [a-zA-Z].
+   Les symboles non-terminaux sont : <expr> et <var>.
+   Le symbole de départ de cette grammaire est : <expr>
+
+2. L'ensemble des règles de dérivations de cette grammaire est :
+- <expr> -> <var> -> [a-zA-Z]+
+- <expr> -> "λ" <var> "." <expr> -> "λ" [a-zA-Z]+ "." <expr>
+- <expr> -> "(" <expr> ")"
+- <expr> -> <expr> <expr>
+
+3 (a). Il s'agit d'une grammaire non-contextuelle.
+Nous avons deux symboles non-terminaux <expr> et <var> qui sont composés d'une chaîne composée de symboles terminaux et/ou de symboles non-terminaux. 
+
+3 (b). Il s'agit d'une grammaire ambigüe.
+Par exemple si nous avons : "λ" <var> "." <expr> <expr> <expr>, il y a plusieurs dérivations possibles (nous pouvons commencer par l'abstraction puis l'application mais également l'inverse).
+
+4. Voici une version non-ambigüe du λ-calcul:
+<expr> ::= <var>
+         | "λ" <var> "." <expr>
+         | "(" <expr> <expr> ")"
+<var>  ::= [a-zA-Z]+
+
+
+Exercice 2.
+1. Les unités lexicales sont : " ", "(", ")", une chaîne de caractères/un caractère ([a-zA-Z]+), un nombre ([0-9]+).
+2. Voici une grammaire non-contextuelle et non-ambigüe pour ce langage : 
+<expr>   ::= <expr> " " <instr>
+           | <instr>
+<instr>  ::= <num>
+           | <word>
+<num>    ::= <num> | <num> <digit>
+<digit>  ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<word>   ::= <word> | <word> <letter>
+<letter> ::= [a-zA-Z]
+

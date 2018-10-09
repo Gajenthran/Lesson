@@ -1,0 +1,39 @@
+Écrire une classe ES6 "Button"
+
+	https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Classes
+	
+	1 - dans le constructeur, créer un élément HTML <div> qui sera la représentation visuelle du bouton
+	2 - il faudra donc une variable de classe : this.element = [l'élément HTML contrôlé par la classe];
+	3 - appliquer des propriétés CSS à l'élément (par exemple : color, background-color, border, border-radius)
+		> https://www.w3schools.com/cssref
+	4 - exécuter une méthode lorsque l'utilisateur clique sur l'élément HTML
+		> this.element.addEventListener(...
+		> on écrit généralement une méthode "addListeners" qui rassemble tous les évènements de l'élément
+		> attention au binding, il faut conserver la référence vers l'objet "this" dans les callbacks
+			https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Function/bind
+	5 - ajouter une méthode en argument sur le constructeur qui sera exécutée lorsqu'on clique sur le bouton
+	
+	6 - écrire une classe fille de Button > "HoverButton"
+	7 - exécuter une méthode lorsque le curseur passe au dessus de l'élément HTML
+		> https://www.w3schools.com/jsref/dom_obj_event.asp
+		> appliquer une ombre CSS pour signifier que le bouton est "actif" (box-shadow)
+	8 - coder l'action inverse lorsque le curseur sort du bouton (enlever l'ombre)
+	
+	9 - écrire une classe fille de Button > "PushButton"
+	10 - exécuter une méthode lorsque le curseur est enfoncé sur l'élément HTML
+		> https://www.w3schools.com/jsref/dom_obj_event.asp
+		> appliquer une ombre CSS interne (box-shadow inset)
+	11 - coder l'action inverse lorsque qu'on relache le clic (enlever l'ombre) OU que le curseur sort du bouton
+	
+	12 - écrire une classe "HoverPushButton"
+	
+programmer une animation
+
+	1 - créer une variable globale pointant vers un petit carré de couleur avec des coordonnées absolues
+	2 - deux variables int globales correspondant aux coordonnées du carré 
+	2 - écrire une méthode exécutée à chaque "frame"
+		> https://developer.mozilla.org/fr/docs/Web/API/Window/requestAnimationFrame
+	3 - À chaque exécution de cette méthode, faire avancer le carré d'un pixel vers la droite
+	4 - lorsque le carré sort de l'écran, faire en sorte qu'il rentre à nouveau par la gauche
+	5 - créer un autre carré qui fera des aller-retours
+	
