@@ -12,17 +12,18 @@ class Button {
 }
 
 class HoverButton extends Button {
-    constructor(x, y, w, h, styles, shadow) {
+    constructor(x, y, w, h, styles) {
         super(x, y, w, h, styles);
-        this.shadow = shadow;
-    }
-    
-    addShadow() {
-        this.element.style.boxShadow = this.shadow + "px " + (this.shadow*2) + "px black";
     }
 
-    removeShadow() {
-        this.element.style.boxShadow = "none";
+    addListeners() {
+        on(this.element, "mouseover", function() {
+            this.style.boxShadow = "10px 10px black"
+        });
+
+        on(this.element, "mouseout", function() {
+            this.style.boxShadow = "none"
+        });
     }
 }
 
@@ -33,11 +34,38 @@ class PushButton extends Button {
         this.shadow = shadow;
     }
 
-    addInsetShadow() {
-        this.element.style.boxShadow = "0px 0px 0px 2px inset";
+    addListeners() {
+        on(this.element, "mousedown", function() {
+            this.style.boxShadow = "0px 0px 0px 2px inset";
+        });
+
+        on(this.element, "mouseup", function() {
+            this.style.boxShadow = "none";
+        });
+    }
+}
+
+class HoverPushButton extends Button {
+    constructor(x, y, w, h, styles, shadow) {
+        super(x, y, w, h, styles);
+        this.shadow = shadow;
     }
 
-    removeInsetShadow() {
-        this.element.style.boxShadow = "none";
+    addListeners() {
+        on(this.element, "mouseover", function() {
+            this.style.boxShadow = "10px 10px black"
+        });
+
+        on(this.element, "mouseout", function() {
+            this.style.boxShadow = "none"
+        });
+
+        on(this.element, "mousedown", function() {
+            this.style.boxShadow = "0px 0px 0px 2px inset";
+        });
+
+        on(this.element, "mouseup", function() {
+            this.style.boxShadow = "none";
+        });
     }
 }
