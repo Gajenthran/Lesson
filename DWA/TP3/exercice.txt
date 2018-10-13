@@ -1,0 +1,11 @@
+TP3 :
+
+cloner le dossier "default" pour démarrer un nouveau projet JS
+1 - ajouter un élément input de type file au corps de page
+2 - puis un élément canvas 800x600px
+3 - lorsqu'on sélectionne un fichier depuis l'input (évènement "change"):
+    3.1 - vérifier qu'il s'agit bien d'une image
+    3.2 - insérer cette image à l'échelle dans le contexte du canvas
+4 - créer trois composants slider "range"
+    ces composants serviront à modifier la luminosité, le contraste, et la saturation de l'image en temps-réel
+5 - faire des recherches et implémenter les trois actions des sliders de la manière qui vous semble la plus efficace.
