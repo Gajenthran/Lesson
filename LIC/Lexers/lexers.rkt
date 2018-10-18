@@ -52,7 +52,7 @@
     ((= (vector-length argv) 1)
       (call-with-input-file (vector-ref argv 0) second-lex))
     (else
-      (eprintf "Usage: racket lexers.rkt \"[filename].[ext]\"\n")
+      (eprintf "Usage: racket lexers.rkt <file>\n")
       (exit 1)))
 
 
