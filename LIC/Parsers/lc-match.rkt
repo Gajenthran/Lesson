@@ -6,7 +6,7 @@
 (define-empty-tokens operators
   (Eof
   Lambda Dot
-  POpen PClose))
+  Opar Cpar))
 
 (define-tokens identifiers
   (Var))
@@ -17,8 +17,8 @@
     (whitespace      (get-token input-port))
     ("λ"             (token-Lambda))
     ("."             (token-Dot))
-    ("("             (token-POpen))
-    (")"             (token-PClose))
+    ("("             (token-Opar))
+    (")"             (token-Cpar))
     ((:+ alphabetic) (token-Var lexeme))
     (any-char        (error (format "Unrecognized char '~a' at offset ~a."
                                    lexeme (position-offset start-pos))))))
@@ -30,10 +30,10 @@
 
 (define (match-expr)
   (cond
-    ((eq? 'POpen (token-name current-token))
-      (match-t 'POpen)
+    ((eq? 'Opar (token-name current-token))
+      (match-t 'Opar)
       (match-fact)
-      (match-t 'PClose))
+      (match-t 'Cpar))
     (else
       (match-var))))
 
@@ -67,9 +67,9 @@
         (cond
           ((eq? t 'Dot)
             (display "."))
-          ((eq? t 'POpen)
+          ((eq? t 'Opar)
             (display "("))
-          ((eq? t 'PClose)
+          ((eq? t 'Cpar)
             (display ")"))
           ((eq? t 'Lambda)
             (display "λ"))

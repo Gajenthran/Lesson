@@ -1,15 +1,14 @@
 #lang racket/base
 
 (require parser-tools/lex
-        (prefix-in : parser-tools/lex-sre))
-
-(require racket/port)
+        (prefix-in : parser-tools/lex-sre)
+        racket/port)
 
 
 (define-empty-tokens operators
   (Eof
   Lambda Dot
-  POpen PClose))
+  Opar Cpar))
 
 (define-tokens identifiers
   (Var))
@@ -20,12 +19,12 @@
 (define tokenize
   (lexer-src-pos
     ((eof)           (token-Eof))
-    (whitespace      (tokenize input-port))
+    (whitespace      (return-without-pos (tokenize input-port)))
     ("lambda"        (token-Lambda))
     ("λ"             (token-Lambda))
     ("."             (token-Dot))
-    ("("             (token-POpen))
-    (")"             (token-PClose))
+    ("("             (token-Opar))
+    (")"             (token-Cpar))
     ((:+ alphabetic) (token-Var lexeme))
     (any-char        (error (format "Unrecognized char '~a' at offset ~a."
                                    lexeme (position-offset start-pos))))))

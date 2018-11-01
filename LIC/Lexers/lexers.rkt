@@ -1,9 +1,8 @@
 #lang racket/base
 
 (require parser-tools/lex
-         (prefix-in : parser-tools/lex-sre))
-
-(require racket/port)
+         (prefix-in : parser-tools/lex-sre)
+         racket/port)
 
 
 (define first-lexer
@@ -17,22 +16,9 @@
   (lexer
     ((eof)           'fini)
     (whitespace      (second-lexer input-port))
-    ("<"             'Lt)
-    ("<="            'Lteq)
-    (">"             'Gt)
-    (">="            'Gteq)
-    ("=="            'Eq)
-    ("<>"            'Neq)
-    ("+"             'Add)
-    ("-"             'Sub)
-    ("*"             'Mul)
-    ("/"             'Div)
-    ("="             'Assign)
-    (";"             'Semicol)
-    ("?"             'Question)
     ((:+ alphabetic) lexeme)
     ((:+ numeric)    (string->number lexeme))
-    (any-char        'Error)))
+    (any-char        lexeme)))
 
 
 (define (second-lex in)
