@@ -89,3 +89,4 @@ end_loop:                 # le label "end_loop"
 
 
 Exercice 3.
+Voir "sum.s"

@@ -2,21 +2,45 @@
 .globl main
 
 sum_num:
+loop:
+  beq $t0, $0, end_loop
+  add $t1, $t1, $t0
+  addi $t0, $t0, -1
+  b loop
+
+end_loop:
+  li $v0, 4
+  la $a0, sum
+  syscall
+
+  li $v0, 1
+  add $a0, $0, $t1
+  syscall
+
+  li $v0, 4
+  la $a0, nl
+  syscall
+
+  jr $ra
+
 
 main:
-  li $t2, 3               # t2 = 3 (on va donc boucler trois fois)
+  li $t1, 0
 
-loop:                     # debut de la boucle avec le label "loop"
-  beq $t2, $0, end_loop   # if(t2 == 0): on va dans le label "end_loop" qui signale la fin de la boucle
-  addi $t2, $t2, -1       # t2 = t2 - 1
-  jal add_user_num        # appel de add_user_num
-  b loop                  # on rappelle le label "loop"
+  li $v0, 4
+  la $a0, numq
+  syscall
 
-end_loop:                 # le label "end_loop"
-  li $v0, 10              # v0 = 10 (= exit - quitter le programme)
-  syscall                 # executer v0 donc quitte le programme
+  li $v0, 5
+  syscall
+  move $t0, $v0
+
+  jal sum_num
+
+  li $v0, 10
+  syscall
 
 .data
-num1q: .asciiz "Please enter a number: "
+numq: .asciiz "Please enter a number: "
 sum:   .asciiz "Result: "
 nl:    .asciiz "\n"

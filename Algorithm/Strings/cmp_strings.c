@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int comparer_chaine(char ** strs, int n, char * str) {
+int comparer_chaines(char ** strs, int n, char * str) {
     int i;
     for(i = 0; i < n; i++) {
         if(strcmp(strs[i], str) == 0)
