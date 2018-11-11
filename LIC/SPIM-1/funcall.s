@@ -33,11 +33,10 @@ add_user_num:
   jr $ra
   
 main:
+  move $t3, $ra
   jal add_user_num
-  # jr $ra
-
-  li $v0, 10        # v0 = 10 (= exit - quitter le programme)
-  syscall           # executer v0 donc quitte le programme
+  move $ra, $t3
+  jr $ra
 
 .data
 num1q: .asciiz "Please enter a first number: "
