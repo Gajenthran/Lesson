@@ -7,10 +7,10 @@
 
 sierpinsky_f:
   li $t0, 1                       # $t0 = x = 1
-  lw $t5, max                     # $t5 = 2147483648
+  lw, $t5, max
 
 loop:                             # première boucle
-  bge $t0, $t5, end_loop          # $t0 >= $t5??
+  bgeu $t0, $t5, end_loop         # $t0 >= $t5??
   move $t2, $t0                   # $t2 = $t0 (n = x) donc $t2 = n
   li $t4, 2                       # $t4 = 2
   mul $t4, $t0, $t4               # $t4 = $t0 * $t4 donc $t4 = x * 2
@@ -63,7 +63,7 @@ main:
   jr $ra
 
 .data
-max:   .word 214748364
+max:   .word 2147483648
 hash:  .asciiz "#"
 space: .asciiz " "
 nl:    .asciiz "\n"

@@ -13,7 +13,11 @@ prng:
   li $t2, 300
   la $t1, prgn_state
   mul $t1, $t1, 1664525
-  rem $t1, $t1, $t2
+  addu $t1, $t1, 1013904223
+  li $t6, 4294967296
+  divu $t1, $t6
+  mfhi $t6
+  remu $t1, $t6, $t2
   jr $ra
 
 # Fonction jeu

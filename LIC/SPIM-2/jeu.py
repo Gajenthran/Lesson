@@ -2,7 +2,7 @@ prng_state = 42
 
 def prng (sup):
     global prng_state
-    prng_state = (prng_state * 2)
+    prng_state = (prng_state * 1664525 + 1013904223) % 2**32
     return prng_state % sup
 
 def jeu (max):
