@@ -16,3 +16,7 @@ de lancer la commande suivante:
 
 7. Fait (voir td1-7.cpp). Pour compiler : g++ -Wall -std=c++14 -pthread td1-7.cpp -o td1-7
 
+8. Fait (voir dossier benchmark/).
+
+9. 
+
