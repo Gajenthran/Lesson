@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="medicaments.xsl" type="text/xsl"?>
+
+<medicaments>
+
+  <medicament classe="Antalgique">
+    <nom> Ibuprofene (Qualimed) </nom>
+    <description> 30 comprimés enrobés sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <!-- <nomenclature_uicpa> acide 2-[4-(2-méthylpropyl)phényl]propanoïque </nomenclature_uicpa>
+    <formule> C13H18O2 </formule> 
+    <masse_mol unite="g/mol"> 206,2808 ± 0,0123 </masse_mol> -->
+    <posologie unite="mg/jour"> 200 à 400 </posologie>
+
+    <composition>
+      <principe_actif> Ibuprofène </principe_actif>
+      <comprime unite="mg" forme="enrobe"> 200 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Fièvre </pathologie>
+      <pathologie> Douleur </pathologie>
+    </pathologies>
+  </medicament>
+
+
+  <medicament classe="AINS">
+    <nom> Acéclofénac (Accord) </nom>
+    <description> 30 comprimés sous plaquettes thermoformées (Aluminium/Aluminium) </description>
+    <!-- <nomenclature_uicpa> acide 2-((2,6-dichlorophenyl)amino)phenylacetoxyacetique </nomenclature_uicpa>
+    <formule> C16H13Cl2NO4 </formule>
+    <masse_mol unite="g/mol"> 354,185 ± 0,019 </masse_mol> -->
+    <posologie unite="mg/jour"> 200 </posologie>
+
+    <composition>
+      <principe_actif> Acéclofénac </principe_actif>
+      <comprime unite="mg" forme="pellicule"> 100 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Arthrose </pathologie>
+      <pathologie> Polyarthrite rhumatoïde </pathologie>
+      <pathologie> Spondylarthrite ankylosante </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antalgique">
+    <nom> Paracetamol (Accord) </nom>
+    <description> 16 comprimés sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <!-- <nomenclature_uicpa> N-(4-hydroxyphényl)acétamide </nomenclature_uicpa>
+    <formule> C8H9NO2 </formule>
+    <masse_mol unite="g/mol"> 151,1626 ± 0,0078 </masse_mol> -->
+    <posologie unite="mg/jour"> 3000 </posologie>
+
+    <composition>
+      <principe_actif> Paracetamol </principe_actif>
+      <comprime unite="mg" forme="secable"> 500 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Douleur légère à modérée </pathologie>
+      <pathologie> Etat fébrile </pathologie>
+    </pathologies>
+  </medicament>
+  
+  <medicament classe="AINS">
+    <nom> Minalfene </nom>
+    <description> 15 comprimés sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <!-- <nomenclature_uicpa> (1R,2R)-rel-2-(diméthylamino)méthyl-1-(3-méthoxyphényl)cyclohexanol </nomenclature_uicpa>
+    <formule> C16H25NO2 </formule>
+    <masse_mol unite="g/mol"> 219.27958 </masse_mol> -->
+    <posologie unite="mg/jour"> 300 à 900 </posologie>
+
+    <composition>
+      <principe_actif> Alminoprofène </principe_actif>
+      <comprime unite="mg" forme="pellicule"> 300 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Bursite </pathologie>
+      <pathologie> Rhumatismes abarticulaires </pathologie>
+      <pathologie> Entorse </pathologie>
+      <pathologie> Lombalgie </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="AINS">
+    <nom> Diclofénac (Arrow) </nom>
+    <description> 30 comprimés sous plaquettes thermoformées (PVC/PVDC/Aluminium) </description>
+    <!-- <nomenclature_uicpa> acide 2-[2- (2, 6-dichlorophenyl) aminophenyl] ethanoïque </nomenclature_uicpa>
+    <formule> C14H11Cl2NO2 </formule>
+    <masse_mol unite="g/mol"> 296,149 ± 0,017 </masse_mol> -->
+    <posologie unite="mg/jour"> 75 à 100 </posologie>
+
+    <composition>
+      <principe_actif> Diclofénac </principe_actif>
+      <comprime unite="mg" forme="gastrorésistant"> 50 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Arthrose </pathologie>
+      <pathologie> Lombalgie </pathologie>
+      <pathologie> Radiculalgie </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Pénicilline">
+    <nom> Amoxicilline (Arrow) </nom>
+    <description> 12 g de poudre en flacon (verre) de 60 ml de suspension buvable </description>
+    <!-- <nomenclature_uicpa> acide 7-[2-amino-2-(4-hydroxyphényl)-acéetyl]amino-3,3-diméthyl-6-oxo-2-thia-5-azabicy[3.2.0]heptane-4carboxylique </nomenclature_uicpa>
+    <formule> C16H19N3O5S </formule>
+    <masse_mol unite="g/mol"> 365,404 ± 0,021 </masse_mol> -->
+    <posologie unite="mg/jour"> 500 </posologie>
+
+    <composition>
+      <principe_actif> Amoxicilline </principe_actif>
+      <comprime unite="mg" forme="poudre"> 500 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Cystite </pathologie>
+      <pathologie> Fièvre typhoïde </pathologie>
+      <pathologie> Maladie de Lyme </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antilepreux">
+    <nom> Disulone </nom>
+    <description> Boîte en aluminium scellée de 100 comprimés sécables recouverte intérieurement d'un vernis C42 organosol </description>
+    <!-- <nomenclature_uicpa> 4,4'-sulfonyldianiline </nomenclature_uicpa>
+    <formule> C12H12N2O2S </formule>
+    <masse_mol unite="g/mol"> 248,301 ± 0,016 </masse_mol> -->
+    <posologie unite="mg/jour"> 100 </posologie>
+
+    <composition>
+      <principe_actif> Dapsone </principe_actif>
+      <comprime unite="mg" forme="secable"> 100 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Lèpre </pathologie>
+      <pathologie> Lupus bulleux </pathologie>
+      <pathologie> Pneumocystose </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antilepreux">
+    <nom> Rifadine </nom>
+    <description> 30 gélules sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <!-- <nomenclature_uicpa> (7S,9E,11S,12R,13S,14R,15R,16R,17S,18S,19E,21Z)-2,15,17,27,29-pentahydroxy-11-méthoxy-3,7,12,14,16,18,22-heptaméthyl-26-{(E)-[(4-méthylpiperazin-1-yl)imino]méthyl}-6,23-dioxo-8,30-dioxa-24-azatétracyclo[23.3.1.14,7.05,28]triaconta-1(28),2,4,9,19,21,25(29),26-octaèn-13-yl acétate </nomenclature_uicpa>
+    <formule> C43H58N4O12 </formule>
+    <masse_mol unite="g/mol"> 822,9402 ± 0,0429 </masse_mol> -->
+    <posologie unite="mg/mois"> ~600 </posologie>
+
+    <composition>
+      <principe_actif> Rifampicine </principe_actif>
+      <comprime unite="mg" forme="gelule"> 300 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Lèpre </pathologie>
+      <pathologie> Tuberculose </pathologie>
+      <pathologie> Brucellose </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antilepreux">
+    <nom> Lamprene </nom>
+    <description> 100 capsules en flacon (PE) avec fermeture par un bouchon à vis (PE) inviolable </description>
+    <!-- <nomenclature_uicpa> (chloro-4 anilino)-3(chloro-4 phényl)-10 isopropylimino-2 dihydro-2,10 phénazine </nomenclature_uicpa>
+    <formule> C27H22Cl2N4 </formule>
+    <masse_mol unite="g/mol"> 473,396 ± 0,028 </masse_mol> -->
+    <posologie unite="mg/jour"> 100 à 300 </posologie>
+
+    <composition>
+      <principe_actif> Clofazimine </principe_actif>
+      <comprime unite="mg" forme="capsule"> 50 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Lèpre </pathologie>
+      <pathologie> Erythème noueux </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe=" Oto-rhino-laryngologie">
+    <nom> Actified </nom>
+    <description> 12 comprimés blancs sous plaquette thermoformée (PVC/PVDC/Aluminium) + 4 comprimés bleus sous plaquette thermoformée (PVC/PVDC/Aluminium) </description>
+    <!-- <nomenclature_uicpa> 2-(diphénylméthoxy)-N,N-diméthyléthanamine </nomenclature_uicpa>
+    <formule> C17H21NO </formule>
+    <masse_mol unite="g/mol"> 255,3547 ± 0,0156 </masse_mol> -->
+    <posologie unite="comprime/jour"> 1 à 3 </posologie>
+
+    <composition>
+      <principe_actif> Paracétamol </principe_actif>
+      <comprime unite="mg"> 500 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Rhume </pathologie>
+    </pathologies>
+  </medicament>
+
+</medicaments>
