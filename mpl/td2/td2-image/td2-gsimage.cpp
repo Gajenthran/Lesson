@@ -1,0 +1,69 @@
+#include "td2-gsimage.hpp"
+#include <stdexcept>
+#include <SDL.h>
+#include <SDL_image.h>
+
+GSImage::GSImage(char const* filename, int w, int h) {
+  SDL_Surface* surface = IMG_Load(filename);
+  if(!surface) {
+      throw std::runtime_error("Cannot load image");
+  }
+
+  h_ = h;
+  w_ = w;
+
+  pixels_.resize(h_ * w_);
+
+  SDL_Surface* in_surface = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGBA8888, 0);
+  SDL_FreeSurface(surface);
+
+  SDL_LockSurface(in_surface);
+  auto pixels = static_cast<Uint8*>(in_surface->pixels);
+  for(int i = 0; i < h_ * w_; ++i) {
+    int j = 4 * i;
+    pixels_[i] = 0.212671f * pixels[j + 3] + 0.715160f * pixels[j + 2] + 0.072169f * pixels[j + 1]; 
+  }
+  SDL_UnlockSurface(in_surface);
+    
+  SDL_FreeSurface(in_surface);
+}
+
+GSImage::GSImage(char const* filename) {
+  SDL_Surface* surface = IMG_Load(filename);
+  if(!surface) {
+      throw std::runtime_error("Cannot load image");
+  }
+
+  h_ = surface->h;
+  w_ = surface->w;
+  pixels_.resize(h_ * w_);
+
+  SDL_Surface* in_surface = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGBA8888, 0);
+  SDL_FreeSurface(surface);
+
+  SDL_LockSurface(in_surface);
+  auto pixels = static_cast<Uint8*>(in_surface->pixels);
+  for(int i = 0; i < h_ * w_; ++i) {
+    int j = 4 * i;
+    pixels_[i] = 0.212671f * pixels[j + 3] + 0.715160f * pixels[j + 2] + 0.072169f * pixels[j + 1]; 
+  }
+  SDL_UnlockSurface(in_surface);
+    
+  SDL_FreeSurface(in_surface);
+}
+
+void GSImage::save_png(char const* filename) {
+  SDL_Surface* out_surface = SDL_CreateRGBSurfaceWithFormat(0, w_, h_, 32, SDL_PIXELFORMAT_RGBA8888);
+   
+  SDL_LockSurface(out_surface);
+  auto pixels = static_cast<Uint8*>(out_surface->pixels);
+  for(int i = 0; i < h_ * w_; ++i) {
+    int j = 4 * i;
+    pixels[j] = 0xff;
+    pixels[j + 1] = pixels[j + 2] = pixels[j + 3] = pixels_[i];
+  }
+  SDL_UnlockSurface(out_surface);
+
+  IMG_SavePNG(out_surface, filename);
+  SDL_FreeSurface(out_surface);
+}
