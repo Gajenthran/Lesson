@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet href="medicaments.xsl" type="text/xsl"?>
+
+<medicaments>
+
+  <medicament classe="Antalgique">
+    <nom> Ibuprofene (Qualimed) </nom>
+    <description> 30 comprimés enrobés sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <posologie unite="mg/jour"> 200 à 400 </posologie>
+
+    <composition>
+      <principe_actif> Ibuprofène </principe_actif>
+      <comprime unite="mg" forme="enrobe"> 200 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Fièvre </pathologie>
+      <pathologie> Douleur </pathologie>
+    </pathologies>
+  </medicament>
+
+
+  <medicament classe="AINS">
+    <nom> Acéclofénac (Accord) </nom>
+    <description> 30 comprimés sous plaquettes thermoformées (Aluminium/Aluminium) </description>
+    <posologie unite="mg/jour"> 200 </posologie>
+  <condition_prescription> liste II </condition_prescription>
+    
+  <composition>
+      <principe_actif> Acéclofénac </principe_actif>
+      <comprime unite="mg" forme="pellicule"> 100 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Arthrose </pathologie>
+      <pathologie> Polyarthrite rhumatoïde </pathologie>
+      <pathologie> Spondylarthrite ankylosante </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antalgique">
+    <nom> Paracetamol (Accord) </nom>
+    <description> 16 comprimés sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <posologie unite="mg/jour"> 3000 </posologie>
+
+    <composition>
+      <principe_actif> Paracetamol </principe_actif>
+      <comprime unite="mg" forme="secable"> 500 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Douleur légère à modérée </pathologie>
+      <pathologie> Etat fébrile </pathologie>
+    </pathologies>
+  </medicament>
+  
+  <medicament classe="AINS">
+    <nom> Minalfene </nom>
+    <description> 15 comprimés sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <posologie unite="mg/jour"> 300 à 900 </posologie>
+  <condition_prescription> liste II </condition_prescription>
+
+    <composition>
+      <principe_actif> Alminoprofène </principe_actif>
+      <comprime unite="mg" forme="pellicule"> 300 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Bursite </pathologie>
+      <pathologie> Rhumatismes abarticulaires </pathologie>
+      <pathologie> Entorse </pathologie>
+      <pathologie> Lombalgie </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="AINS">
+    <nom> Diclofénac (Arrow) </nom>
+    <description> 30 comprimés sous plaquettes thermoformées (PVC/PVDC/Aluminium) </description>
+    <posologie unite="mg/jour"> 75 à 100 </posologie>
+  <condition_prescription> liste II </condition_prescription>
+
+    <composition>
+      <principe_actif> Diclofénac </principe_actif>
+      <comprime unite="mg" forme="gastrorésistant"> 50 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Arthrose </pathologie>
+      <pathologie> Lombalgie </pathologie>
+      <pathologie> Radiculalgie </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Pénicilline">
+    <nom> Amoxicilline (Arrow) </nom>
+    <description> 12 g de poudre en flacon (verre) de 60 ml de suspension buvable </description>
+    <posologie unite="mg/jour"> 500 </posologie>
+  <condition_prescription> liste I </condition_prescription>
+
+    <composition>
+      <principe_actif> Amoxicilline </principe_actif>
+      <comprime unite="mg" forme="poudre"> 500 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Cystite </pathologie>
+      <pathologie> Fièvre typhoïde </pathologie>
+      <pathologie> Maladie de Lyme </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antilepreux">
+    <nom> Disulone </nom>
+    <description> Boîte en aluminium scellée de 100 comprimés sécables recouverte intérieurement d'un vernis C42 organosol </description>
+    <posologie unite="mg/jour"> 100 </posologie>
+  <condition_prescription> liste I </condition_prescription>
+
+    <composition>
+      <principe_actif> Dapsone </principe_actif>
+      <comprime unite="mg" forme="secable"> 100 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Lèpre </pathologie>
+      <pathologie> Lupus bulleux </pathologie>
+      <pathologie> Pneumocystose </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antilepreux">
+    <nom> Rifadine </nom>
+    <description> 30 gélules sous plaquettes thermoformées (PVC/Aluminium) </description>
+    <posologie unite="mg/mois"> ~600 </posologie>
+  <condition_prescription> liste I </condition_prescription>
+
+    <composition>
+      <principe_actif> Rifampicine </principe_actif>
+      <comprime unite="mg" forme="gelule"> 300 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Lèpre </pathologie>
+      <pathologie> Tuberculose </pathologie>
+      <pathologie> Brucellose </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe="Antilepreux">
+    <nom> Lamprene </nom>
+    <description> 100 capsules en flacon (PE) avec fermeture par un bouchon à vis (PE) inviolable </description>
+    <posologie unite="mg/jour"> 100 à 300 </posologie>
+  <condition_prescription> liste I </condition_prescription>
+
+    <composition>
+      <principe_actif> Clofazimine </principe_actif>
+      <comprime unite="mg" forme="capsule"> 50 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Lèpre </pathologie>
+      <pathologie> Erythème noueux </pathologie>
+    </pathologies>
+  </medicament>
+
+  <medicament classe=" Oto-rhino-laryngologie">
+    <nom> Actified </nom>
+    <description> 12 comprimés blancs sous plaquette thermoformée (PVC/PVDC/Aluminium) + 4 comprimés bleus sous plaquette thermoformée (PVC/PVDC/Aluminium) </description>
+    <posologie unite="comprime/jour"> 3 </posologie>
+    <composition>
+      <principe_actif> Paracétamol </principe_actif>
+      <comprime unite="mg"> 500 </comprime>
+    </composition>
+
+    <pathologies>
+      <pathologie> Rhume </pathologie>
+    </pathologies>
+  </medicament>
+
+</medicaments>
