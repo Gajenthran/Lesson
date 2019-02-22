@@ -7,7 +7,7 @@
 #include "td2-gsimage.hpp"
 #include <benchmark/benchmark.h>
 
-char const* img_src  = "img/maison.jpg";
+char const* img_src  = "img/moutain.jpg";
 char const* img_dest = "img/moutain_filter.jpg";
 
 bool filtre(GSImage::View& view) {
@@ -50,8 +50,8 @@ bool sobelFiltre(GSImage::View& view) {
         sy += row[c + view.image.w() + i] * (float)gy[2][i+1];
       }
 
-      s = sqrt(sx * sx + sy * sy);// std::abs(sx) + std::abs(sy);
-      row[c] = s > 0.8f ? 0.0f : s < 0.0f ? 1.0f : s; 
+      s = sqrt(sx * sx + sy * sy); // std::abs(sx) + std::abs(sy);
+      row[c] = s > 1.0f ? 0.0f : s < 0.0f ? 1.0f : s; 
       // std::cout << s << "\n";
     }
   }
@@ -70,7 +70,7 @@ void filtre_single_thread(benchmark::State& state) {
   GSImage::View view = image.view(0, 0, image.w(), image.h()); // image.w(), image.h());
   for(auto _ : state) {
     // x = filtre(view);
-    // x = sobelFiltre(view);
+    x = sobelFiltre(view);
     break;
   }
   image.save_png(img_dest);

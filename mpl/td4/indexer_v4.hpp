@@ -1,6 +1,8 @@
 //indexer_v4.hpp
 
 #include <string>
+#include <vecor>
+#include <iostream>
 #include <map>
 #include <unordered_map>
 #include <shared_mutex>
@@ -19,7 +21,6 @@ public:
 
       {
         std::unique_lock<std::shared_timed_mutex> lock(mut_);
-        index_[s] = i;
         ++i;
       }
       return i - 1;
@@ -29,8 +30,13 @@ public:
         return index_.size();
     }
 
+    int getindex() {
+      return i; 
+    }
+
 private:
     int i = 0;
-    std::unordered_map<std::string, int> index_;
+
+    std::map<std::string, int> index_;
     std::shared_timed_mutex mut_;
 };

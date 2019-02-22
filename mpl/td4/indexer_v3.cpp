@@ -1,6 +1,6 @@
-//indexer_v2.cpp
+//indexer_v3.cpp
 
-#include "indexer_v1.hpp"
+#include "indexer_v3.hpp"
 
 #include <cassert>
 #include <fstream>
