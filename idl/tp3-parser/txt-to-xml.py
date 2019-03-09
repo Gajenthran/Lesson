@@ -27,14 +27,14 @@ def write_file(filename, data):
 
 def insert_tag(source, position, string):
     # balise ouvrante
-    tag = '<' + dico._words[string][0] + ' int=' + str(dico._words[string][1]) + '>'
+    tmp_string = string.replace('  ', ' ')
+    tag = '<' + dico._words[tmp_string][0] + ' int=' + str(dico._words[tmp_string][1]) + '>'
     source = source[:position] + tag + source[position:]
-    tmp_string = filter_file(string)
-    position = position + len(tmp_string) + len(tag)
+    position = position + len(string) + len(tag)
 
     # balise fermante
     tago = tag
-    tag = '</' + dico._words[string][0] + '>'
+    tag = '</' + dico._words[tmp_string][0] + '>'
     source = source[:position] + tag + source[position:]
     position = len(tag) + len(tago)
     return source, position
@@ -48,17 +48,18 @@ def subtag(source, position):
         return True
     return False
 
-def filter_file(file, forTag=False):
+def filter_file(file):
     file = file.replace('\n', ' ')
     file = file.replace('\t', ' ')
     file = file.replace('\r', ' ')
-    if forTag : file = file.replace('  ', ' ')
     return file
 
 def filter_string(string):
     string = string.replace(' ', '\s+')
+    string = '(' + string + ')'
     string = "(?<!\w)" + string
-    if string[len(string)-1] != '\'':
+    # -2 car on prend le dernier caractère du string sans compter la parenthèse fermante
+    if string[len(string)-2] != '\'':
         string = string + "(?!\w)"
     return string
 
@@ -67,10 +68,12 @@ def txt_to_xml(inputFile):
     for w in range(0, len(dico._word_list)):
         beg = 0;
         filtered_word = filter_string(dico._word_list[w])
-        for match in re.finditer(filtered_word.lower(), filter_file(inputFile.lower()), re.MULTILINE):
+        regex = re.compile(filtered_word.lower(), re.MULTILINE)
+        for match in regex.finditer(filter_file(inputFile.lower()), re.IGNORECASE):
+            matched_word = str(match.group(0))
             pos = match.start() + beg
             if subtag(inputFile, pos):
-                inputFile, end = insert_tag(inputFile, pos, dico._word_list[w])
+                inputFile, end = insert_tag(inputFile, pos, matched_word)
                 beg += end
 
     return inputFile

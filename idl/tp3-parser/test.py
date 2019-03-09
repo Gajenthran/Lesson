@@ -131,7 +131,7 @@ def filter_file(file):
     file = file.replace('\n', ' ')
     file = file.replace('\t', ' ')
     file = file.replace('\r', ' ')
-    file = file.replace('  ', ' ')
+    # file = file.replace('  ', ' ')
     return file
 
 def read_character(data):
@@ -149,7 +149,8 @@ def main(argv):
     # read_character(data)
     # data = filter_tag(data)
     data = filter_file(data)
-    print(data)
+    is_dspace = "  " in data
+    print(is_dspace)
 
 
 if __name__ == '__main__':
