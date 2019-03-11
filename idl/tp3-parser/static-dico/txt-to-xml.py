@@ -5,11 +5,12 @@ import re
 import sys
 import dico
 
-
 """
 TODO:
   # Rajouter l'encodage XML
-  # Eliminer les redondances (sous-balises)
+  # Rajouter d'autres balises
+  # Essayer sur d'autres fichiers textes longs
+  # Optimiser certaines instructions (whitespace, caractères spéciaux)
 """
 
 def usage(argv):
@@ -26,6 +27,15 @@ def write_file(filename, data):
         file.write(data)
 
 def insert_tag(source, position, string):
+    """
+        Insertion des balises ouvrantes et fermante en question selon 
+        le string passé en paramètre, dans le fichier source à une position
+        donnée
+
+        :param source: le fichier source
+        :param position: position à laquelle nous devons ajouter la balise ouvrante
+        :param string: chaîne reconnue dans le fichier grâce à notre dictionnaire
+    """
     # balise ouvrante
     tmp_string = string.replace('  ', ' ')
     tag = '<' + dico._words[tmp_string][0] + ' int=' + str(dico._words[tmp_string][1]) + '>'
@@ -41,20 +51,41 @@ def insert_tag(source, position, string):
 
 
 def subtag(source, position):
+    """
+        Vérification des sous-balises. Pour cela, on vérifie simplement si une balise est 
+        contenu dans une balise ou pas. On regarde la dernière balise à partir de la position
+        actuelle : si il s'agit d'une balise ouvrante alors il s'agit d'une sous-balise sinon
+        il ne s'agit pas d'une s'agit balise.
+
+        :param source: le fichier source
+        :param position: position à laquelle nous devons ajouter la balise ouvrante
+    """
     i = position
     while i > 0 and (source[i] != '<' or (source[i] == '<' and source[i + 1] == ' ')):
         i -= 1
     if(source[i + 1] == '/' or i == 0):
-        return True
-    return False
+        return False
+    return True
 
 def filter_file(file):
+    """
+        Filtrage du fichier source afin d'éviter le retour chariot et ainsi
+        faciliter la manipulation des caractères
+
+        :param source: fichier source
+    """
     file = file.replace('\n', ' ')
     file = file.replace('\t', ' ')
     file = file.replace('\r', ' ')
     return file
 
 def filter_string(string):
+    """
+        Filtrage d'un mot du dictionnaire pour pouvoir placer des expressions régulières
+        et permettre une reconnaissance améliorée des mots dans le fichier
+
+        :param string: mot du dictionnaire
+    """
     string = string.replace(' ', '\s+')
     string = '(' + string + ')'
     string = "(?<!\w)" + string
@@ -64,28 +95,34 @@ def filter_string(string):
     return string
 
 
-def txt_to_xml(inputFile):
+def txt_to_xml(txt):
+    """
+        Transformer le fichier texte donnée en entrée en fichier .xml en balisant les mots 
+        du dictionnaire
+
+        :param txt: fichier texte       
+    """
     for w in range(0, len(dico._word_list)):
         beg = 0;
         filtered_word = filter_string(dico._word_list[w])
         regex = re.compile(filtered_word.lower(), re.MULTILINE)
-        for match in regex.finditer(filter_file(inputFile.lower()), re.IGNORECASE):
+        for match in regex.finditer(filter_file(txt.lower()), re.IGNORECASE):
             matched_word = str(match.group(0))
             pos = match.start() + beg
-            if subtag(inputFile, pos):
-                inputFile, end = insert_tag(inputFile, pos, matched_word)
+            if not(subtag(txt, pos)):
+                txt, end = insert_tag(txt, pos, matched_word)
                 beg += end
 
-    return inputFile
+    return txt
 
 
 def main(argv):
     if len(argv) != 3 or not(argv[2].endswith('.xml')):
         usage(argv)
 
-    inputFile = read_file(argv[1])
-    inputFile = txt_to_xml(inputFile)
-    write_file(argv[2], inputFile)
+    txt_file = read_file(argv[1])
+    xml_file = txt_to_xml(txt_file)
+    write_file(argv[2], xml_file)
 
 if __name__ == '__main__':
     main(sys.argv)
