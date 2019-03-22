@@ -1,7 +1,7 @@
 CC=g++
-CFLAGS=-std=c++17 -DW=2 -DH=2
+CFLAGS=-Wall -std=c++17 -DW=10 -DH=10
 LINK=-O3
-SRC=grid.cpp connect4.cpp # grid.cpp player.cpp # sdl_driver.c
+SRC=grid.cpp connect4.cpp
 OBJ=$(SRC:.cpp=.o)
 
 %.o:	%.cpp

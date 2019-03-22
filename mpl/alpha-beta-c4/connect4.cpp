@@ -4,37 +4,106 @@
 #include <iostream>
 #include <ctime>
 #include <cstddef>
+#include <cstdio>
+
+/**
+ * operator
+ * clone tab
+ * segment fault when playing + possibleMove
+ * 3_d, 2_d, 1_d, cell name
+ */
 
 std::byte operator "" _d(unsigned long long i){
   return std::byte(i);
 } 
 
-int main() {
-  Grid g(W, H);
-  g.initGrid();
-  g.putToken(0, 1_d);
 
-  g.putToken(0, 1_d);
-  g.putToken(1, 1_d);
-
-
+int negamax(Grid &g, std::byte player, int * pos) {
   if(g.isFull())
-    std::cout << "isFull" << "\n";
-  g.printGrid();
-  /* std::srand(std::time(nullptr));
-  std::byte j = 0_d;
-  int i = 1;
-  int r = std::rand() % W;
-  while(i) {
-    r = std::rand() % W;
-    j = std::byte(((int(j) + 1) % 2));
-    std::cout << "r vaut : " << r << "\n\n\n";
-    i++;
-    if(g.putToken(r, j))
-      break;
+    return 0;
+
+  for(int i = 0; i < W; i++) {
+    if(!g.isColumnFull(i) && g.check(i, player)) {
+      *pos = i;
+      return W * H+1 - g.getCountToken()/2;
+    }
   }
 
-  std::cout << "nb coups : " <<i << "\n\n\n";
+  int best = -W * H;
+  for(int i = 0; i < W; i++) {
+    if(!g.isColumnFull(i)) {
+      Grid g2 = g;
+      g2.putToken(i, player);
+      int score = -negamax(g2, std::byte(((int(player) + 1) % 2)), pos);
+      if(score > best) {
+        *pos = i;
+        best = score;
+      }
+    }
+  }
+  return best;
+}
+
+int negamax_alpha_beta(Grid &g, std::byte player, int alpha, int beta, int * pos) {
+  if(g.isFull())
+    return 0;
+
+  for(int i = 0; i < H; i++) {
+    if(!g.isColumnFull(i) && g.check(i, player)) {
+      *pos = i;
+      return (W * H + 1 - g.getCountToken())/2;
+    }
+  }
+
+  int max = (W * H - 1 - g.getCountToken())/2;
+  if(beta > max) {
+    beta = max;
+    if(alpha >= beta)
+      return beta;
+  }
+
+  for(int i = 0; i < H; i++) {
+    if(!g.isColumnFull(i)) {
+      Grid g2 = g;
+      g2.putToken(i, player);
+      int score = -negamax_alpha_beta(g2, std::byte(((int(player) + 1) % 2)), -beta, -alpha, pos);
+      if(score >= beta) {
+        *pos = i;
+        return score;
+      }
+      if(score >= alpha)
+        alpha = score; 
+    }
+  }
+  return alpha;
+}
+
+int main() {
+  Grid g;
+  g.initGrid();
+
+/*  Grid g2 = g;
+  negamax_alpha_beta(g2, 0_d, -1, -1, &pos);
+  g.putToken(pos, 0_d);
   g.printGrid(); */
+
+  while(!g.isFull()) {
+    int pos = 0;
+    char* col = new char[50];
+    std::cin >> col;
+    g.putToken(std::atoi(col), 1_d);
+
+    Grid g2 = g;
+    negamax_alpha_beta(g2, 0_d, -1, -1, &pos);
+    std::cout << pos << "\n";
+    g.putToken(pos, 0_d);
+    g.printGrid();
+    
+    std::cout << "\n\n";
+  }
+
+  if(g.isFull())
+    std::cout << "Full\n";
+
   return 0;
 }
