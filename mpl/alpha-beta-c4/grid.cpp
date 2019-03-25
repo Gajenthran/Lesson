@@ -1,6 +1,6 @@
-#include "grid.hpp"
 #include <iostream>
 #include <cstddef>
+#include "grid.hpp"
 
 std::byte operator "" _b(unsigned long long i){
   return std::byte(i);

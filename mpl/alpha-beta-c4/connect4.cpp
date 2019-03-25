@@ -1,14 +1,8 @@
 #include <iostream>
+#include <cstddef>
+#include <vector>
 #include "grid.hpp"
 #include "solver.hpp"
-#include <cstdlib>
-#include <iostream>
-#include <ctime>
-#include <cstddef>
-#include <cstdio>
-#include <vector>
-#include <cmath>
-#include <algorithm>
 
 /**
  * operator
@@ -22,10 +16,15 @@ std::byte operator "" _d(unsigned long long i){
 
 int main() {
   Grid g;
-  Solver s(10);
+  Solver s(5);
   g.initGrid();
-  g.printGrid();
-  do {
+
+//  int computerMove = s.getBestMove(g, 0_d, 1_d);
+//  std::cout << computerMove << "\n\n";
+//  g.putToken(computerMove, 0_d);
+//  g.printGrid();
+ 
+ do {
     // Player 1 Move
     char* col = new char[50];
     std::cin >> col;
@@ -41,6 +40,6 @@ int main() {
     if(g.check(computerMove, 0_d, 4)) break;
     
   } while(!g.isFull());
-
+  
   return 0;
 }
