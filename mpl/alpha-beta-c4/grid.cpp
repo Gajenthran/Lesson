@@ -19,9 +19,9 @@ void Grid::initGrid() {
 }
 
 void Grid::printGrid() {
-  for(int i = W - 1; i >= 0; --i) {
-    for(int j = 0; j < H; ++j) {
-      std::cout << int(grid_[i][j]) << " ";
+  for(int i = H-1; i >= 0; --i) {
+    for(int j = 0; j < W; ++j) {
+      std::cout << int(grid_[j][i]) << " ";
     }
     std::cout << "\n";
   }
@@ -41,47 +41,56 @@ bool Grid::isColumnFull(int column) {
   return true;
 }
 
-bool Grid::putToken(int column, std::byte value) {
-  if(rank_[column] < W) {
-    grid_[rank_[column]][column] = value;
+void Grid::putToken(int column, std::byte value) {
+  if(rank_[column] < H) {
+    grid_[column][rank_[column]] = value;
     rank_[column]++;
     countToken_++;
   }
-  if(check(column, value))
-    return true;
-
-  return false;
 }
 
-bool Grid::check(int column, std::byte value) {
+std::byte Grid::getToken(int column, int rank) {
+  return grid_[column][std::max(rank_[column] - 1, 0)];
+}
+
+
+void Grid::removeToken(int column, std::byte) {
+  rank_[column]--;
+  grid_[column][rank_[column]] = 3_b;
+  countToken_--;
+}
+
+bool Grid::check(int column, std::byte value, int talign) {
+  int rank = std::max(rank_[column] - 1, 0);
+
   // Horizontal droite
   int inc = 1;
   int align = 1;
-  while(inc + column < W && align < 4) {
-    if(grid_[rank_[column]][column + inc] != value)
+  while(inc + column < W) {
+    if(grid_[column + inc][rank] != value)
       break;
     align++;
     inc++;
   }
+
   // Horizontal gauche 
   inc = 1;
-  while(column - inc >= 0 && align < 4) {
-    if(grid_[rank_[column]][column - inc] != value)
+  while(column - inc >= 0) {
+    if(grid_[column - inc][rank] != value)
       break;
     align++;
     inc++;
   }
 
-  if(align >= 4)
+  if(align >= talign)
     return true;
-
 
 
   // Vertical haut 
   inc = 1;
   align = 1;
-  while(rank_[column] + inc < H && align < 4) {
-    if(grid_[rank_[column] + inc][column] != value)
+  while(rank + inc < H) {
+    if(grid_[column][rank + inc] != value)
       break;
     align++;
     inc++;
@@ -89,23 +98,22 @@ bool Grid::check(int column, std::byte value) {
 
   // Vertical bas
   inc = 1;
-  while(rank_[column] - inc >= 0 && align < 4) {
-    if(grid_[rank_[column] - inc][column] != value)
+  while(rank - inc >= 0) {
+    if(grid_[column][rank - inc] != value)
       break;
     align++;
     inc++;
   }
 
-  if(align >= 4) 
+  if(align >= talign) 
     return true;
-
 
 
  // Diagonale haut droite
   inc = 1;
   align = 1;
-  while(rank_[column] + inc < W && column + inc < H && align < 4) {
-    if(grid_[rank_[column] + inc][column + inc] != value)
+  while(rank + inc < W && column + inc < H) {
+    if(grid_[column + inc][rank + inc] != value)
       break;
     align++;
     inc++;
@@ -113,14 +121,14 @@ bool Grid::check(int column, std::byte value) {
 
   // Diagonale bas gauche 
   inc = 1;
-  while(rank_[column] - inc >= 0 && column - inc >= 0 && align < 4) {
-    if(grid_[rank_[column] - inc][column - inc] != value)
+  while(rank - inc >= 0 && column - inc >= 0) {
+    if(grid_[column - inc][rank - inc] != value)
       break;
     align++;
     inc++;
   }
 
-  if(align >= 4)
+  if(align >= talign)
     return true;
 
 
@@ -128,8 +136,8 @@ bool Grid::check(int column, std::byte value) {
   // Diagonale haut gauche
   inc = 1;
   align = 1;
-  while(column - inc >= 0 && rank_[column] + inc < H && align < 4) {
-    if(grid_[rank_[column] + inc][column - inc] != value)
+  while(column - inc >= 0 && rank + inc < H) {
+    if(grid_[column - inc][rank + inc] != value)
       break;
     align++;
     inc++;
@@ -137,14 +145,14 @@ bool Grid::check(int column, std::byte value) {
 
   // Diagonale bas droite
   inc = 1;
-  while(column + inc < W && rank_[column] - inc >= 0 && align < 4) {
-    if(grid_[rank_[column] - inc][column + inc] != value)
+  while(column + inc < W && rank - inc >= 0) {
+    if(grid_[column + inc][rank - inc] != value)
       break;
     align++;
     inc++;
   }
 
-  if(align >= 4)
+  if(align >= talign)
     return true;
 
   return false;

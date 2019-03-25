@@ -9,10 +9,12 @@ public:
 
   void initGrid();
   int  getCountToken() { return countToken_; };
-  bool putToken(int column, std::byte value);
+  void putToken(int column, std::byte value);
+  void removeToken(int column, std::byte);
+  std::byte getToken(int column, int rank);
   bool isFull();
   bool isColumnFull(int column);
-  bool check(int column, std::byte value);
+  bool check(int column, std::byte value, int talign);
   void printGrid();
 private:
   std::byte grid_[W][H];
