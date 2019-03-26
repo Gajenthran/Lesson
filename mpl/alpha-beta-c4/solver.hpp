@@ -6,15 +6,16 @@
 
 class Solver {
 public:
-  Solver(int maxDepth);
-  int evaluate(Grid &g, std::byte cur_p, std::byte opp_p, int depth);
-  std::pair<int, int> negamax(Grid &g, int col, std::byte cur_p, std::byte opp_p, int alpha, int beta, int depth);
+  Solver();
+  int evaluate(Grid &g, std::byte cur_p, std::byte opp_p);
+  void printNodeScore(std::vector<int>& v);
+  int negamax(Grid &g, int col, std::byte cur_p, std::byte opp_p, int alpha, int beta);
   int getBestMove(Grid &g, std::byte cur_p, std::byte opp_p);
-  int getMoveFromCol(Grid &g, int col, std::byte cur_p, std::byte opp_p);
-  int getBestMoveFromNode(std::vector<std::pair<int, int>>& v);
+  int getScoreFromCol(Grid &g, int col, std::byte cur_p, std::byte opp_p);
+  int getBestMoveFromNode(std::vector<int>& v);
+  int computerMove(Grid &g, std::byte cur_p, std::byte opp_p);
 
 private:
-  int depth_;
 };
 
 #endif

@@ -12,6 +12,7 @@ Grid::Grid() {
 
 void Grid::initGrid() {
   for(int i = 0; i < W; ++i) {
+    nextMoves_.push_back(i);
     for(int j = 0; j < H; ++j) {
       grid_[i][j] = 3_b;
     }
@@ -22,6 +23,14 @@ void Grid::printGrid() {
   for(int i = H-1; i >= 0; --i) {
     for(int j = 0; j < W; ++j) {
       std::cout << int(grid_[j][i]) << " ";
+      /* switch(int(grid_[j][i])) {
+        case 0:
+          std::cout << " X ";
+        case 1:
+          std::cout << " O ";
+        case 3:
+          std::cout << " . ";
+      } */
     }
     std::cout << "\n";
   }
@@ -40,6 +49,21 @@ bool Grid::isColumnFull(int column) {
     return false;
   return true;
 }
+
+void Grid::nextMoves() {
+  for(int i = 0; i < nextMoves_.size(); i++) {
+    if(isColumnFull(nextMoves_[i]))
+      nextMoves_.erase(nextMoves_.begin() + i);
+  }
+} 
+
+int Grid::getNMSize() {
+  return nextMoves_.size();
+}
+
+int Grid::getNextMove(int i) {
+  return nextMoves_[i];
+} 
 
 void Grid::putToken(int column, std::byte value) {
   if(rank_[column] < H) {

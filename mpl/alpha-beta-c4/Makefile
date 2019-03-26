@@ -1,14 +1,14 @@
 CC=g++
-CFLAGS=-Wall -std=c++17 -DW=7 -DH=6
-LINK=-O3
+CFLAGS=-Wall -std=c++17 -DW=4 -DH=4
+LINK=-O3 -pthread
 SRC=grid.cpp connect4.cpp solver.cpp
 OBJ=$(SRC:.cpp=.o)
 
 %.o:	%.cpp
-	$(CC) -c $(CFLAGS) $< 
+	$(CC) -c $(CFLAGS) $<
 
-game: 	$(OBJ)
+connect4: 	$(OBJ)
 	$(CC) $(LINK) $(OBJ) -o $@
 
 clean:
-	rm *.o game
+	rm -rf *.o connect4
