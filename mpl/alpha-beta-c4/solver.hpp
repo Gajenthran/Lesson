@@ -7,6 +7,22 @@ class Solver {
 public:
   Solver();
 
+  class GameTree {
+  public:
+    int nbNodes_;
+    int alpha_;
+    int beta_;
+    int bestMove_;
+  };
+
+  auto gameTree(int nbNodes, int alpha, int beta) {
+    return GameTree { nbNodes, alpha, beta, -1 };
+  }
+
+  int gtMax(Grid &g, GameTree &node);
+  int gtMin(Grid &g, GameTree &node);
+  int gtBestMove(Grid &g, int max);
+
   int evaluate(Grid &g);
   int maxChild(Grid &g, int col, int alpha, int beta);
   int maxFirst(Grid &g, int alpha, int beta);
@@ -17,19 +33,9 @@ public:
   int getBestChild(std::vector<int>& v);
   int computerMove(Grid &g, int thread);
 
-  class GameTree {
-  public:
-    int nbNodes_;
-    int alpha_;
-    int beta_;
-    int bestMove_;
-  };
-
-  auto gameTree(int nbNodes, int alpha, int beta, int bestMove) {
-    return GameTree { nbNodes, alpha, beta, bestMove, *this };
-  }
 private:
-	int colOder_[W];
+  int nbNodes_;
+	int colOrder_[W];
 };
 
 #endif

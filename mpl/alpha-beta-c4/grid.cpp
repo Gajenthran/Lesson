@@ -48,10 +48,12 @@ bool Grid::isColumnFull(int column) {
 }
 
 void Grid::putToken(int column, std::byte value) {
+  // assert
   if(rank_[column] < H) {
     grid_[column][rank_[column]] = value;
     rank_[column]++;
     nbToken_++;
+    lastToken_ = column;
   }
 }
 

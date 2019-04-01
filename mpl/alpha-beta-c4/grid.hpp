@@ -19,11 +19,13 @@ public:
   bool isColumnFull(int column);
   bool check(int column, int talign);
   int getNbToken();
+  int lastMove() { return lastToken_; };
   void printGrid();
 private:
   std::byte grid_[W][H];
   int rank_[W] = {0};
   int nbToken_ = 0;
+  int lastToken_;
 };
 
 #endif
