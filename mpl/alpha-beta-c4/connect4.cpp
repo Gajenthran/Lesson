@@ -8,16 +8,11 @@
 
 /**
  * operator
- * 3_d, 2_d, 1_d
- * flags
- * int to byte
+ * 3_b, 2_b, 1_b
+ * bitmap
+ * transposition table
  * alpha beta
  */
-
-std::byte operator "" _d(unsigned long long i){
-  return std::byte(i);
-}
-
 
 int main() {
   Grid g;
@@ -25,52 +20,52 @@ int main() {
   g.initGrid();
 
   std::srand(std::time(nullptr));
-  /* g.putToken(3, 0_d);
+  /* g.putToken(3, 0_b);
 
-  g.putToken(2, 1_d);
-  g.putToken(2, 0_d);
+  g.putToken(2, 1_b);
+  g.putToken(2, 0_b);
 
-  g.putToken(1, 0_d);
-  g.putToken(1, 1_d);
-  g.putToken(1, 0_d);
+  g.putToken(1, 0_b);
+  g.putToken(1, 1_b);
+  g.putToken(1, 0_b);
 
-  g.putToken(0, 0_d);
-  g.putToken(0, 1_d);
-  g.putToken(0, 0_d); */
+  g.putToken(0, 0_b);
+  g.putToken(0, 1_b);
+  g.putToken(0, 0_b); */
 
-  /* g.putToken(1, 1_d);
-  g.putToken(1, 1_d);
-  g.putToken(1, 1_d); */
+  /* g.putToken(3, 1_b);
+  g.putToken(1, 1_b);
+  g.putToken(2, 1_b);
+  g.putToken(4, 0_b); */
+
+  int move = s.minFirst(g, -1000, 1000);
+  g.putToken(move, 1_b);
 
   g.printGrid();
 
-  /* int move = s.aiMove(g, true);
-  g.putToken(move, 0_d); */
-
-  std::vector<int> nodes;
-  int computerMove = 0;
+  /* int move;
   do {
     // Player 1 Move (IA)
     // int r = std::rand()/((RAND_MAX + 1u)/W);
-    int r = s.aiMove(g, false);
-    g.putToken(r, 1_d);
+    move = s.computerMove(g, false);
+    g.putToken(move, 1_b);
 
     // Draw the grid
     g.printGrid();
     std::cout << "\n\n";
-    if(g.check(r, 4)) break;
+    if(g.check(move, 4)) exit(0);
 
     // Player 2 Move (IA)
-    int move = s.aiMove(g, true);
-    g.putToken(move, 0_d); 
+    move = s.computerMove(g, true);
+    g.putToken(move, 0_b); 
 
     // Draw the grid
     g.printGrid();
     std::cout << "\n\n";
-    if(g.check(computerMove, 4)) break;
+    if(g.check(move, 4)) exit(0);
     
-  } while(!g.isFull());
+  } while(!g.isFull()); */
 
   g.printGrid();
   return 0;
-}
+} 

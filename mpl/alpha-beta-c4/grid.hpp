@@ -3,14 +3,18 @@
 
 #include <cstddef>
 
+
+inline std::byte operator "" _b(unsigned long long i){
+  return std::byte(i);
+} 
+
 class Grid {
 public:
   Grid();
 
   void initGrid();
   void putToken(int column, std::byte value);
-  void removeToken(int column, std::byte);
-  std::byte getToken(int column, int rank);
+  std::byte getToken(int column);
   bool isFull();
   bool isColumnFull(int column);
   bool check(int column, int talign);

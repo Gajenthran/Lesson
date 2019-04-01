@@ -2,11 +2,6 @@
 #include <cstddef>
 #include "grid.hpp"
 
-
-std::byte operator "" _b(unsigned long long i){
-  return std::byte(i);
-} 
-
 Grid::Grid() {
 }
 
@@ -21,7 +16,6 @@ void Grid::initGrid() {
 void Grid::printGrid() {
   for(int i = H-1; i >= 0; --i) {
     for(int j = 0; j < W; ++j) {
-      // std::cout << int(grid_[j][i]) << " ";
       switch(int(grid_[j][i])) {
         case 0:
           std::cout << " X ";
@@ -61,15 +55,8 @@ void Grid::putToken(int column, std::byte value) {
   }
 }
 
-std::byte Grid::getToken(int column, int rank) {
+std::byte Grid::getToken(int column) {
   return grid_[column][std::max(rank_[column] - 1, 0)];
-}
-
-
-void Grid::removeToken(int column, std::byte) {
-  rank_[column]--;
-  grid_[column][rank_[column]] = 3_b;
-  nbToken_--;
 }
 
 int Grid::getNbToken() {

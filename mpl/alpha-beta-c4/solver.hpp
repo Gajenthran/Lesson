@@ -6,23 +6,30 @@
 class Solver {
 public:
   Solver();
-  void printNodeScore(std::vector<int>& v);
-  int negamax(Grid &g, std::byte cur_p, std::byte opp_p, int alpha, int beta);
-  int neg(Grid &g, std::byte cur_p, int alpha, int beta);
-  int getBestMove(Grid &g);
-  int getScoreFromCol(Grid &g, int col);
-  int getBestMoveFromNode(std::vector<int>& v, int m);
-  int computerMove(Grid &g, std::byte cur_p, std::byte opp_p);
+
   int evaluate(Grid &g);
-  int max_first(Grid &g, int alpha, int beta);
-  int min_first(Grid &g, int alpha, int beta);
+  int maxChild(Grid &g, int col, int alpha, int beta);
+  int maxFirst(Grid &g, int alpha, int beta);
+  int minFirst(Grid &g, int alpha, int beta);
   int max(Grid &g, int alpha, int beta);
   int min(Grid &g, int alpha, int beta);
-  int aiMove(Grid &g, bool maxMove);
-private:
-	int bestMove_;
-	int nbNodes_;
+  int maxNodes(Grid &g, int alpha, int beta);
+  int getBestChild(std::vector<int>& v);
+  int computerMove(Grid &g, int thread);
 
+  class GameTree {
+  public:
+    int nbNodes_;
+    int alpha_;
+    int beta_;
+    int bestMove_;
+  };
+
+  auto gameTree(int nbNodes, int alpha, int beta, int bestMove) {
+    return GameTree { nbNodes, alpha, beta, bestMove, *this };
+  }
+private:
+	int colOder_[W];
 };
 
 #endif
