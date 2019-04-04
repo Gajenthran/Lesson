@@ -19,6 +19,20 @@ int main() {
   Solver s;
   g.initGrid();
 
+  g.bbPutToken(0);
+
+  g.bbPutToken(1);
+  g.bbPutToken(1);
+
+  g.bbPutToken(2);
+  g.bbPutToken(2);
+  g.bbPutToken(3);
+  g.bbPutToken(2);
+
+  g.bbPutToken(3);
+  g.bbPutToken(3);
+  if(g.bbCheck(3)) std::cout << "full!\n";
+ 
   std::srand(std::time(nullptr));
   /* g.putToken(3, 0_b);
 
@@ -33,14 +47,14 @@ int main() {
   g.putToken(0, 1_b);
   g.putToken(0, 0_b); */
 
-  /* g.putToken(3, 1_b);
-  g.putToken(0, 1_b);
-  g.putToken(2, 1_b); */
+ /*g.putToken(2, 0_b);
+  g.putToken(1, 0_b);
+  g.putToken(3, 0_b);
 
   g.printGrid();
-  // int move = s.min(g, -1000, 1000);
   // int move = s.computerMove(g, false);
-  /* int move = s.gtBestMove(g, true);
+  int move = s.gnBestMove(g);
+  // int move = s.computerMove(g, false);
   std::cout << "move: " << move << "\n";
 
   g.putToken(move, 1_b); */
@@ -61,7 +75,7 @@ int main() {
 
     // Player 2 Move (IA)
     // move = s.computerMove(g, true);
-    move = s.gtBestMove(g, true);
+    move = s.gnBestMove(g);
     g.putToken(move, 0_b); 
 
     // Draw the grid
@@ -70,7 +84,6 @@ int main() {
     if(g.check(move, 4)) exit(0);
     
   } while(!g.isFull()); */
-
   g.printGrid();
   return 0;
 } 

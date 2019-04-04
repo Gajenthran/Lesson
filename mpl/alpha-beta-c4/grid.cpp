@@ -171,3 +171,48 @@ bool Grid::check(int column, int talign) {
 
   return false;
 } 
+
+
+void Grid::bbPutToken(uint64_t column) {
+  pgrid_ ^= mask_;
+  mask_ |= mask_ + (1 << column * (H + 1));
+}
+
+bool Grid::bbIsColumnFull(uint64_t column) {
+  if(mask_ & (((1 << (H - 1)) << column * (H + 1))))
+    return true;
+  return false;
+}
+
+bool Grid::bbCheck(uint64_t column) {
+  uint64_t pgrid = pgrid_;
+  uint64_t opp_grid = pgrid ^ mask_;
+  pgrid |= (mask_ + (1 << column * (H + 1))) & (((1 << H) - 1) << column * (H + 1));
+  opp_grid |= (mask_ + (1 << column * (H + 1))) & (((1 << H) - 1) << column * (H + 1));
+  return checkAlignment(opp_grid) || checkAlignment(pgrid);
+
+}
+
+bool Grid::checkAlignment(int position) {
+  uint64_t m = position & (position >> (H+1));
+  // horizontal 
+  if(m & (m >> (2*(H+1))))
+    return true;
+
+  // diagonal 1
+  m = position & (position >> H);
+  if(m & (m >> (2*H)))
+    return true;
+
+  // diagonal 2 
+  m = position & (position >> (H+2));
+  if(m & (m >> (2*(H+2))))
+    return true;
+
+  // vertical;
+  m = position & (position >> 1);
+  if(m & (m >> 2))
+    return true;
+
+  return false;
+}
