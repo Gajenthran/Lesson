@@ -11,6 +11,8 @@ void Grid::initGrid() {
       grid_[i][j] = 3_b;
     }
   }
+  for (int i = 0; i < W; i++)
+    height_[i] = (H + 1) * i;
 }
 
 void Grid::printGrid() {
@@ -52,7 +54,7 @@ void Grid::putToken(int column, std::byte value) {
   if(rank_[column] < H) {
     grid_[column][rank_[column]] = value;
     rank_[column]++;
-    nbToken_++;
+    // nbToken_++;
     lastToken_ = column;
   }
 }
@@ -62,14 +64,7 @@ std::byte Grid::getToken(int column) {
 }
 
 int Grid::getNbToken() {
-  int nb = 0;
-  for(int i = 0; i < W; i++) {
-    for(int j = 0; j < H; j++) {
-      if(grid_[i][j] != 3_b)
-        nb++;
-    }
-  }
-  return nb;
+  return nbToken_;
 }
 
 bool Grid::check(int column, int talign) {
@@ -170,49 +165,99 @@ bool Grid::check(int column, int talign) {
     return true;
 
   return false;
-} 
-
-
-void Grid::bbPutToken(uint64_t column) {
-  pgrid_ ^= mask_;
-  mask_ |= mask_ + (1 << column * (H + 1));
 }
 
-bool Grid::bbIsColumnFull(uint64_t column) {
-  if(mask_ & (((1 << (H - 1)) << column * (H + 1))))
-    return true;
-  return false;
+
+bool Grid::bbIsFull() {
+  return nbToken_ == W * H;
 }
 
-bool Grid::bbCheck(uint64_t column) {
-  uint64_t pgrid = pgrid_;
-  uint64_t opp_grid = pgrid ^ mask_;
-  pgrid |= (mask_ + (1 << column * (H + 1))) & (((1 << H) - 1) << column * (H + 1));
-  opp_grid |= (mask_ + (1 << column * (H + 1))) & (((1 << H) - 1) << column * (H + 1));
-  return checkAlignment(opp_grid) || checkAlignment(pgrid);
-
+void Grid::bbPutToken(int column) {
+  tokens_[turn_ & 1] ^= 1ULL << height_[column]++;
+  nbToken_++;
+  turn_++;
 }
 
-bool Grid::checkAlignment(int position) {
+void Grid::bbPutToken(int column, int turn) {
+  tokens_[turn] ^= 1ULL << height_[column]++;
+  nbToken_++;
+}
+
+
+bool Grid::bbIsColumnFull(int column) {
+  uint64_t top = ((1ULL << (H + 1) * W) - 1ULL) / ((1ULL << (H + 1)) - 1ULL) << H;
+  uint64_t t = tokens_[turn_ & 1] | (1ULL << height_[column]);
+  return (t & top) != 0;
+}
+
+
+bool Grid::bbIsColumnFull(int column, int turn) {
+  uint64_t top = ((1ULL << (H + 1) * W) - 1ULL) / ((1ULL << (H + 1)) - 1ULL) << H;
+  uint64_t t = tokens_[turn] | (1ULL << height_[column]);
+  return (t & top) != 0;
+}
+
+bool Grid::bbCheckNextMove(int column) {
+  uint64_t t = tokens_[turn_ & 1];
+  t ^= 1ULL << height_[column]++;
+  return checkAlignment(t);
+}
+
+bool Grid::bbCheckNextMove(int column, int turn) {
+  uint64_t t = tokens_[turn];
+  t ^= 1ULL << height_[column]++;
+  return checkAlignment(t);
+}
+
+bool Grid::bbCheck() {
+  uint64_t t = tokens_[turn_];
+  return checkAlignment(t);
+}
+
+bool Grid::bbCheck(int turn) {
+  uint64_t t = tokens_[turn];
+  return checkAlignment(t);
+}
+
+
+bool Grid::checkAlignment(uint64_t position) {
+  // horizontale 
   uint64_t m = position & (position >> (H+1));
-  // horizontal 
-  if(m & (m >> (2*(H+1))))
+  if(m & (m >> (2*(H+1)))) {
+    // std::cout << "horizontal work\n";
     return true;
+  }
 
-  // diagonal 1
-  m = position & (position >> H);
-  if(m & (m >> (2*H)))
-    return true;
-
-  // diagonal 2 
-  m = position & (position >> (H+2));
-  if(m & (m >> (2*(H+2))))
-    return true;
-
-  // vertical;
+  // verticale
   m = position & (position >> 1);
-  if(m & (m >> 2))
+  if(m & (m >> 2)) {
+    // std::cout << "vertical work\n";
     return true;
+  }
+
+  // diagonale (\)
+  m = position & (position >> H);
+  if(m & (m >> (2*H))) {
+    // std::cout << "diagonal1 work\n";
+    return true;
+  }
+
+  // diagonale (/)
+  m = position & (position >> (H+2));
+  if(m & (m >> (2*(H+2)))) {
+    // std::cout << "diagonal2 work\n";
+    return true;
+  }
 
   return false;
+}
+
+uint64_t Grid::getKey() { 
+  uint64_t mask = tokens_[0] | tokens_[1];
+  return tokens_[turn_ & 1] + mask;
+}
+
+uint64_t Grid::getKey(int turn) { 
+  uint64_t mask = tokens_[0] | tokens_[1];
+  return tokens_[turn] + mask;
 }

@@ -22,10 +22,18 @@ public:
   int lastMove() { return lastToken_; };
   void printGrid();
 
-  void bbPutToken(uint64_t column);
-  bool bbIsColumnFull(uint64_t column);
-  bool bbCheck(uint64_t column);
-  bool checkAlignment(int position);
+  bool bbCheckNextMove(int column, int turn);
+  void bbPutToken(int column);
+  void bbPutToken(int column, int turn);
+  bool bbIsColumnFull(int column);
+  bool bbIsColumnFull(int column, int turn);
+  bool bbCheckNextMove(int column);
+  bool bbIsFull();
+  bool bbCheck();
+  bool bbCheck(int turn);
+  bool checkAlignment(uint64_t position);
+  uint64_t getKey();
+  uint64_t getKey(int turn);
   
 private:
   std::byte grid_[W][H];
@@ -33,14 +41,10 @@ private:
   int nbToken_ = 0;
   int lastToken_;
 
-  uint64_t p1 = {0};
-  uint64_t p2 = {0};
-
-  uint64_t pgrid_ = {0}; 
-  uint64_t mask_ = {0};
+  uint64_t tokens_[2] = {0};
+  int height_[W] = {0}; // to uchar
+  int turn_ = 1;
 
 };
 
 #endif
-
-

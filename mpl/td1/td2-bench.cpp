@@ -66,8 +66,6 @@ void runThreads(benchmark::State& state) {
     
     std::cout << "Max du vecteur: " << maxFuture(max) << "\n";
   }
-
-  // std::cout << "Max du vecteur: " << maxFuture(max) << "\n";
 }
 
 BENCHMARK(runThreads)->RangeMultiplier(8)->Range(8, 8 << 21);

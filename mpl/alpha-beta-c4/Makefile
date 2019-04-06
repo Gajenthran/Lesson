@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-Wall -std=c++17 -DW=4 -DH=4
+CFLAGS=-Wall -std=c++17 -DW=7 -DH=6
 LINK=-O3 -pthread
 SRC=grid.cpp connect4.cpp solver.cpp
 OBJ=$(SRC:.cpp=.o)

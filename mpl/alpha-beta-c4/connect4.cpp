@@ -18,72 +18,54 @@ int main() {
   Grid g;
   Solver s;
   g.initGrid();
-
-  g.bbPutToken(0);
-
-  g.bbPutToken(1);
-  g.bbPutToken(1);
-
-  g.bbPutToken(2);
-  g.bbPutToken(2);
-  g.bbPutToken(3);
-  g.bbPutToken(2);
-
-  g.bbPutToken(3);
-  g.bbPutToken(3);
-  if(g.bbCheck(3)) std::cout << "full!\n";
  
   std::srand(std::time(nullptr));
-  /* g.putToken(3, 0_b);
+  g.bbPutToken(0, 0); 
 
-  g.putToken(2, 1_b);
-  g.putToken(2, 0_b);
-
-  g.putToken(1, 0_b);
-  g.putToken(1, 1_b);
-  g.putToken(1, 0_b);
-
-  g.putToken(0, 0_b);
-  g.putToken(0, 1_b);
-  g.putToken(0, 0_b); */
-
- /*g.putToken(2, 0_b);
-  g.putToken(1, 0_b);
-  g.putToken(3, 0_b);
-
-  g.printGrid();
+  // std::cout << g.getKey() << "\n"; exit(0);
+  // g.putToken(0, 1_b); 
+  // if(g.bbIsColumnFull(2, 0)) std::cout << "full bbIsColumFull\n"; 
+  // g.printGrid(); 
   // int move = s.computerMove(g, false);
-  int move = s.gnBestMove(g);
-  // int move = s.computerMove(g, false);
-  std::cout << "move: " << move << "\n";
+  // int move = s.gnBestMove(g, true);
+  // int move = s.gtBestMove(g, 1);
+  // int move = s.computerMove(g, true);
+  // std::cout << "move: " << move << "\n";
 
-  g.putToken(move, 1_b); */
+  // g.putToken(move, 1_b);
+  // g.bbPutToken(move);
 
+  int move = s.gnBestMove(g, true);
+  std::cout << move << "\n";
 
   /* int move;
-  do {
+   do {
     // Player 1 Move (IA)
-    // int r = std::rand()/((RAND_MAX + 1u)/W);
+    move = std::rand()/((RAND_MAX + 1u)/W);
     // move = s.computerMove(g, false);
-    move = s.gtBestMove(g, false);
+    // move = s.gnBestMove(g, 1);
+    g.bbPutToken(move, 0);
+    g.putToken(move, 0_b);
+
+    // Draw the grid
+    g.printGrid();
+    std::cout << "\n\n";
+    if(g.bbCheck(0)) break;
+
+    // Player 2 Move (IA)
+    // move = s.computerMove(g, true);
+    move = s.gnBestMove(g, true);
+    g.bbPutToken(move, 1); 
     g.putToken(move, 1_b);
 
     // Draw the grid
     g.printGrid();
     std::cout << "\n\n";
-    if(g.check(move, 4)) exit(0);
-
-    // Player 2 Move (IA)
-    // move = s.computerMove(g, true);
-    move = s.gnBestMove(g);
-    g.putToken(move, 0_b); 
-
-    // Draw the grid
-    g.printGrid();
-    std::cout << "\n\n";
-    if(g.check(move, 4)) exit(0);
-    
+    if(g.bbCheck(1)) break;
+  
   } while(!g.isFull()); */
+  if(g.bbCheckNextMove(2)) std::cout << "0 is full\n"; 
+  if(g.bbIsColumnFull(0)) std::cout << "1 is full\n";
   g.printGrid();
   return 0;
-} 
+}
