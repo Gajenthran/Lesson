@@ -20,10 +20,9 @@ int main() {
   g.initGrid();
  
   std::srand(std::time(nullptr));
-  g.bbPutToken(0, 0); 
 
   // std::cout << g.getKey() << "\n"; exit(0);
-  // g.putToken(0, 1_b); 
+  // g.bbPutToken(0, 0);
   // if(g.bbIsColumnFull(2, 0)) std::cout << "full bbIsColumFull\n"; 
   // g.printGrid(); 
   // int move = s.computerMove(g, false);
@@ -33,17 +32,19 @@ int main() {
   // std::cout << "move: " << move << "\n";
 
   // g.putToken(move, 1_b);
-  // g.bbPutToken(move);
 
-  int move = s.gnBestMove(g, true);
+  int move = s.gnBestMove(g, 0);
   std::cout << move << "\n";
+  g.bbPutToken(move, 1);
+  //if(g.bbCheck(1)) std::cout <<"ggnaé\n";
 
   /* int move;
    do {
     // Player 1 Move (IA)
-    move = std::rand()/((RAND_MAX + 1u)/W);
+    // move = std::rand()/((RAND_MAX + 1u)/W);
+    move = s.gnBestMove(g, 0);
     // move = s.computerMove(g, false);
-    // move = s.gnBestMove(g, 1);
+    // move = s.computerMove(g, 0);
     g.bbPutToken(move, 0);
     g.putToken(move, 0_b);
 
@@ -54,7 +55,7 @@ int main() {
 
     // Player 2 Move (IA)
     // move = s.computerMove(g, true);
-    move = s.gnBestMove(g, true);
+    move = s.gnBestMove(g, 1);
     g.bbPutToken(move, 1); 
     g.putToken(move, 1_b);
 
@@ -64,8 +65,9 @@ int main() {
     if(g.bbCheck(1)) break;
   
   } while(!g.isFull()); */
-  if(g.bbCheckNextMove(2)) std::cout << "0 is full\n"; 
-  if(g.bbIsColumnFull(0)) std::cout << "1 is full\n";
+  // if(g.bbCheckNextMove(2)) std::cout << "0 is full\n"; 
+  // if(g.bbIsColumnFull(0)) std::cout << "1 is full\n";
+  // if(g.bbCheck(1)) std::cout << "1 ttis full\n";
   g.printGrid();
   return 0;
 }

@@ -35,20 +35,51 @@ Solver::Solver() {
   return bestScore;
 } */
 
+
+int Solver::computerBM(Grid &g, int turn) {
+  std::unordered_map<uint64_t, int> ttable;
+  GameNodes * gn = createGameNodes(g, -1000, 1000, turn, ttable);
+
+  // std::vector<std::future<int>> future_results;
+  for(int c = 0; c < W; c++) {
+    if(!g.bbIsColumnFull(c, 1))
+      std::async(&Solver::gnChildMove, this, std::ref(gn), c, turn);
+  }
+
+  // std::vector<int> results;
+  // std::transform(begin(future_results), end(future_results), back_inserter(results), [](auto& x) { return x.get(); });
+
+  gn->bestMove = -1; gn->bestScore = -1000;
+  for(int i = 0; i < W; i++) {
+    if(gn->children[i] != nullptr) {
+      if(gn->bestScore < gn->children[i]->bestScore) {
+        gn->bestMove = i;
+        gn->bestScore = gn->children[i]->bestScore;
+      }
+    }
+  }
+  std::cout << "bestScore   : " << gn->bestScore << "\n";
+  std::cout << "bestMove    : " << gn->bestMove << "\n";
+  return gn->bestMove;
+}
+
 int Solver::neg(GameNodes * gn) {
+  nbNodes_++;
   if(gn->g.bbIsFull())
     return 0;
 
   for(int c = 0; c < W; c++) {
-    if(!gn->g.bbIsColumnFull(c) && gn->g.bbCheckNextMove(c, gn->turn)) {
+    if(!gn->g.bbIsColumnFull(c, gn->turn) && gn->g.bbCheckNextMove(c, gn->turn)) {
       return (W * H + 1 - gn->g.getNbToken())/2;
     }
   }
 
   int bestScore = (W * H - 1 - gn->g.getNbToken())/2;
-  auto key = gn->tt.find(gn->g.getKey(gn->turn));
-  if(key != gn->tt.end())
-    bestScore = key->second - (W * H)/2 - 1; 
+  auto key = tt_.find(gn->g.getKey(gn->turn));
+  if(key != tt_.end()) {
+    std::cout << "entre\n";
+    bestScore = key->second + MIN_SCORE - 1;// key->second; //- (W * H)/2 - 1; 
+  }
 
   if(gn->beta > bestScore) {
     gn->beta = bestScore;
@@ -56,51 +87,79 @@ int Solver::neg(GameNodes * gn) {
   }
 
   for(int c = 0; c < W; c++) {
-    if(!gn->g.bbIsColumnFull(colOrder_[c])) {
+    if(!gn->g.bbIsColumnFull(colOrder_[c], gn->turn)) {
       Grid g2 = gn->g;
       g2.bbPutToken(colOrder_[c], gn->turn);
-      gn->children[colOrder_[c]] = createGameNodes(g2, -gn->beta, -gn->alpha, !gn->turn,  gn->tt);
+      gn->children[colOrder_[c]] = createGameNodes(g2, -gn->beta, -gn->alpha, !gn->turn);
       int score = -neg(gn->children[colOrder_[c]]);
 
-      if(score >= gn->beta) {
-        return score;
-      }
+      if(score >= gn->beta) { return score; }
       if(score > gn->alpha) { gn->alpha = score; }
     }
   }
 
-  // gn->tt[gn->g.getKey(gn->turn)] = alpha - (W * H)/2 + 1;
+  tt_[gn->g.getKey(gn->turn)] = gn->alpha - MIN_SCORE + 1; //  - (W * H)/2 + 1;
   return gn->alpha;
+}
+
+int Solver::gnBM(Grid &g, int turn) {
+  std::unordered_map<uint64_t, int> ttable;
+  GameNodes * gn = createGameNodes(g, -1000, 1000, 1, ttable);
+  for(int c = 0; c < W; c++) {
+    if(!g.bbIsColumnFull(c, 1))
+      gnChildMove(gn, c, 0);
+  }
+
+  gn->bestMove = -1; gn->bestScore = -1000;
+  for(int i = 0; i < W; i++) {
+    if(gn->children[i] != nullptr) {
+      if(gn->bestScore < gn->children[i]->bestScore) {
+        gn->bestMove = i;
+        gn->bestScore = gn->children[i]->bestScore;
+      }
+    }
+  }
+  std::cout << "bestScore   : " << gn->bestScore << "\n";
+  std::cout << "bestMove    : " << gn->bestMove << "\n";
+  return gn->bestMove;
+}
+
+void Solver::gnChildMove(GameNodes * gn, int col, int turn) {
+  std::unordered_map<uint64_t, int> ttable;
+  if(gn->g.bbCheckNextMove(col, turn)) {
+    gn->children[col] = createGameNodes(gn->g, -1000, 1000, 0, ttable);
+    gn->children[col]->bestScore = (W * H + 1 - gn->g.getNbToken())/2 * (turn ? 1 : -1);
+  } else {
+    Grid g2 = gn->g;
+    g2.bbPutToken(col, turn);
+    gn->children[col] = createGameNodes(g2, -1000, 1000, !turn, ttable);
+    gn->children[col]->bestScore = neg(gn->children[col]) * (turn ? -1 : 1);
+  }
+  std::cout << gn->children[col]->bestScore << "\n";
 }
 
 int Solver::gnBestMove(Grid &g, int turn) {
   std::unordered_map<uint64_t, int> ttable;
-  GameNodes * gn = createGameNodes(g, -1000, 1000, turn, ttable);
+  GameNodes * gn = createGameNodes(g, -1000, 1000, turn);
+  int score;
   for(int i = 0; i < W; i++) {
-    if(!g.bbIsColumnFull(i)) {
-      Grid g2 = g;
-      g2.bbPutToken(i);
-      gn->children[i] = createGameNodes(g2, -1000, 1000, !turn, ttable);
-      // int score = negamax(gn->children[i]); // , -1000, 1000); // neg(gn->children[i]);
-      int score = -neg(gn->children[i]);
+    tt_.clear();
+    if(!g.bbIsColumnFull(i, turn)) {
+      nbNodes_ = 0;
+        Grid g2 = g;
+        g2.bbPutToken(i, turn);
+        gn->children[i] = createGameNodes(g2, -1000, 1000, !turn, ttable);
+        score = -neg(gn->children[i]);
+
       std::cout << i << " " << score << "\n";
+      std::cout << "nbNodes_ : " << nbNodes_ << "\n\n";
       gn->children[i]->bestScore = score;
     }
   }
-  /* for(int i = 0; i < W; i++) {
-    ttable.clear();
-    Grid g2 = gn->g;
-    g2.bbPutToken(i, gn->turn);
-    gn->children[i] = createGameNodes(g2, -1000, 1000, 0, ttable);
-    negamax(gn->children[i]);
-  } */
 
-  gn->bestMove = -1;
-  gn->bestScore = -1000;
+  gn->bestMove = -1; gn->bestScore = -1000;
   for(int i = 0; i < W; i++) {
     if(gn->children[i] != nullptr) {
-      // std::cout << i << " score: " << gn->children[i]->bestScore << "\n";
-      // std::cout << i << " move : " << gn->children[i]->bestMove << "\n\n";
       if(gn->bestScore < gn->children[i]->bestScore) {
         gn->bestMove = i;
         gn->bestScore = gn->children[i]->bestScore;
@@ -165,7 +224,7 @@ int Solver::negamax(GameNodes * gn) {
   }
   gn->tt[gn->g.getKey(gn->turn)] = bestScore;
   return bestScore;
-}
+} 
 
 /* // MAX : IA : 0_b : X ::  1000
 // MIN : J1 : 1_b : O :: -1000

@@ -172,11 +172,12 @@ bool Grid::bbIsFull() {
   return nbToken_ == W * H;
 }
 
-void Grid::bbPutToken(int column) {
+/* void Grid::bbPutToken(int column) {
+  std::cout << "toto\n";
   tokens_[turn_ & 1] ^= 1ULL << height_[column]++;
   nbToken_++;
   turn_++;
-}
+} */
 
 void Grid::bbPutToken(int column, int turn) {
   tokens_[turn] ^= 1ULL << height_[column]++;
@@ -184,35 +185,39 @@ void Grid::bbPutToken(int column, int turn) {
 }
 
 
-bool Grid::bbIsColumnFull(int column) {
+/*bool Grid::bbIsColumnFull(int column) {
+  std::cout << "toto\n";
   uint64_t top = ((1ULL << (H + 1) * W) - 1ULL) / ((1ULL << (H + 1)) - 1ULL) << H;
   uint64_t t = tokens_[turn_ & 1] | (1ULL << height_[column]);
   return (t & top) != 0;
-}
+} */
 
 
 bool Grid::bbIsColumnFull(int column, int turn) {
   uint64_t top = ((1ULL << (H + 1) * W) - 1ULL) / ((1ULL << (H + 1)) - 1ULL) << H;
-  uint64_t t = tokens_[turn] | (1ULL << height_[column]);
-  return (t & top) != 0;
+  uint64_t t0 = tokens_[turn] | (1ULL << height_[column]);
+  uint64_t t1 = tokens_[!turn] | (1ULL << height_[column]);
+  return ((t0 & top) != 0) || ((t1 & top) != 0);
 }
 
-bool Grid::bbCheckNextMove(int column) {
+/* bool Grid::bbCheckNextMove(int column) {
+  std::cout << "toto\n";
   uint64_t t = tokens_[turn_ & 1];
   t ^= 1ULL << height_[column]++;
   return checkAlignment(t);
-}
+} */
 
 bool Grid::bbCheckNextMove(int column, int turn) {
   uint64_t t = tokens_[turn];
-  t ^= 1ULL << height_[column]++;
+  t ^= 1ULL << height_[column];
   return checkAlignment(t);
 }
 
-bool Grid::bbCheck() {
+/* bool Grid::bbCheck() {
+  std::cout << "toto\n";
   uint64_t t = tokens_[turn_];
   return checkAlignment(t);
-}
+} */
 
 bool Grid::bbCheck(int turn) {
   uint64_t t = tokens_[turn];

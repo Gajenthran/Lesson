@@ -41,6 +41,18 @@ public:
     return gt;
   }
 
+  GameNodes * createGameNodes(Grid g, int alp, int bet, int t) {
+    GameNodes * gt = new GameNodes[1];
+    gt->g = g;
+    gt->bestMove = -1;
+    gt->turn = t;
+    gt->alpha = alp;
+    gt->beta = bet;
+    for(int i = 0; i < W; i++)
+      gt->children[i] = nullptr;
+    return gt;
+  }
+
   auto gameTree(int nbNodes, int alpha, int beta) {
     return GameTree { nbNodes, alpha, beta, -1 };
   }
@@ -55,8 +67,12 @@ public:
   int gnMax(GameNodes * gn);
   int gnEvaluate(GameNodes * gn);
   int gnBestMove(Grid &g, int turn);
+  int gnBM(Grid &g, int turn);
+  int computerBM(Grid &g, int turn);
+  void gnChildMove(GameNodes * gn, int col, int turn);
   int bbEvaluate(Grid &g, int turn);
   int neg(GameNodes * gn);
+  int neg(GameNodes * gn, int alph, int bet);
 
   int evaluate(Grid &g);
   int evaluate(Grid &g, int turn);
@@ -70,8 +86,10 @@ public:
   int computerMove(Grid &g, int thread);
 
 private:
-  int nbNodes_;
+  int nbNodes_ = 0;
+  std::unordered_map<uint64_t, int> tt_;
 	int colOrder_[W];
+  int MIN_SCORE = -(W*H)/2 + 3;
 };
 
 #endif
