@@ -1,0 +1,14 @@
+homme
+femme
+assexuel
+asexuel
+assexuelle
+asexuelle
+mec
+meuf
+garçon
+garcon
+fille
+fillette
+non binaire
+non-binaire

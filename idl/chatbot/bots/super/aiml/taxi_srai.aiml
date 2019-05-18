@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+  <!-- 
+    file: taxi.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupe l'ensemble des informations à propos des débuts
+    d'échanges entre le client et le chauffeur.
+    pattern:
+    	- disponibilité
+    	- destination
+    	- prix
+    	- durée
+    	- possibilités
+      ...
+  -->
 
 <!-- DISPONIBILITE -->
 <category>
@@ -388,7 +401,6 @@
 <category>
 	<pattern>J AI UN <set>animal</set>, * CELA VOUS DÉRANGE</pattern>
 	<template>
-		toto
 		<srai>TAXI ANIMAUX</srai>
 	</template>
 </category>
@@ -401,7 +413,7 @@
 <category>
 	<pattern>POURQUOI</pattern>
 	  <that>OUI ÇA ME DÉRANGE</that>
-	  <template> Oui, c'est comme ça. Je n'accepte pas les animaux, veuillez choisir un autre taxi.</template>
+	  <template> <srai>EMOCOLERE</srai> Oui, c'est comme ça. Je n'accepte pas les animaux, veuillez choisir un autre taxi.</template>
 </category>
 <category>
 	<pattern>AH BON</pattern>
@@ -418,7 +430,6 @@
 <category>
 	<pattern>* PASSER PAR *</pattern>
 	<template>
-		toto
 		<srai>TAXI RACCOURCI</srai>
 	</template>
 </category>
@@ -446,5 +457,4 @@
 		<srai>TAXI RACCOURCI</srai>
 	</template>
 </category>
-
 </aiml>

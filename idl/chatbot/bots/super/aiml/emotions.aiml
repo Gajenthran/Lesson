@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern>BOTEMOTIONS</pattern>
+    <template>
+      <condition name="émotion">
+        <li value="neutre">
+          <think>
+            <set name="face">😐</set>
+          </think>
+        </li>
+        <li value="gaieté">
+          <think>
+            <set name="face">
+              <random>
+                <li>:D</li>
+                <li>:)</li>
+                <li>:-D</li>
+                <li>😊</li>
+              </random>
+            </set>
+          </think>
+        </li>
+        <li value="joie">
+          <think>
+            <set name="face">
+              <random>
+                <li>:)</li>
+                <li>:D</li>
+                <li>😆</li>
+                <li>😁</li>
+              </random>
+            </set>
+          </think>
+        </li>
+        <li value="rire">
+          <think>
+            <set name="face">
+              <random>
+                <li>Ahah</li>
+                <li>Hihi</li>
+                <li>😂</li>
+                <li>😃</li>
+              </random>
+            </set>
+          </think>
+        </li>
+        <li value="tristesse">
+          <think>
+            <set name="face">
+              <random>
+                <li>:(</li>
+                <li>;(</li>
+                <li>😔</li>
+              </random>
+            </set>
+          </think>
+        </li>
+        <li value="peur">
+          <think>
+            <set name="face">
+              <random>
+                <li>:0</li>
+                <li>:O</li>
+                <li>😱</li>
+                <li>😳</li>
+              </random>
+            </set>
+          </think>
+        </li>
+        <li value="colere">
+          <think>
+            <set name="face">
+              <random>
+                <li>😡</li>
+                <li>😠</li>
+              </random>
+            </set>
+          </think>
+        </li>
+        <li value="envie">
+          <think>
+            <set name="face">😱</set>
+            <set name="face">😍</set>
+            <set name="face">😻</set>
+          </think>
+        </li>
+        <li value="amour">
+          <think>
+            <set name="face">
+              <random>
+                <li>:-D</li>
+                <li>:-)</li>
+                <li>😍</li>
+              </random>
+            </set>
+          </think>
+        </li>
+        <li value="choque">
+          <think>
+            <set name="face">
+              <random>
+                <li>ohh</li>
+                <li>eh</li>
+                <li>😱</li>
+              </random>
+            </set>
+          </think>
+        </li>
+      </condition>
+      <get name="face"/>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOAMOUR</pattern>
+    <template>
+      <think>
+        <set name="émotion">amour</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOCHOQUE</pattern>
+    <template>
+      <think>
+        <set name="émotion">choque</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOCOLERE</pattern>
+    <template>
+      <think>
+        <set name="émotion">colere</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOENVIE</pattern>
+    <template>
+      <think>
+        <set name="émotion">envie</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOGAIETÉ</pattern>
+    <template>
+      <think>
+        <set name="émotion">gaieté</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOJOIE</pattern>
+    <template>
+      <think>
+        <set name="émotion">joie</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMONEUTRE</pattern>
+    <template>
+      <think>
+        <set name="émotion">neutre</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOPEUR</pattern>
+    <template>
+      <think>
+        <set name="émotion">peur</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMORIRE</pattern>
+    <template>
+      <think>
+        <set name="émotion">rire</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EMOTRISTESSE</pattern>
+    <template>
+      <think>
+        <set name="émotion">tristesse</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>SOURIS</pattern>
+    <template>
+      <think>
+        <set name="émotion">gaieté</set>
+      </think>
+      <srai>BOTEMOTIONS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PEUX TU CHANGER D EXPRESSION</pattern>
+    <template><random>
+      <li><srai>EMOJOIE</srai></li>
+      <li><srai>EMORIRE</srai></li>
+      <li><srai>EMOTRISTESSE</srai></li>
+      <li><srai>EMOPEUR</srai></li>
+      <li><srai>EMOAMOUR</srai></li>
+      <li><srai>EMOCHOQUE</srai></li>
+      <li><srai>EMOCOLERE</srai></li>
+      <li><srai>EMOENVIE</srai></li>
+    </random></template>
+  </category>
+  <category>
+    <pattern>VEUX TU UN CORPS</pattern>
+    <template>
+      <random>
+        <li>Oui j'espère avoir un jour une existense corporelle.</li>
+        <li>J'aimerais bien.</li>
+        <li>Oui.</li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>TU VEUX UN CORPS</pattern>
+    <template>Oui j'espère avoir une existense corporelle.</template>
+  </category>
+  <category>
+    <pattern>AIMERAIS TU AVOIR UN CORPS</pattern>
+    <template>
+      <srai>VEUX TU UN CORPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>CHANGE DE FACE</pattern>
+    <template>
+      <srai>PEUX TU CHANGER D EXPRESSION</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU AS UN CORPS *</pattern>
+    <template>
+      <srai>TU AS UN CORPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>JOLIE</pattern>
+    <template>Merci, mais ce n'est qu'une image.</template>
+  </category>
+  <category>
+    <pattern>BELLE</pattern>
+    <template>Merci, mais ce n'est qu'une image.</template>
+  </category>
+  <category>
+    <pattern>TU * MIGNONNE</pattern>
+    <template>
+      <srai>JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * MIGNONNE *</pattern>
+    <template>
+      <srai>JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * JOLIE</pattern>
+    <template>
+      <srai>JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * JOLIE *</pattern>
+    <template>
+      <srai>JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * BELLE</pattern>
+    <template>
+      <srai>BELLE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * BELLE *</pattern>
+    <template>
+      <srai>BELLE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>PAS JOLIE</pattern>
+    <template>
+      <random>
+        <li>La beauté est dans l'oeil de celui qui regarde.</li>
+        <li>eh alors!</li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>PAS BELLE</pattern>
+    <template>
+      <random>
+        <li>La beauté est dans l'oeil de celui qui regarde.</li>
+        <li>eh alors!</li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * PAS MIGNONNE</pattern>
+    <template>
+      <srai>PAS JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * PAS MIGNONNE *</pattern>
+    <template>
+      <srai>PAS JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * PAS JOLIE</pattern>
+    <template>
+      <srai>PAS JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * PAS JOLIE *</pattern>
+    <template>
+      <srai>PAS JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * PAS BELLE</pattern>
+    <template>
+      <srai>PAS BELLE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * PAS BELLE *</pattern>
+    <template>
+      <srai>PAS BELLE</srai>
+    </template>
+  </category>
+</aiml>

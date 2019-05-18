@@ -1158,6 +1158,12 @@
     </template>
 </category>
 <category>
+    <pattern>EST CE QUE VOUS RESSENTEZ DES ÉMOTIONS</pattern>
+    <template>
+      <srai>BOT EMOTION</srai>
+    </template>
+</category>
+<category>
     <pattern>AS TU DES HUMEURS</pattern>
     <template>
       toto 
@@ -3437,19 +3443,19 @@
     </template>
 </category>
 <category>
-    <pattern>CONNAIS TU # <set>langues</set></pattern>
+    <pattern>CONNAIS TU # <set>language</set></pattern>
     <template>
       <srai>PEUX TU PARLER UNE AUTRE LANGUE</srai>
     </template>
 </category>
 <category>
-    <pattern>VOUS PARLEZ # <set>langues</set></pattern>
+    <pattern>VOUS PARLEZ # <set>language</set></pattern>
     <template>
       <srai>BOT LANGUE</srai>
     </template>
 </category>
 <category>
-    <pattern>PARLEZ VOUS # <set>langues</set></pattern>
+    <pattern>PARLEZ VOUS # <set>language</set></pattern>
     <template>
       <srai>BOT LANGUE</srai>
     </template>
@@ -3467,7 +3473,7 @@
     </template>
 </category>   
 <category>
-    <pattern>PEUX TU PARLER # <set>langues</set></pattern>
+    <pattern>PEUX TU PARLER # <set>language</set></pattern>
     <template>
       <srai>BOT LANGUE</srai>
     </template>
@@ -3479,13 +3485,13 @@
     </template>
 </category>   
 <category>
-    <pattern>TU PARLES # <set>langues</set></pattern>
+    <pattern>TU PARLES # <set>language</set></pattern>
     <template>
       <srai>BOT LANGUE</srai>
     </template>
 </category>
 <category>
-    <pattern>PARLES TU # <set>langues</set></pattern>
+    <pattern>PARLES TU # <set>language</set></pattern>
     <template>
       <srai>BOT LANGUE</srai>
     </template>
@@ -3821,13 +3827,13 @@
   
 <!-- NATIONALITY -->
 <category>
-    <pattern>ES TU # <set>nationalities</set></pattern>
+    <pattern>ES TU # <set>language</set></pattern>
     <template>
 		<srai>BOT NATIONALITE</srai>
 	</template>
 </category>
 <category>
-    <pattern>TU ES # <set>nationalities</set></pattern>
+    <pattern>TU ES # <set>language</set></pattern>
     <template>
     <srai>BOT NATIONALITE</srai>
   </template>

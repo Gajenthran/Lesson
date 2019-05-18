@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-
+  <!-- 
+    file: taxi.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupe l'ensemble des informations à propos des débuts
+    d'échanges entre le client et le chauffeur.
+    pattern:
+    	- disponibilité
+    	- destination
+    	- prix
+    	- durée
+    	- possibilités
+      ...
+  -->
 <category><pattern># TAXI <set>taxi</set> #</pattern>
   <template><think><set name="topic">taxi_topic</set></think>
     <srai><star index="2"/></srai></template>
@@ -55,8 +67,7 @@
   <template>
   	<condition name="destination">
   		<li value="unknown">Où vous souhaitez aller d'abord avant de demander la durée ? </li>
-  		<li> La durée dépend de plusieurs paramètres donc difficilement prévisible par ma personne. Je peux vous conseillez Google Maps pour cela: <oob><search>google maps <get name="destination"/></search></oob>
-		  </li>
+  		<li> La durée dépend de plusieurs paramètres donc difficilement prévisible par ma personne. Je peux vous conseillez Google Maps pour cela: <oob><search>google maps <get name="destination"/></search></oob> </li>
   	</condition>
   </template>
 </category>

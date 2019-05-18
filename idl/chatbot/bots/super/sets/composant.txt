@@ -1,0 +1,62 @@
+moteur	
+embrayage
+culasse
+turbo
+injecteur
+démarreur
+demarreur
+filtre à air
+bougie
+filtre à carburant
+kit de distribution
+echappement	
+échappement	
+pot catalytique
+silencieux
+train roulant 	
+rotules
+cardans
+amortisseurs
+pneus
+roulements
+eclairage	
+éclairage	
+verre de phare
+verre de feu
+optique
+ampoule
+climatisation	
+compresseur
+filtre d'habitacle
+chauffage/ventilation	
+radiateur
+pulseur d'air
+sonde
+thermostat
+freinage	
+tambour
+plaquettes de frein
+mâchoire
+machoire
+disque
+câble de frein
+cable de frein
+câble
+cable
+direction	
+rotule de direction
+bras de suspension
+barre stabilisatrice
+carrosserie	
+pare-choc
+pare-choc avant
+pare-choc arrière
+rétroviseurs
+rétroviseur
+retroviseur
+bas de caisse
+portières
+portieres
+ailes
+capot
+hayon

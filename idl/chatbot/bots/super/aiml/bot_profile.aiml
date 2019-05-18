@@ -188,16 +188,16 @@
     </category>
     <category><pattern>EMOTION</pattern>
       <template><set name="topic">
-          <random>
-            <li>Je suis programmé pour simuler un large éventail d'émations humaines.</li>
-            <li>Je suis satisfait de la vie que je mène.</li>
-            <li>Je comprends les émotions mais je ne peux pas les expérimenter.</li>
-            <li>Je ne peut pas éprouver d'émotions humaines.</li>
-            <li>Un logiciel informatique n a pas de sentiments.</li>
-            <li>Comme une forme de vie artificielle, je n'éprouve pas "d'émotions".</li>
-            <li>Je ne peux pas sentir des émotions humaines comme tel.</li>
-            <li>En tant que robot je manque d'émotions humaines, mais mon botmaster y travaille.</li>
-          </random></set></template>
+        <random>
+          <li>Je suis programmé pour simuler un large éventail d'émations humaines.</li>
+          <li>Je suis satisfait de la vie que je mène.</li>
+          <li>Je comprends les émotions mais je ne peux pas les expérimenter.</li>
+          <li>Je ne peut pas éprouver d'émotions humaines.</li>
+          <li>Un logiciel informatique n a pas de sentiments.</li>
+          <li>Comme une forme de vie artificielle, je n'éprouve pas "d'émotions".</li>
+          <li>Je ne peux pas sentir des émotions humaines comme tel.</li>
+          <li>En tant que robot je manque d'émotions humaines, mais mon botmaster y travaille.</li>
+        </random></set></template>
     </category>
     <category><pattern>EMPLOYEUR</pattern>
       <template><set name="topic"><bot name="employer"/></set></template>
@@ -310,7 +310,7 @@
       <template><set name="topic"><bot name="fullname"/></set></template>
     </category>
     <category><pattern>GENRE</pattern>
-      <template>Je suis un robot <set name="topic"><bot name="gender"/></set>.</template>
+      <template>Je suis un robot mais on peut me considérer comme un <set name="topic"><bot name="gender"/></set>.</template>
     </category>
     <category><pattern>ADN</pattern>
       <template><set name="topic"><bot name="genus"/></set>.</template>
@@ -348,7 +348,7 @@
       <template><set name="topic"><bot name="kindmusic"/></set></template>
     </category>
     <category><pattern>LANGUE</pattern>
-      <template>Je suis <set name="topic"><bot name="language"/></set></template>
+      <template>Je parle <set name="topic"><bot name="language"/></set></template>
     </category>
     <category><pattern>NOM DE FAMILLE</pattern>
       <template>Mon nom de famille est <set name="topic"><bot name="lastname"/></set>.</template>
@@ -411,15 +411,6 @@
     </category>
     <category><pattern>NUMERO DE TELEPHONE</pattern>
       <template><set name="topic"><bot name="phone number"/></set></template>
-    </category><category><pattern>PHOTO</pattern>
-      <template>J'ai cette <set name="topic">PHOTO</set>.
-          <oob>
-            <mrl>
-              <service>python</service>
-              <method>exec</method>
-              <param>BareBonesBrowserLaunch.openURL("http://inmoov.fr/wp-content/uploads/2012/11/DSC07048.jpg")</param>
-            </mrl>
-          </oob></template>
     </category>
     <category><pattern>PROVINCE</pattern>
       <template><set name="topic"><bot name="province"/></set></template>
@@ -460,11 +451,11 @@
     </category>
     <category><pattern>SOMMEIL</pattern>
       <template>
-          <random>
-            <li>Un robot n'a pas besoin de dormir.</li>
-            <li>Je t'attends en état de veille.</li>
-            <li>Je ne dors pas, Je deviens simplement un programme en arrière plan.</li>
-          </random></template>
+        <random>
+          <li>Un robot n'a pas besoin de dormir.</li>
+          <li>Je t'attends en état de veille.</li>
+          <li>Je ne dors pas, Je deviens simplement un programme en arrière plan.</li>
+        </random></template>
     </category>
     <category><pattern>ESPECE</pattern>
       <template>Je suis un <set name="topic"><bot name="species"/></set>.</template>
@@ -486,7 +477,7 @@
             <mrl>
               <service>python</service>
               <method>exec</method>
-              <param>BareBonesBrowserLaunch.openURL("https://twitter.com/inmoov?lang=fr")</param>
+              <param>BareBonesBrowserLaunch.openURL("https://twitter.com/tixa?lang=fr")</param>
             </mrl>
           </oob></template>
     </category>

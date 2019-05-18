@@ -1,0 +1,424 @@
+abricot
+absinthe
+acajou
+aigue-marine
+aile de corbeau
+albâtre
+alezan
+amande
+amarante
+ambre jaune
+ambre rouge
+améthyste
+anthracite
+aquilain
+ardoise
+argent
+argile
+asperge
+aubergine
+auburn
+aurore
+avocat
+azur
+azur
+azurin
+baillet
+banane
+basané
+beige
+beigeasse
+beurre
+beurre frais
+bis
+bis
+bisque
+bistre
+bitume
+blanc
+blanc cassé
+blanc crème
+blanc d’albâtre
+blanc d’argent
+blanc d’Espagne
+blanc de céruse
+blanc de Chine
+blanc de lait
+blanc de Meudon
+blanc de plomb
+blanc de Troyes
+blanc de zinc
+blanc lunaire
+blanc neige
+blanc-bleu
+blé
+blet
+bleu
+bleu acier
+bleu ardoise
+bleu azur
+bleu barbeau
+bleu bleuet
+bleu canard
+bleu céleste
+bleu cérule
+bleu céruléen
+bleu charrette
+bleu charron
+bleu ciel
+bleu cobalt
+bleu d’Anvers
+bleu de Berlin
+bleu de cobalt
+bleu de France
+bleu de minuit
+bleu de Prusse
+bleu des mers du sud
+bleu dragée
+bleu électrique
+bleu France
+bleu fumée
+bleu givré
+bleu guède
+bleu hussard
+bleu Klein
+bleu lavande
+bleu Majorelle
+bleu marine
+bleu minéral
+bleu nuit
+bleu outremer
+bleu paon
+bleu persan
+bleu pétrole
+bleu roi
+bleu roy
+bleu saphir
+bleu sarcelle
+bleu turquin
+bleu turquoise
+blond
+blond vénitien
+bordeaux
+bourgogne
+bouton d’or
+brique
+bronze
+brou de noix
+brun
+brun clair
+bureau
+caca d’oie
+cacao
+cachou
+café
+café au lait
+cannelle
+capucine
+caramel
+carmin
+carnation
+carné
+carotte
+cassis
+cerise
+céruléen
+cæruléum
+chair
+chamois
+champagne
+charbonneux
+châtaigne
+châtain
+chaudron
+chenu
+chocolat
+cinabre
+citron
+citrouille
+clarissimo
+claro
+claro claro
+colombin
+colorado
+colorado claro
+coquelicot
+coquille d’œuf
+corail
+cramoisi
+crème
+cuisse de nymphe
+cuivre
+cyan
+cyan
+d’albâtre
+d’ivoire
+denim
+double claro
+ébène
+écarlate
+écru
+émeraude
+étain oxydé
+étain pur
+fauve
+fer
+feu vif
+feuille-morte
+flave
+fleur de soufre
+fraise
+fraise écrasée
+framboise
+fuchsia
+garance
+glauque
+glycine
+grège
+grenadine
+grenat
+gris
+gris acier
+gris anthracite
+gris de lin
+gris de maure
+gris de Payne
+gris fer
+gris fumée
+gris perle
+gris plomb
+gris souris
+gris taupe
+gris tourdille
+gris tourterelle
+groseille
+gueules
+havane
+héliotrope
+incarnadin
+incarnat
+indigo
+indigo clair
+indigo foncé
+isabelle
+ivoire
+jade
+jais
+jaune
+jaune auréolin
+jaune banane
+jaune bouton d’or
+jaune canari
+jaune citron
+jaune d’or
+jaune de chrome
+jaune de Mars
+jaune de Naples
+jaune fleur de soufre
+jaune impérial
+jaune maïs
+jaune mimosa
+jaune moutarde
+jaune nankin
+jaune paille
+jaune poussin
+jaune soufre
+kaki
+lapis-lazuli
+lavallière
+lavande
+lie-de-vin
+lilas
+lin
+maduro
+maduro colorado
+magenta
+magenta
+magenta foncé
+maïs
+malachite
+mandarine
+marine
+marron
+mastic
+mauve
+melon
+menthe
+menthe à l’eau
+miel
+mordoré
+moreau
+moutarde
+nacarat
+nankin
+neige
+noir
+noir animal
+noir charbon
+noir d’aniline
+noir d’encre
+noir d’ivoire
+noir de carbone
+noir de fumée
+noir de jais
+noiraud
+noisette
+ocre
+ocre jaune
+ocre rouge
+olive
+opalin
+or
+orange
+orangé
+orange brûlée
+orchidée
+orpiment
+orpin de Perse
+oscuro
+paille
+papaye
+papier bulle
+parme
+passe-velours
+pastel
+pêche
+pelure d’oignon
+pervenche
+pinchard
+pistache
+platine
+plomb
+poil de chameau
+ponceau
+pourpre
+pourpre
+potiron
+prasin
+prune
+puce
+queue-de-renard
+queue-de-vache clair
+queue-de-vache foncé
+réglisse
+rose
+rose balais
+rose bonbon
+rose dragée
+rose fuchsia
+rose Mountbatten
+rose thé
+rouge
+rouge Andrinople
+rouge anglais
+rouge Bismarck
+rouge bordeaux
+rouge bourgogne
+rouge capucine
+rouge cardinal
+rouge carmin
+rouge cerise
+rouge cinabre
+rouge coquelicot
+rouge d’alizarine
+rouge d’Andrinople
+rouge d’aniline
+rouge de Mars
+rouge écrevisse
+rouge feu
+rouge fraise
+rouge framboise
+rouge grenadine
+rouge grenat
+rouge groseille
+rouge ponceau
+rouge sang
+rouge tomate
+rouge tomette
+rouge turc
+rouge vermillon
+rouge-violet
+rouille
+roux
+sable
+sable
+safran
+safre
+sang de bœuf
+sanguine
+saphir
+sarcelle
+saumon
+senois
+sépia
+sinople
+smalt
+smaragdin
+soufre
+souris
+tabac
+tanné
+taupe
+terre d’ombre
+terre de Sienne
+terre de Sienne brûlée
+tomate
+topaze
+tourterelle
+turquoise
+vanille
+ventre de biche
+vermeil
+vermillon
+vert
+vert absinthe
+vert amande
+vert anglais
+vert anis
+vert avocat
+vert bambou
+vert bouteille
+vert céladon
+vert chartreuse
+vert d’eau
+vert de chrome
+vert de gris
+vert de Hooker
+vert de vessie
+vert émeraude
+vert empire
+vert épinard
+vert gazon
+vert herbe
+vert impérial
+vert jade
+vert kaki
+vert lichen
+vert lime
+vert malachite
+vert mélèze
+vert menthe
+vert menthe à l’eau
+vert militaire
+vert mousse
+vert olive
+vert opaline
+vert perroquet
+vert pin
+vert pistache
+vert poireau
+vert pomme
+vert prairie
+vert prasin
+vert prés
+vert printemps
+vert sapin
+vert sauge
+vert smaragdin
+vert tilleul
+vert turquoise
+vert Véronèse
+violet
+violet d’évêque
+violine
+viride

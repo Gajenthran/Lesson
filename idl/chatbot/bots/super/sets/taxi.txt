@@ -7,4 +7,3 @@ place
 nourriture
 animaux
 raccourci
-animaux

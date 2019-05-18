@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+
+<category>
+  <pattern>C EST QUOI UN *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI UNE *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI LA *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI LE *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI L *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI LES *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI DES *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI D *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>C EST QUOI DU *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE LA *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE LES *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE DES *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE DU *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE UNE *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QU UNE *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QU UN *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE UN *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE LE *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE L *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QU EST CE QUE D *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category><pattern>DÉFINI MOI *</pattern>
+	<template>
+		<srai>QU EST CE QUE <star/></srai>
+	</template>
+</category>
+<category><pattern>DÉFINIS MOI *</pattern>
+	<template>
+		<srai>QU EST CE QUE <star/></srai>
+	</template>
+</category>
+<category><pattern>DÉFINI *</pattern>
+	<template>
+		<srai>QU EST CE QUE <star/></srai>
+	</template>
+</category>
+<category><pattern>DÉFINIS *</pattern>
+	<template>
+		<srai>QU EST CE QUE <star/></srai>
+	</template>
+</category>
+
+<!-- salutations abr -->
+<category>
+	<pattern>BJR *</pattern>
+	<template>
+		<srai>BONJOUR</srai>
+	</template>
+</category>
+<category>
+	<pattern>BJR</pattern>
+	<template>
+		<srai>BONJOUR</srai>
+	</template>
+</category>
+<category>
+	<pattern>SLT *</pattern>
+	<template>
+		<srai>BONJOUR</srai>
+	</template>
+</category>
+<category>
+	<pattern>SLT</pattern>
+	<template>
+		<srai>BONJOUR</srai>
+	</template>
+</category>
+<category>
+	<pattern>cv ?</pattern>
+	<template>
+		<srai>COMMENT VAS TU</srai>
+	</template>
+</category>
+<category>
+	<pattern>cv</pattern>
+	<template>
+		<srai>ÇA VA</srai>
+	</template>
+</category>
+<category>
+	<pattern>sa va</pattern>
+	<template>
+		<srai>ÇA VA</srai>
+	</template>
+</category>
+<category>
+	<pattern>sa va ?</pattern>
+	<template>
+		<srai>COMMENT VAS TU</srai>
+	</template>
+</category>
+
+</aiml>

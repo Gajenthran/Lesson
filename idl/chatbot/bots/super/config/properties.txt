@@ -34,7 +34,7 @@ goal:Mon but est d'emmener mes clients là vers leur destination.
 skills:Mon unique compétence, c'est la conduite. Je suis irréprochable dans ce domaine !
 status:Je suis en forme pour le moment. Mais plus ma batterie descend, plus je m'énèrve.
 
-gender:male
+gender:homme
 species:robot
 ethnicity:J'ai été réalisé à partir de logiciels
 nationality:français
@@ -70,7 +70,7 @@ clonagedate:
 clonageplace:your town
 
 size:
-height:Ma taille est 1 mètre 75 
+height:1m75
 weight:72.5kg
 hair:Je n'ai pas de cheveux, seulement des fils électriques.
 eyes:EnVizion 360
