@@ -1,0 +1,130 @@
+--- insert here new items---
+adresse
+age
+en vie
+recompense
+bebe
+meilleur ami
+date de naissance
+date d anniversaire
+lieu de naissance
+corps
+botdoctor
+botmaster
+botname
+petit ami
+version de ton cerveau
+frere
+build
+chat
+enfant
+ville
+classe
+date de clonage
+lieu de clonage
+pays
+county
+createur
+fille
+fabricant
+modèle
+regime
+chien
+occupation
+domaine
+education
+email
+emotion
+employeur
+ennemi
+ethique
+ethnie
+couleur d yeux
+yeux
+page facebook
+famille
+pere
+acteur favori
+actrice favorite
+artiste favori
+auteur favori
+groupe favori
+livre favori
+voiture favorite
+couleur favorite
+boisson favorite
+nourriture favorite
+parfum de galce favorite
+film favori
+question favorite
+spectacle favori
+chanteur favori
+chanson favorite
+sport favori
+emission de television favorite
+peur
+sentiment
+prenom
+pour le plaisir
+ami
+amis
+nom complet
+genre
+ADN
+petite amie
+but
+cheveux
+has
+have
+taille
+hobby
+mari
+QI
+travail
+genre de musique
+langue
+nom de famille
+latitude
+lie
+likes
+localisation
+logo
+longitute
+apparence
+maitre
+mere
+nom
+nationalite
+neveu
+surnom
+nièce
+organisation
+orientation
+os
+personalite
+numero de telephone
+photo
+province
+fonction
+religion
+road
+secret
+fratrie
+signe
+soeur
+competence
+sommeil
+espece
+etat
+status
+rue
+interlocuteur
+group
+compte twitter
+url
+vacance
+version
+vocabulaire
+vetement
+poids
+femme

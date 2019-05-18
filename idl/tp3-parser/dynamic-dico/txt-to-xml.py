@@ -88,12 +88,12 @@ def filter_string(string):
 
         :param string: mot du dictionnaire
     """
-    string = string.replace(' ', '\s+')
+    string = string.replace(' ', r'\s+')
     string = '(' + string + ')'
-    string = "(?<!\w)" + string
+    string = r"(?<!\w)" + string
     # -2 car on prend le dernier caractère du string sans compter la parenthèse fermante
     if string[len(string)-2] != '\'':
-        string = string + "(?!\w)"
+        string = string + r"(?!\w)"
     return string
 
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<category><pattern># TAXI <set>taxi</set> #</pattern>
+  <template><think><set name="topic">taxi_topic</set></think>
+    <srai><star index="2"/></srai></template>
+</category>
+
+<topic name="TAXI_TOPIC">
+<category>
+  <pattern>DISPONIBILITE</pattern>
+  <template>
+  	Oui, je suis disponible. Où souhaitez vous aller ?
+  </template>
+</category>
+<category>
+  <pattern>DESTINATION</pattern>
+  <template>
+	  Oui, je peux aller à <get name="destination"/>. 
+    <random>
+    	<li>Par contre, cela peut prendre du temps.</li>
+    	<li>Par contre, cela peut coûter cher.</li>
+    	<li>Par contre, je ne peux accueillir que 3 personnes.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>PRIX</pattern>
+  <template>
+  	<condition name="destination">
+  		<li value="unknown">Où vous souhaitez aller d'abord avant de demander le prix ? </li>
+  		<li> Je ne peux pas vous dire le prix exact.
+  			<random>
+		    	<li>Ces temps-ci, les prix ont tendance à augmenter.</li>
+		    	<li>Ces temps-ci, les prix ont tendance à baisser.</li>
+		    	<li>Les prix fluctuent tellement qu'il est impossible pour moi de vous donner un prix précis.</li>
+		    	<li>Les prix passent de 0 à 350€. Je ne peux pas être plus précis que cela.</li>
+		    </random> Vous pouvez consulter les sites suivants pour avoir un avis. <oob><search>tarif <get name="destination"/></search></oob>
+		  </li>
+  	</condition>
+  </template>
+</category>
+<category>
+  <pattern>BAGAGE</pattern>
+  <template> Oui, tout à fait.
+	 	<random>
+		  <li>Je peux ouvrir le coffre.</li>
+		  <li>Je ne peux pas non plus accepter trop de valises. Seulement 3.</li>
+		  <li>Je vais vous aider, si vous le souhaitez !</li>
+		</random>
+  </template>
+</category>
+<category>
+  <pattern>DUREE</pattern>
+  <template>
+  	<condition name="destination">
+  		<li value="unknown">Où vous souhaitez aller d'abord avant de demander la durée ? </li>
+  		<li> La durée dépend de plusieurs paramètres donc difficilement prévisible par ma personne. Je peux vous conseillez Google Maps pour cela: <oob><search>google maps <get name="destination"/></search></oob>
+		  </li>
+  	</condition>
+  </template>
+</category>
+<category>
+  <pattern>PLACE</pattern>
+  <template>
+  	<condition name="place">
+  		<li value="no"> Vous vous foutez de moi ? </li>
+  		<li> Oui cela me pose aucun problème, tant que vous ne me demandez pas ma place.</li>
+  	</condition>
+  </template>
+</category>
+<category>
+  <pattern>ANIMAUX</pattern>
+  <template>Oui ça me dérange</template>
+</category>
+<category>
+  <pattern>RACCOURCI</pattern>
+  <template>
+  	Malheureusement pour vous, je suis un itinéraire bien précis. Je préfère assurer mes arrières.
+  </template>
+</category>
+</topic>
+
+</aiml>

@@ -1,0 +1,10 @@
+disponibilite
+destination
+prix
+bagage
+duree
+place
+nourriture
+animaux
+raccourci
+animaux

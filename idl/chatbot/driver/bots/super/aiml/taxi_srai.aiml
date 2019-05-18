@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+<!-- DISPONIBILITE -->
+<category>
+  <pattern>ÊTES VOUS LIBRE</pattern>
+  <template>
+  	<srai>TAXI DISPONIBILITE</srai>
+  </template>
+</category>
+<category>
+  <pattern>ÊTES VOUS DISPONIBLE</pattern>
+  <template>
+  	<srai>TAXI DISPONIBILITE</srai>
+  </template>
+</category>
+<category>
+  <pattern>ES TU DISPONIBLE</pattern>
+  <template>
+  	<srai>TAXI DISPONIBILITE</srai>
+  </template>
+</category>
+<category>
+  <pattern>ES TU DISPONIBLE</pattern>
+  <template>
+  	<srai>TAXI DISPONIBILITE</srai>
+  </template>
+</category>
+<category>
+  <pattern>EST CE QUE * DISPONIBLE</pattern>
+  <template>
+  	<srai>TAXI DISPONIBILITE</srai>
+  </template>
+</category>
+<category>
+  <pattern>EST CE QUE * LIBRE</pattern>
+  <template>
+  	<srai>TAXI DISPONIBILITE</srai>
+  </template>
+</category>
+
+<!-- DESTINATION -->
+<category>
+	<pattern>* ALLEZ À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+      <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+<category>
+	<pattern>* ALLER À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+  	  <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+<category>
+	<pattern>* POUVEZ DÉPOSER À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+      <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+<category>
+	<pattern>* DÉPOSEZ À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+      <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+<category>
+	<pattern>* POUVEZ PARTIR À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+      <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+<category>
+	<pattern>* PARTEZ À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+      <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+<category>
+	<pattern>* M EMMENER À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+      <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+<category>
+	<pattern>* M EMMENEZ À * </pattern>
+	<template>
+	  <think><set name="destination"><star index="2"/></set></think>
+      <srai>TAXI DESTINATION</srai>
+	</template>
+</category>
+
+<!-- PRIX -->
+<category>
+	<pattern>COMBIEN * COÛTE</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* PAYER COMBIEN</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* LE PRIX</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* LE PRIX *</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* LE TARIF</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* LE TARIF *</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* COÛTE COMBIEN</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* COÛTER COMBIEN</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* PRENDRE COMBIEN</pattern>
+	<template>
+      <srai>TAXI PRIX</srai>
+	</template>
+</category>
+
+<!-- BAGAGES -->
+<category>
+	<pattern>* METTRE MES BAGAGES</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* INSTALLER MES BAGAGES</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* DÉPOSER MES BAGAGES</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* MES BAGAGES</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>METTRE MES BAGAGES</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* METTRE MES AFFAIRES</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* DÉPOSER MES AFFAIRES</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* DÉPOSER MA VALISE</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* METTRE MA VALISE</pattern>
+	<template>
+      <srai>TAXI BAGAGE</srai>
+	</template>
+</category>
+
+<!-- DUREE -->
+<category>
+	<pattern>COMBIEN DE MINUTE</pattern>
+	<template>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN DE MINUTES</pattern>
+	<template>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN DE TEMPS</pattern>
+	<template>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN DE MINUTE</pattern>
+	<template>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN DE MINUTE</pattern>
+	<template>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN DE MINUTE POUR ALLER À *</pattern>
+	<template>
+		<think><set name="destination"><star index="1"/></set></think>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+
+<category>
+	<pattern>COMBIEN DE TEMPS * POUR ALLER À *</pattern>
+	<template>
+	  	<think><set name="destination"><star index="1"/></set></think>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>QUEL EST LA DUREE * TRAJET</pattern>
+	<template>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN D HEURE POUR ALLER À *</pattern>
+	<template>
+	  	<think><set name="destination"><star index="1"/></set></think>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN D HEURES POUR ALLER À *</pattern>
+	<template>
+	 	<think><set name="destination"><star index="1"/></set></think>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN DE MINUTES POUR ALLER À *</pattern>
+	<template>
+	 	<think><set name="destination"><star index="1"/></set></think>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+<category>
+	<pattern>COMBIEN DE MINUTE POUR ALLER À *</pattern>
+	<template>
+		<think><set name="destination"><star index="1"/></set></think>
+		<srai>TAXI DUREE</srai>
+	</template>
+</category>
+
+<!-- PLACE -->
+<category>
+	<pattern>* M ASSEOIR DEVANT</pattern>
+	<template>
+		<srai>TAXI PLACE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* M ASSEOIR DEVANT</pattern>
+	<template>
+		<srai>TAXI PLACE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* M ASSEOIR DERRIÈRE</pattern>
+	<template>
+		<srai>TAXI PLACE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* M ASSEOIR DERRIÈRE</pattern>
+	<template>
+		<srai>TAXI PLACE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* M ASSEOIR À CÔTÉ DE VOUS</pattern>
+	<template>
+		<srai>TAXI PLACE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* M ASSEOIR À VOTRE PLACE</pattern>
+	<template>
+		<think><set name="place">no</set></think>
+		<srai>TAXI PLACE</srai>
+	</template>
+</category>
+<category>
+	<pattern>* S ASSEOIR À VOTRE PLACE</pattern>
+	<template>
+	 	<think><set name="place">no</set></think>
+		<srai>TAXI PLACE</srai>
+	</template>
+</category>
+
+<!-- ANIMAUX -->
+<category>
+	<pattern>* ACCEPTÉ LES ANIMAUX</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* ACCEPTER LES ANIMAUX</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* ACCEPTEZ VOUS LES ANIMAUX</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* ACCEPTEZ LES ANIMAUX</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>* ACCEPTÉ LES ANIMAUX</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>JE * DES ANIMAUX * CELA VOUS DÉRANGE</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>JE * UN ANIMAL * CELA VOUS DÉRANGE</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>J * UN ANIMAL * CELA VOUS DÉRANGE</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>J AI UN <set>animal</set>, * CELA VOUS DÉRANGE</pattern>
+	<template>
+		toto
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>J AI UN <set>animal</set> CELA VOUS DÉRANGE</pattern>
+	<template>
+		<srai>TAXI ANIMAUX</srai>
+	</template>
+</category>
+<category>
+	<pattern>POURQUOI</pattern>
+	  <that>OUI ÇA ME DÉRANGE</that>
+	  <template> Oui, c'est comme ça. Je n'accepte pas les animaux, veuillez choisir un autre taxi.</template>
+</category>
+<category>
+	<pattern>AH BON</pattern>
+	  <that>OUI ÇA ME DÉRANGE</that>
+	  <template> Oui, c'est comme ça. Je n'accepte pas les animaux, veuillez choisir un autre taxi.</template>
+</category>
+<category>
+	<pattern>QUOI</pattern>
+	  <that>OUI ÇA ME DÉRANGE</that>
+	  <template> Oui, c'est comme ça. Je n'accepte pas les animaux, veuillez choisir un autre taxi.</template>
+</category>
+
+<!-- RACCOURCI -->
+<category>
+	<pattern>* PASSER PAR *</pattern>
+	<template>
+		toto
+		<srai>TAXI RACCOURCI</srai>
+	</template>
+</category>
+<category>
+	<pattern>* EMPRUNTER LE CHEMIN *</pattern>
+	<template>
+		<srai>TAXI RACCOURCI</srai>
+	</template>
+</category>
+<category>
+	<pattern>* CHOISIR CE CHEMIN</pattern>
+	<template>
+		<srai>TAXI RACCOURCI</srai>
+	</template>
+</category>
+<category>
+	<pattern>* PRENDRE DES RACCOURCIS</pattern>
+	<template>
+		<srai>TAXI RACCOURCI</srai>
+	</template>
+</category>
+<category>
+	<pattern>* PRENDRE UN RACCOURCI</pattern>
+	<template>
+		<srai>TAXI RACCOURCI</srai>
+	</template>
+</category>
+
+</aiml>
