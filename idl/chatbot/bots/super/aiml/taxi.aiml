@@ -90,6 +90,18 @@
   	Malheureusement pour vous, je suis un itinéraire bien précis. Je préfère assurer mes arrières.
   </template>
 </category>
+<category>
+  <pattern>TEMPS</pattern>
+  <template>
+  	<srai>EMOJOIE</srai> Oui ! C'est vrai que le temps est beau. Mon expérience a vu plusieurs le soleil.
+  </template>
+</category>
+<category>
+  <pattern>TEMPS</pattern>
+  <template>
+  	<srai>EMOJOIE</srai> Oui ! C'est vrai que le temps est beau. Mon expérience a vu plusieurs le soleil.
+  </template>
+</category>
 </topic>
 
 </aiml>

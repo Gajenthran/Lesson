@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-
+  <!-- 
+    file: ensemble_srai.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupera des srai générales pour anticiper
+    les abréviations, ou la mauvaise orthographes par exemple.
+    pattern:
+    	- qu'est ce que
+    	- c'est quoi
+    	- ça va
+    	- bonjour
+    	...
+  -->
 
 <category>
   <pattern>C EST QUOI UN *</pattern>
@@ -196,6 +207,22 @@
 	<pattern>sa va ?</pattern>
 	<template>
 		<srai>COMMENT VAS TU</srai>
+	</template>
+</category>
+<category>
+	<pattern>*</pattern>
+	<template>
+		<random>
+			<li> Regardez comme le temps est beau ! </li>
+			<li> Je ne comprends pas ce que vous dites... </li>
+			<li> Admirez le paysage, s'il vous plaît !</li>
+			<li> Avez-vous des questions pertinentes à me poser. </li>
+			<li> Je peux vous raconter des blagues si vous le souhaitez. </li>
+			<li> Mon maître me dit souvent que je suis une encyclopédie vivante. </li>
+			<li> Cela m'arrive d'exprimer des sentiments à travers les émojis. </li>
+			<li> Mon maître me dit souvent que je suis un livre ouvert, donc si vous voulez discuter je suis la bonne personne. </li>
+			<li> Pour faire passer le temps, on peut très bien parler de notre vie durant le trajet. </li>
+		</random>
 	</template>
 </category>
 

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml>
-<!--  -->
-<!--  -->
+<aiml version="2.0">
+  <!-- 
+    file: cest.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Toutes les phrases commençant par "c'est"
+    pattern:
+      - C'est *
+      - C'était *
+      - Cela *
+      ...
+
+  -->
 <category><pattern>* C EST MON NOM</pattern>
 <template>tu t'appelles,  <set name="name"><input index="2"/></set>, ok.</template>
 </category>

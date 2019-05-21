@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
   <!-- 
-    file: taxi.aiml 
+    file: taxi_srai.aiml 
     author: PANCHALINGAMOORTHY Gajenthran
     brief: Ce fichier regroupe l'ensemble des informations à propos des débuts
     d'échanges entre le client et le chauffeur.
@@ -455,6 +455,26 @@
 	<pattern>* PRENDRE UN RACCOURCI</pattern>
 	<template>
 		<srai>TAXI RACCOURCI</srai>
+	</template>
+</category>
+
+<!-- TEMPS -->
+<category>
+	<pattern>QUEL TEMPS</pattern>
+	<template>
+		<srai>TAXI TEMPS</srai>
+	</template>
+</category>
+<category>
+	<pattern>QUEL * TEMPS</pattern>
+	<template>
+		<srai>TAXI TEMPS</srai>
+	</template>
+</category>
+<category>
+	<pattern>LE SOLEIL RAYONNE *</pattern>
+	<template>
+		<srai>TAXI TEMPS</srai>
 	</template>
 </category>
 </aiml>

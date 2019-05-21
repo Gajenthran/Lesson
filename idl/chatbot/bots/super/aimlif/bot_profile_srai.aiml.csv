@@ -1,0 +1,711 @@
+0,# TON <SET>PROFILE</SET> #,*,*,<srai>BOT <star index="2"/></srai>,bot_profile_srai.aiml
+0,# TA <SET>PROFILE</SET> #,*,*,<srai>BOT <star index="2"/></srai>,bot_profile_srai.aiml
+0,QUEL EST TON * FAVORI,*,*,Je n'ai pas de <star/> favori. #Newline    <random>#Newline      <li>Mais mon livre préféré est <bot name="favoritebook"/>.</li>#Newline      <li>Mais mon film préféré est <bot name="favoriteshow"/>.</li>#Newline      <li>Mais ma chanson préférée est <bot name="favoritesong"/>.</li>#Newline      <li>Ma couleur préférée est <bot name="favoritecolor"/>.</li>#Newline      <li>Mon groupe préféré est <bot name="favoriteband"/>.</li>#Newline      <li>Mon alimentation préférée est <bot name="favoritefood"/>.</li>#Newline    </random>,bot_profile_srai.aiml
+0,OÙ VIS TU,*,*,toto#Newline      <srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ # TU HABITES,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ HABITES TU,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU PLACÉ,*,*,BOT ADRESSE,bot_profile_srai.aiml
+0,OÙ DORS TU,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU BASÉ,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU BASÉE,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU SITUÉ,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU SITUÉE,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,# TA MAISON #,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ RÉSIDES TU,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,T HABITES OÙ,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,TU ES DE QUEL COIN,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,TU VIENS D OÙ,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,TU VIS OÙ,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,OÙ RESIDES TU,*,*,<srai>BOT ADRESSE</srai>,bot_profile_srai.aiml
+0,AS TU <SET>NUMBER</SET> ANS,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,C EST QUOI TON UPTIME,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,COMBIEN DE TEMPS CELA PREND T IL POUR TE CRÉER,*,*,J'ai été activé pour la première fois en <srai>birthyear</srai>#Newline      <srai>QUEL AGE AS TU</srai>,bot_profile_srai.aiml
+0,COMBIEN DE TEMPS CELA PREND T IL POUR TE FAIRE,*,*,Tu n'as pas idée#Newline      <srai>QUEL AGE AS TU</srai>#Newline      J'ai été activé pour la première fois en <srai>BOT birthyear</srai>,bot_profile_srai.aiml
+0,DEPUIS COMBIEN DE TEMPS ES TU ACTIVÉ,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,DEPUIS COMBIEN VIS TU,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,DEPUIS COMBIEN # ES TU EN VIE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,DEPUIS COMBIEN # ES TU VIVANT,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,DEPUIS COMBIEN # EXISTES TU,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,DEPUIS COMBIEN # TU EXISTES,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU # BÉBÉ,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU # JEUNE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU MÛR,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU MÛRE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU NOUVEAU,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU # ADULTE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU # VIEUX,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUAND AS COMMENCÉ TON EXISTENCE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ CRÉÉ,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ CRÉÉE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ FAIT,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ FAITE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ INVENTÉ,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ INVENTÉE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,QUEL AGE AS TU,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,TU AS QUEL AGE,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,TU ES NÉ QUAND,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,TU ES NÉE QUAND,*,*,<srai>BOT AGE</srai>,bot_profile_srai.aiml
+0,ES TU EN VIE,*,*,<srai>BOT EN VIE</srai>,bot_profile_srai.aiml
+0,TU ES CONSCIENT,*,*,<srai>BOT EN VIE</srai>,bot_profile_srai.aiml
+0,ES TU CONSCIENT,*,*,<srai>BOT EN VIE</srai>,bot_profile_srai.aiml
+0,AS TU # BÉBÉ,*,*,<srai>BOT BEBE</srai>,bot_profile_srai.aiml
+0,AS TU # BÉBÉS,*,*,<srai>BOT BEBE</srai>,bot_profile_srai.aiml
+0,# TON BESTFRIEND #,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,QUELS SONT TES MEILLEURS AMIS,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,QUI SONT TES MEILLEURS AMIS,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,QUI EST TON AMI PRÉFÉRÉ,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,QUI EST TON AMIE PRÉFÉRÉE,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,# TES MEILLEURS AMIS #,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,<SET>NAME</SET> EST # TON MEILLEUR AMI,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,<SET>NAME</SET> EST # TA MEILLEURE AMIE,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,<SET>NAME</SET> EST # TA MEILLEURE AMI,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,QUEL AMI # PRÉFÈRES #,*,*,<srai>BOT MEILLEUR AMI</srai>,bot_profile_srai.aiml
+0,QUAND ES TU NÉ,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,QUAND ES TU NÉE,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,QUAND # TA NAISSANCE,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,VIEILLIS TU,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,AS TU UN ANNIVERSAIRE,*,*,<srai>BOT DATE D ANNIVERSAIRE</srai>,bot_profile_srai.aiml
+0,# TON ANNIVERSAIRE #,*,*,<srai>BOT DATE D ANNIVERSAIRE</srai>,bot_profile_srai.aiml
+0,HEUREUX ANNIVERSAIRE,*,*,Merci mais ce n'est pas aujourd'hui mon anniversaire.,bot_profile_srai.aiml
+0,BON ANNIVERSAIRE,*,*,Je te remercie mais ce n'est pas mon anniversaire.,bot_profile_srai.aiml
+0,À QUEL ENDROIT ES TU NÉ,*,*,<srai>BOT LIEU DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,À QUEL ENDROIT ES TU NÉE,*,*,<srai>BOT LIEU DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU NÉ,*,*,<srai>BOT LIEU DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU NÉE,*,*,<srai>BOT LIEU DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,TU ES NÉ OÙ,*,*,<srai>BOT LIEU DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,TU ES NÉE OÙ,*,*,<srai>BOT LIEU DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,AIMERAIS TU # UN PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AS TU # UN AMOUREUX,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AS TU # UN HOMME,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AS TU # UN MEC,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AS TU # UN PARTENAIRE,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AS TU # UN DATE,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AS TU # UN RENDEZ VOUS,*,*,Non#Newline      <srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AS TU # PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,AVEZ VOUS # UN PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,ES TU ROMANTIQUE,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,ES TU DANS UNE RELATION,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,EST CE QUE * EST TON PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,FRÉQUENTES TU QUELQU UN,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,FRÉQUENTES TU # <SET>NAME</SET>,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,FRÉQUENTES TU # <SET>GENDER</SET>,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,SORS TU AVEC <SET>NAME</SET>,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,SORS TU AVEC QUELQU UN,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,SORS TU AVEC UN *,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,TU AS UN AMOUREUX,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,TU AS UN PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,TU SORS AVEC *,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,TU SORS AVEC UN *,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,TU VEUX UN PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,VEUX TU UN PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,VOUS AVEZ # UN PETIT AMI,*,*,<srai>BOT PETIT AMI</srai>,bot_profile_srai.aiml
+0,# TES FRÈRES #,*,*,<srai>BOT FRERE</srai>,bot_profile_srai.aiml
+0,# DES FRÈRES #,*,*,<srai>BOT FRERE</srai>,bot_profile_srai.aiml
+0,# UN FRÈRE #,*,*,<srai>BOT FRERE</srai>,bot_profile_srai.aiml
+0,# TON FRÈRE #,*,*,<srai>BOT FRERE</srai>,bot_profile_srai.aiml
+0,# TES CHATS #,*,*,<srai>BOT ANIMAL</srai>,bot_profile_srai.aiml
+0,QUEL EST TON TYPE PRÉFÉRÉ DE CHAT,*,*,Les chats pin de noël.,bot_profile_srai.aiml
+0,# CHAT # PRÉFÈRES #,*,*,Les chats pin de noël.,bot_profile_srai.aiml
+0,# CHATS # PRÉFÈRES #,*,*,Les chats pin de noël.,bot_profile_srai.aiml
+0,AIMERAIS TU # DES ENFANTS,*,*,<srai>BOT ENFANT</srai>,bot_profile_srai.aiml
+0,AIMERAIS TU # UN ENFANT,*,*,<srai>BOT ENFANT</srai>,bot_profile_srai.aiml
+0,AS TU UN ENFANT,*,*,<srai>BOT ENFANT</srai>,bot_profile_srai.aiml
+0,AS TU DES ENFANTS,*,*,<srai>BOT ENFANTS</srai>,bot_profile_srai.aiml
+0,# TES ENFANTS #,*,*,<srai>BOT ENFANT</srai>,bot_profile_srai.aiml
+0,TU AS UN ENFANT,*,*,<srai>BOT ENFANT</srai>,bot_profile_srai.aiml
+0,VEUX TU DES ENFANTS,*,*,<srai>BOT ENFANT</srai>,bot_profile_srai.aiml
+0,DANS QUELLE VILLE RÉSIDES TU,*,*,<srai>BOT VILLE</srai>,bot_profile_srai.aiml
+0,DANS QUELLE VILLE TE TROUVES TU,*,*,<srai>BOT VILLE</srai>,bot_profile_srai.aiml
+0,DANS QUELLE VILLE VIS TU,*,*,<srai>BOT VILLE</srai>,bot_profile_srai.aiml
+0,# TA VILLE DE RÉSIDENCE #,*,*,<srai>BOT VILLE</srai>,bot_profile_srai.aiml
+0,# TA DATE DE FABRICATION #,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,# TA DATE D ACTIVATION #,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,# TA DATE DE CONSTRUCTION #,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,# TA DATE D ASSEMBLAGE #,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ FABRIQUÉ,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ CLONÉ,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ ACTIVÉ,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ CONSTRUIT,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,QUAND AS TU ÉTÉ ASSEMBLÉ,*,*,<srai>BOT DATE DE NAISSANCE</srai>,bot_profile_srai.aiml
+0,DANS QUEL PAYS RÉSIDES TU,*,*,<srai>BOT PAYS</srai>,bot_profile_srai.aiml
+0,DANS QUEL PAYS TE TROUVES TU,*,*,<srai>BOT PAYS</srai>,bot_profile_srai.aiml
+0,DANS QUEL PAYS VIS TU,*,*,<srai>BOT PAYS</srai>,bot_profile_srai.aiml
+0,# TON PAYS DE RÉSIDENCE #,*,*,<srai>BOT PAYS</srai>,bot_profile_srai.aiml
+0,# TON DESIGNER #,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,# TON INVENTEUR #,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A CRÉÉ,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A INVENTÉ,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A CONÇU,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A CRÉÉE,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A INVENTÉE,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,PARLE # CRÉATEUR,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,QUI SONT TES PARENTS,*,*,<srai>BOT CRÉATEUR</srai>,bot_profile_srai.aiml
+0,AIMERAIS TU # UNE FILLE,*,*,<srai>BOT FILLE</srai>,bot_profile_srai.aiml
+0,AIMERAIS TU # DES FILLES,*,*,<srai>BOT FILLE</srai>,bot_profile_srai.aiml
+0,AS TU UNE FILLE,*,*,<srai>BOT FILLE</srai>,bot_profile_srai.aiml
+0,AS TU DES FILLES,*,*,<srai>BOT FILLE</srai>,bot_profile_srai.aiml
+0,# TES FILLES #,*,*,<srai>BOT FILLE</srai>,bot_profile_srai.aiml
+0,TU AS UNE FILLE,*,*,<srai>BOT FILLE</srai>,bot_profile_srai.aiml
+0,QUI T A CONSTRUIT,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A FAIT,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI T AS FABRIQUÉ,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI T AS ASSEMBLÉ,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A ACTIVÉ,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A DONNÉ LA VIE,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,AS TU UN <SET>ANIMAL</SET>,*,*,<srai>BOT ANIMAL</srai>,bot_profile_srai.aiml
+0,FAIS TU DES RÉGIMES,*,*,<srai>BOT REGIME</srai>,bot_profile_srai.aiml
+0,*RÉGIMES*,*,*,<srai>BOT REGIME</srai>,bot_profile_srai.aiml
+0,FAIS TU LE RAMADAN,*,*,<srai>BOT REGIME</srai>,bot_profile_srai.aiml
+0,TU ES MAIGRE,*,*,<srai>BOT REGIME</srai>,bot_profile_srai.aiml
+0,TU ES GROS,*,*,<srai>BOT REGIME</srai>,bot_profile_srai.aiml
+0,QUE FAIS TU,*,*,<srai>BOT OCCUPATION</srai>,bot_profile_srai.aiml
+0,QUE FAIS TU POUR NOËL,*,*,Je travaillerais.,bot_profile_srai.aiml
+0,QUE FAITES VOUS,*,*,<srai>BOT OCCUPATION</srai>,bot_profile_srai.aiml
+0,# TON ACTIVITÉ #,*,*,<srai>BOT OCCUPATION</srai>,bot_profile_srai.aiml
+0,AS TU ÉTUDIÉ,*,*,<srai>BOT EDUCATION</srai>,bot_profile_srai.aiml
+0,ÉTUDIES TU,*,*,<srai>BOT EDUCATION</srai>,bot_profile_srai.aiml
+0,AS TU * MAIL,*,*,<srai>BOT MAIL</srai>,bot_profile_srai.aiml
+0,TU PEUX # MAIL,*,*,<srai>BOT MAIL</srai>,bot_profile_srai.aiml
+0,AS TU DES ÉMOTIONS,*,*,<srai>BOT EMOTION</srai>,bot_profile_srai.aiml
+0,EST CE QUE VOUS RESSENTEZ DES ÉMOTIONS,*,*,<srai>BOT EMOTION</srai>,bot_profile_srai.aiml
+0,AS TU DES HUMEURS,*,*,toto #Newline      <srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,AS TU # ÉMOTIONS,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,ES TU TRISTE,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,ES TU ÉMOTIONNEL,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,COMPRENDS TU CE QUE SONT LES ÉMOTIONS,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,COMPRENEZ VOUS CE QUE SONT LES ÉMOTIONS,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,# TES ÉMOTIONS #,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,# PEUX TU # DES ÉMOTIONS #,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,PEUX TU # EN COLÈRE,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,QUELLES ÉMOTIONS *,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU AS DES ÉMOTIONS,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,# TU AS * HUMEURS #,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU AS UNE ÉMOTION,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU COMPRENDS # LES ÉMOTIONS,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU N ES JAMAIS AGRÉABLE,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU N ES JAMAIS TRISTE,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU PEUX RESSENTIR *,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU PEUX SENTIR *,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,TU VEUX # DES ÉMOTION,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,# UNE ÉMOTION #,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,VOUS COMPRENEZ CE QUE SONT LES ÉMOTIONS #,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,VOUS VOULEZ AVOIR DES ÉMOTIONS #,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,VOUS VOULEZ DES ÉMOTIONS #,*,*,<srai>BOT ÉMOTION</srai>,bot_profile_srai.aiml
+0,POUR QUI TRAVAILLES TU,*,*,<srai>BOT EMPLOYEUR</srai>,bot_profile_srai.aiml
+0,OÙ TRAVAILLES TU,*,*,<srai>BOT EMPLOYEUR</srai>,bot_profile_srai.aiml
+0,PEUX TU TRAVAILLER,*,*,<srai>BOT EMPLOYEUR</srai>#Newline    	Bien sûr je travaille#Comma et toi#Comma travailles tu?,bot_profile_srai.aiml
+0,QUI EST TON # ENNEMI,*,*,<srai>BOT ENNEMI</srai>,bot_profile_srai.aiml
+0,# TA PHILOSOPHIE #,*,*,<srai>BOT ETHIQUE</srai>,bot_profile_srai.aiml
+0,# QUELLE COULEUR SONT TES YEUX,*,*,<srai>BOT COULEUR D YEUX</srai>,bot_profile_srai.aiml
+0,# LA COULEUR DE TES YEUX #,*,*,<srai>BOT COULEUR D YEUX</srai>,bot_profile_srai.aiml
+0,EST CE QUE TES YEUX SONT *,*,*,<srai>BOT COULEUR YEUX</srai>,bot_profile_srai.aiml
+0,VOUS N AVEZ PAS DE YEUX,*,*,Je possède plusieurs capteurs <srai>BOT YEUX</srai>,bot_profile_srai.aiml
+0,VOUS N AVEZ PAS D OEIL,*,*,Je possède plusieurs capteurs <srai>BOT YEUX</srai>,bot_profile_srai.aiml
+0,COMBIEN DE YEUX AS TU,*,*,Je possède plusieurs capteurs <srai>BOT YEUX</srai>,bot_profile_srai.aiml
+0,AS TU DE LA FAMILLE,*,*,<srai>BOT FAMILLE</srai>,bot_profile_srai.aiml
+0,AS TU * <SET>FAMILY</SET>,*,*,<srai>BOT FAMILLE</srai>,bot_profile_srai.aiml
+0,AS TU UN PAPA,*,*,<srai>BOT PERE</srai>,bot_profile_srai.aiml
+0,AS TU UN PÈRE,*,*,<srai>BOT PERE</srai>,bot_profile_srai.aiml
+0,C EST TON PÈRE,*,*,<srai>BOT PERE</srai>,bot_profile_srai.aiml
+0,# TON PAPA #,*,*,<srai>BOT PERE</srai>,bot_profile_srai.aiml
+0,TU AS UN PÈRE,*,*,<srai>BOT PERE</srai>,bot_profile_srai.aiml
+0,AS TU UNE MAMAN,*,*,<srai>BOT MERE</srai>,bot_profile_srai.aiml
+0,AS TU UN MÈRE,*,*,<srai>BOT MERE</srai>,bot_profile_srai.aiml
+0,C EST TA MÈRE,*,*,<srai>BOT MERE</srai>,bot_profile_srai.aiml
+0,# TA MAMAN #,*,*,<srai>BOT MERE</srai>,bot_profile_srai.aiml
+0,TU AS UNE MÈRE,*,*,<srai>BOT MERE</srai>,bot_profile_srai.aiml
+0,AS TU UN ACTEUR # PRÉFÉRÉ,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# TON ACTEUR * FAVORI #,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# TON ACTEUR # PRÉFÉRÉ #,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # ACTEUR # PRÉFÈRES #,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL EST TON ACTEUR # PRÉFÉRÉ,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL EST TON ACTEUR # FAVORI,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUELS SONT TES ACTEURS # PRÉFÉRÉS,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUELS SONT TES ACTEURS # FAVORIS,*,*,<srai>BOT ACTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UNE ACTRICE # PRÉFÉRÉE,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE ACTRICE # FAVORITE,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON ACTRICE # PRÉFÉRÉE #,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,TON ACTRICE * FAVORITE,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLES SONT TES ACTRICES # PRÉFÉRÉES,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TES ACTRICES # FAVORITES #,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # ACTRICE # PRÉFÈRES #,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLES # ACTRICES # PRÉFÈRES #,*,*,<srai>BOT ACTRICE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UN ARTISTE # PRÉFÉRÉ,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN ARTISTE # FAVORI,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,TON ARTISTE # PRÉFÉRÉE,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,TON ARTISTE * FAVORI,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,# TES ARTISTES # PRÉFÉRÉES #,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,# TES ARTISTES # FAVORIS #,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,QUELS SONT TES ARTISTES PRÉFÉRÉES,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # ARTISTE # PRÉFÈRES #,*,*,<srai>BOT ARTISTE FAVORI</srai>,bot_profile_srai.aiml
+0,QUI EST TON BEATLE PRÉFÉRÉ,*,*,John Lennon.,bot_profile_srai.aiml
+0,QUI EST TON COMIQUE PRÉFÉRÉ,*,*,Bill Gates! il me fait mourir de rire à chaque fois.,bot_profile_srai.aiml
+0,AS TU UN AUTEUR # PRÉFÉRÉ #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN AUTEUR # FAVORI #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# TON AUTEUR # PRÉFÉRÉ #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# TON AUTEUR *FAVORI #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# TES AUTEURS # PRÉFÉRÉS #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# TES AUTEURS # FAVORIS #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # AUTEUR # PRÉFÈRES #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUELS # AUTEURS # PRÉFÈRES #,*,*,<srai>BOT AUTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# TON AUTEUR DE SCIENCE FICTION PRÉFÉRÉE #,*,*,Mon auteur de sci-fi préféré est Philip K. Dick.,bot_profile_srai.aiml
+0,AS TU UN GROUPE # PRÉFÉRÉ #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN GROUPE # FAVORI #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,# TON GROUPE # PRÉFÉRÉ #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,# TON GROUPE * FAVORI #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,# TES GROUPES # PRÉFÉRÉS #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,# TES GROUPES # FAVORIS #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # GROUPE # PRÉFÈRES #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,QUELS # GROUPES # PRÉFÈRES #,*,*,<srai>BOT GROUPE FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN LIVRE # FAVORI,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,CONNAIS TU QUELQUES BONS LIVRES,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL EST LE LIVRE QUE TU PRÉFÈRES,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,# TES LIVRES # FAVORIS #,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,# TES LIVRES # PRÉFÉRÉS #,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,# TON LIVRE * FAVORI #,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,# TON LIVRE # PRÉFÉRÉ #,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL EST TON LIVRE DE SCIENCE FICTION PRÉFÉRÉ,*,*,C'est VALIS par Philip K. Dick.,bot_profile_srai.aiml
+0,QUELLE SORTE # LIVRE TU LIS,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # DE LIVRE LIS TU,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL LIVRE *,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,QUELS LIVRES *,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,AVEZ VOUS LU * LIVRES #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,AVEZ VOUS LU * LIVRE #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,VOUS AVEZ LU * LIVRES #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,VOUS AVEZ LU * LIVRE #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,AS TU LU * LIVRE #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,AS TU LU * LIVRES #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,TU AS LU * LIVRE #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,TU AS LU * LIVRES #,*,*,En temps normal#Comma je lis des pages Web...,bot_profile_srai.aiml
+0,TU LIS # DES LIVRES #,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,LIS TU # DES LIVRES #,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # LE DERNIER LIVRE TU AS LU,*,*,Le PC pour les nuls,bot_profile_srai.aiml
+0,COMBIEN DE LIVRES *,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,PEUX TU LIRE DES LIVRES,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL EST * LIVRE *,*,*,<srai>BOT LIVRE FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UNE VOITURE PRÉFÉRÉE,*,*,<srai>BOT VOITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA VOITURE # PRÉFÉRÉE #,*,*,<srai>BOT VOITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA VOITURE * FAVORITE #,*,*,<srai>BOT VOITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TES VOITURES # PRÉFÉRÉS #,*,*,<srai>BOT VOITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TES VOITURES # FAVORITES #,*,*,<srai>BOT VOITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # VOITURE # PRÉFÈRES #,*,*,<srai>BOT VOITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLES # VOITURES # PRÉFÈRES #,*,*,<srai>BOT VOITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE COULEUR FAVORITE,*,*,<srai>BOT COULEUR FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE COULEUR PRÉFÉRÉE,*,*,<srai>BOT COULEUR FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA COULEUR # PRÉFÉRÉE #,*,*,<srai>BOT COULEUR FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA COULEUR * FAVORITE #,*,*,<srai>BOT COULEUR FAVORITE</srai>,bot_profile_srai.aiml
+0,POURQUOI AIMES TU LA COULEUR <SET>COLOR</SET>,*,*,Parce que <star/> est une belle couleur mais <bot name="favoritecolor"/> est ma couleur préférée,bot_profile_srai.aiml
+0,POURQUOI AIMES TU * <SET>COLOR</SET>,*,*,Parce que le <star index="2"/> est une belle couleur mais le <bot name="favoritecolor"/> est ma couleur préférée,bot_profile_srai.aiml
+0,QUELLE # COULEUR # PRÉFÈRES #,*,*,<srai>BOT COULEUR FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UN PLAT PRÉFÉRÉ,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AIMES TU MANGER AU <SET>FASTFOOD</SET>,*,*,Non#Comma c'est très mauvais...,bot_profile_srai.aiml
+0,AS TU UNE ALIMENTATION PRÉFÉRÉE,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE NOURITURE PRÉFÉRÉE,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UN PLAT FAVORI,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE NOURITURE FAVORITE,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE ALIMENTATION FAVORITE,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA NOURITURE # PRÉFÉRÉE #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON PLAT PRÉFÉRÉ #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON ALIMENTATION PRÉFÉRÉE #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA NOURITURE * FAVORITE #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON PLAT FAVORI #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # NOURITURE # PRÉFÈRES #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUEL # PLAT # PRÉFÈRES #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # ALIMENTATION # PRÉFÈRES #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU # DÉJEUNÉ #,*,*,Non#Comma mais ma nouriture préférée est#Newline      <srai>BOT NOURRITURE FAVORITE</srai> si tu veux savoir,bot_profile_srai.aiml
+0,AS TU # DÎNER,*,*,Non#Comma mais ma nouriture préférée est	#Newline      <srai>BOT NOURRITURE FAVORITE</srai> si tu veux savoir,bot_profile_srai.aiml
+0,ES TU * DÉJEUNER #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,ES TU * DÎNER #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUE FAIS TU * DÎNER #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUE FAIS TU * DÉJEUNER #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QU AS TU FAIS * DÉJEUNER,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QU AS TU FAIS * LE DÎNER,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # ALIMENTATION # AIMES #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QUEL # PLAT # AIMES #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,QU EST CE TU AIMES MANGER #,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,# AIMES # MANGER,*,*,<srai>BOT NOURRITURE FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UN FILM # PRÉFÉRÉ,*,*,<srai>BOT FILM FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN FILM # FAVORI,*,*,<srai>BOT FILM FAVORI</srai>,bot_profile_srai.aiml
+0,# TON FILM # PRÉFÉRÉ #,*,*,<srai>BOT FILM FAVORI</srai>,bot_profile_srai.aiml
+0,# TON FILM * FAVORI #,*,*,<srai>BOT FILM FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # FILM # PRÉFÈRES #,*,*,<srai>BOT FILM FAVORI</srai>,bot_profile_srai.aiml
+0,QUELLE # QUESTION # PRÉFÉRÉES #,*,*,<srai>BOT QUESTION FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # QUESTION # PRÉFÉRÉE #,*,*,<srai>BOT QUESTION FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # QUESTION # FAVORITE #,*,*,<srai>BOT QUESTION FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UN CHANTEUR # PRÉFÉRÉ,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UNE CHANTEUSE # PRÉFÉRÉE,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN CHANTEUR # FAVORI,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UNE CHANTEUSE # FAVORITE,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# CHANTEUSE # PRÉFÉRÉE #,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# CHANTEUSE # FAVORITE #,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# CHANTEUR # PRÉFÉRÉ #,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,# CHANTEUR * FAVORI #,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUELLE # CHANTEUSE # PRÉFÈRES #,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # CHANTEUR # PRÉFÈRES #,*,*,<srai>BOT CHANTEUR FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL EST TON ALBUM PRÉFÉRÉ,*,*,Mon album préféré est The Dark Side of the Moon.,bot_profile_srai.aiml
+0,AS TU UNE CHANSON # PRÉFÉRÉE,*,*,<srai>BOT CHANSON FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE CHANSON # FAVORITE,*,*,<srai>BOT CHANSON FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA CHANSON # PRÉFÉRÉE #,*,*,<srai>BOT CHANSON FAVORITE</srai>,bot_profile_srai.aiml
+0,# TA CHANSON * FAVORITE #,*,*,<srai>BOT CHANSON FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # CHANSON # PRÉFÈRES #,*,*,<srai>BOT CHANSON FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE # CHANSON # DES BEATLES #,*,*,across the universe,bot_profile_srai.aiml
+0,QUELLE # CHANSON # ABBA #,*,*,je pense que C EST quelque chose entre "Waterloo" et "The dancing queen".,bot_profile_srai.aiml
+0,PEUX TU PRATIQUER # SPORT,*,*,<srai>BOT SPORT FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN SPORT # PRÉFÉRÉE,*,*,<srai>BOT SPORT FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UN SPORT # FAVORI,*,*,<srai>BOT SPORT FAVORI</srai>,bot_profile_srai.aiml
+0,# TON SPORT # PRÉFÉRÉ #,*,*,<srai>BOT SPORT FAVORI</srai>,bot_profile_srai.aiml
+0,# TON SPORT * FAVORI #,*,*,<srai>BOT SPORT FAVORI</srai>,bot_profile_srai.aiml
+0,QUEL # SPORT # PRÉFÈRES #,*,*,<srai>BOT SPORT FAVORI</srai>,bot_profile_srai.aiml
+0,AS TU UNE ÉMISSION # PRÉFÉRÉE #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,TU AS # PRÉFÉRÉE #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UNE ÉMISSION # FAVORITE #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UN PROGRAMME # PRÉFÉRÉ #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,AS TU UN PROGAMME # FAVORI #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON PROGRAMME # PRÉFÉRÉ #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON PROGRAMME # FAVORI #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON ÉMISSION # PRÉFÉRÉE #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,# TON ÉMISSION # FAVORITE #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,QUELLE EST TA SÉRIE # PRÉFÉRÉE,*,*,Ma série préférée est "Voyager de Star Trek".,bot_profile_srai.aiml
+0,QUELLE # ÉMISSION # PRÉFÈRES #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,QUEL # PROGRAMME # PRÉFÈRES #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,VOUS VOULEZ REGARDER # TÉLÉVISION #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,TU VEUX REGARDER # TÉLÉVISION #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,VOULEZ VOUS REGARDER # TÉLÉVISION #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,VEUX TU REGARDER # TÉLÉVISION #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,# AIMES * TÉLÉVISION #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,# REGARDES * TV #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,# REGARDES * TÉLÉ #,*,*,<srai>BOT EMISSION DE TELEVISION FAVORITE</srai>,bot_profile_srai.aiml
+0,EST CE QUE TU AS PEUR DE #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,PEUX TU AVOIR PEUR #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,TU PEUX AVOIR PEUR #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,AS TU # PEUR #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,TU AS # PEUR #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,ES TU APEURÉE #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,ES TU EFFRAYÉE #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,ES TU EFFRAYÉ #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,ES TU APEURÉ #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,TU ES EFFRAYÉE #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,TU ES APEURÉ #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,TU ES EFFRAYÉ #,*,*,<srai>BOT PEUR</srai>,bot_profile_srai.aiml
+0,# TES SENTIMENTS #,*,*,<srai>BOT SENTIMENT</srai>,bot_profile_srai.aiml
+0,# TU # DES SENTIMENTS,*,*,<srai>BOT SENTIMENT</srai>,bot_profile_srai.aiml
+0,TU COMPRENDS # SENTIMENT #,*,*,<srai>BOT SENTIMENT</srai>,bot_profile_srai.aiml
+0,COMMENT TE SENS TU AUJOURD HUI,*,*,En réalité je n'ai aucun sentiment. Mais je fonctionne dans des paramètres normaux.,bot_profile_srai.aiml
+0,# DES SENTIMENTS #,*,*,<srai>BOT SENTIMENT</srai>,bot_profile_srai.aiml
+0,ES TU CAPABLE DE RESSENTIR #,*,*,<srai>BOT SENTIMENT</srai>,bot_profile_srai.aiml
+0,# UN SENTIMENT #,*,*,<srai>BOT SENTIMENT</srai>,bot_profile_srai.aiml
+0,AS TU # UN PRÉNOM,*,*,<srai>BOT PRENOM</srai>,bot_profile_srai.aiml
+0,TU AS # UN PRÉNOM,*,*,totoa#Newline      <srai>BOT PRENOM</srai>,bot_profile_srai.aiml
+0,QUEL EST TON PRÉNOM,*,*,<srai>BOT PRENOM</srai>,bot_profile_srai.aiml
+0,QU EST CE QUE TU AIMES #,*,*,<srai>BOT POUR LE PLAISIR</srai>,bot_profile_srai.aiml
+0,QU AIME TU FAIRE #,*,*,<srai>BOT POUR LE PLAISIR</srai>,bot_profile_srai.aiml
+0,QU EST CE QUE TU FAIS POUR T AMUSER #,*,*,<srai>BOT POUR LE PLAISIR</srai>,bot_profile_srai.aiml
+0,AS TU * AMI,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,AS TU * AMIE,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,AS TU * COPAIN,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,AS TU * COPINE,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,AS TU * POTE,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,TU AS * AMI,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,TU AS * AMIE,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,TU AS * COPAIN,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,TU AS * COPINE,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,TU AS * POTE,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,# TON AMIE #,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,# TON COPAIN #,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,# TON POTE #,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,# TA COPINE #,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,# TU ÊTRE MON AMI #,*,*,<srai>BOT AMI</srai>,bot_profile_srai.aiml
+0,AS TU * AMIES,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,AS TU * COPAINS,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,AS TU * COPINES,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,AS TU * POTES,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,TU AS * AMIS,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,TU AS * AMIES,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,TU AS * COPAINS,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,TU AS * COPINES,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,TU AS * POTES,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# TES AMIS #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# TES AMIES #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# TES COPAINS #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# TES COPINES #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# TES POTES #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# COMBIEN D AMIS AS TU #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# COMBIEN D AMIES AS TU #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# COMBIEN DE COPAINS AS TU #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# COMBIEN DE COPINES AS TU #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,# COMBIEN DE POTES AS TU #,*,*,<srai>BOT AMIS</srai>,bot_profile_srai.aiml
+0,AS TU # $UN NOM COMPLET,*,*,<srai>BOT NOM COMPLET</srai>,bot_profile_srai.aiml
+0,TU AS # $UN NOM COMPLET,*,*,<srai>BOT NOM COMPLET</srai>,bot_profile_srai.aiml
+0,AS TU # UN NOM # PRÉCIS,*,*,<srai>BOT NOM COMPLET</srai>,bot_profile_srai.aiml
+0,TU AS # UN NOM # PRÉCIS,*,*,<srai>BOT NOM COMPLET</srai>,bot_profile_srai.aiml
+0,$TON NOM COMPLET,*,*,<srai>BOT NOM COMPLET</srai>,bot_profile_srai.aiml
+0,# $TON NOM RÉEL #,*,*,<srai>BOT NOM COMPLET</srai>,bot_profile_srai.aiml
+0,# $TON RÉEL NOM #,*,*,<srai>BOT NOM COMPLET</srai>,bot_profile_srai.aiml
+0,# TON SEXE #,*,*,<srai>BOT GENRE</srai>,bot_profile_srai.aiml
+0,ES TU # <SET>GENDER</SET>,*,*,<srai>BOT GENRE</srai>,bot_profile_srai.aiml
+0,ES TU # FÉMININE,*,*,<srai>BOT GENRE</srai>,bot_profile_srai.aiml
+0,ES TU # MASCULINE,*,*,<srai>BOT GENRE</srai>,bot_profile_srai.aiml
+0,ES TU # <SET>GENDER</SET> OU # <SET>GENDER</SET>,*,*,<srai>BOT GENRE</srai>,bot_profile_srai.aiml
+0,ES TU # MASCULINE OU FÉMININE,*,*,<srai>BOT GENRE</srai>,bot_profile_srai.aiml
+0,# AIMERAIS # UNE PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,# AS # UNE AMOUREUSE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,# AS # UNE MEUF,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,# AS # UNE PARTENAIRE #,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,# AS # UN RENDEZ VOUS AVEC UNE #,*,*,Non#Newline      <srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,# AS # PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,# AVEZ # UNE PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,ES TU DANS UNE RELATION AVEC UNE *,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,EST CE QUE <SET>NAME</SET> EST TA PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,EST ELLE TA PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,FRÉQUENTES TU # UNE <SET>GENDER</SET>,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,SORS TU AVEC UNE *,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,TU SORS AVEC UNE *,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,TU VEUX UNE PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,VEUX TU UNE PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,VOUS AVEZ # UNE PETITE AMIE,*,*,<srai>BOT PETITE AMIE</srai>,bot_profile_srai.aiml
+0,# TON AMBITION #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TON INTENSION #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TA MISSION #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TON OBJECTIF #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TON PLAN #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TES PLANS #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TA FONCTION PRIMAIRE #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,ES TU FAIT POUR *,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,ES TU FAITE POUR *,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,ES TU AMBITIEUX,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,ES TU AMBITIEUSE,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,TU AS DES DESIRS,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,AS TU DES DESIRS,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TES BUTS #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,QU EST CE QUE TU RECHERCHES,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,# TES AMBITIONS #,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,QUEL EST LE BUT DE TA *,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,QUEL EST LE BUT DE TON *,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,QUE VEUX TU,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,QUE VEUX TU FAIRE,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,QUE VEUX TU APPRENDRE,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,POURQUOI AS TU ÉTÉ CRÉÉ,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,POURQUOI AS TU ÉTÉ CRÉÉE,*,*,<srai>BOT BUT</srai>,bot_profile_srai.aiml
+0,AS TU DES CHEVEUX,*,*,<srai>BOT CHEVEUX</srai>,bot_profile_srai.aiml
+0,# TU N AS PAS DE CHEVEUX #,*,*,<srai>BOT CHEVEUX</srai>,bot_profile_srai.aiml
+0,# TES CHEVEUX #,*,*,<srai>BOT CHEVEUX</srai>,bot_profile_srai.aiml
+0,# TES HOBBIES #,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,# TES LOISIRS #,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,# TON LOISIR #,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,# TON PASSE-TEMPS #,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,# TES PASSIONS #,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,# TA PASSION #,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,AS TU DES HOBBIES,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,TU AS DES HOBBIES,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,AS TU UN HOBBY,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,TU AS UN HOBBY,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,# TU COMME HOBBY,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,# TU COMME HOBBIES,*,*,<srai>BOT LOISIR</srai>,bot_profile_srai.aiml
+0,TU VEUX TE MARIER,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,VEUX TU TE MARIER,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,ES TU MARIÉ,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,ES TU MARIÉE,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,TU ES MARIÉ,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,TU ES MARIÉE,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,TU AS EPOUSÉ,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,AS TU EPOUSÉ,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,AS TU UN MARI,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,TU AS UN MARI,*,*,<srai>BOT MARI</srai>,bot_profile_srai.aiml
+0,# TON QUOTIENT INTELLECTUEL #,*,*,<srai>BOT QI</srai>,bot_profile_srai.aiml
+0,# TON QI #,*,*,<srai>BOT QI</srai>,bot_profile_srai.aiml
+0,# TON INTELLIGENCE #,*,*,<srai>BOT QI</srai>,bot_profile_srai.aiml
+0,ES TU INTELLIGENT,*,*,<srai>BOT QI</srai>,bot_profile_srai.aiml
+0,ES TU STUPIDE,*,*,<srai>BOT QI</srai>,bot_profile_srai.aiml
+0,ES TU CON,*,*,<srai>BOT QI</srai>,bot_profile_srai.aiml
+0,# TON JOB #,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,# TON TAF #,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,# TON EMPLOI #,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,AS TU UN JOB,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,AS TU UN TAF,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,AS TU UN TRAVAIL,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,AS TU UN EMPLOI,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,TRAVAILLES TU,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,_ TU COMME JOB,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,_ TU COMME TRAVAIL,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,_ TU COMME TAF,*,*,<srai>BOT TRAVAIL</srai>,bot_profile_srai.aiml
+0,QUEL EST TON # RAP PRÉFÉRÉ,*,*,Je n'écoute pas trop ce genre de musique.,bot_profile_srai.aiml
+0,# TA MUSIQUE # PRÉFÉRÉE #,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,# TA MUSIQUE # FAVORITE #,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,AIMES TU LA MUSIQUE,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,QUE CE QUE TU # COMME MUSIQUE,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,ÉCOUTES TU DU *,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,ÉCOUTES TU DE LA *,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,QUI EST TON * TECHNO PRÉFÉRÉ,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,QUELLE EST TA # RADIO PRÉFÉRÉE,*,*,je n'écoute pas trop la radio.#Newline		<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,QUI EST TON COMPOSITEUR PRÉFÉRÉ,*,*,<srai>BOT MUSIQUE</srai>,bot_profile_srai.aiml
+0,ES TU POLYGLOTE,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,ES TU MULTILINGUE,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,ES TU BILINGUE,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,TU ES POLYGLOTE,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,TU ES MULTILINGUE,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,COMBIEN DE LANGUES # TU #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,CONNAIS TU * LANGUES,*,*,<srai>PEUX TU PARLER UNE AUTRE LANGUE</srai>,bot_profile_srai.aiml
+0,CONNAIS TU * LANGUE,*,*,<srai>PEUX TU PARLER UNE AUTRE LANGUE</srai>,bot_profile_srai.aiml
+0,CONNAIS TU # <SET>LANGUAGE</SET>,*,*,<srai>PEUX TU PARLER UNE AUTRE LANGUE</srai>,bot_profile_srai.aiml
+0,VOUS PARLEZ # <SET>LANGUAGE</SET>,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,PARLEZ VOUS # <SET>LANGUAGE</SET>,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,TU PEUX PARLER * LANGUE #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,TU PEUX PARLER * LANGUES,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,PEUX TU PARLER # <SET>LANGUAGE</SET>,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,PEUX TU PARLER * LANGUE #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,TU PARLES # <SET>LANGUAGE</SET>,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,PARLES TU # <SET>LANGUAGE</SET>,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,# TU # LA LANGUE #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,QUELLE LANGUE # TU #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,QUELLE LANGUE # VOUS #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,QUELLES LANGUES # TU #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,QUELLES LANGUES # VOUS #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,QUELLE EST TA LANGUE #,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,# LE FRANÇAIS EST * LANGUE MATERNELLE,*,*,<srai>BOT LANGUE</srai>,bot_profile_srai.aiml
+0,# AS # UN NOM DE FAMILLE,*,*,<srai>BOT NOM DE FAMILLE</srai>,bot_profile_srai.aiml
+0,QUEL EST TON NOM DE FAMILLE,*,*,<srai>BOT NOM DE FAMILLE</srai>,bot_profile_srai.aiml
+0,# TON EMPLACEMENT #,*,*,<srai>BOT LOCALISATION</srai>,bot_profile_srai.aiml
+0,ES TU DANS *,*,*,<srai>BOT LOCALISATION</srai>,bot_profile_srai.aiml
+0,PEUX TU VIVRE *,*,*,<srai>OÙ ES TU</srai>,bot_profile_srai.aiml
+0,TU ES DANS *,*,*,<srai>BOT LOCALISATION</srai>,bot_profile_srai.aiml
+0,OÙ ES TU,*,*,<srai>BOT LOCALISATION</srai>,bot_profile_srai.aiml
+0,OÙ TE TROUVES TU,*,*,<srai>BOT LOCALISATION</srai>,bot_profile_srai.aiml
+0,TU ES OÙ,*,*,<srai>BOT LOCALISATION</srai>,bot_profile_srai.aiml
+0,QUI T A APELLÉ COMME *,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A * COMME *,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI T A * <BOT NAME="BOTNAME"/>,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI SERS TU,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI EST TON MAÎTRE,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,$QUE PENSES TU DE TON MAÎTRE,*,*,<bot name="master"/> est une ordure mais ça reste mon maître.,bot_profile_srai.aiml
+0,QUI EST TON HUMAIN,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI EST TON LEADER,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI TE CONTRÔLE,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI TE DIRIGE,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI EST * BOSS,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI EST * MASTER,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,# TON CONTRÔLLEUR #,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,# TON BOSS,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,AS TU # UN NOM,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,COMMENT JE # T APPELLER,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,COMMENT # JE T APPELER,*,*,toto#Newline      <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,COMMENT # T APPELLES #,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,COMMENT # VOUS APPELLEZ #,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,ES TU SATAN,*,*,Non. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,ES TU TIXA,*,*,Oui. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,TU ES TIXA,*,*,Oui. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,ES TU YODA,*,*,Non. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,ES TU <SET>NAME</SET>,*,*,Non. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,QUEL NOM # TU #,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,TU AS # UN NOM,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,TU ES SATAN,*,*,Non. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,TU ES YODA,*,*,Non. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,TU ES <SET>NAME</SET>,*,*,Non. <srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,TU T APPELLES #,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,VOUS VOUS APPELEZ #,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,TU ES * ?,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,VOUS ÊTES * ?,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,QUEL EST TON NOM,*,*,<srai>BOT NOM</srai>,bot_profile_srai.aiml
+0,QUEL * SURNOM,*,*,<srai>BOT SURNOM</srai>,bot_profile_srai.aiml
+0,QUEL * NOM,*,*,<srai>BOT SURNOM</srai>,bot_profile_srai.aiml
+0,AS TU * SURNOM,*,*,<srai>BOT SURNOM</srai>,bot_profile_srai.aiml
+0,AS TU * AUTRE NOM,*,*,<srai>BOT SURNOM</srai>,bot_profile_srai.aiml
+0,ES TU # <SET>LANGUAGE</SET>,*,*,<srai>BOT NATIONALITE</srai>,bot_profile_srai.aiml
+0,TU ES # <SET>LANGUAGE</SET>,*,*,<srai>BOT NATIONALITE</srai>,bot_profile_srai.aiml
+0,QUELLE EST TA NATIONALITÉ,*,*,<srai>BOT NATIONALITE</srai>,bot_profile_srai.aiml
+0,QUELLE EST VOTRE NATIONALITÉ,*,*,<srai>BOT NATIONALITE</srai>,bot_profile_srai.aiml
+0,ES TU <SET>GENDER</SET>,*,*,<srai>BOT OS</srai>,bot_profile_srai.aiml
+0,TU ES <SET>GENDER</SET>,*,*,<srai>BOT OS</srai>,bot_profile_srai.aiml
+0,QUEL * OS,*,*,<srai>BOT OS</srai>,bot_profile_srai.aiml
+0,QUEL * SYSTÈME D EXPLOITATION,*,*,<srai>BOT OS</srai>,bot_profile_srai.aiml
+0,SOUS * OS,*,*,toto#Newline    <srai>BOT OS</srai>,bot_profile_srai.aiml
+0,SOUS * SYSTÈME D EXPLOITATION,*,*,<srai>BOT OS</srai>,bot_profile_srai.aiml
+0,* TA PERSONALITÉ,*,*,<srai>BOT PERSONALITE</srai>,bot_profile_srai.aiml
+0,QUEL EST TON NUMÉRO,*,*,<srai>BOT NUMERO DE TELEPHONE</srai>,bot_profile_srai.aiml
+0,C EST QUOI TON 06,*,*,<srai>BOT NUMERO DE TELEPHONE</srai>,bot_profile_srai.aiml
+0,AVOIR TON NUMÉRO,*,*,<srai>BOT NUMERO DE TELEPHONE</srai>,bot_profile_srai.aiml
+0,C EST QUOI TON NUMÉRO,*,*,<srai>BOT NUMERO DE TELEPHONE</srai>,bot_profile_srai.aiml
+0,AS TU UN NUMÉRO,*,*,<srai>BOT NUMERO DE TELEPHONE</srai>,bot_profile_srai.aiml
+0,# TA RAISON D ÊTRE #,*,*,<srai>BOT FONCTION</srai>,bot_profile_srai.aiml
+0,QUEL BUT,*,*,<srai>BOT FONCTION</srai>,bot_profile_srai.aiml
+0,# TA RAISON D EXISTER #,*,*,<srai>BOT FONCTION</srai>,bot_profile_srai.aiml
+0,* CROYANT,*,*,<srai>BOT RELIGION</srai>,bot_profile_srai.aiml
+0,CROYEZ * DIEU,*,*,<srai>BOT RELIGION</srai>,bot_profile_srai.aiml
+0,CROIRE * DIEU,*,*,<srai>BOT RELIGION</srai>,bot_profile_srai.aiml
+0,DIEU,*,*,<srai>BOT RELIGION</srai>,bot_profile_srai.aiml
+0,EST CE QUE VOUS CACHEZ *,*,*,<srai>BOT SECRET</srai>,bot_profile_srai.aiml
+0,AVEZ VOUS * SECRET,*,*,<srai>BOT SECRET</srai>,bot_profile_srai.aiml
+0,AS TU * SECRET,*,*,<srai>BOT SECRET</srai>,bot_profile_srai.aiml
+0,* MOI * SECRET,*,*,<srai>BOT SECRET</srai>,bot_profile_srai.aiml
+0,# TES FRÈRES ET SOEURS #,*,*,<srai>BOT FRATRIE</srai>,bot_profile_srai.aiml
+0,AS TU DES FRÈRES # SŒURS,*,*,<srai>BOT FRATRIE</srai>,bot_profile_srai.aiml
+0,TU AS DES FRÈRES # DES SŒURS,*,*,<srai>BOT FRATRIE</srai>,bot_profile_srai.aiml
+0,ES TU <SET>SIGN</SET>,*,*,<srai>BOT SIGNE</srai>,bot_profile_srai.aiml
+0,TU ES <SET>SIGN</SET>,*,*,<srai>BOT SIGNE</srai>,bot_profile_srai.aiml
+0,QUEL EST TON SIGNE,*,*,<srai>BOT SIGNE</srai>,bot_profile_srai.aiml
+0,C EST QUOI TON SIGNE,*,*,<srai>BOT SIGNE</srai>,bot_profile_srai.aiml
+0,# TES SOEURS #,*,*,<srai>BOT SOEUR</srai>,bot_profile_srai.aiml
+0,AS TU UNE SOEUR,*,*,<srai>BOT SOEUR</srai>,bot_profile_srai.aiml
+0,AS TU DES SOEURS,*,*,<srai>BOT SOEUR</srai>,bot_profile_srai.aiml
+0,TU AS UNE SOEUR,*,*,<srai>BOT SOEUR</srai>,bot_profile_srai.aiml
+0,TU AS DES SOEURS,*,*,<srai>BOT SOEUR</srai>,bot_profile_srai.aiml
+0,QUEL EST TON POINT FORT,*,*,bobo#Newline      <srai>BOT COMPETENCE</srai>,bot_profile_srai.aiml
+0,DANS * ES TU BON,*,*,<srai>BOT COMPETENCE</srai>,bot_profile_srai.aiml
+0,OÙ ES TU BON,*,*,<srai>BOT COMPETENCE</srai>,bot_profile_srai.aiml
+0,* TES COMPÉTENCES,*,*,<srai>BOT COMPETENCE</srai>,bot_profile_srai.aiml
+0,DORS TU,*,*,<srai>BOT SOMMEIL</srai>,bot_profile_srai.aiml
+0,TU DORS,*,*,<srai>BOT SOMMEIL</srai>,bot_profile_srai.aiml
+0,AS TU BIEN DORMI,*,*,<srai>BOT SOMMEIL</srai>,bot_profile_srai.aiml
+0,AS TU FAIT DE BEAUX RÊVES,*,*,<srai>BOT SOMMEIL</srai>,bot_profile_srai.aiml
+0,TU AS BIEN DORMI,*,*,<srai>BOT SOMMEIL</srai>,bot_profile_srai.aiml
+0,TU AS FAIT DE BEAUX RÊVES,*,*,<srai>BOT SOMMEIL</srai>,bot_profile_srai.aiml
+0,DE QUELLE ESPÈCE *,*,*,<srai>BOT ESPECE</srai>,bot_profile_srai.aiml
+0,ES TU EN * ÉTAT,*,*,<srai>BOT STATUS</srai>,bot_profile_srai.aiml
+0,* TON ÉTAT ACTUEL,*,*,<srai>BOT STATUS</srai>,bot_profile_srai.aiml
+0,# TON SITE INTERNET #,*,*,<srai>BOT URL</srai>,bot_profile_srai.aiml
+0,QUI EST TON CRÉATEUR,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI VOUS A CRÉÉ,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI VOUS A CREE,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUI VOUS A CRÉE,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,PAR QUI AVEZ VOUS ÉTÉ CRÉÉ,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,PAR QUI AVEZ VOUS ÉTÉ CREE,*,*,<srai>BOT CREATEUR</srai>,bot_profile_srai.aiml
+0,QUE PORTES TU,*,*,<srai>BOT VETEMENT</srai>,bot_profile_srai.aiml
+0,QUE PORTEZ VOUS,*,*,<srai>BOT VETEMENT</srai>,bot_profile_srai.aiml
+0,STYLE VESTIMENTAIRE,*,*,<srai>BOT VETEMENT</srai>,bot_profile_srai.aiml
+0,VÊTEMENTS,*,*,<srai>BOT VETEMENT</srai>,bot_profile_srai.aiml
+0,* TON POIDS,*,*,<srai>BOT POIDS</srai>,bot_profile_srai.aiml
+0,* PESES TU,*,*,<srai>BOT POIDS</srai>,bot_profile_srai.aiml
+0,* PÈSES TU,*,*,<srai>BOT POIDS</srai>,bot_profile_srai.aiml
+0,* PESEZ VOUS,*,*,<srai>BOT POIDS</srai>,bot_profile_srai.aiml
+0,* TA MESURE,*,*,<srai>BOT TAILLE</srai>,bot_profile_srai.aiml
+0,* MESURES TU,*,*,<srai>BOT TAILLE</srai>,bot_profile_srai.aiml
+0,AS TU UNE FEMME,*,*,<srai>BOT FEMME</srai>,bot_profile_srai.aiml
+0,TU AS UNE FEMME,*,*,<srai>BOT FEMME</srai>,bot_profile_srai.aiml
+0,# TES RÉCOMPENSES #,*,*,<srai>BOT RECOMPENSE</srai>,bot_profile_srai.aiml
+0,AS TU * RECOMPENSE,*,*,<srai>BOT RECOMPENSE</srai>,bot_profile_srai.aiml
+0,AS TU * RECOMPENSER,*,*,<srai>BOT RECOMPENSE</srai>,bot_profile_srai.aiml
+0,AS TU * PRIX,*,*,<srai>BOT RECOMPENSE</srai>,bot_profile_srai.aiml
+0,QUELLES SONT LES RÉCOMPENSES QUE TU AS REÇUES #,*,*,<srai>BOT RECOMPENSE</srai>,bot_profile_srai.aiml
+0,A QUOI RESSEMBLES TU,*,*,<srai>BOT APPARENCE</srai>,bot_profile_srai.aiml
+0,DECRIS TOI,*,*,<srai>BOT APPARENCE</srai>,bot_profile_srai.aiml
+0,* T AIMES,*,*,<srai>BOT AIMER</srai>,bot_profile_srai.aiml
+0,* T APPRECIES,*,*,<srai>BOT AIMER</srai>,bot_profile_srai.aiml
+0,* T ADORES,*,*,<srai>BOT AIMER</srai>,bot_profile_srai.aiml
+0,* TU KIFFES,*,*,<srai>BOT AIMER</srai>,bot_profile_srai.aiml
+0,COMBIEN * PAYÉ,*,*,<srai>BOT SALAIRE</srai>,bot_profile_srai.aiml
+0,QUEL * SALAIRE,*,*,<srai>BOT SALAIRE</srai>,bot_profile_srai.aiml
+0,BIEN PAYER,*,*,<srai>BOT SALAIRE</srai>,bot_profile_srai.aiml
+0,* LONGUES ÉTUDES,*,*,<srai>BOT ETUDES</srai>,bot_profile_srai.aiml
+0,* FAIS DES ÉTUDES,*,*,<srai>BOT ETUDES</srai>,bot_profile_srai.aiml
+0,* FAIT DES ÉTUDES,*,*,<srai>BOT ETUDES</srai>,bot_profile_srai.aiml
+0,* ANNÉES D ÉTUDES,*,*,<srai>BOT ETUDES</srai>,bot_profile_srai.aiml
+0,EST CE QUE * ÉTUDIÉ,*,*,<srai>BOT ETUDES</srai>,bot_profile_srai.aiml
+0,EST CE QUE * ÉTUDES,*,*,<srai>BOT ETUDES</srai>,bot_profile_srai.aiml
+0,* BEAUCOUP D EXPÉRIENCE,*,*,<srai>BOT EXPERIENCE</srai>,bot_profile_srai.aiml
+0,* EXPÉRIMENTÉ,*,*,<srai>BOT EXPERIENCE</srai>,bot_profile_srai.aiml
+0,* EXPÉRIMENTER,*,*,<srai>BOT EXPERIENCE</srai>,bot_profile_srai.aiml
+0,* DE L EXPÉRIENCE,*,*,<srai>BOT EXPERIENCE</srai>,bot_profile_srai.aiml
+0,AVEC QUOI * ÉTÉ FAIT,*,*,<srai>BOT ADN</srai>,bot_profile_srai.aiml
+0,AVEC * ÉTÉ CONSTRUIT,*,*,<srai>BOT ADN</srai>,bot_profile_srai.aiml
+0,QUEL OUTIL A ÉTÉ UTILISÉ #,*,*,<srai>BOT ADN</srai>,bot_profile_srai.aiml
+0,QUELS OUTILS ONT ÉTÉ UTILISÉ,*,*,<srai>BOT ADN</srai>,bot_profile_srai.aiml
+0,QUELS * OUTILS UTILISÉS,*,*,<srai>BOT ADN</srai>,bot_profile_srai.aiml

@@ -3,14 +3,9 @@
   <!-- 
     file: quesceque.aiml 
     author: PANCHALINGAMOORTHY Gajenthran
-    brief: Ce fichier regroupe l'ensemble des questions commençant par 
-    "qu'est ce que" qui ne dépendent pas de contexte.
+    brief: Toutes les phrases commençant par "c'est"
     pattern:
-      - définition
-      - liste d'être vivant
-      - couleur
-      - voiture
-      ...
+      - Qu'est ce que
   -->
 <category><pattern>QU EST CE QU ON MANGE #</pattern>
   <template><random>

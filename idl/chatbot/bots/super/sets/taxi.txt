@@ -7,3 +7,4 @@ place
 nourriture
 animaux
 raccourci
+temps

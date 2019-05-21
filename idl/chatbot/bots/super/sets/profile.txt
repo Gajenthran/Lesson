@@ -1,3 +1,4 @@
+adn
 adresse
 age
 en vie
@@ -14,8 +15,6 @@ botname
 petit ami
 version de ton cerveau
 frere
-build
-chat
 enfant
 ville
 classe
@@ -32,13 +31,14 @@ chien
 occupation
 domaine
 education
-email
+mail
+taille
 emotion
 employeur
 ennemi
 ethique
 ethnie
-couleur d yeux
+couleur yeux
 yeux
 page facebook
 famille
@@ -47,7 +47,7 @@ acteur favori
 actrice favorite
 artiste favori
 auteur favori
-groupe favori
+musique
 livre favori
 voiture favorite
 couleur favorite
@@ -76,7 +76,7 @@ cheveux
 has
 have
 taille
-hobby
+loisir
 mari
 QI
 travail
@@ -110,6 +110,7 @@ road
 secret
 fratrie
 signe
+apparence
 soeur
 competence
 sommeil
@@ -119,8 +120,13 @@ status
 rue
 interlocuteur
 group
-compte twitter
+animal
 url
+aimer
+experience
+salaire
+etudes
+ville favorite
 vacance
 version
 vocabulaire

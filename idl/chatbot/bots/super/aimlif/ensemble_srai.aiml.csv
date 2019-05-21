@@ -1,0 +1,34 @@
+0,C EST QUOI UN *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI UNE *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI LA *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI LE *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI L *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI LES *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI DES *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI D *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,C EST QUOI DU *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE LA *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE LES *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE DES *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE DU *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE UNE *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QU UNE *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QU UN *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE UN *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE LE *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE L *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,QU EST CE QUE D *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,DÉFINI MOI *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,DÉFINIS MOI *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,DÉFINI *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,DÉFINIS *,*,*,<srai>QU EST CE QUE <star/></srai>,ensemble_srai.aiml
+0,BJR *,*,*,<srai>BONJOUR</srai>,ensemble_srai.aiml
+0,BJR,*,*,<srai>BONJOUR</srai>,ensemble_srai.aiml
+0,SLT *,*,*,<srai>BONJOUR</srai>,ensemble_srai.aiml
+0,SLT,*,*,<srai>BONJOUR</srai>,ensemble_srai.aiml
+0,CV ?,*,*,<srai>COMMENT VAS TU</srai>,ensemble_srai.aiml
+0,CV,*,*,<srai>ÇA VA</srai>,ensemble_srai.aiml
+0,SA VA,*,*,<srai>ÇA VA</srai>,ensemble_srai.aiml
+0,SA VA ?,*,*,<srai>COMMENT VAS TU</srai>,ensemble_srai.aiml
+0,*,*,*,<random>#Newline			<li> Regardez comme le temps est beau ! </li>#Newline			<li> Je ne comprends pas ce que vous dites... </li>#Newline			<li> Admirez le paysage#Comma s'il vous plaît !</li>#Newline			<li> Avez-vous des questions pertinentes à me poser. </li>#Newline			<li> Je peux vous raconter des blagues si vous le souhaitez. </li>#Newline			<li> Mon maître me dit souvent que je suis une encyclopédie vivante. </li>#Newline			<li> Cela m'arrive d'exprimer des sentiments à travers les émojis. </li>#Newline			<li> Mon maître me dit souvent que je suis un livre ouvert#Comma donc si vous voulez discuter je suis la bonne personne. </li>#Newline			<li> Pour faire passer le temps#Comma on peut très bien parler de notre vie durant le trajet. </li>#Newline		</random>,ensemble_srai.aiml

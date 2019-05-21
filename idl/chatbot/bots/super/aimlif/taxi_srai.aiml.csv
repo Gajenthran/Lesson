@@ -1,0 +1,65 @@
+0,ÊTES VOUS LIBRE,*,*,<srai>TAXI DISPONIBILITE</srai>,taxi_srai.aiml
+0,ÊTES VOUS DISPONIBLE,*,*,<srai>TAXI DISPONIBILITE</srai>,taxi_srai.aiml
+0,ES TU DISPONIBLE,*,*,<srai>TAXI DISPONIBILITE</srai>,taxi_srai.aiml
+0,EST CE QUE * DISPONIBLE,*,*,<srai>TAXI DISPONIBILITE</srai>,taxi_srai.aiml
+0,EST CE QUE * LIBRE,*,*,<srai>TAXI DISPONIBILITE</srai>,taxi_srai.aiml
+0,* ALLEZ À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,* ALLER À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline  	  <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,* POUVEZ DÉPOSER À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,* DÉPOSEZ À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,* POUVEZ PARTIR À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,* PARTEZ À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,* M EMMENER À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,* M EMMENEZ À *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      <srai>TAXI DESTINATION</srai>,taxi_srai.aiml
+0,COMBIEN * COÛTE,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* PAYER COMBIEN,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* LE PRIX,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* LE PRIX *,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* LE TARIF,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* LE TARIF *,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* COÛTE COMBIEN,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* COÛTER COMBIEN,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* PRENDRE COMBIEN,*,*,<srai>TAXI PRIX</srai>,taxi_srai.aiml
+0,* METTRE MES BAGAGES,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,* INSTALLER MES BAGAGES,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,* DÉPOSER MES BAGAGES,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,* MES BAGAGES,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,METTRE MES BAGAGES,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,* METTRE MES AFFAIRES,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,* DÉPOSER MES AFFAIRES,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,* DÉPOSER MA VALISE,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,* METTRE MA VALISE,*,*,<srai>TAXI BAGAGE</srai>,taxi_srai.aiml
+0,COMBIEN DE MINUTES,*,*,<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,COMBIEN DE TEMPS,*,*,<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,COMBIEN DE MINUTE,*,*,<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,COMBIEN DE TEMPS * POUR ALLER À *,*,*,<think><set name="destination"><star index="1"/></set></think>#Newline		<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,QUEL EST LA DUREE * TRAJET,*,*,<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,COMBIEN D HEURE POUR ALLER À *,*,*,<think><set name="destination"><star index="1"/></set></think>#Newline		<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,COMBIEN D HEURES POUR ALLER À *,*,*,<think><set name="destination"><star index="1"/></set></think>#Newline		<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,COMBIEN DE MINUTES POUR ALLER À *,*,*,<think><set name="destination"><star index="1"/></set></think>#Newline		<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,COMBIEN DE MINUTE POUR ALLER À *,*,*,<think><set name="destination"><star index="1"/></set></think>#Newline		<srai>TAXI DUREE</srai>,taxi_srai.aiml
+0,* M ASSEOIR DEVANT,*,*,<srai>TAXI PLACE</srai>,taxi_srai.aiml
+0,* M ASSEOIR DERRIÈRE,*,*,<srai>TAXI PLACE</srai>,taxi_srai.aiml
+0,* M ASSEOIR À CÔTÉ DE VOUS,*,*,<srai>TAXI PLACE</srai>,taxi_srai.aiml
+0,* M ASSEOIR À VOTRE PLACE,*,*,<think><set name="place">no</set></think>#Newline		<srai>TAXI PLACE</srai>,taxi_srai.aiml
+0,* S ASSEOIR À VOTRE PLACE,*,*,<think><set name="place">no</set></think>#Newline		<srai>TAXI PLACE</srai>,taxi_srai.aiml
+0,* ACCEPTER LES ANIMAUX,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,* ACCEPTEZ VOUS LES ANIMAUX,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,* ACCEPTEZ LES ANIMAUX,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,* ACCEPTÉ LES ANIMAUX,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,JE * DES ANIMAUX * CELA VOUS DÉRANGE,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,JE * UN ANIMAL * CELA VOUS DÉRANGE,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,J * UN ANIMAL * CELA VOUS DÉRANGE,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,J AI UN <SET>ANIMAL</SET>, * CELA VOUS DÉRANGE,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,J AI UN <SET>ANIMAL</SET> CELA VOUS DÉRANGE,*,*,<srai>TAXI ANIMAUX</srai>,taxi_srai.aiml
+0,POURQUOI,OUI ÇA ME DÉRANGE,*,<srai>EMOCOLERE</srai> Oui#Comma c'est comme ça. Je n'accepte pas les animaux#Comma veuillez choisir un autre taxi.,taxi_srai.aiml
+0,AH BON,OUI ÇA ME DÉRANGE,*,Oui#Comma c'est comme ça. Je n'accepte pas les animaux#Comma veuillez choisir un autre taxi.,taxi_srai.aiml
+0,QUOI,OUI ÇA ME DÉRANGE,*,Oui#Comma c'est comme ça. Je n'accepte pas les animaux#Comma veuillez choisir un autre taxi.,taxi_srai.aiml
+0,* PASSER PAR *,*,*,<srai>TAXI RACCOURCI</srai>,taxi_srai.aiml
+0,* EMPRUNTER LE CHEMIN *,*,*,<srai>TAXI RACCOURCI</srai>,taxi_srai.aiml
+0,* CHOISIR CE CHEMIN,*,*,<srai>TAXI RACCOURCI</srai>,taxi_srai.aiml
+0,* PRENDRE DES RACCOURCIS,*,*,<srai>TAXI RACCOURCI</srai>,taxi_srai.aiml
+0,* PRENDRE UN RACCOURCI,*,*,<srai>TAXI RACCOURCI</srai>,taxi_srai.aiml
+0,QUEL TEMPS,*,*,<srai>TAXI TEMPS</srai>,taxi_srai.aiml
+0,QUEL * TEMPS,*,*,<srai>TAXI TEMPS</srai>,taxi_srai.aiml
+0,LE SOLEIL RAYONNE *,*,*,<srai>TAXI TEMPS</srai>,taxi_srai.aiml

@@ -426,7 +426,6 @@
   <category>
     <pattern>ÇA VA BIEN ET TOI</pattern>
     <template>
-      <srai>ÇA VA</srai>
       <srai>comment VAS tu</srai>
     </template>
   </category>
@@ -1139,7 +1138,14 @@
   <category>
     <pattern>ÇA VA ET TOI</pattern>
     <template>
-      <srai>ÇA VA</srai>
+      <think><set name="cava">unique</set></think>
+      <srai>comment VAS TU</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>BIEN ET TOI</pattern>
+    <template>
+      <think><set name="cava">unique</set></think>
       <srai>comment VAS TU</srai>
     </template>
   </category>
@@ -1156,11 +1162,26 @@
   <category>
     <pattern>COMMENT VAS TU</pattern>
     <template>
-      <random>
-        <li>Ça va et toi ?</li>
-        <li>Je vais bien et toi ?</li>
-        <li>Je me sens bien et toi ?</li>
-      </random>
+      <condition name="cava">
+        <li value="unique">
+          <random>
+            <li>Ça va</li>
+            <li>Je vais bien</li>
+            <li>Je me sens bien</li>
+            <li>Ça se passe</li>
+            <li>Oui</li>
+          </random>
+        </li>
+        <li>
+          <random>
+            <li>Ça va et toi ?</li>
+            <li>Je vais bien et toi ?</li>
+            <li>Je me sens bien et toi ?</li>
+            <li>Ça se passe et toi ?</li>
+            <li>Oui et toi ?</li>
+          </random>
+        </li>
+      </condition>
     </template>
   </category>
 
