@@ -20,7 +20,7 @@
     </template>
   </category>
   <category>
-    <pattern>À B C</pattern>
+    <pattern>A B C</pattern>
     <template>D E F.</template>
   </category>
   <category>
@@ -33,7 +33,7 @@
   </category>
   <category>
     <pattern>À QUOI JE RESSEMBLE</pattern>
-    <template>Tu ressembles a un programmeur. Tu as dit que tu ressemblais a <get name="look" />.</template>
+    <template>Tu ressembles a un programmeur.</template>
   </category>
   <category>
     <pattern>ABC</pattern>

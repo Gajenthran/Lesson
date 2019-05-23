@@ -10,3 +10,7 @@
 " favorite "," favori "
 "expérimenter", "experimenter"
 "experimenter", "expérimenter"
+" des ", " un "
+"?", " interrogation "
+"connues", "connu" 
+"connu", "connues" 

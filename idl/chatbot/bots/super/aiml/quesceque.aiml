@@ -317,6 +317,9 @@
 <category><pattern>QU EST CE QUE ACTINIUM</pattern>
 <template>Actinium est un élément radioactif.</template>
 </category>
+<category><pattern>QU EST CE QUE TRAGÉDIE</pattern>
+<template>La tragédie peut faire référence à un évènement funeste, drame, catastrophe.</template>
+</category>
 <category><pattern>QU EST CE QUE ACTIVATION</pattern>
 <template>Dans la réponse de stimulus, l activation signifie l'entrée "tirant" en réponse à pattern correspondant.</template>
 </category>

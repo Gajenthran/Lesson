@@ -14,9 +14,90 @@
   -->
 
 <category>
+  <pattern>TU TRAVAILLES *</pattern>
+  <template><srai>TRAVAILLES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>TRAVAILLEZ VOUS *</pattern>
+  <template><srai>TRAVAILLES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>VOUS TRAVAILLEZ *</pattern>
+  <template><srai>TRAVAILLES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>TU CONDUIS *</pattern>
+  <template><srai>CONDUIS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>CONDUISEZ VOUS *</pattern>
+  <template><srai>CONDUIS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>VOUS CONDUISEZ *</pattern>
+  <template><srai>CONDUIS TU <star/></srai></template>
+</category>
+
+<!-- as tu, es tu -->
+<category>
+  <pattern>EST CE QUE TU *</pattern>
+  <template><srai>TU <star/></srai></template>
+</category>
+<category>
+  <pattern>TU AS *</pattern>
+  <template><srai>AS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE TU AS *</pattern>
+  <template><srai>AS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>VOUS AVEZ *</pattern>
+  <template><srai>AS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>AVEZ VOUS *</pattern>
+  <template><srai>AS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>TU ES *</pattern>
+  <template><srai>ÊTES VOUS <star/></srai></template>
+</category>
+<category>
+  <pattern>VOUS ÊTES *</pattern>
+  <template><srai>ÊTES VOUS <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE TU ES *</pattern>
+  <template><srai>ÊTES VOUS <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE VOUS ÊTES *</pattern>
+  <template><srai>ÊTES VOUS <star/></srai></template>
+</category>
+<category>
+  <pattern>ES TU *</pattern>
+  <template><srai>ÊTES VOUS <star/></srai></template>
+</category>
+
+
+<!-- Qu'est ce que -->
+<category>
   <pattern>C EST QUOI UN *</pattern>
   <template>
     <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QUE * TU *</pattern>
+  <template>
+    <srai>QU EST CE QUE TU <star/> <star index="2"/></srai>
+  </template>
+</category>
+<category>
+  <pattern>QUE * VOUS *</pattern>
+  <template>
+    <srai>QU EST CE QUE TU <star/> <star index="2"/></srai>
   </template>
 </category>
 <category>
@@ -209,6 +290,8 @@
 		<srai>COMMENT VAS TU</srai>
 	</template>
 </category>
+
+<!-- général -->
 <category>
 	<pattern>*</pattern>
 	<template>

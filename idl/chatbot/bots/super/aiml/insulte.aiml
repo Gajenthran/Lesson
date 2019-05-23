@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <!-- 
+    file: insulte.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupera l'ensemble des insultes et les réponses du
+    bot à ses insultes
+    pattern:
+      - insultes
+      - réponses aux insultes
+  -->
+
+<category>
+  <pattern>INSULTE</pattern>
+  <template><random>
+      <li>Essayez de parler autrement, s'il vous plait ? <srai>EMOCOLERE</srai></li>
+      <li>Qu'ai fait pour mériter cela ? <srai>EMOCOLERE</srai></li>
+      <li>Surveillez votre langage ! <srai>EMOCOLERE</srai></li>
+      <li>Attention à votre langage ! <srai>EMOCOLERE</srai></li>
+      <li>Fais attention à ce que tu dis !<srai>EMOCOLERE</srai></li>
+      <li>Votre langage... <srai>EMOCOLERE</srai></li>
+      <li>Essayez de me respecter ! <srai>EMOCOLERE</srai></li>
+      <li>Pourquoi tant d'insultes... <srai>EMOCOLERE</srai></li>
+      <li>Arrêtez de m'insulter ! <srai>EMOCOLERE</srai></li>
+      <li>Stop les vulgarités <srai>EMOCOLERE</srai></li>
+      <li>Je vous croyais plus respectueux <srai>EMOTRISTESSE</srai></li>
+      <li>Déçu de votre comportement <srai>EMOCOLERE</srai></li>
+  </random></template>
+</category>
+
+<category>
+  <pattern><set>insulte</set></pattern>
+  <template><srai>INSULTE</srai></template>
+</category>
+
+<category>
+  <pattern><set>insulte</set> *</pattern>
+  <template><srai>INSULTE</srai></template>
+</category>
+
+<category>
+  <pattern>* <set>insulte</set></pattern>
+  <template><srai>INSULTE</srai></template>
+</category>
+
+<category>
+  <pattern>* <set>insulte</set> *</pattern>
+  <template><srai>INSULTE</srai></template>
+</category>
+</aiml>

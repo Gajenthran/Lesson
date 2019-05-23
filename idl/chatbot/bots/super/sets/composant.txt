@@ -60,3 +60,20 @@ portieres
 ailes
 capot
 hayon
+gps
+objet connecté
+objets connectés
+lecteur
+écran
+ecran
+wifi
+météo
+meteo
+télévision
+television
+détecteur
+detecteur
+détecteurs
+detecteurs
+détecteur de mouvement
+détecteurs de mouvement

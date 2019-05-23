@@ -477,4 +477,416 @@
 		<srai>TAXI TEMPS</srai>
 	</template>
 </category>
+
+<!-- ACCIDENT -->
+<category>
+	<pattern>AS TU * DES ACCIDENTS</pattern>
+	<template>
+		<srai>TAXI ACCIDENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * UN ACCIDENT</pattern>
+	<template>
+		<srai>TAXI ACCIDENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>* ACCIDENTS *</pattern>
+	<template>
+		<srai>TAXI ACCIDENT</srai>
+	</template>
+</category>
+
+<!-- TRAGIQUE -->
+<category>
+	<pattern>* ÉVÈNEMENTS TRAGIQUES</pattern>
+	<template>
+		<srai>TAXI ACCIDENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>* EVENEMENT TRAGIQUE</pattern>
+	<template>
+		<srai>TAXI ACCIDENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>* TRAGIQUES *</pattern>
+	<template>
+		<srai>TAXI ACCIDENT</srai>
+	</template>
+</category>
+
+<!-- CÉLÉBRITÉ -->
+<category>
+	<pattern>AS TU * CÉLÈBRES</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * CÉLÈBRE</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * DES CÉLÉBRITÉS</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * UNE CÉLÉBRITÉ</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * DES STARS</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * UNE STAR</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * CONNU</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * CONNUE</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * CONNUS</pattern>
+	<template>
+		<srai>TAXI CELEBRITE</srai>
+	</template>
+</category>
+
+<!-- COMPORTEMENT -->
+<category>
+	<pattern>AS TU * COMPORTEMENTS *</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * COMPORTEMENT *</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>ES TU * COMPORTEMENTS *</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>ES TU * COMPORTEMENT</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * ÉTRANGES</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * ÉTRANGE</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * BIZARRE</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * BIZARRES</pattern>
+	<template>
+		<srai>TAXI COMPORTEMENT</srai>
+	</template>
+</category>
+
+<!-- AMENDE -->
+<category>
+	<pattern>AS TU * AMENDE</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * AMENDES</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * INFRACTIONS</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * INFRACTION</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * FLASHÉ</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * FLASHER</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * FLASHÉ</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * CONTRAVENTION</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * PEINE</pattern>
+	<template>
+		<srai>TAXI AMENDE</srai>
+	</template>
+</category>
+
+<!-- BOUCHON -->
+<category>
+	<pattern>QU EST CE QUE * EMBOUTAILLAGE</pattern>
+	<template>
+		<srai>TAXI BOUCHON</srai>
+	</template>
+</category>
+<category>
+	<pattern>QU EST CE QUE * EMBOUTAILLAGES</pattern>
+	<template>
+		<srai>TAXI BOUCHON</srai>
+	</template>
+</category>
+<category>
+	<pattern>QU EST CE QUE * BOUCHON</pattern>
+	<template>
+		<srai>TAXI BOUCHON</srai>
+	</template>
+</category>
+<category>
+	<pattern>QU EST CE QUE * BOUCHONS</pattern>
+	<template>
+		<srai>TAXI BOUCHON</srai>
+	</template>
+</category>
+<category>
+	<pattern>QU EST CE QUE * TRAFFIC</pattern>
+	<template>
+		<srai>TAXI BOUCHON</srai>
+	</template>
+</category>
+<category>
+	<pattern>QU EST CE QUE * TRAFFICS</pattern>
+	<template>
+		<srai>TAXI BOUCHON</srai>
+	</template>
+</category>
+<category>
+	<pattern>* EN RETARD</pattern>
+	<template>
+		<srai>TAXI BOUCHON</srai>
+	</template>
+</category>
+
+<!-- FREQUENCE -->
+<category>
+	<pattern>TRAVAILLES TU * LA NUIT OU LE JOUR</pattern>
+	<template>
+		<srai>TAXI FREQUENCE</srai>
+	</template>
+</category>
+<category>
+	<pattern>TRAVAILLES TU * LE JOUR OU LA NUIT</pattern>
+	<template>
+		<srai>TAXI FREQUENCE</srai>
+	</template>
+</category>
+<category>
+	<pattern>TRAVAILLES TU LA NUIT OU LE JOUR</pattern>
+	<template>
+		<srai>TAXI FREQUENCE</srai>
+	</template>
+</category>
+<category>
+	<pattern>TRAVAILLES TU LE JOUR OU LA NUIT</pattern>
+	<template>
+		<srai>TAXI FREQUENCE</srai>
+	</template>
+</category>
+<category>
+	<pattern>TRAVAILLES TU LE JOUR</pattern>
+	<template>
+		<srai>TAXI FREQUENCE</srai>
+	</template>
+</category>
+<category>
+	<pattern>TRAVAILLES TU LA NUIT</pattern>
+	<template>
+		<srai>TAXI FREQUENCE</srai>
+	</template>
+</category>
+<category>
+	<pattern>CONDUIS TU *</pattern>
+	<template>
+		<srai>TRAVAILLES TU <star/></srai>
+	</template>
+</category>
+<category>
+	<pattern>ROULES TU *</pattern>
+	<template>
+		<srai>TRAVAILLES TU <star/></srai>
+	</template>
+</category>
+<category>
+	<pattern>PRÉFÈRES TU *</pattern>
+	<template>
+		<srai>TRAVAILLES TU <star/></srai>
+	</template>
+</category>
+
+<!-- VACANCES -->
+<category>
+	<pattern>PRENDS TU * VACANCES</pattern>
+	<template>
+		<srai>TAXI VACANCES</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * VACANCES</pattern>
+	<template>
+		<srai>TAXI VACANCES</srai>
+	</template>
+</category>
+<category>
+	<pattern>PRENDS TU * PAUSES</pattern>
+	<template>
+		<srai>TAXI VACANCES</srai>
+	</template>
+</category>
+
+<!-- PROBLÈMES -->
+<category>
+	<pattern>AS TU * DES PROBLÈMES</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * UN PROBLÈME</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * DES SOUCIS</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>AS TU * UN SOUCI</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>* FRAUDEUR</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>* FRAUDEURS</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>* FRAUDÉ</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>* FRAUDER</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>* AGGRESSION</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+<category>
+	<pattern>* AGGRESSER</pattern>
+	<template>
+		<srai>TAXI PROBLEME</srai>
+	</template>
+</category>
+
+<!-- UBER -->
+<category>
+	<pattern>QU EST CE QUE * UBERS</pattern>
+	<template>
+		<srai>TAXI UBER</srai>
+	</template>
+</category>
+<category>
+	<pattern>QU EST CE QUE * UBER</pattern>
+	<template>
+		<srai>TAXI UBER</srai>
+	</template>
+</category>
+<category>
+	<pattern>QU EST CE QUE * VTC</pattern>
+	<template>
+		<srai>TAXI UBER</srai>
+	</template>
+</category>
+
+<!-- FONCTIONNALITÉS -->
+<category>
+	<pattern>AS TU * <set>composant</set></pattern>
+	<template>
+		<srai>TAXI FONCTIONNALITES</srai>
+	</template>
+</category>
 </aiml>

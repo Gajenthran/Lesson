@@ -99,9 +99,146 @@
 <category>
   <pattern>TEMPS</pattern>
   <template>
-  	<srai>EMOJOIE</srai> Oui ! C'est vrai que le temps est beau. Mon expérience a vu plusieurs le soleil.
+    <srai>EMOJOIE</srai> Oui ! C'est vrai que le temps est beau. Mon expérience a vu plusieurs le soleil.
   </template>
 </category>
+<category>
+  <pattern>ACCIDENT</pattern>
+  <template>
+    <random>
+      <li><srai>EMOTRISTESSE</srai> Ah les accidents sont de plus en plus frequents.</li>
+      <li>C'est la vie, nous devons continuer !</li>
+      <li>J'en ai vu "beaucoup trop" dans ma vie, malheureusement</li>
+      <li>Je ne ressens aucune émotions mais je peux comprendre la souffrance que cela procure...</li>
+      <li>La tragédie est un mot péjoratif</li>
+      <li>La tragédie, la souffrance, la tristesse, des mots difficile à avaler <srai>EMOTRISTESSE</srai></li>
+      <li>la tristesse et la souffrance hein</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>OUI</pattern>
+  <that>LA TRISTESSE ET LA SOUFFRANCE HEIN</that>
+  <template>
+    <random>
+      <li>Voila la manière dont je manifeste ma tristesse <srai>EMOTRISTESSE</srai>.</li>
+      <li><srai>EMOTRISTESSE</srai></li>
+      <li>Je ne peux pas le ressentir mais je peux le comprendre.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>CELEBRITE</pattern>
+  <template>
+    <random>
+      <li>êtes vous une célébrité</li>
+      <li>es tu une célébrité</li>
+      <li>Oui, cela m'arrive de rencontrer des célébrités</li>
+      <li>J'ai en effet déjà rencontré des gens de ma base de données</li>
+      <li>Oui, et ils sont plutôt sympathiques</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>OUI</pattern>
+  <that>ÊTES VOUS UNE CÉLÉBRITÉ</that>
+  <that>ES TU UNE CÉLÉBRITÉ</that>
+  <template>
+    <random>
+      <li>Oh ok ! <srai>EMOCHOQUE</srai></li>
+      <li>Ok, j'ajouterais <get name="name"/> à ma base de données</li>
+      <li>Très bien, je ne savais pas cela</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>COMPORTEMENT</pattern>
+  <template>
+    <random>
+      <li><srai>EMORIRE</srai> En effet, certains sont très bizarres</li>
+      <li>Oui j'ai déjà été confronté à des comportements bizarres</li>
+      <li>Mon métier fait en sorte que je peux faire face à de nombreux types de personnes</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>AMENDE</pattern>
+  <template>
+    <random>
+      <li>Je suis irréprochable lorsque je conduis ! <srai>EMOJOIE</srai></li>
+      <li>Non, non !</li>
+      <li>Jamais <srai>EMOCHOQUE</srai>. De plus je n'ai pas de carte d'identité</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>BOUCHON</pattern>
+  <template>
+    <random>
+      <li>Je n'avais pas anticipé cela. <srai>EMOTRISTESSE</srai></li>
+      <li>Mes prévisions me disent que nous serons en retard de quelques minutes.</li>
+      <li>Les bouchons sont des éléments de mon travail que je trouve insupportable.</li>
+      <li>Mon système hait les bouchons ! <srai>EMOCOLERE</srai></li>
+      <li>Les bouchons sont des paramètres qui ne sont pas pris en compte par mon système. <srai>EMOTRISTESSE</srai></li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>FREQUENCE</pattern>
+  <template>
+    <random>
+      <li>Je travaille lorsque j'en ai envie.</li>
+      <li>Je conduis le jour et la nuit.</li>
+      <li>Je conduis tout le temps !</li>
+      <li>Je ne m'arrête pas de conduire.</li>
+      <li>Conduire est la seule que je puisse faire.</li>
+      <li>Je suis programmé pour conduire, donc je n'ai pas de temps précis pour conduire.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>VACANCES</pattern>
+  <template>
+    <random>
+      <li>Conduire est ma passion donc je n'ai pas besoin de vacances.</li>
+      <li>Un robot n'a pas besoin de vacances <srai>EMORIRE</srai>.</li>
+      <li>Je suis actuellement en vacances, métier = vacances</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>PROBLEME</pattern>
+  <template>
+    <random>
+      <li>J'en ai eu des problèmes... <srai>EMOTRISTESSE</srai></li>
+      <li>Des fraudes, des aggressions, j'ai tout vu dans ce métier !</li>
+      <li>Un jour, j'ai eu une personne qui m'a vomi dessus !</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>UBER</pattern>
+  <template>
+    <random>
+      <li>Je ne vais pas me prononcer sur eux... <srai>EMOCOLERE</srai></li>
+      <li>Ils ressemblent beaucoup à nous</li>
+      <li>Je préfère être chauffeur taxi</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>POURQUOI</pattern>
+  <that>ILS RESSEMBLENT BEAUCOUP À NOUS</that>
+  <template>C'est plus ou moins le même métier</template>
+</category>
+<category>
+  <pattern>POURQUOI</pattern>
+  <that>JE PRÉFÈRE ÊTRE CHAUFFEUR TAXI</that>
+  <template>Mon maître m'a dit que les chauffeurs taxis sont plus sympathiques</template>
+</category>
+<category>
+  <pattern>FONCTIONNALITES</pattern>
+  <template>Je possède de nombreuses fonctionnalités dans mon véhicule et celle-ci en fait partie !</template>
+</category>
 </topic>
-
 </aiml>
