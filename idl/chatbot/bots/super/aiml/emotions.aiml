@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml>
+  <!-- 
+    file: emotions.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupe les émotions simulées par le bot. Cela
+    se manifeste le plus souvent par des émojis et des émoticones
+    pattern:
+      - joie (EMOJOIE)
+      - rire (EMORIRE)
+      - tristesse (EMOTRISTESSE)
+      - peur (EMOPEUR)
+      - amour (EMOAMOUR)
+      - choqué (EMOCHOQUE)
+      - colère (EMOCOLERE)
+      - envie (EMOENVIE)
+      ...
+  -->
   <category>
     <pattern>BOTEMOTIONS</pattern>
     <template>

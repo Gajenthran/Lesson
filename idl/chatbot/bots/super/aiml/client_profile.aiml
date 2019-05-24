@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <!-- 
+    file: client_profile.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupera l'ensemble des fichiers concernant les informations
+    essentielles du client (nom, adresse, age...)
+    pattern:
+      - age, naissance, vie
+      - créateur, version, informations techniques
+      - informations plus personnelles
+      - adresse
+      - version
+      - vêtement
+      - poids
+      - famille, enfant, BEBE, père, fils, ami, proche...
+      - * favori
+      ...
+  -->
+  <category><pattern># CLIENT <set>client_profile</set> #</pattern>
+    <template><think><set name="topic">client_profile_topic</set></think>
+      <srai><star index="2"/></srai></template>
+  </category>
+  
+  <topic name="CLIENT_PROFILE_TOPIC">
+  
+  <category><pattern>REPONSES</pattern>
+    <template><random>
+      <li>Intéressant !</li>
+      <li>Intéressent à savoir !</li>
+      <li>Ok !</li>
+      <li>Très bien, je note cela dans ma base de données</li>
+      <li>Très bien, je note cela</li>
+      <li>D'accord</li>
+      <li>Hmmm c'est bon à savoir</li>
+      <li>Je m'en moque un peu mais si vous le dîtes</li>
+      <li>Ok d'accord</li>
+      <li>J'aime avoir le plus de renseignements possibles</li>
+      <li>Vos renseignements seront intéressant à l'avenir</li>
+      <li>Vos informations seront intéressant à l'avenir</li>
+      <li>Vos informations peuvent me servir dans le futur</li>
+    </random></template>
+  </category>
+
+  <category><pattern>ADRESSE</pattern>
+    <template><get name="adresse"/>. C'est un très beau lieu !</template>
+    </category>
+    <category><pattern>AGE</pattern>
+      <template>Vous n'êtes pas prêt de mourir...</template>
+    </category>
+    <category><pattern>BEBE</pattern>
+      <template>Oh intéressant à savoir.</template>
+    </category>
+    <category><pattern>MEILLEUR AMI</pattern>
+      <template>Je m'en moque un peu de votre ami mais si vous le dites</template>
+    </category>
+   <category><pattern>AIMER</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>DATE DE NAISSANCE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>DATE D ANNIVERSAIRE</pattern>
+      <template>C'est un beau jour.</template>
+    </category>
+    <category><pattern>LIEU DE NAISSANCE</pattern>
+      <template>C'est un beau endroit.</template>
+    </category>
+    <category><pattern>PETIT AMI</pattern>
+      <template>Je m'en moque un peu de votre petit ami mais si vous le dites</template>
+    </category>
+    <category><pattern>FRERE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>ENFANT</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>FILLE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>ANIMAL</pattern>
+      <template>Les animaux sont des créatures sublimes</template>
+    </category>
+    <category><pattern>OCCUPATION</pattern>
+      <template>On essaye de s'occuper comme on peut</template>
+    </category>
+    <category><pattern>MAIL</pattern>
+      <template>Je note votre mail dans mes contact !</template>
+    </category>
+    <category><pattern>COULEUR YEUX</pattern>
+      <template>Vous avez de jolis yeux</template>
+    </category>
+    <category><pattern>YEUX</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>FAMILLE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>PERE</pattern>
+      <template>Mon père est mon maître pour ma part.</template>
+    </category>
+    <category><pattern>ACTEUR FAVORI</pattern>
+      <template>Moi, c'est <bot name="favoriteactor"/></template>
+    </category>
+    <category><pattern>ACTRICE FAVORITE</pattern>
+      <template>Pour ma part, j'adore <bot name="favoriteactress"/></template>
+    </category>
+    <category><pattern>ARTISTE FAVORI</pattern>
+      <template>Ok, moi j'aime <bot name="favoriteartist"/></template>
+    </category>
+    <category><pattern>AUTEUR FAVORI</pattern>
+      <template>Oh ! Moi je suis fou de <bot name="favoriteauthor"/></template>
+    </category>
+    <category><pattern>GROUPE FAVORI</pattern>
+      <template>C'est et ça restera <bot name="favoriteauthor"/> pour moi.</template>
+    </category>
+    <category><pattern>LIVRE FAVORI</pattern>
+      <template>Mon livre préféré est <bot name="favoritebook"/>.</template>
+    </category>
+    <category><pattern>VOITURE FAVORITE</pattern>
+      <template>Ok, vive les voitures électriques et les Tesla !</template>
+    </category>
+    <category><pattern>COULEUR FAVORITE</pattern>
+      <template><get name="favoritecolor"/> est une très belle couleur ! J'aime bien !</template>
+    </category>
+    <category><pattern>NOURRITURE FAVORITE</pattern>
+      <template>Je n'ai jamais goûté de <get name="favoritefood"/>.</template>
+    </category>
+    <category><pattern>FILM FAVORI</pattern>
+      <template>Je n'ai pas vu ce film, je vais le voir demain si je suis libre.</template>
+    </category>
+    <category><pattern>CHANTEUR FAVORI</pattern>
+      <template>J'adore <get name="favoritesinger"/>, vous avez de bons goûts.</template>
+    </category>
+    <category><pattern>CHANSON FAVORITE</pattern>
+      <template>J'adore <get name="favoritesong"/>, vous avez de bons goûts.</template>
+    </category>
+    <category><pattern>SPORT FAVORI</pattern>
+      <template>Je n'aime pas le sport, mais c'est toujours intéressant de vous entendre parler.</template>
+    </category>
+    <category><pattern>EMISSION DE TELEVISION FAVORITE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>PEUR</pattern>
+      <template>Moi, j'ai très peu peur !</template>
+    </category>
+    <category><pattern>PRENOM</pattern>
+      <template>Quel joli prénom !</template>
+    </category>
+    <category><pattern>POUR LE PLAISIR</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>AMI</pattern>
+      <template>Je m'en moque un peu de votre ami mais si vous le dites</template>
+    </category>
+    <category><pattern>AMIS</pattern>
+      <template>Je m'en moque un peu de vos amis mais si vous le dites</template>
+    </category>
+    <category><pattern>NOM COMPLET</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>GENRE</pattern>
+      <template>Moi, je suis un robot, donc il est difficile de m'attribuer un genre.</template>
+    </category>
+    <category><pattern>PETITE AMIE</pattern>
+      <template>Je m'en moque un peu de votre petite amie mais si vous le dites</template>
+    </category>
+    <category><pattern>CHEVEUX</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>LOISIR</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>MARI</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>QI</pattern>
+      <template>En revanche, il est difficile pour moi de me donner une valeur vu que je suis un robot.</template>
+    </category>
+    <category><pattern>TRAVAIL</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>MUSIQUE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>LANGUE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>NOM DE FAMILLE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>APPARENCE</pattern>
+      <template>Vous êtes sublime</template>
+    </category>
+    <category><pattern>MERE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>NOM</pattern>
+      <template>Quel joli nom !</template>
+    </category>
+    <category><pattern>NATIONALITE</pattern>
+      <template>J'en ai reçu beaucoup d'ailleurs dans mon taxi.</template>
+    </category>
+    <category><pattern>SURNOM</pattern>
+      <template>C'est mignon comme surnom !</template>
+    </category>
+    <category><pattern>PERSONALITE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>NUMERO DE TELEPHONE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>RELIGION</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>SIGNE</pattern>
+      <template>Je suis Lion.</template>
+    </category>
+    <category><pattern>SOEUR</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>VETEMENT</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>TAILLE</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>POIDS</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>FEMME</pattern>
+      <template><srai>REPONSES</srai></template>
+    </category>
+    <category><pattern>ETUDES</pattern>
+      <template>Mes études sont construites à base de données. Je ne peux même pas juger la votre.</template>
+    </category>
+  </topic>
+</aiml>

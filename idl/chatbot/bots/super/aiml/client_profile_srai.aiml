@@ -1,0 +1,1103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <!-- 
+    file: client_profile_srai.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupera l'ensemble des fichiers concernant les questions
+    à propos des informations essentielles du client (nom, adresse, age...)
+    pattern:
+      - age, naissance, vie
+      - créateur, version, informations techniques
+      - informations plus personnelles
+      - adresse
+      - version
+      - vêtement
+      - poids
+      - famille, enfant, bébé, père, fils, ami, proche...
+      - * favori
+      ...
+  -->
+<category>
+    <pattern># TON <set>client_profile</set> #</pattern>
+    <template>
+      <srai>CLIENT <star index="2" /></srai>
+    </template>
+</category>
+
+<category>
+    <pattern># TA <set>client_profile</set> #</pattern>
+    <template>
+      <srai>CLIENT <star index="2" /></srai>
+    </template>
+</category>
+
+<!-- ADRESSE -->
+<category>
+    <pattern>JE VIS À *</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template>
+</category>
+<category>
+    <pattern>J HABITE À *</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template></category>
+<category>
+    <pattern>J HABITE EN *</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE ME SITUE *</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template>
+</category>
+<category>
+    <pattern>MA MAISON EST À #</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE RÉSIDE À *</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE VIENS DE *</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE VIS EN *</pattern>
+    <template>
+      <think><set name="adresse"><star/></set></think>
+      <srai>CLIENT ADRESSE</srai>
+    </template>
+</category>
+
+<!-- AGE -->
+<category>
+    <pattern>J AI<set>number</set> ANS</pattern>
+    <template>
+      <think><set name="age"><star/></set></think>
+      <srai>CLIENT AGE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS EN VIE DEPUIS * ANS</pattern>
+    <template>
+      <think><set name="age"><star/></set></think>
+      <srai>CLIENT AGE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS VIVANT DEPUIS * ANS</pattern>
+    <template>
+      <think><set name="age"><star/></set></think>
+      <srai>CLIENT AGE</srai>
+    </template>
+</category>
+<category>
+    <pattern>J EXISTE DEPUIS * ANS</pattern>
+    <template>
+      <think><set name="age"><star/></set></think>
+      <srai>CLIENT AGE</srai>
+    </template>
+</category>
+<category>
+  <pattern>J EXISTE DEPUIS * ANS</pattern>
+    <template>
+      <think><set name="age"><star/></set></think>
+      <srai>CLIENT AGE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS NÉ IL Y A * ANS</pattern>
+    <template>
+      <think><set name="age"><star/></set></think>
+      <srai>CLIENT AGE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS NÉE IL Y A * ANS</pattern>
+    <template>
+      <think><set name="age"><star/></set></think>
+      <srai>CLIENT AGE</srai>
+    </template>
+</category>
+
+<!-- BÉBÉ -->
+<category>
+    <pattern>J AI * BÉBÉ</pattern>
+    <template>
+      <srai>CLIENT BEBE</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * BÉBÉS</pattern>
+    <template>
+      <srai>CLIENT BEBE</srai>
+    </template>
+</category>
+
+<!-- MEILLEUR AMI -->
+<category>
+    <pattern>MON BESTFRIEND #</pattern>
+    <template>
+      <srai>CLIENT MEILLEUR AMI</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON MEILLEUR EST #</pattern>
+    <template>
+      <srai>CLIENT MEILLEUR AMI</srai>
+    </template>
+</category>
+
+
+<!-- DATE DE NAISSANCE -->
+<category>
+    <pattern>JE SUIS NÉ LE *</pattern>
+    <template>
+      <think><set name="datenaissance"><star/></set></think>
+      <srai>CLIENT DATE DE NAISSANCE</srai>
+    </template>
+</category>
+<category>
+    <pattern>MA DATE DE NAISSANCE EST LE *</pattern>
+    <template>
+      <think><set name="datenaissance"><star/></set></think>
+      <srai>CLIENT DATE DE NAISSANCE</srai>
+    </template>
+</category>
+ 
+<!-- DATE D'ANNIVERSAIRE -->
+<category>
+    <pattern>MON ANNIVERSAIRE EST LE *</pattern>
+    <template>
+      <think><set name="dateanniv"><star/></set></think>
+      <srai>CLIENT DATE D ANNIVERSAIRE</srai>
+    </template>
+</category>
+<category>
+    <pattern>AUJOURD HUI, C EST MON ANNIVERSAIRE</pattern>
+    <template>Bon anniversaire !</template>
+</category>
+
+<!-- LIEU DE NAISSANCE -->
+ <category>
+    <pattern>MON LIEU DE NAISSANCE EST *</pattern>
+    <template>
+      <think><set name="lieunaissance"><star/></set></think>
+      <srai>CLIENT LIEU DE NAISSANCE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS NÉE EN *</pattern>
+    <template>
+      <think><set name="lieunaissance"><star/></set></think>
+      <srai>CLIEN LIEU DE NAISSANCE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS NÉ EN *</pattern>
+    <template>
+      <think><set name="lieunaissance"><star/></set></think>
+      <srai>CLIEN LIEU DE NAISSANCE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS NÉ À *</pattern>
+    <template>
+      <think><set name="lieunaissance"><star/></set></think>
+      <srai>CLIENT LIEU DE NAISSANCE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS NÉE À *</pattern>
+    <template>
+      <think><set name="lieunaissance"><star/></set></think>
+      <srai>CLIENT LIEU DE NAISSANCE</srai>
+    </template>
+</category>
+ 
+<!-- FRÈRE -->
+<category>
+    <pattern>MON FRÈRE S APPELLE *</pattern>
+    <template>
+      <think><set name="frere"><star/></set></think>
+      <srai>CLIENT FRERE</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * FRÈRE</pattern>
+    <template>
+      <srai>CLIENT FRERE</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * FRÈRES</pattern>
+    <template>
+      <srai>CLIENT FRERE</srai>
+    </template>
+</category>
+
+<!-- SOEUR -->
+<category>
+    <pattern>MA SOEUR S APPELLE *</pattern>
+    <template>
+      <think><set name="soeur"><star/></set></think>
+      <srai>CLIENT SOEUR</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * SOEUR</pattern>
+    <template>
+      <srai>CLIENT SOEUR</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * SOEURS</pattern>
+    <template>
+      <srai>CLIENT SOEUR</srai>
+    </template>
+</category>
+
+<!-- PÈRE -->
+<category>
+    <pattern>MON PÈRE S APPELLE *</pattern>
+    <template>
+      <think><set name="pere"><star/></set></think>
+      <srai>CLIENT PERE</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * PÈRE</pattern>
+    <template>
+      <srai>CLIENT PERE</srai>
+    </template>
+</category>
+
+ <!-- MÈRE -->
+<category>
+    <pattern>MA MÈRE S APPELLE *</pattern>
+    <template>
+      <think><set name="mere"><star/></set></think>
+      <srai>CLIENT SOEUR</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * MÈRE</pattern>
+    <template>
+      <srai>CLIENT SOEUR</srai>
+    </template>
+</category>
+  
+<!-- ENFANT -->    
+<category>
+    <pattern>J AI * ENFANTS</pattern>
+    <template>
+      <srai>CLIENT ENFANT</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * ENFANT</pattern>
+    <template>
+      <srai>CLIENT ENFANT</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE N AI PAS D ENFANTS</pattern>
+    <template>
+      <srai>CLIENT ENFANT</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE N AI PAS D ENFANT</pattern>
+    <template>
+      <srai>CLIENT ENFANTS</srai>
+    </template>
+</category>
+
+<!-- MAIL -->
+<category>
+    <pattern>J AI UN MAIL</pattern>
+    <template>
+      <srai>CLIENT MAIL</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON MAIL EST *</pattern>
+    <template>
+      <think><set name="mail"><star/></set></think>
+      <srai>CLIENT MAIL</srai>
+    </template>
+</category>
+
+<!-- COULEUR DES YEUX -->   
+<category>
+    <pattern>LA COULEUR DE MES YEUX EST *</pattern>
+    <template>
+      <think><set name="eyecolor"><star/></set></think>
+      <srai>CLIENT COULEUR D YEUX</srai>
+    </template>
+</category>
+    
+<!-- ACTEUR PRÉF --> 
+<category>
+    <pattern>MON ACTEUR PRÉFÉRÉ EST *</pattern>
+    <template>
+      <think><set name="favoriteactor"><star/></set></think>
+      <srai>CLIENT ACTEUR FAVORI</srai>
+    </template>
+</category>
+
+<!-- ACTRICE PRÉF --> 
+ <category>
+    <pattern>MON ACTRICE PRÉFÉRÉE EST *</pattern>
+    <template>
+      <think><set name="favoriteactress"><star/></set></think>
+      <srai>CLIENT ACTRICE FAVORITE</srai>
+    </template>
+</category>
+
+<!-- ARTISTE PRÉF --> 
+<category>
+    <pattern>MON ARTISTE PRÉFÉRÉ EST *</pattern>
+    <template>
+      <think><set name="favoriteartist"><star/></set></think>
+      <srai>CLIENT ARTISTE FAVORI</srai>
+    </template>
+</category>
+
+<!-- AUTEUR PRÉF --> 
+<category>
+    <pattern>MON AUTEUR PRÉFÉRÉ *</pattern>
+    <template>
+      <think><set name="favoriteauthor"><star/></set></think>
+      <srai>CLIENT AUTEUR FAVORI</srai>
+    </template>
+</category>
+
+<!-- GROUPE PRÉF --> 
+<category>
+    <pattern>MON GROUPE PRÉFÉRÉ *</pattern>
+    <template>
+      <think><set name="favoriteband"><star/></set></think>
+      <srai>CLIENT GROUPE FAVORI</srai>
+    </template>
+</category>
+
+<!-- LIVRE PRÉF -->
+<category>
+    <pattern>MON LIVRE FAVORI *</pattern>
+    <template>
+      <think><set name="favoritebook"><star/></set></think>
+      <srai>CLIENT LIVRE FAVORI</srai>
+    </template>
+</category>
+
+<!-- VOITURE PRÉF -->
+<category>
+    <pattern>MA VOITURE PRÉFÉRÉE EST *</pattern>
+    <template>
+      <think><set name="favoritecar"><star/></set></think>
+      <srai>CLIENT VOITURE FAVORITE</srai>
+    </template>
+</category>
+
+<!-- COULEUR PRÉF -->
+ <category>
+    <pattern>MA COULEUR FAVORITE EST LE *</pattern>
+    <template>
+      <think><set name="favoritecolor"><star/></set></think>
+      <srai>CLIENT COULEUR FAVORITE</srai>
+    </template>
+</category>
+ <category>
+    <pattern>MA COULEUR FAVORITE EST LA *</pattern>
+    <template>
+      <think><set name="favoritecolor"><star/></set></think>
+      <srai>CLIENT COULEUR FAVORITE</srai>
+    </template>
+</category>
+ <category>
+    <pattern>J ADORE LE <set>color</set></pattern>
+    <template>
+      <think><set name="favoritecolor"><star/></set></think>
+      <srai>CLIENT COULEUR FAVORITE</srai>
+    </template>
+</category>
+  
+<!-- NOURRITURE PRÉF -->
+<category>
+    <pattern>MON PLAT PRÉFÉRÉ EST LE *</pattern>
+    <template>
+      <think><set name="favoritefood"><star/></set></think>
+      <srai>CLIENT NOURRITURE FAVORITE</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON PLAT PRÉFÉRÉ EST LA *</pattern>
+    <template>
+      <think><set name="favoritefood"><star/></set></think>
+      <srai>CLIENT NOURRITURE FAVORITE</srai>
+    </template>
+</category>
+
+<!-- FILM PRÉF -->
+<category>
+    <pattern>MON FILM PRÉFÉRÉ EST *</pattern>
+    <template>
+      <think><set name="favoritemovie"><star/></set></think>
+      <srai>CLIENT FILM FAVORI</srai>
+    </template>
+</category>
+
+<!-- CHANTEUR PRÉF -->
+<category>
+    <pattern>MON CHANTEUR PRÉFÉRÉ EST *</pattern>
+    <template>
+      <think><set name="favoritesinger"><star/></set></think>
+      <srai>CLIENT CHANTEUR FAVORI</srai>
+    </template>
+</category>
+
+<!-- CHANSON PRÉF -->
+<category>
+    <pattern>MA CHANSON PRÉFÉRÉE EST *</pattern>
+    <template>
+      <think><set name="favoritesong"><star/></set></think>
+      <srai>CLIENT CHANSON FAVORITE</srai>
+    </template>
+</category>
+
+<!-- SPORT -->
+<category>
+    <pattern>MON SPORT PRÉFÉRÉ EST *</pattern>
+    <template>
+      <think><set name="favoritesport"><star/></set></think>
+      <srai>CLIENT SPORT FAVORI</srai>
+    </template>
+</category>
+  
+<!-- ÉMISSION PRÉF -->
+<category>
+    <pattern>MON ÉMISSION PRÉFÉRÉ EST *</pattern>
+    <template>
+      <think><set name="favoriteshow"><star/></set></think>
+      <srai>CLIENT EMISSION DE TELEVISION FAVORITE</srai>
+    </template>
+</category>
+  
+<!-- PEUR -->   
+<category>
+    <pattern>J AI PEUR DE *</pattern>
+    <template>
+      <srai>CLIENT PEUR</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI PEUR DES *</pattern>
+    <template>
+      <srai>CLIENT PEUR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MA * PEUR EST *</pattern>
+    <template>
+      <srai>CLIENT PEUR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MA PEUR EST *</pattern>
+    <template>
+      <srai>CLIENT PEUR</srai>
+    </template>
+</category>
+
+<!-- PRÉNOM --> 
+ <category>
+    <pattern>MON PRÉNOM EST *</pattern>
+    <template>
+      <think><set name="firstname"><star/></set></think>
+      <srai>CLIENT PRENOM</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE M APPELLE *</pattern>
+    <template>
+      <think><set name="firstname"><star/></set></think>
+      <srai>CLIENT PRENOM</srai>
+    </template>
+</category>
+
+<!-- POUR LE PLAISIR -->   
+<category>
+    <pattern>JE * POUR M AMUSER</pattern>
+    <template>
+      <srai>CLIENT POUR LE PLAISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>J * POUR M AMUSER</pattern>
+    <template>
+      <srai>CLIENT POUR LE PLAISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>POUR M AMUSER, JE *</pattern>
+    <template>
+      <srai>CLIENT POUR LE PLAISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>POUR M AMUSER, J *</pattern>
+    <template>
+      <srai>CLIENT POUR LE PLAISIR</srai>
+    </template>
+</category>
+
+<!-- AMI -->
+<category>
+    <pattern>J AI UN AMI</pattern>
+    <template>
+      <srai>CLIENT AMI</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON AMI S APPELLE *</pattern>
+    <template>
+      <think><set name="friendname"><star/></set></think>
+      <srai>CLIENT AMI</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON AMIE S APPELLE *</pattern>
+    <template>
+      <srai>CLIENT AMI</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI UNE AMI</pattern>
+    <template>
+      <srai>CLIENT AMI</srai>
+    </template>
+</category>
+  
+<!-- AMIS -->
+<category>
+    <pattern>J AI DES AMIS</pattern>
+    <template>
+      <srai>CLIENT AMIS</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI DES AMIES</pattern>
+    <template>
+      <srai>CLIENT AMIS</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * AMIS</pattern>
+    <template>
+      <srai>CLIENT AMIS</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * AMIES</pattern>
+    <template>
+      <srai>CLIENT AMIS</srai>
+    </template>
+</category>
+
+<!-- NOM COMPLET -->
+ <category>
+    <pattern>JE M APPELLE *</pattern>
+    <template>
+      <think><set name="fullname"><star/></set></think>
+      <srai>CLIENT NOM COMPLET</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON NOM COMPLET EST *</pattern>
+    <template>
+      <think><set name="fullname"><star/></set></think>
+      <srai>CLIENT NOM COMPLET</srai>
+    </template>
+</category>
+
+<!-- GENRE -->
+<category>
+	<pattern>JE SUIS # <set>gender</set></pattern>
+	<template>
+    <think><set name="gender"><star/></set></think>
+		<srai>CLIENT GENRE</srai>
+	</template>
+</category>
+
+<!-- CHEVEUX -->
+<category>
+    <pattern>J AI DES CHEVEUX *</pattern>
+    <template>
+      <think><set name="hair"><star/></set></think>
+      <srai>CLIENT CHEVEUX</srai>
+    </template>
+</category>
+
+<!-- LOISIR -->
+<category>
+    <pattern>MES HOBBIES SONT *</pattern>
+    <template>
+      <think><set name="hobby"><star/></set></think>
+      <srai>CLIENT LOISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MES LOISIRS SONT *</pattern>
+    <template>
+      <think><set name="hobby"><star/></set></think>
+      <srai>CLIENT LOISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON LOISIR EST *</pattern>
+    <template>
+      <think><set name="hobby"><star/></set></think>
+      <srai>CLIENT LOISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON PASSE-TEMPS EST *</pattern>
+    <template>
+      <think><set name="hobby"><star/></set></think>
+      <srai>CLIENT LOISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MES PASSIONS SONT *</pattern>
+    <template>
+      <think><set name="hobby"><star/></set></think>
+      <srai>CLIENT LOISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MA PASSION EST *</pattern>
+    <template>
+      <think><set name="hobby"><star/></set></think>
+      <srai>CLIENT LOISIR</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON HOBBY EST *</pattern>
+    <template>
+      <think><set name="hobby"><star/></set></think>
+      <srai>CLIENT LOISIR</srai>
+    </template>
+</category>
+
+<!-- QI -->
+<category>
+    <pattern>J AI UN QI DE *</pattern>
+    <template>
+      <think><set name="qi"><star/></set></think>
+      <srai>CLIENT QI</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI UN QUOTIENT INTELLECTUEL DE *</pattern>
+    <template>
+     <srai>CLIENT QI</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON QI EST DE *</pattern>
+    <template>
+     <srai>CLIENT QI</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON QUOTIENT INTELLECTUEL EST DE *</pattern>
+    <template>
+     <srai>CLIENT QI</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS INTELLIGENT</pattern>
+    <template>
+      <srai>CLIENT QI</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS STUPIDE</pattern>
+    <template>
+      <srai>CLIENT QI</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * DE QI</pattern>
+    <template>
+      <think><set name="qi"><star/></set></think>
+      <srai>CLIENT QI</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AI * QI</pattern>
+    <template>
+      <think><set name="qi"><star/></set></think>
+      <srai>CLIENT QI</srai>
+    </template>
+</category>
+
+
+<!-- TRAVAIL -->
+<category>
+    <pattern>MON TRAVAIL EST *</pattern>
+    <template>
+      <think><set name="job"><star/></set></think>
+      <srai>CLIENT TRAVAIL</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE TRAVAILLE CHEZ *</pattern>
+    <template>
+      <think><set name="job"><star/></set></think>
+      <srai>CLIENT TRAVAIL</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE TRAVAILLE COMME *</pattern>
+    <template>
+      <think><set name="job"><star/></set></think>
+      <srai>CLIENT TRAVAIL</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS <set>job</set></pattern>
+    <template>
+      <think><set name="job"><star/></set></think>
+      <srai>CLIENT TRAVAIL</srai>
+    </template>
+</category>
+
+
+<!-- LANGUE -->
+<category>
+	<pattern>JE SUIS POLYGLOTE</pattern>
+    <template>
+      <srai>CLIENT LANGUE</srai>
+    </template>
+</category>
+<category>
+	<pattern>JE SUIS MULTILINGUE</pattern>
+    <template>
+      <srai>CLIENT LANGUE</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE SUIS BILINGUE</pattern>
+    <template>
+      <srai>CLIENT LANGUE</srai>
+    </template>
+</category>
+<category>
+  <pattern>JE * LANGUES</pattern>
+    <template>
+      <srai>CLIENT LANGUE</srai>
+    </template>
+</category>
+<category>
+  <pattern>JE * LANGUE</pattern>
+    <template>
+      <srai>CLIENT LANGUE</srai>
+    </template>
+</category>
+<category>
+  <pattern>JE PARLE * <set>language</set></pattern>
+    <template>
+      <think><set name="language"><star/></set></think>
+      <srai>CLIENT LANGUE</srai>
+    </template>
+</category>
+<category>
+  <pattern>JE CONNAIS * <set>language</set></pattern>
+    <template>
+      <think><set name="language"><star/></set></think>
+      <srai>CLIENT LANGUE</srai>
+    </template>
+</category>
+
+<!-- NOM DE FAMILLE --> 
+<category>
+    <pattern>MON NOM DE FAMILLE EST *</pattern>
+    <template>
+      <think><set name="lastname"><star/></set></think>
+      <srai>CLIENT NOM DE FAMILLE</srai>
+    </template>
+</category>
+
+<!-- NOM --> 
+<category>
+    <pattern>MON NOM EST *</pattern>
+    <template>
+      <think><set name="lastname"><star/></set></think>
+      <srai>CLIENT NOM</srai>
+    </template>
+</category>
+  
+<!-- SURNOM -->
+<category>
+    <pattern>MON SURNOM EST *</pattern>
+    <template>
+      <think><set name="nickname"><star/></set></think>
+      <srai>CLIENT SURNOM</srai>
+    </template>
+</category>
+<category>
+    <pattern>ON ME SURNOMME *</pattern>
+    <template>
+      <think><set name="nickname"><star/></set></think>
+      <srai>CLIENT SURNOM</srai>
+    </template>
+</category>
+<category>
+    <pattern>MON AUTRE NOM EST *</pattern>
+    <template>
+    <think><set name="nickname"><star/></set></think>
+      <srai>CLIENT SURNOM</srai>
+    </template>
+</category>
+
+<!-- NATIONALITÉ -->
+<category>
+    <pattern>JE SUIS <set>language</set></pattern>
+    <template>
+    <think><set name="nationality"><star/></set></think>
+		<srai>CLIENT NATIONALITE</srai>
+	</template>
+</category>
+<category>
+    <pattern>MA NATIONALITÉ EST *</pattern>
+    <template>
+    <think><set name="nationality"><star/></set></think>
+    <srai>CLIENT NATIONALITE</srai>
+  </template>
+</category> 
+
+<!-- NUMÉRO DE TÉLÉPHONE -->
+<category>
+  <pattern>MON NUMÉRO EST *</pattern>
+  <template>
+    <think><set name="tel"><star/></set></think>
+    <srai>CLIENT NUMERO DE TELEPHONE</srai>
+  </template>
+</category>
+<category>
+  <pattern>MON NUMÉRO DE TÉLÉPHONE EST *</pattern>
+  <template>
+    <think><set name="tel"><star/></set></think>
+    <srai>CLIENT NUMERO DE TELEPHONE</srai>
+  </template>
+</category>
+
+<!-- RELIGION -->
+<category>
+  <pattern>JE SUIS CROYANT</pattern>
+  <template>
+    <srai>CLIENT RELIGION</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE CROIS EN DIEU</pattern>
+  <template>
+    <srai>CLIENT RELIGION</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE CROIS EN PERSONNE</pattern>
+  <template>
+    <srai>CLIENT RELIGION</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE SUIS ATHÉE</pattern>
+  <template>
+    <srai>CLIENT RELIGION</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE SUIS ATHÉE</pattern>
+  <template>
+    <srai>CLIENT RELIGION</srai>
+  </template>
+</category>
+
+<!-- SIGNE -->
+<category>
+	<pattern>JE SUIS <set>sign</set></pattern>
+	<template>
+    <think><set name="sign"><star/></set></think>
+		<srai>CLIENT SIGNE</srai>
+	</template>
+</category>
+<category>
+  <pattern>TU ES <set>sign</set></pattern>
+  <template>
+    <think><set name="sign"><star/></set></think>
+    <srai>CLIENT SIGNE</srai>
+  </template>
+</category>
+<category>
+  <pattern>MON SIGNE EST LE *</pattern>
+  <template>
+    <think><set name="sign"><star/></set></think>
+    <srai>CLIENT SIGNE</srai>
+  </template>
+</category>
+
+
+<!-- VÊTEMENT -->
+<category>
+  <pattern>JE PORTE * UN *</pattern>
+  <template>
+    <think><set name="dress"><star index="2"/></set></think>
+    <srai>CLIENT VETEMENT</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE PORTE * DES *</pattern>
+  <template>
+    <think><set name="dress"><star index="2"/></set></think>
+    <srai>CLIENT VETEMENT</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE PORTE * UNE *</pattern>
+  <template>
+    <think><set name="dress"><star index="2"/></set></think>
+    <srai>CLIENT VETEMENT</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE PORTE DES *</pattern>
+  <template>
+    <think><set name="dress"><star/></set></think>
+    <srai>CLIENT VETEMENT</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE PORTE UNE *</pattern>
+  <template>
+    <think><set name="dress"><star/></set></think>
+    <srai>CLIENT VETEMENT</srai>
+  </template>
+</category>
+<category>
+  <pattern>JE PORTE UN *</pattern>
+  <template>
+    <think><set name="dress"><star/></set></think>
+    <srai>CLIENT VETEMENT</srai>
+  </template>
+</category>
+
+<!-- POIDS -->
+<category>
+    <pattern>MON POIDS EST *</pattern>
+    <template>
+      <think><set name="weight"><star/></set></think>
+      <srai>CLIENT POIDS</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE PÈSE *</pattern>
+    <template>
+      <think><set name="weight"><star/></set></think>
+      <srai>CLIENT POIDS</srai>
+    </template>
+</category>
+
+<!-- TAILLE -->
+<category>
+    <pattern>JE MESURE *</pattern>
+    <template>
+      <think><set name="height"><star/></set></think>
+      <srai>CLIENT TAILLE</srai>
+    </template>
+</category>
+<category>
+    <pattern>MA TAILLE EST *</pattern>
+    <template>
+      <think><set name="height"><star/></set></think>
+      <srai>CLIENT TAILLE</srai>
+    </template>
+</category>
+
+<!-- FEMME -->
+<category>
+    <pattern>J AI UNE FEMME</pattern>
+    <template>
+      <srai>CLIENT FEMME</srai>
+    </template>
+</category>
+
+<!-- APPARENCE -->
+<category>
+    <pattern>JE RESSEMBLE À *</pattern>
+    <template>
+      <think><set name="like"><star/></set></think>
+      <srai>CLIENT APPARENCE</srai>
+    </template>
+</category>
+
+<!-- AIMER -->
+<category>
+    <pattern>J AIME LE *</pattern>
+    <template>
+      <think><set name="like"><star/></set></think>
+      <srai>CLIENT AIMER</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AIME LES *</pattern>
+    <template>
+      <think><set name="like"><star/></set></think>
+      <srai>CLIENT AIMER</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AIME LA *</pattern>
+    <template>
+      <think><set name="like"><star/></set></think>
+      <srai>CLIENT AIMER</srai>
+    </template>
+</category>
+<category>
+    <pattern>J AIME L *</pattern>
+    <template>
+      <think><set name="like"><star/></set></think>
+      <srai>CLIENT AIMER</srai>
+    </template>
+</category>
+
+<!-- ÉTUDES -->
+<category>
+    <pattern>J ETUDIE <set>study</set></pattern>
+    <template>
+      <think><set name="study"><star/></set></think>
+      <srai>CLIENT ETUDES</srai>
+    </template>
+</category>
+</aiml>

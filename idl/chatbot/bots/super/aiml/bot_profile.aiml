@@ -216,12 +216,9 @@
       <template><set name="topic"><bot name="favoritebook"/></set></template>
     </category>
     <category><pattern>VOITURE FAVORITE</pattern>
-      <template><set name="topic"><bot name="favoritebook"/></set></template>
+      <template><set name="topic"><bot name="favoritecar"/></set></template>
     </category>
     <category><pattern>COULEUR FAVORITE</pattern>
-      <template><set name="topic"><bot name="favoritecolor"/></set></template>
-    </category>
-    <category><pattern>BOISSON FAVORITE</pattern>
       <template><set name="topic"><bot name="favoritecolor"/></set></template>
     </category>
     <category><pattern>NOURRITURE FAVORITE</pattern>
@@ -241,9 +238,6 @@
     </category>
     <category><pattern>SPORT FAVORI</pattern>
       <template><set name="topic"><bot name="favoritesport"/></set></template>
-    </category>
-    <category><pattern>SUJET FAVORI</pattern>
-      <template><set name="topic"><bot name="favoritesubject"/></set></template>
     </category>
     <category><pattern>EMISSION DE TELEVISION FAVORITE</pattern>
       <template><set name="topic"><bot name="favoritetvshow"/></set></template>
@@ -406,9 +400,6 @@
     </category>
     <category><pattern>RUE</pattern>
       <template><set name="topic"><bot name="street"/></set>.</template>
-    </category>
-    <category><pattern>INTERLOCUTEUR</pattern>
-      <template><set name="topic"><bot name="talking to"/></set>.</template>
     </category>
     <category><pattern>URL</pattern>
       <template><set name="topic"><bot name="url"/></set>.</template>

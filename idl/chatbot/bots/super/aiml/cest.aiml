@@ -9,7 +9,6 @@
       - C'était *
       - Cela *
       ...
-
   -->
 <category><pattern>* C EST MON NOM</pattern>
 <template>tu t'appelles,  <set name="name"><input index="2"/></set>, ok.</template>
