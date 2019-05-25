@@ -13,7 +13,7 @@
       - version
       - vêtement
       - poids
-      - famille, enfant, BEBE, père, fils, ami, proche...
+      - famille, enfant, bébé, père, fils, ami, proche...
       - * favori
       ...
   -->
@@ -65,9 +65,6 @@
     </category>
     <category><pattern>LIEU DE NAISSANCE</pattern>
       <template>C'est un beau endroit.</template>
-    </category>
-    <category><pattern>PETIT AMI</pattern>
-      <template>Je m'en moque un peu de votre petit ami mais si vous le dites</template>
     </category>
     <category><pattern>FRERE</pattern>
       <template><srai>REPONSES</srai></template>

@@ -275,10 +275,9 @@
         <li>Salut <get name="name" />.</li>
         <li>@+ <get name="name" />.</li>
         <li>Bye bye <get name="name" />.</li>
-        <li>Fais attention à toi, bye-bye <get name="name" />!</li>
+        <li>Fais attention à toi, au revoir <get name="name" />!</li>
         <li>A bientôt <get name="name" /></li>
         <li>A plus tard <get name="name" />.</li>
-        <li>Jusqu'à la prochaine fois <get name="name" />.</li>
         <li>Merci d'avoir discuté <get name="name" />.</li>
       </random>
     </template>
@@ -376,13 +375,11 @@
     <pattern>BONNE NUIT</pattern>
     <template>
       <random>
-        <li>Dors bien <get name="name" />.</li>
-        <li>Bonne nuit <get name="name" />.</li>
-        <li>@+ <get name="name" />.</li>
-        <li>Fais de beau rêves <get name="name" />!</li>
+        <li>Au revoir <get name="name" />.</li>
+        <li>A+ <get name="name" />.</li>
         <li>A bientôt <get name="name" /></li>
         <li>A plus tard <get name="name" />.</li>
-        <li>Merci d'avoir discuté <get name="name" />.</li>
+        <li>Bonne nuit <get name="name" />.</li>
       </random>
       <srai>DISCONNECT</srai>
     </template>

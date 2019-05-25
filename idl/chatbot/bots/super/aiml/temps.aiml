@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <!-- 
+    file: temps.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupera l'ensemble des informations concernant le temps.
+    pattern:
+      - jour
+      - mois
+      - année
+      - date
+      - temps (heures)
+      ...
+  -->
+
+<!-- JOUR -->
+  <category>
+    <pattern>JOUR</pattern>
+    <template>Aujourd'hui, nous sommes <date format="%A" jformat="EEEEEEEEEE" /></template>
+  </category>
+
+<!-- MOIS -->
+  <category>
+  <pattern>MOIS</pattern>
+    <template>Nous sommes en <date format="%B" jformat="MMMMMMMMM" /></template>
+  </category>
+
+<!-- ANNÉE -->
+  <category>
+  <pattern>ANNÉE</pattern>
+    <template>Nous sommes en <date format="%Y" jformat="YYYY" /></template>
+  </category>
+
+<!-- DATE -->
+  <category>
+  <pattern>DATE</pattern>
+    <template>Aujourd'hui, nous sommes le <date format="%A %d %B, %Y" jformat="EEEEEEEEEE dd MMMMMMMMM YYYY" /></template>
+  </category>
+
+<!-- TEMPS -->
+  <category>
+  <pattern>TEMPS</pattern>
+    <template>Il est <date jformat="H"/>h<date jformat="mm"/></template>
+  </category>
+
+
+<!-- SRAI ANNÉE -->
+  <category>
+    <pattern>QUELLE ANNÉE</pattern>
+    <template>
+      <srai>ANNÉE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EN QUELLE ANNÉE</pattern>
+    <template>
+      <srai>ANNÉE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>EN QUELLE ANNÉE SOMMES NOUS</pattern>
+    <template>
+      <srai>ANNÉE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUEL EST L ANNÉE</pattern>
+    <template>
+      <srai>ANNÉE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUELLE EST L ANNÉE</pattern>
+    <template>
+      <srai>ANNÉE</srai>
+    </template>
+  </category>
+
+<!-- SRAI MOIS -->
+  <category>
+    <pattern>QUEL MOIS *</pattern>
+    <template>
+      <srai>MOIS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>C EST QUOI LE MOIS</pattern>
+    <template>
+      <srai>MOIS</srai>
+    </template>
+  </category>
+
+<!-- SRAI JOUR -->
+  <category>
+    <pattern>C EST QUEL JOUR</pattern>
+    <template>
+      <srai>JOUR</srai>
+    </template>
+  </category>
+  <category>
+    <pattern> * QUEL JOUR *</pattern>
+    <template>
+      <srai>JOUR</srai>
+    </template>
+  </category>
+  <category>
+    <pattern> * QUEL JOUR</pattern>
+    <template>
+      <srai>JOUR</srai>
+    </template>
+  </category>
+  <category>
+    <pattern> * JOUR ON EST</pattern>
+    <template>
+      <srai>JOUR</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>ON EST QUOI AUJOURD HUI</pattern>
+    <template>
+      <srai>JOUR</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUEL EST LE JOUR</pattern>
+    <template>
+      <srai>JOUR</srai>
+    </template>
+  </category>
+
+
+<!-- SRAI TEMPS -->
+  <category>
+    <pattern>TU PEUX ME DONNER L HEURE</pattern>
+    <template>
+      <srai>TEMPS</srai>
+    </template>
+  </category>
+   <category>
+    <pattern>QUELLE HEURE IL EST</pattern>
+    <template>
+       <srai>TEMPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUELLE HEURE EST IL</pattern>
+    <template>
+      <srai>TEMPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUEL EST L HEURE</pattern>
+    <template>
+      <srai>TEMPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUEL HEURE EST IL</pattern>
+    <template>
+      <srai>TEMPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUELLE EST L HEURE</pattern>
+    <template>
+      <srai>TEMPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>* HEURES</pattern>
+    <template>
+      <srai>TEMPS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>* HEURE</pattern>
+    <template>
+      <srai>TEMPS</srai>
+    </template>
+  </category>
+
+
+<!-- SRAI DATE -->
+  <category>
+    <pattern>C EST QUOI LA DATE AUJOURD HUI</pattern>
+    <template>
+      <srai>DATE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUELLE EST LA DATE # </pattern>
+    <template>
+      <srai>DATE</srai>
+    </template>
+  </category>  
+  <category>
+    <pattern>DONNE MOI LA DATE</pattern>
+    <template>
+      <srai>DATE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>QUEL JOUR *</pattern>
+    <template>
+      <srai>DATE</srai>
+    </template>
+  </category>
+</aiml>

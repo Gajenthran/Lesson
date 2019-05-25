@@ -698,6 +698,12 @@
       <srai>BOT PETIT AMI</srai>
     </template>
 </category>
+<category>
+    <pattern>QUI EST TON PETIT AMI</pattern>
+    <template>
+      <srai>BOT PETIT AMI</srai>
+    </template>
+</category>
  
  <!-- FRÈRE -->
 <category>

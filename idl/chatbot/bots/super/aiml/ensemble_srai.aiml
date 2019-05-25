@@ -13,6 +13,7 @@
     	...
   -->
 
+<!-- TRAVAILLES TU -->
 <category>
   <pattern>TU TRAVAILLES *</pattern>
   <template><srai>TRAVAILLES TU <star/></srai></template>
@@ -38,7 +39,8 @@
   <template><srai>CONDUIS TU <star/></srai></template>
 </category>
 
-<!-- as tu, es tu -->
+
+<!-- AS TU, ES TU -->
 <category>
   <pattern>EST CE QUE TU *</pattern>
   <template><srai>TU <star/></srai></template>
@@ -81,7 +83,7 @@
 </category>
 
 
-<!-- Qu'est ce que -->
+<!-- QU'EST CE QUE -->
 <category>
   <pattern>C EST QUOI UN *</pattern>
   <template>
@@ -236,9 +238,24 @@
 	</template>
 </category>
 <category><pattern>DÉFINIS *</pattern>
-	<template>
-		<srai>QU EST CE QUE <star/></srai>
-	</template>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category><pattern>A PROPOS DE *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category><pattern>A PROPOS DU *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
+</category>
+<category><pattern>A PROPOS DES *</pattern>
+  <template>
+    <srai>QU EST CE QUE <star/></srai>
+  </template>
 </category>
 
 <!-- salutations abr -->
@@ -285,13 +302,138 @@
 	</template>
 </category>
 <category>
-	<pattern>sa va ?</pattern>
-	<template>
-		<srai>COMMENT VAS TU</srai>
-	</template>
+  <pattern>sa va ?</pattern>
+  <template>
+    <srai>COMMENT VAS TU</srai>
+  </template>
 </category>
 
-<!-- général -->
+
+<category>
+  <pattern>OUI OUI</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>OUAIS</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>OUAI</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>OUAIP</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>CARRÉMENT</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>OUÉ</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>VOLONTIERS</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>D ACCORD</pattern>
+  <template>
+    <srai>OUI</srai>
+  </template>
+</category>
+<category>
+  <pattern>* S IL VOUS PLAÎT</pattern>
+  <template>
+    <srai><star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>BIEN SÛR</pattern>
+  <template>
+    <srai>OUI</srai>
+  </template>
+</category>
+<category>
+  <pattern>OK</pattern>
+  <template>
+    <srai>OUI</srai>
+  </template>
+</category>
+<category>
+  <pattern>BIEN SUR</pattern>
+  <template>
+    <srai>OUI</srai>
+  </template>
+</category>
+<category>
+  <pattern>ÉVIDEMMENT</pattern>
+  <template>
+    <srai>OUI</srai>
+  </template>
+</category>
+<category>
+  <pattern>EVIDEMMENT</pattern>
+  <template>
+    <srai>OUI</srai>
+  </template>
+</category>
+<category>
+  <pattern>YEP</pattern>
+  <template>
+    <srai>OUI</srai>
+  </template>
+</category>
+
+<category>
+  <pattern>HORS DE QUESTION</pattern>
+  <template>
+    <srai>NON</srai>
+  </template>
+</category>
+<category>
+  <pattern>NOP</pattern>
+  <template>
+    <srai>NON</srai>
+  </template>
+</category>
+<category>
+  <pattern>NO</pattern>
+  <template>
+    <srai>NON</srai>
+  </template>
+</category>
+<category>
+  <pattern>IMPOSSIBLE</pattern>
+  <template>
+    <srai>NON</srai>
+  </template>
+</category>
+<category>
+  <pattern>NON C EST NON</pattern>
+  <template>
+    <srai>NON</srai>
+  </template>
+</category>
+
+
+
+<!-- GÉNÉRAL -->
 <category>
 	<pattern>*</pattern>
 	<template>

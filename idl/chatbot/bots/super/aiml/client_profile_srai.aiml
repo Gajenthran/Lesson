@@ -1094,7 +1094,14 @@
 
 <!-- ÉTUDES -->
 <category>
-    <pattern>J ETUDIE <set>study</set></pattern>
+    <pattern>J ÉTUDIE * <set>study</set></pattern>
+    <template>
+      <think><set name="study"><star/></set></think>
+      <srai>CLIENT ETUDES</srai>
+    </template>
+</category>
+<category>
+    <pattern>J ÉTUDIE <set>study</set></pattern>
     <template>
       <think><set name="study"><star/></set></think>
       <srai>CLIENT ETUDES</srai>

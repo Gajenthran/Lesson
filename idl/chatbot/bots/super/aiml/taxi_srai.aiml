@@ -399,13 +399,13 @@
 	</template>
 </category>
 <category>
-	<pattern>J AI UN <set>animal</set>, * CELA VOUS DÉRANGE</pattern>
+	<pattern>J AI UN <set>animal</set> CELA VOUS DÉRANGE</pattern>
 	<template>
 		<srai>TAXI ANIMAUX</srai>
 	</template>
 </category>
 <category>
-	<pattern>J AI UN <set>animal</set> CELA VOUS DÉRANGE</pattern>
+	<pattern>J AI UN <set>animal</set> * CELA VOUS DÉRANGE</pattern>
 	<template>
 		<srai>TAXI ANIMAUX</srai>
 	</template>

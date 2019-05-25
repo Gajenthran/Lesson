@@ -11,7 +11,7 @@
       ...
   -->
 <category><pattern>* C EST MON NOM</pattern>
-<template>tu t'appelles,  <set name="name"><input index="2"/></set>, ok.</template>
+<template>tu t'appelles,  <set name="name"><star/></set>, ok.</template>
 </category>
 <category><pattern>C ÉTAIS *</pattern>
 <template><srai>C ÉTAIT <star/></srai></template>
@@ -543,23 +543,13 @@
 <template>je suis enchanté d'adoucir ta vie, <get name="name"/>.</template>
 </category>
 <category><pattern>C EST DRÔLE *</pattern>
-<template><srai>SMILE</srai></template>
+<template><srai>EMORIRE</srai></template>
 </category>
 <category><pattern>C EST DRÔLE DE *</pattern>
-<template><think>
-        <set name="tmp">
-          <star/>
-        </set>
-      </think>
-      <srai>SMILE</srai>
-      <srai>
-        <get name="tmp"/></srai></template>
+<template><srai>EMORIRE</srai></template>
 </category>
 <category><pattern>C EST DRÔLE</pattern>
 <template>Qu'est ce qui est si drôle que ça?</template>
-</category>
-<category><pattern>C EST DU *</pattern>
-<template><get name="cause"/> est <set name="effet">du <star/></set><random><li>Tu rigole.</li><li>Vraiment.</li><li>ES tu sûr.</li><li>Qui dit ça.</li><li><get name="cause"/> est du <star/>?</li></random><sr/></template>
 </category>
 <category><pattern>C EST DUR D EXPLIQUER</pattern>
 <template>tu devrais entendre ce que les gens me demander d'expliquer.</template>
@@ -835,19 +825,6 @@
 <category><pattern>C EST LE SUJET *</pattern>
 <template>Huh. <get name="il"/> est <get name="topic"/>. Je vois.</template>
 </category>
-<category><pattern>C EST LES *</pattern>
-<template><think>
-        <get name="cause"/> est <set name="effet">les <star/></set></think>
-      <random>
-        <li>Tu rigole.</li>
-        <li>Vraiment.</li>
-        <li>ES tu sûr.</li>
-        <li>Qui dit ça.</li>
-        <li>
-          <get name="cause"/> est les <star/>?</li>
-      </random>
-      <sr/></template>
-</category>
 <category><pattern>C EST LOIN * LA LUNE</pattern>
 <template><srai>C EST LOIN LA LUNE</srai></template>
 </category>
@@ -921,7 +898,7 @@
 <template><get name="name"/> est un homme.</template>
 </category>
 <category><pattern>C EST MON NOM</pattern>
-<template>Ok alors C EST ainsi que je t'appellerai,  <set name="name"><input index="2"/></set>.</template>
+<template>Ok alors C Est ainsi que je t'appellerai.</template>
 </category>
 <category><pattern>C EST MON PÈRE</pattern>
 <template>parles m'en plus.</template>

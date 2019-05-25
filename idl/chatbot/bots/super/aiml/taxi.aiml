@@ -21,8 +21,8 @@
 <topic name="TAXI_TOPIC">
 <category>
   <pattern>DISPONIBILITE</pattern>
-  <template>
-  	Oui, je suis disponible. Où souhaitez vous aller ?
+  <template>Oui, je suis disponible. Où souhaitez vous aller ?
+    <think><set name="time"><date jformat="H mm"/></set></think>
   </template>
 </category>
 <category>
