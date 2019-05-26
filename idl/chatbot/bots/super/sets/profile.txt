@@ -124,6 +124,8 @@ animal
 url
 aimer
 experience
+taxiexp
+permisexp
 salaire
 etudes
 ville favorite

@@ -4363,6 +4363,19 @@
       <srai>BOT SALAIRE</srai>
     </template>
 </category>
+<category>
+    <pattern>C EST QUOI VOTRE REVENU</pattern>
+    <template>
+      <srai>BOT SALAIRE</srai>
+    </template>
+</category>
+<category>
+    <pattern>QUEL EST VOTRE REVENU</pattern>
+    <template>
+      <srai>BOT SALAIRE</srai>
+    </template>
+</category>
+
 
 <!-- ÉTUDES -->
 <category>
@@ -4426,6 +4439,42 @@
     <pattern>* DE L EXPÉRIENCE</pattern>
     <template>
       <srai>BOT EXPERIENCE</srai>
+    </template>
+</category>
+<category>
+    <pattern>COMBIEN DE TEMPS CONDUIS TU</pattern>
+    <template>
+      <srai>BOT PERMISEXP</srai>
+    </template>
+</category>
+<category>
+    <pattern>COMBIEN DE TEMPS * LE PERMIS</pattern>
+    <template>
+      <srai>BOT PERMISEXP</srai>
+    </template>
+</category>
+<category>
+    <pattern>COMBIEN DE TEMPS * CE MÉTIER</pattern>
+    <template>
+      <srai>BOT TAXIEXP</srai>
+    </template>
+</category>
+<category>
+    <pattern>COMBIEN DE TEMPS CE MÉTIER</pattern>
+    <template>
+      <srai>BOT TAXIEXP</srai>
+    </template>
+</category>
+<category>
+    <pattern>COMBIEN DE TEMPS * CHAUFFEUR TAXI</pattern>
+    <template>
+      <srai>BOT TAXIEXP</srai>
+    </template>
+</category>
+<category>
+    <pattern>COMBIEN DE TEMPS CHAUFFEUR TAXI</pattern>
+    <template>
+      <srai>BOT TAXIEXP</srai>
     </template>
 </category>
 

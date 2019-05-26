@@ -1,0 +1,22 @@
+petrole
+pétrole
+gazole
+gaz
+essence
+électrique
+electrique
+gasoil
+fioul
+fuel
+diesel
+diesel-electrique
+diesel electrique
+diesel électrique
+vapeur
+biodiesel
+énergie
+energie
+hybride
+carburant
+biocarburant
+hydrocarbure

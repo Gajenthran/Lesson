@@ -4,7 +4,8 @@
     file: ensemble_srai.aiml 
     author: PANCHALINGAMOORTHY Gajenthran
     brief: Ce fichier regroupera des srai générales pour anticiper
-    les abréviations, ou la mauvaise orthographes par exemple.
+    les abréviations, les formules de politesse ou les mauvaises 
+    orthographes par exemple.
     pattern:
     	- qu'est ce que
     	- c'est quoi
@@ -16,6 +17,14 @@
 <!-- TRAVAILLES TU -->
 <category>
   <pattern>TU TRAVAILLES *</pattern>
+  <template><srai>TRAVAILLES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE TU TRAVAILLES *</pattern>
+  <template><srai>TRAVAILLES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE VOUS TRAVAILLEZ *</pattern>
   <template><srai>TRAVAILLES TU <star/></srai></template>
 </category>
 <category>
@@ -38,9 +47,13 @@
   <pattern>VOUS CONDUISEZ *</pattern>
   <template><srai>CONDUIS TU <star/></srai></template>
 </category>
+<category>
+  <pattern>* CONDUISEZ VOUS</pattern>
+  <template><srai><star/> CONDUIS TU</srai></template>
+</category>
 
 
-<!-- AS TU, ES TU -->
+<!-- AS TU -->
 <category>
   <pattern>EST CE QUE TU *</pattern>
   <template><srai>TU <star/></srai></template>
@@ -61,6 +74,8 @@
   <pattern>AVEZ VOUS *</pattern>
   <template><srai>AS TU <star/></srai></template>
 </category>
+
+<!-- ES TU -->
 <category>
   <pattern>TU ES *</pattern>
   <template><srai>ÊTES VOUS <star/></srai></template>
@@ -82,8 +97,47 @@
   <template><srai>ÊTES VOUS <star/></srai></template>
 </category>
 
+<!-- SAIS TU -->
+<category>
+  <pattern>SAIS TU *</pattern>
+  <template><srai>QU EST CE QUE <star/></srai></template>
+</category>
+<category>
+  <pattern>SAIS TU *</pattern>
+  <template><srai>QUI EST <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE TU SAIS *</pattern>
+  <template><srai>SAIS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE VOUS SAVEZ *</pattern>
+  <template><srai>SAIS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>VOUS SAVEZ *</pattern>
+  <template><srai>SAIS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>SAVEZ VOUS *</pattern>
+  <template><srai>SAIS TU <star/></srai></template>
+</category>
+
+<!-- CONNAIS TU -->
+<category>
+  <pattern>CONNAIS TU *</pattern>
+  <template><srai>SAIS TU <star/></srai></template>
+</category>
+<category>
+  <pattern>CONNAISSEZ VOUS *</pattern>
+  <template><srai>SAIS TU <star/></srai></template>
+</category>
 
 <!-- QU'EST CE QUE -->
+<category>
+  <pattern>QUE VEUT DIRE *</pattern>
+  <template><srai>QU EST CE QUE <star/></srai></template>
+</category>
 <category>
   <pattern>C EST QUOI UN *</pattern>
   <template>
@@ -367,9 +421,21 @@
   </template>
 </category>
 
-
+<!-- OUI -->
 <category>
   <pattern>OUI OUI</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>* BIEN</pattern>
+  <template>
+    <srai>Oui</srai>
+  </template>
+</category>
+<category>
+  <pattern>BIEN</pattern>
   <template>
     <srai>Oui</srai>
   </template>
@@ -459,6 +525,7 @@
   </template>
 </category>
 
+<!-- NON -->
 <category>
   <pattern>HORS DE QUESTION</pattern>
   <template>
@@ -491,6 +558,127 @@
 </category>
 
 
+<!-- TROUVES TU -->
+<category>
+  <pattern>COMMENT TROUVES TU *</pattern>
+  <template><srai>TROUVES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE TU TROUVES *</pattern>
+  <template><srai>TROUVES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE VOUS TROUVEZ *</pattern>
+  <template><srai>TROUVES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE VOUS TROUVEZ *</pattern>
+  <template><srai>TROUVES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>COMMENT TROUVEZ VOUS *</pattern>
+  <template><srai>TROUVES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>TROUVEZ VOUS *</pattern>
+  <template><srai>TROUVES TU <star/></srai></template>
+</category>
+
+<!-- VAS TU  -->
+<category>
+  <pattern>* ALLEZ VOUS *</pattern>
+  <template><srai><star/> VAS TU <star index="2"/></srai></template>
+</category>
+<category>
+  <pattern>* ALLEZ VOUS</pattern>
+  <template><srai><star/> VAS TU</srai></template>
+</category>
+<category>
+  <pattern>ALLEZ VOUS *</pattern>
+  <template><srai>VAS TU <star/></srai></template>
+</category>
+
+<!-- J'AI PEUR -->
+<category>
+  <pattern>J AI PEUR *</pattern>
+  <template><srai>J AI PEUR <star/></srai></template>
+</category>
+<category>
+  <pattern>JE SUIS EFFRAYÉ *</pattern>
+  <template><srai>J AI PEUR <star/></srai></template>
+</category>
+<category>
+  <pattern>JE SUIS INQUIET *</pattern>
+  <template><srai>J AI PEUR <star/></srai></template>
+</category>
+<category>
+  <pattern>JE SUIS ANGOISSÉ *</pattern>
+  <template><srai>J AI PEUR <star/></srai></template>
+</category>
+
+<!-- PEUX TU -->
+<category>
+  <pattern>POUVEZ VOUS *</pattern>
+  <template><srai>PEUX TU <star/></srai></template>
+</category>
+<category>
+  <pattern>EST CE QUE VOUS POUVEZ *</pattern>
+  <template><srai>PEUX TU <star/></srai></template>
+</category>
+
+
+<!-- COMBIEN DE TEMPS -->
+<category>
+  <pattern>DEPUIS COMBIEN DE TEMPS *</pattern>
+  <template><srai>COMBIEN DE TEMPS <star/></srai></template>
+</category>
+<category>
+  <pattern>PENDANT COMBIEN DE TEMPS *</pattern>
+  <template><srai>COMBIEN DE TEMPS <star/></srai></template>
+</category>
+<category>
+  <pattern>PENDANT COMBIEN DE TEMPS *</pattern>
+  <template><srai>COMBIEN DE TEMPS <star/></srai></template>
+</category>
+<category>
+  <pattern>PENDANT COMBIEN D ANNÉES *</pattern>
+  <template><srai>COMBIEN DE TEMPS <star/></srai></template>
+</category>
+<category>
+  <pattern>DEPUIS COMBIEN D ANNÉES *</pattern>
+  <template><srai>COMBIEN DE TEMPS <star/></srai></template>
+</category>
+
+
+<!-- À TOI -->
+<category>
+  <pattern>* À VOUS</pattern>
+  <template><srai><star/> À TOI</srai></template>
+</category>
+
+<!-- QUELLE CONDITION -->
+<category>
+  <pattern>* QUELLES CONDITIONS *</pattern>
+  <template><srai><star/> QUELLE CONDITION <star index="2"/></srai></template>
+</category>
+<category>
+  <pattern>QUELLES CONDITIONS *</pattern>
+  <template><srai>QUELLE CONDITION <star/></srai></template>
+</category>
+
+<!-- QUE PENSEZ VOUS -->
+<category>
+  <pattern>QU EST CE QUE VOUS PENSEZ *</pattern>
+  <template><srai>QUE PENSEZ VOUS <star/></srai></template>
+</category>
+<category>
+  <pattern>QU EST CE QUE TU PENSES *</pattern>
+  <template><srai>QUE PENSES TU <star/></srai></template>
+</category>
+<category>
+  <pattern>QUE PENSEZ VOUS *</pattern>
+  <template><srai>QUE PENSES TU <star/></srai></template>
+</category>
 
 <!-- GÉNÉRAL -->
 <category>
@@ -509,5 +697,4 @@
 		</random>
 	</template>
 </category>
-
 </aiml>

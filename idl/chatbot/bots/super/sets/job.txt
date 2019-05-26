@@ -439,6 +439,7 @@ commerçant en alimentation
 commerçante
 commerçante en alimentation  
 commis
+compteur
 commissaire  
 commissaire aux comptes
 commissaire de police

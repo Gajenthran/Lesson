@@ -437,8 +437,32 @@
     <category><pattern>EXPERIENCE</pattern>
       <template><set name="topic"><bot name="experience"/></set>.</template>
     </category>
+    <category><pattern>TAXIEXP</pattern>
+      <template><set name="topic"><bot name="experiencetaxi"/></set></template>
+    </category>
+    <category><pattern>PERMISEXP</pattern>
+      <template>Aucune experience</template>
+    </category>
     <category><pattern>ADN</pattern>
       <template><set name="topic"><bot name="genus"/></set>.</template>
     </category>
   </topic>
+  
+   <!-- THAT -->
+    <category><pattern>COMMENT *</pattern>
+      <that>Aucune experience</that>
+      <template>Je suis un robot, j'ai le droit à certains privilèges.</template>
+    </category>
+    <category><pattern>COMMENT</pattern>
+      <that>Aucune experience</that>
+      <template>Je suis un robot, j'ai le droit à certains privilèges.</template>
+    </category>
+    <category><pattern>POURQUOI</pattern>
+      <that>Aucune experience</that>
+      <template>Je suis un robot, j'ai le droit à certains privilèges.</template>
+    </category>
+    <category><pattern>POURQUOI *</pattern>
+      <that>Aucune experience</that>
+      <template>Je suis un robot, j'ai le droit à certains privilèges.</template>
+    </category>
 </aiml>

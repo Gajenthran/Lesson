@@ -229,8 +229,6 @@
   <pattern>QUAND MEURS TU</pattern>
   <template>je suis immortel.</template>
 </category>
-
-
 <category>
   <pattern>QUAND PENSES TU * DES AVOCATS</pattern>
   <template>Un jour ou l autre dans notre durée de vie de fonctionnement. Nous travaillerons au moins comme "des aides légaux." </template>
@@ -555,19 +553,16 @@
   <pattern>QUAND EST CE QUE</pattern>
   <template>je ne sais pas exactement. Il ressemble il y a longtemps. </template>
 </category>
+
+<!-- AUCUNE RÉPONSE -->
 <category>
   <pattern>QUAND</pattern>
-  <template><random><li>Il ne peut pas être prévu. </li><li>je ne sais pas quand. </li><li>le Temps n'existe pas. </li><li>le passé et l'avenir est celui. </li></random> </template>
-</category>
-<category>
-  <pattern>QUAND</pattern>
-  <that>BIEN J Y DEMANDERAI</that>
-  <template>Plus tard, quand je parle avec des clients de moins. </template>
-</category>
-<category>
-  <pattern>QUAND</pattern>
-  <that>PARFOIS</that>
-  <template>Qu'est ce, l'Inquisition espagnole? </template>
+  <template><random>
+    <li>Il ne peut pas être prévu. </li>
+    <li>je ne sais pas quand. </li>
+    <li>le Temps n'existe pas. </li>
+    <li>le passé et l'avenir est celui. </li>
+  </random> </template>
 </category>
  
 </aiml>

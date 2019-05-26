@@ -681,19 +681,7 @@
     </template>
   </category>
   <category>
-    <pattern>JE DOIS ALLER *</pattern>
-    <template>
-      <srai>AU REVOIR</srai>
-    </template>
-  </category>
-  <category>
     <pattern>JE DOIS M EN ALLER</pattern>
-    <template>
-      <srai>AU REVOIR</srai>
-    </template>
-  </category>
-  <category>
-    <pattern>JE DOIS PARTIR</pattern>
     <template>
       <srai>AU REVOIR</srai>
     </template>
@@ -718,12 +706,6 @@
   </category>
   <category>
     <pattern>JE DOIS ÊTRE PARTI *</pattern>
-    <template>
-      <srai>AU REVOIR</srai>
-    </template>
-  </category>
-  <category>
-    <pattern>JE DOIT ALLER *</pattern>
     <template>
       <srai>AU REVOIR</srai>
     </template>

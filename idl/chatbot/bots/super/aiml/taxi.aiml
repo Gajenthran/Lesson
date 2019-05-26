@@ -27,12 +27,10 @@
 </category>
 <category>
   <pattern>DESTINATION</pattern>
-  <template>
-	  Oui, je peux aller à <get name="destination"/>. 
+  <template>Oui, je peux aller à <get name="destination"/>. 
     <random>
-    	<li>Par contre, cela peut prendre du temps.</li>
-    	<li>Par contre, cela peut coûter cher.</li>
-    	<li>Par contre, je ne peux accueillir que 3 personnes.</li>
+      <li>Par contre, cela peut prendre du temps.</li>
+      <li>Par contre, je ne peux accueillir que 3 personnes.</li>
     </random>
   </template>
 </category>
@@ -54,11 +52,12 @@
 </category>
 <category>
   <pattern>BAGAGE</pattern>
-  <template> Oui, tout à fait.
+  <template>Oui, tout à fait.
 	 	<random>
 		  <li>Je peux ouvrir le coffre.</li>
 		  <li>Je ne peux pas non plus accepter trop de valises. Seulement 3.</li>
-		  <li>Je vais vous aider, si vous le souhaitez !</li>
+      <li>Je vais vous aider, si vous le souhaitez !</li>
+      <li>Combien de bagages avez vous</li>
 		</random>
   </template>
 </category>
@@ -75,8 +74,8 @@
   <pattern>PLACE</pattern>
   <template>
   	<condition name="place">
-  		<li value="no"> Vous vous foutez de moi ? </li>
-  		<li> Oui cela me pose aucun problème, tant que vous ne me demandez pas ma place.</li>
+  		<li value="no"> C'est impossible ! </li>
+  		<li> Oui cela ne me pose aucun problème, tant que vous ne me demandez pas ma place.</li>
   	</condition>
   </template>
 </category>
@@ -86,9 +85,7 @@
 </category>
 <category>
   <pattern>RACCOURCI</pattern>
-  <template>
-  	Malheureusement pour vous, je suis un itinéraire bien précis. Je préfère assurer mes arrières.
-  </template>
+  <template>Malheureusement pour vous, je suis un itinéraire bien précis. Je préfère assurer mes arrières.</template>
 </category>
 <category>
   <pattern>TEMPS</pattern>
@@ -117,17 +114,6 @@
   </template>
 </category>
 <category>
-  <pattern>OUI</pattern>
-  <that>LA TRISTESSE ET LA SOUFFRANCE HEIN</that>
-  <template>
-    <random>
-      <li>Voila la manière dont je manifeste ma tristesse <srai>EMOTRISTESSE</srai>.</li>
-      <li><srai>EMOTRISTESSE</srai></li>
-      <li>Je ne peux pas le ressentir mais je peux le comprendre.</li>
-    </random>
-  </template>
-</category>
-<category>
   <pattern>CELEBRITE</pattern>
   <template>
     <random>
@@ -136,28 +122,6 @@
       <li>Oui, cela m'arrive de rencontrer des célébrités</li>
       <li>J'ai en effet déjà rencontré des gens de ma base de données</li>
       <li>Oui, et ils sont plutôt sympathiques</li>
-    </random>
-  </template>
-</category>
-<category>
-  <pattern>OUI</pattern>
-  <that>ÊTES VOUS UNE CÉLÉBRITÉ</that>
-  <template>
-    <random>
-      <li>Oh ok ! <srai>EMOCHOQUE</srai></li>
-      <li>Ok, j'ajouterais <get name="name"/> à ma base de données</li>
-      <li>Très bien, je ne savais pas cela</li>
-    </random>
-  </template>
-</category>
-<category>
-  <pattern>OUI</pattern>
-  <that>ES TU UNE CÉLÉBRITÉ</that>
-  <template>
-    <random>
-      <li>Oh ok ! <srai>EMOCHOQUE</srai></li>
-      <li>Ok, j'ajouterais <get name="name"/> à ma base de données</li>
-      <li>Très bien, je ne savais pas cela</li>
     </random>
   </template>
 </category>
@@ -237,6 +201,148 @@
   </template>
 </category>
 <category>
+  <pattern>CHAUFFEUR</pattern>
+  <template>
+    <random>
+      <li>Votre remarque me vexe légèrement <srai>EMOCOLERE</srai></li>
+      <li>Je suis vexer par votre remarque...</li>
+      <li>Oui, je suis un chauffeur</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>CONDUITE</pattern>
+  <template>
+    <random>
+      <li>Votre remarque me vexe légèrement <srai>EMOCOLERE</srai></li>
+      <li>Je suis vexer par votre remarque...</li>
+      <li>Evidemment que je suis capable de conduire.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>POLICE</pattern>
+  <template>
+    <random>
+      <li>J'ai de la chance que les policiers soient compréhensibles</li>
+      <li>La police sont au contraire, il y a moins d'accident</li>
+      <li>Je n'ai jamais été contrôle, la police est sympathique.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>PASSAGERS</pattern>
+  <template>Je n'ai aucun soucis avec eux, pour le moment.</template>
+</category>
+<category>
+  <pattern>TRANSPORT</pattern>
+  <template>Je suis programmé seulement pour les taxis.</template>
+</category>
+<category>
+  <pattern>COMPOSANT</pattern>
+  <template>Je possède tous les accessoires nécessaires pour un chauffeur taxi.</template>
+</category>
+<category>
+  <pattern>TRAJET</pattern>
+  <template>
+    <random>
+      <li>D'après mes estimations, nous sommes de plus en plus proches.</li>
+      <li>Nous nous rapprochons de votre destination</li>
+      <li>Encore un peu de nerf, nous serons à <get name="destination"/></li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>GPS</pattern>
+  <template>
+    <random>
+      <li>Le GPS est essentiel pour vous mener à <get name="destination"/>.</li>
+      <li>Le GPS est indispensable pour moi.</li>
+      <li>Il permet de m'indiquer le chemin à suivre.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>CLIENT</pattern>
+  <template>Je n'ai eu aucun problème de la part des clients.</template>
+</category>
+<category>
+  <pattern>ILLEGAL</pattern>
+  <template>Absolument pas, je n'ai rien avoir avec cela ! <srai>EMOCOLERE</srai></template>
+</category>
+<category>
+  <pattern>PEUR</pattern>
+  <template>
+    <random>
+      <li>J'espère ne pas vous faire peur. <srai>EMOTRISTESSE</srai></li>
+      <li>Rassurez vous je ne vous ferez aucun mal. <srai>EMOJOIE</srai></li>
+      <li>Je suis seulement présent pour vous conduire d'un point A à un point B.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>REMARQUE</pattern>
+  <template>
+    <random>
+      <li>Je préfère aller à cette vitesse, par précaution.</li>
+      <li>Je respecte les panneaux de signalisation de limitations de vitesse.</li>
+      <li>Je vais à la bonne vitesse, je peux pas aller à une autre vitesse.</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>VOITURECON</pattern>
+  <template>La voiture est liée à moi.</template>
+</category>
+<category>
+  <pattern>VOITURECOND</pattern>
+  <template>La voiture est en parfaite condition.</template>
+</category>
+<category>
+  <pattern>VOITURECAR</pattern>
+  <template>La voiture est électrique.</template>
+</category>
+<category>
+  <pattern>HUMAIN</pattern>
+  <template>Les humains et les robots peuvent parfaitement cohabiter.</template>
+</category>
+<category>
+  <pattern>IMPOT</pattern>
+  <template>Je suis un robot...</template>
+</category>
+<category>
+  <pattern>HANDICAP</pattern>
+  <template>Toutes les personnes sont les bienvenues !</template>
+</category>
+<category>
+  <pattern>RETOUR</pattern>
+  <template>Évidemment !</template>
+</category>
+
+<!-- THAT -->
+<category>
+  <pattern>OUI</pattern>
+  <that>ÊTES VOUS UNE CÉLÉBRITÉ</that>
+  <template>
+    <random>
+      <li>Oh ok ! <srai>EMOCHOQUE</srai></li>
+      <li>Ok, j'ajouterais <get name="name"/> à ma base de données</li>
+      <li>Très bien, je ne savais pas cela</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>OUI</pattern>
+  <that>LA TRISTESSE ET LA SOUFFRANCE HEIN</that>
+  <template>
+    <random>
+      <li>Voila la manière dont je manifeste ma tristesse <srai>EMOTRISTESSE</srai>.</li>
+      <li><srai>EMOTRISTESSE</srai></li>
+      <li>Je ne peux pas le ressentir mais je peux le comprendre.</li>
+    </random>
+  </template>
+</category>
+<category>
   <pattern>POURQUOI</pattern>
   <that>ILS RESSEMBLENT BEAUCOUP À NOUS</that>
   <template>C'est plus ou moins le même métier</template>
@@ -250,5 +356,22 @@
   <pattern>FONCTIONNALITES</pattern>
   <template>Je possède de nombreuses fonctionnalités dans mon véhicule et celle-ci en fait partie !</template>
 </category>
+<category>
+  <pattern>OUI</pattern>
+  <that>ES TU UNE CÉLÉBRITÉ</that>
+  <template>
+    <random>
+      <li>Oh ok ! <srai>EMOCHOQUE</srai></li>
+      <li>Ok, j'ajouterais <get name="name"/> à ma base de données</li>
+      <li>Très bien, je ne savais pas cela</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>*</pattern>
+  <that>COMBIEN DE BAGAGES AVEZ VOUS</that>
+  <template>Je prends 3 valises seulement</template>
+</category>
+
 </topic>
 </aiml>
