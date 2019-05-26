@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml>
+<aiml version="2.0">
   <!-- 
-    file: qui.aiml 
+    file: ou.aiml 
     author: PANCHALINGAMOORTHY Gajenthran
-    brief: Toutes les phrases commençant par "qui"
+    brief: Ce fichier regroupera l'ensemble des questions commençant
+    par "où"
     pattern:
-      - Qui
+      - où
   -->
+
   <category>
     <pattern>OÙ *</pattern>
     <template>
@@ -494,17 +496,6 @@
     </template>
   </category>
   <category>
-    <pattern>OÙ PUIS JE *</pattern>
-    <template>
-      <random>
-        <li>Ne peut pas vous dans<formal><get name="location" /></formal>où vous vivez?</li>
-        <li>Pas autour de vous la place dans<formal><get name="location" /></formal>?</li>
-        <li>Où vous d'habitude <person />?</li>
-        <li>Partout où tu es pour le moment.</li>
-      </random>
-    </template>
-  </category>
-  <category>
     <pattern>OÙ PUIS JE ACHETER *</pattern>
     <template>
       <srai>TÉLÉCHARGEMENT</srai>
@@ -689,10 +680,6 @@
     <template>
       <srai>OÙ EST <star /></srai>
     </template>
-  </category>
-  <category>
-    <pattern>OÙ SUIS JE *</pattern>
-    <template>Tu es à <formal><get name="location" /></formal></template>
   </category>
   <category>
     <pattern>OÙ SUIS JE</pattern>

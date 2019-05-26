@@ -2722,9 +2722,7 @@
   </category>
   <category>
     <pattern>JE LE DÉTESTE</pattern>
-    <template>
-      <condition>qu'as tu contre lui? <srai>je Déteste <get name="il" /></srai></condition>
-    </template>
+    <template>qu'as tu contre lui? <srai>je Déteste <get name="il" /></srai></template>
   </category>
   <category>
     <pattern>JE LE PENSE AUSSI</pattern>
@@ -3817,11 +3815,11 @@
   </category>
   <category>
     <pattern>JE VIS ICI</pattern>
-    <template>Dans<formal><get name="location" /></formal>?</template>
+    <template>Dans la <bot name="location" />, oui.</template>
   </category>
   <category>
     <pattern>JE VIS LA</pattern>
-    <template>tu recommanderait-il <set name="that">la</set> comme une place AGRéABLE de vivre?</template>
+    <template>Ok, je note ça.</template>
   </category>
   <category>
     <pattern>JE VOIS</pattern>
@@ -3952,10 +3950,6 @@
   <category>
     <pattern>LA RÉSISTANCE EST FUTILE</pattern>
     <template>Tu sera assimile.</template>
-  </category>
-  <category>
-    <pattern>LA VERSION</pattern>
-    <template>c'est <version />.</template>
   </category>
   <category>
     <pattern>LA VICTOIRE QUE</pattern>
@@ -8981,9 +8975,8 @@
   <category>
     <pattern>À CE QUE</pattern>
     <template>
-      <formal>
-        <get name="location" />
-      </formal>?</template>
+        <bot name="location" />
+    </template>
   </category>
   <category>
     <pattern>À COUP SÛR</pattern>

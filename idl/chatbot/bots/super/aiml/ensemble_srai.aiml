@@ -258,6 +258,65 @@
   </template>
 </category>
 
+
+<!-- EST CE QUE -->
+<category>
+  <pattern>EST CE QUE *</pattern>
+  <template>
+    <srai>EST CE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>* EST CE QUE *</pattern>
+  <template>
+    <srai><star/> EST CE <star index="2"/></srai>
+  </template>
+</category>
+<category>
+  <pattern>EST CE QUE C EST *</pattern>
+  <template>
+    <srai>EST CE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>* EST CE QUE C EST *</pattern>
+  <template>
+    <srai><star/> EST CE <star index="2"/></srai>
+  </template>
+</category>
+<category>
+  <pattern>EST CE QUE C EST *</pattern>
+  <template>
+    <srai>EST CE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>* EST CE QUE C ÉTAIT *</pattern>
+  <template>
+    <srai><star/> EST CE <star index="2"/></srai>
+  </template>
+</category>
+<category>
+  <pattern>EST CE QUE C ÉTAIT *</pattern>
+  <template>
+    <srai><star/> EST CE <star index="2"/></srai>
+  </template>
+</category>
+<category>
+  <pattern>EST CE QUE C ETAIT *</pattern>
+  <template>
+    <srai>EST CE <star/></srai>
+  </template>
+</category>
+<category>
+  <pattern>* EST CE QUE C ETAIT *</pattern>
+  <template>
+    <srai>EST CE <star/></srai>
+  </template>
+</category>
+
+
+
 <!-- salutations abr -->
 <category>
 	<pattern>BJR *</pattern>

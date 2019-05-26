@@ -142,6 +142,16 @@
 <category>
   <pattern>OUI</pattern>
   <that>ÊTES VOUS UNE CÉLÉBRITÉ</that>
+  <template>
+    <random>
+      <li>Oh ok ! <srai>EMOCHOQUE</srai></li>
+      <li>Ok, j'ajouterais <get name="name"/> à ma base de données</li>
+      <li>Très bien, je ne savais pas cela</li>
+    </random>
+  </template>
+</category>
+<category>
+  <pattern>OUI</pattern>
   <that>ES TU UNE CÉLÉBRITÉ</that>
   <template>
     <random>

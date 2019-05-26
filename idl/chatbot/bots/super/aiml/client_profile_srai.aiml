@@ -917,30 +917,35 @@
 <category>
   <pattern>JE SUIS CROYANT</pattern>
   <template>
+    <think><set name="religion">croyant</set></think>
     <srai>CLIENT RELIGION</srai>
   </template>
 </category>
 <category>
   <pattern>JE CROIS EN DIEU</pattern>
   <template>
+    <think><set name="religion">croyant</set></think>
     <srai>CLIENT RELIGION</srai>
   </template>
 </category>
 <category>
   <pattern>JE CROIS EN PERSONNE</pattern>
   <template>
+    <think><set name="religion">athée</set></think>
     <srai>CLIENT RELIGION</srai>
   </template>
 </category>
 <category>
   <pattern>JE SUIS ATHÉE</pattern>
   <template>
+    <think><set name="religion">athée</set></think>
     <srai>CLIENT RELIGION</srai>
   </template>
 </category>
 <category>
   <pattern>JE SUIS ATHÉE</pattern>
   <template>
+    <think><set name="religion">athée</set></think>
     <srai>CLIENT RELIGION</srai>
   </template>
 </category>

@@ -1218,27 +1218,23 @@
         <li>Hi</li>
       </random>
       <set name="name">
-        <formal>
-          <get name="qui" />
-        </formal>
+        <get name="qui" />
       </set>.</template>
   </category>
   <category>
     <pattern>* EST MON NOM DE FAMILLE</pattern>
-    <template>tu préfère que je t'appelle <get name="name" /> ou M. <star />? <think><set name="lastname"><star /></set></think></template>
+    <template>tu préfères que je t'appelle <get name="name"/> ou autrement ? </template>
   </category>
   <category>
     <pattern>*</pattern>
-    <that>TU PRÉFÈRE QUE JE T APPELLE *</that>
+    <that>TU PRÉFÈRES QUE JE T APPELLE *</that>
     <template>
       <random>
-        <li>OK je t'appellerai</li>
-        <li>Hi</li>
+        <li>OK je t'appelerai</li>
+        <li>Salut</li>
       </random>
       <set name="name">
-        <formal>
-          <star />
-        </formal>
+        <star />
       </set>.</template>
   </category>
   <category>
@@ -1247,12 +1243,10 @@
     <template>
       <random>
         <li>OK je t'appellerai</li>
-        <li>Hi</li>
+        <li>Salut</li>
       </random>
       <set name="name">
-        <formal>
-          <star />
-        </formal>
+        <star />
       </set>.</template>
   </category>  
   <category>
@@ -1393,11 +1387,8 @@
   <category>
     <pattern>JE M APELE *</pattern>
     <template>
-      <set name="name">
-        <formal>
-          <star />
-        </formal>
-      </set>, heureuse de te rencontrer!</template>
+      <srai>JE M APPELLE <star /></srai>
+    </template>
   </category>
   <category>
     <pattern>JE M APELLE *</pattern>
@@ -1420,11 +1411,8 @@
   <category>
     <pattern>JE M APPELLES *</pattern>
     <template>
-      <set name="name">
-        <formal>
-          <star />
-        </formal>
-      </set>, heureuse de te rencontrer!</template>
+      <srai>JE M APPELLE <star/></srai>
+    </template>
   </category>
   <category>
     <pattern>* MOI C EST *</pattern>
@@ -1560,11 +1548,8 @@
   <category>
     <pattern>* JE M APELE *</pattern>
     <template>
-      <set name="name">
-        <formal>
-          <star index="2" />
-        </formal>
-      </set>, heureuse de te rencontrer!</template>
+      <srai>JE M APPELLE <star index="2" /></srai>
+    </template>
   </category>
   <category>
     <pattern>* JE M APELLE *</pattern>
@@ -1587,11 +1572,8 @@
   <category>
     <pattern>* JE M APPELLES *</pattern>
     <template>
-      <set name="name">
-        <formal>
-          <star index="2" />
-        </formal>
-      </set>, heureuse de te rencontrer!</template>
+      <srai>JE M APPELLE <star index="2" /></srai>
+    </template>
   </category>
   <category>
     <pattern>*</pattern>

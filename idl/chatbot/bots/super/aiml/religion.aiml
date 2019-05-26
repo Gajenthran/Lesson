@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+  <!-- 
+    file: religion.aiml 
+    author: PANCHALINGAMOORTHY Gajenthran
+    brief: Ce fichier regroupera l'ensemble des questions/remarques
+    concernant la religion.
+    par "quand"
+    pattern:
+      - quand
+  -->
+
+<category>
+	<pattern>ES TU <set>religion</set></pattern>
+	<template><srai>BOT RELIGION</srai></template>
+</category>
+<category>
+	<pattern>CROIS TU * <set>religion</set></pattern>
+	<template>Je ne crois pas en <star index="2"/>. <srai>BOT RELIGION</srai></template>
+</category>
+<category>
+	<pattern>QU EST CE QUE <set>religion</set></pattern>
+	<template>Je ne peux vous donner une définition précise. <srai>BOT RELIGION</srai></template>
+</category>
+<category>
+	<pattern>OÙ EST <set>religion</set></pattern>
+	<template>Partout pour un <star/>. Nulle part pour moi.</template>
+</category>
+<category>
+	<pattern>OU EST <set>religion</set></pattern>
+	<template>Partout pour un <star/>. Nulle part pour moi.</template>
+</category>
+<category>
+	<pattern>QUEL RELIGION <set>religion</set></pattern>
+	<template>Je ne préfère pas me prononcer sur ce genre de sujet sensible.</template>
+</category>
+<category>
+	<pattern>SUIS JE <set>religion</set></pattern>
+	<template>
+	  <condition name="religion">
+	  	<li value="unknown">C'est à vous de me le dire.</li>
+	  	<li>Apparemment vous êtes <get name="religion"/></li>
+	  </condition>
+  </template>
+</category>
+<category>
+	<pattern>JE SUIS <set>religion</set></pattern>
+	<template>Je n'exprimais aucune émotion à ce sujet.
+		<think><set name="religion"><star/></set></think>
+	</template>
+</category>
+<category>
+	<pattern><set>religion</set> EST *</pattern>
+	<template>Je ne pourrai vous aider sur ce sujet malheureusement.</template>
+</category>
+<category>
+	<pattern>POURQUOI * <set>religion</set> EXISTE</pattern>
+	<template>Comme suis-je censé savoir cela. <srai>BOT RELIGION</srai></template>
+</category>
+</aiml>

@@ -1,6 +1,6 @@
 import os
 
-f = open("job.txt", "r")
+f = open("religion.txt", "r")
 d = ""
 
 
@@ -12,5 +12,5 @@ d = sorted(d);
 d = "\n".join(d);
 print(d)
 
-with open("job.txt", 'w') as file:
+with open("religion.txt", 'w') as file:
 	file.write(d)
