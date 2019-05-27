@@ -1,0 +1,197 @@
+afghanistan:asie
+afrique du sud:afrique
+albanie:europe
+algérie:afrique
+allemagne:europe
+andorre:europe
+angola:afrique
+antigua et barbuda:amérique
+arabie saoudite:asie
+argentine:amérique
+arménie:asie
+australie:océanie
+autriche:europe
+azerbaïdjan:asie
+bahamas:amérique
+bahreïn:asie
+bangladesh:asie
+barbade:amérique
+belgique:europe
+belize:amérique
+bhoutan:asie
+birmanie:asie
+biélorussie:europe
+bolivie:amérique
+bosnie herzégovine:europe
+botswana:afrique
+brunei:asie
+brésil:amérique
+bulgarie:europe
+burkina faso:afrique
+burundi:afrique
+bénin:afrique
+cambodge:asie
+cameroun:afrique
+canada:amérique
+cap vert:afrique
+chili:amérique
+chine:asie
+chypre:asie
+chypre:europe
+colombie:amérique
+comores:afrique
+corée du nord:asie
+corée du sud:asie
+costa rica:amérique
+crete:europe
+croatie:europe
+cuba:amérique
+côte d’ivoire:afrique
+danemark:europe
+djibouti:afrique
+dominique:amérique
+espagne:europe
+estonie:europe
+fidji:océanie
+finlande:europe
+france:europe
+gabon:afrique
+gambie:afrique
+ghana:afrique
+grenade:amérique
+grèce:europe
+guatemala:amérique
+guinée bissau:afrique
+guinée équatoriale:afrique
+guinée:afrique
+guyana:amérique
+géorgie:asie
+haïti:amérique
+honduras:amérique
+hongrie:europe
+inde:asie
+indonésie:asie
+irak:asie
+iran:asie
+irlande:europe
+islande:europe
+israël:asie
+italie:europe
+jamaïque:amérique
+japon:asie
+jordanie:asie
+kazakhstan:asie
+kenya:afrique
+kirghizistan:asie
+kiribati:océanie
+koweït:asie
+laos:asie
+lesotho:afrique
+lettonie:europe
+liban:asie
+liberia:afrique
+libye:afrique
+liechtenstein:europe
+lituanie:europe
+luxembourg:europe
+macédoine:europe
+madagascar:afrique
+malaisie:asie
+malawi:afrique
+maldives:asie
+mali:afrique
+malte:europe
+maroc:afrique
+marshall:océanie
+maurice:afrique
+mauritanie:afrique
+mexique:amérique
+micronésie:océanie
+moldavie:europe
+monaco:europe
+mongolie:asie
+monténégro:europe
+mozambique:afrique
+namibie:afrique
+nauru:océanie
+nicaragua:amérique
+niger:afrique
+nigeria:afrique
+norvège:europe
+nouvelle zélande:océanie
+népal:asie
+oman:asie
+ouganda:afrique
+ouzbékistan:asie
+pakistan:asie
+palaos:océanie
+panama:amérique
+papouasie nouvelle guinée:océanie
+paraguay:amérique
+pays bas:europe
+philippines:asie
+pologne:europe
+portugal:europe
+pérou:amérique
+qatar:asie
+roumanie:europe
+royaume uni:europe
+russie:europe
+rwanda:afrique
+république centrafricaine:afrique
+république dominicaine:amérique
+république du congo:afrique
+république démocratique du congo:afrique
+république tchèque:europe
+sahara occidental:afrique
+saint christophe et niévès:amérique
+saint marin:europe
+saint vincent et les grenadines:amérique
+sainte lucie:amérique
+salomon:océanie
+salvador:amérique
+samoa:océanie
+sao tomé et principe:afrique
+serbie:europe
+seychelles:afrique
+sierra leone:afrique
+singapour:asie
+slovaquie:europe
+slovénie:europe
+somalie:afrique
+soudan du sud:afrique
+soudan:afrique
+sri lanka:asie
+suisse:europe
+suriname:amérique
+suède:europe
+swaziland:afrique
+syrie:asie
+sénégal:afrique
+tadjikistan:asie
+tanzanie:afrique
+tchad:afrique
+thaïlande:asie
+timor oriental:asie
+togo:afrique
+tonga:océanie
+trinité et tobago:amérique
+tunisie:afrique
+turkménistan:asie
+turquie:asie
+tuvalu:océanie
+ukraine:europe
+uruguay:amérique
+vanuatu:océanie
+vatican:europe
+venezuela:amérique
+viêt nam:asie
+yémen:asie
+zambie:afrique
+zimbabwe:afrique
+égypte:afrique
+émirats arabes unis:asie
+équateur:amérique
+érythrée:afrique
+états unis:amérique
+éthiopie:afrique

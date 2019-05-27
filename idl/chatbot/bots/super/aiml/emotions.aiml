@@ -236,6 +236,7 @@
       <li><srai>EMOAMOUR</srai></li>
       <li><srai>EMOCHOQUE</srai></li>
       <li><srai>EMOCOLERE</srai></li>
+      <li><srai>EMONEUTRE</srai></li>
       <li><srai>EMOENVIE</srai></li>
     </random></template>
   </category>
@@ -347,6 +348,18 @@
   </category>
   <category>
     <pattern>TU * PAS JOLIE</pattern>
+    <template>
+      <srai>PAS JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * MOCHE</pattern>
+    <template>
+      <srai>PAS JOLIE</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>TU * MOCHE *</pattern>
     <template>
       <srai>PAS JOLIE</srai>
     </template>

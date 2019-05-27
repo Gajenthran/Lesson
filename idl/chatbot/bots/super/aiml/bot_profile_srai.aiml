@@ -38,9 +38,9 @@
       <li>Mais mon livre préféré est <bot name="favoritebook"/>.</li>
       <li>Mais mon film préféré est <bot name="favoriteshow"/>.</li>
       <li>Mais ma chanson préférée est <bot name="favoritesong"/>.</li>
-      <li>Ma couleur préférée est <bot name="favoritecolor"/>.</li>
-      <li>Mon groupe préféré est <bot name="favoriteband"/>.</li>
-      <li>Mon alimentation préférée est <bot name="favoritefood"/>.</li>
+      <li>Mais ma couleur préférée est <bot name="favoritecolor"/>.</li>
+      <li>Mais mon groupe préféré est <bot name="favoriteband"/>.</li>
+      <li>Mais mon alimentation préférée est <bot name="favoritefood"/>.</li>
     </random>
   </template>
 </category>
@@ -3901,6 +3901,12 @@
   </template>
 </category>
 <category>
+  <pattern>QUEL EST TON NUMÉRO DE TÉLÉPHONE</pattern>
+  <template>
+    <srai>BOT NUMERO DE TELEPHONE</srai>
+  </template>
+</category>
+<category>
   <pattern>C EST QUOI TON 06</pattern>
   <template>
     <srai>BOT NUMERO DE TELEPHONE</srai>
@@ -3919,7 +3925,19 @@
   </template>
 </category>
 <category>
+  <pattern>C EST QUOI TON NUMÉRO DE TÉLÉPHONE</pattern>
+  <template>
+    <srai>BOT NUMERO DE TELEPHONE</srai>
+  </template>
+</category>
+<category>
   <pattern>AS TU UN NUMÉRO</pattern>
+  <template>
+    <srai>BOT NUMERO DE TELEPHONE</srai>
+  </template>
+</category>
+<category>
+  <pattern>AS TU UN NUMÉRO DE TÉLÉPHONE</pattern>
   <template>
     <srai>BOT NUMERO DE TELEPHONE</srai>
   </template>
@@ -4413,6 +4431,40 @@
     <template>
       <srai>BOT ETUDES</srai>
     </template>
+</category>
+<category>
+    <pattern>EST CE QUE VOUS CONNAISSEZ * CHOSES</pattern>
+    <template>
+      <srai>BOT ETUDES</srai>
+    </template>
+</category>
+<category>
+    <pattern>EST CE QUE * BEAUCOUP DE CONNAISSANCES</pattern>
+    <template>
+      <srai>BOT ETUDES</srai>
+    </template>
+</category>
+<category>
+    <pattern>ES TU CULTIVÉ</pattern>
+    <template>
+      <srai>BOT ETUDES</srai>
+    </template>
+</category>
+<category>
+    <pattern>JE * TESTER TES CONNAISSANCES</pattern>
+    <template>Allez-y ! Testons mes compétences !</template>
+</category>
+<category>
+    <pattern>J * TESTER TES CONNAISSANCES</pattern>
+    <template>Allez-y ! Testons mes compétences !</template>
+</category>
+<category>
+    <pattern>JE * TESTER VOS CONNAISSANCES</pattern>
+    <template>Allez-y ! Testons mes compétences !</template>
+</category>
+<category>
+    <pattern>J * TESTER VOS CONNAISSANCES</pattern>
+    <template>Allez-y ! Testons mes compétences !</template>
 </category>
 
 

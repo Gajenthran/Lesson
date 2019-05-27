@@ -370,8 +370,7 @@
 </category>
 
 
-
-<!-- salutations abr -->
+<!-- ABREVIATIONS/TEXTO -->
 <category>
 	<pattern>BJR *</pattern>
 	<template>
@@ -649,7 +648,6 @@
   <template><srai>COMBIEN DE TEMPS <star/></srai></template>
 </category>
 
-
 <!-- À TOI -->
 <category>
   <pattern>* À VOUS</pattern>
@@ -679,6 +677,35 @@
   <pattern>QUE PENSEZ VOUS *</pattern>
   <template><srai>QUE PENSES TU <star/></srai></template>
 </category>
+
+<!-- AIMER -->
+<category>
+  <pattern>J ADORE *</pattern>
+  <template><srai>J AIME <star/></srai></template>
+</category>
+<category>
+  <pattern>JE KIFFE *</pattern>
+  <template><srai>J AIME <star/></srai></template>
+</category>
+<category>
+  <pattern>JE SUIS FOU DE *</pattern>
+  <template><srai>J AIME <star/></srai></template>
+</category>
+
+<!-- FAVORI -->
+<category>
+  <pattern>* PRÉFÉRÉ</pattern>
+  <template><srai><star/> FAVORI</srai></template>
+</category>
+<category>
+  <pattern>* FAVORITE</pattern>
+  <template><srai><star/> FAVORI</srai></template>
+</category>
+<category>
+  <pattern>* ADORÉ</pattern>
+  <template><srai><star/> FAVORI</srai></template>
+</category>
+
 
 <!-- GÉNÉRAL -->
 <category>

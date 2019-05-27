@@ -33,12 +33,10 @@
 <category>
   <pattern>C ÉTAIT *</pattern>
   <template><random>
-        <li>
-          <star/>? ah!</li>
-        <li> c'était <star/>? Très interressant.</li>
-        <li>c'était bien?</li>
-      </random>
-      <sr/></template>
+    <li><star/>? ah!</li>
+    <li> c'était <star/>? Très interressant.</li>
+    <li>c'était bien?</li>
+  </random><sr/></template>
 </category>
 <category>
   <pattern>C ÉTAIT AGRÉABLE *</pattern>

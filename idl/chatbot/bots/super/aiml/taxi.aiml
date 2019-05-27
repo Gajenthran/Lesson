@@ -13,6 +13,7 @@
     	- possibilités
       ...
   -->
+  
 <category><pattern># TAXI <set>taxi</set> #</pattern>
   <template><think><set name="topic">taxi_topic</set></think>
     <srai><star index="2"/></srai></template>
@@ -308,11 +309,11 @@
 </category>
 <category>
   <pattern>IMPOT</pattern>
-  <template>Je suis un robot...</template>
+  <template>Je suis un robot</template>
 </category>
 <category>
   <pattern>HANDICAP</pattern>
-  <template>Toutes les personnes sont les bienvenues !</template>
+  <template>Toutes les personnes dans ma voiture sont les bienvenues !</template>
 </category>
 <category>
   <pattern>RETOUR</pattern>
@@ -372,6 +373,10 @@
   <that>COMBIEN DE BAGAGES AVEZ VOUS</that>
   <template>Je prends 3 valises seulement</template>
 </category>
-
+<category>
+  <pattern>ET *</pattern>
+  <that>JE SUIS UN ROBOT</that>
+  <template>Les robots ne payent pas d'impôts</template>
+</category>
 </topic>
 </aiml>

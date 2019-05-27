@@ -1,0 +1,356 @@
+abu dhabi
+abuja
+accra
+achgabat
+addis abeba
+afrique
+agen
+ajaccio
+albi
+alençon
+alger
+alès
+amiens
+amman
+amsterdam
+andorre la vieille
+angers
+angoulême
+ankara
+annecy
+antananarivo
+apia
+arcachon
+arles
+armentières
+arras
+asmara
+astana
+asunción
+athènes
+aubenas
+aurillac
+auxerre
+avignon
+bagdad
+bakou
+bamako
+bandar seri begawan
+bangkok
+bangui
+banjul
+basse terre
+basseterre
+bastia
+bayonne
+beauvais
+belfort
+belgrade
+belmopan
+berck
+bergerac
+berlin
+berne
+besançon
+beyrouth
+bichkek
+bissau
+blois
+bogota
+bordeaux
+boulogne sur mer
+bourg en bresse
+bourges
+brasilia
+bratislava
+brazzaville
+brest
+bridgetown
+brive la gaillarde
+bruxelles
+bucarest
+budapest
+buenos aires
+bujumbura
+bâle   saint louis
+béthune
+béziers
+caen
+calais
+cambrai
+canberra
+caracas
+carcassonne
+castres
+castries
+cayenne
+chalon sur saône
+chambéry
+charleville mézières
+chartres
+cherbourg en cotentin
+chisinau
+cholet
+châlons en champagne
+châteauroux
+châtellerault
+clermont ferrand
+cluses
+colmar
+compiègne
+conakry
+copenhague
+creil
+dacca
+dakar
+damas
+dax
+dieppe
+dijon
+dili
+djibouti
+djouba
+dodoma
+doha
+dole
+douai
+douchanbe
+draguignan
+dreux
+dublin
+dunkerque
+erevan
+fanafuti
+fort de france
+freetown
+fréjus
+gaborone
+gap
+georgetown
+grenoble
+guatemala
+haguenau
+hanoi
+helsinki
+honiara
+islamabad
+jakarta
+jérusalem
+jérusalem est
+kaboul
+kampala
+katmandou
+khartoum
+kiev
+kigali
+kingston
+kingstown
+kinshasa
+koweït
+kuala lumpur
+la havane
+la roche sur yon
+la rochelle
+la valette
+lannion
+laon
+laval
+le caire
+le havre
+le mans
+le puy en velay
+le robert
+lens
+libreville
+lille
+lilongwe
+lima
+limoges
+lisbonne
+ljubljana
+lomé
+londres
+longwy
+lons le saunier
+lorient
+luanda
+lusaka
+luxembourg
+lyon
+madrid
+majuro
+malabo
+malé
+mamoudzou
+managua
+manama
+manille
+maputo
+marseille
+mascate
+maseru
+maubeuge
+mbabane
+melekeok
+menton monaco
+metz
+mexico
+minsk
+mogadiscio
+monaco
+monrovia
+mont de marsan
+montargis
+montauban
+montbéliard
+montevideo
+montluçon
+montpellier
+montélimar
+moroni
+moscou
+moulins
+mulhouse
+mâcon
+n'djamena
+nairobi
+nancy
+nantes
+narbonne
+nassau
+naypyidaw
+nevers
+new delhi
+niamey
+nice
+nicosie
+niort
+nouakchott
+nukualofa
+nîmes
+orléans
+oslo
+ottawa
+ouagadougou
+oulan bator
+palikir
+panama
+paramaribo
+paris
+paris
+pau
+perpignan
+phnom penh
+podgorica
+poitiers
+port louis
+port moresby
+port of spain
+port au prince
+port vila
+porto novo
+prague
+praia
+pretoria
+pristina
+pyongyang
+pékin
+périgueux
+quimper
+quito
+rabat
+reims
+rennes
+reykjavik
+riga
+riyad
+roanne
+rochefort
+rodez
+romans sur isère
+rome
+roseau
+rouen
+saint andré
+saint brieuc
+saint cyprien
+saint denis
+saint dizier
+saint dié des vosges
+saint george's
+saint john's
+saint louis
+saint lô
+saint malo
+saint nazaire
+saint omer
+saint paul
+saint pierre
+saint quentin
+saint étienne
+saint domingue
+saint marin
+saintes
+salon de provence
+san josé
+san salvador
+sanaa
+santiago
+sarajevo
+sarrebruck   forbach
+sens
+singapour
+skopje
+sofia
+soissons
+sri jayawardenapura
+stockholm
+strasbourg
+sucre
+suva
+são tomé
+sète
+séoul
+tachkent
+taipei
+tallinn
+tarawa
+tarbes
+tbilissi
+tegucigalpa
+thimbu
+thionville
+thonon les bains
+tirana
+tokyo
+toulon
+toulouse
+tours
+tripoli
+troyes
+tunis
+téhéran
+vaduz
+valence
+valenciennes
+vannes
+varsovie
+vatican
+vesoul
+vichy
+victoria
+vienne
+vienne
+vientiane
+villeneuve
+villeneuve sur lot
+vilnius
+washington
+wellington
+windhoek
+yamoussoukro
+yaoundé
+yaren
+zagreb
+épinal
+évreux

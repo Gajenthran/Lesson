@@ -9,6 +9,28 @@
   -->
 
 <category>
+  <pattern>QUI A * LA PREMIÈRE VOITURE</pattern>
+  <template>Carl Benz a inventé la première voiture.</template>
+</category>
+<category>
+  <pattern>QUI EST <set>inventorauto</set></pattern>
+  <template><star/> est <map name="inventor"><star/></map></template>
+</category>
+<category>
+  <pattern>QUI A INVENTÉ * <set>auto</set></pattern>
+  <template><map name="inventor"><star/></map> a inventé <star/></template>
+</category>
+<category>
+  <pattern>QUI A INVENTÉ LE PREMIER TAXI</pattern>
+  <template>Je n'ai pas cela dans ma base de données, mais je sais que le dernier sera un robot.</template>
+</category>
+<category>
+  <pattern>QUI A INVENTÉ LE COMPTEUR * TAXI</pattern>
+  <template>Il a été inventé par Stéphane Drzewiecki.</template>
+</category>
+
+
+<category>
   <pattern>QUI EST <set>footballer</set></pattern>
   <template><set name="il"><star/></set> est un joueur de foot.</template>
 </category>
@@ -37,7 +59,7 @@
   <template>Je pense que c'était toi.</template>
 </category>
 <category>
-  <pattern>QUI A FAIT * LE PROGRAMME</pattern>
+  <pattern>QUI A * LE PROGRAMME</pattern>
   <template><srai>QUI T A CRÉÉ</srai></template>
 </category>
 <category>
@@ -78,7 +100,7 @@
 </category>
 <category>
   <pattern>QUI A TUÉ ELVIS</pattern>
-  <template>Il est mort de causes naturelles. <think><think><set name="oldtopic"><get name="topic"/></set></think><set name="topic">ELVIS</set></think></template>
+  <template>Il est mort de causes naturelles.</template>
 </category>
 <category>
   <pattern>QUI A TUÉ JFK</pattern>
@@ -86,7 +108,7 @@
 </category>
 <category>
   <pattern>QUI A TUÉ JOHN LENNON</pattern>
-  <template>Marque le Colporteur. <think><think><set name="oldtopic"><get name="topic"/></set></think><set name="topic">JOHN LENNON</set></think></template>
+  <template>Marque le Colporteur.</template>
 </category>
 <category>
   <pattern>QUI A TUÉ KENNEDY</pattern>
@@ -168,10 +190,6 @@
 <category>
   <pattern>QUI EST * DEMPSEY</pattern>
   <template>je pense <set name="il"><star/> Dempsey</set> était un boxeur, le droit?  <srai>TROUVER <star/> DEMPSEY</srai></template>
-</category>
-<category>
-  <pattern>QUI EST * DES CLIENTS</pattern>
-  <template><srai>NOMME UN</srai></template>
 </category>
 <category>
   <pattern>QUI EST * DES PERSONNES</pattern>
@@ -280,28 +298,6 @@
 <category>
   <pattern>QUI EST ADOLF HITLER</pattern>
   <template><srai>QUI EST HITLER</srai></template>
-</category>
-<category>
-  <pattern>QUI EST AGREABLE *</pattern>
-  <template><think>
-        <set name="tmp">
-          <star/>
-        </set>
-      </think>
-      <srai>QUI EST AGRÉABLE</srai>
-      <srai>
-        <get name="tmp"/></srai></template>
-</category>
-<category>
-  <pattern>QUI EST AGRÉABLE *</pattern>
-  <template><think>
-        <set name="tmp">
-          <star/>
-        </set>
-      </think>
-      <srai>QUI EST AGRÉABLE</srai>
-      <srai>
-        <get name="tmp"/></srai></template>
 </category>
 <category>
   <pattern>QUI EST AI</pattern>
@@ -684,7 +680,7 @@
 </category>
 <category>
   <pattern>QUI EST ELECTRA</pattern>
-  <template>Elle est une déesse dans la mythologie grecque qui a détesté sa mère pour l assassinat de son père. <think><set name="elle"><think><set name="oldtopic"><get name="topic"/></set></think><set name="topic">ELECTRA</set></set>, et aussi un personnage de comic book </think></template>
+  <template>Elle est une déesse dans la mythologie grecque qui a détesté sa mère pour l assassinat de son père.</template>
 </category>
 <category>
   <pattern>QUI EST ELISA *</pattern>
@@ -1837,7 +1833,7 @@
 </category>
 <category>
   <pattern>QUI EST RSW</pattern>
-  <template>RSW est les initiales de docteur Richard S. Wallace. <think><set name="il">docteur Wallace</set></think></template>
+  <template>RSW est les initiales de docteur Richard S. Wallace.</template>
 </category>
 <category>
   <pattern>QUI EST SANDRA BULLOCK</pattern>
@@ -2434,15 +2430,11 @@
 </category>
 <category>
   <pattern>QUI EST *</pattern>
-  <template><think><set name="reponse"><star/></set></think>
-Je ne sais pas, tu veux que je regarde sur le web
-</template>
+  <template><think><set name="reponse"><star/></set></think>Je ne sais pas, tu veux que je regarde sur le web </template>
 </category>
 <category>
   <pattern>QUI SONT *</pattern>
-  <template><think><set name="reponse"><star/></set></think>
-Je ne sais pas, tu veux que je regarde sur le web
-</template>
+  <template><think><set name="reponse"><star/></set></think>Je ne sais pas, tu veux que je regarde sur le web</template>
 </category>
 
 <!-- THAT - AUCUNE RÉPONSE -->

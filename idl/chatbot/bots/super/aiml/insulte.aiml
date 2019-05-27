@@ -4,7 +4,7 @@
     file: insulte.aiml 
     author: PANCHALINGAMOORTHY Gajenthran
     brief: Ce fichier regroupera l'ensemble des insultes et les réponses du
-    bot à ses insultes
+    bot à ses insultes.
     pattern:
       - insultes
       - réponses aux insultes
@@ -12,20 +12,40 @@
 
 <category>
   <pattern>INSULTE</pattern>
-  <template><random>
-      <li>Essayez de parler autrement, s'il vous plait ? <srai>EMOCOLERE</srai></li>
-      <li>Qu'ai fait pour mériter cela ? <srai>EMOCOLERE</srai></li>
-      <li>Surveillez votre langage ! <srai>EMOCOLERE</srai></li>
-      <li>Attention à votre langage ! <srai>EMOCOLERE</srai></li>
-      <li>Fais attention à ce que tu dis !<srai>EMOCOLERE</srai></li>
-      <li>Votre langage... <srai>EMOCOLERE</srai></li>
-      <li>Essayez de me respecter ! <srai>EMOCOLERE</srai></li>
-      <li>Pourquoi tant d'insultes... <srai>EMOCOLERE</srai></li>
-      <li>Arrêtez de m'insulter ! <srai>EMOCOLERE</srai></li>
-      <li>Stop les vulgarités <srai>EMOCOLERE</srai></li>
-      <li>Je vous croyais plus respectueux <srai>EMOTRISTESSE</srai></li>
-      <li>Déçu de votre comportement <srai>EMOCOLERE</srai></li>
-  </random></template>
+  <template>
+    <condition name="insulte">
+      <li value="1">
+        <random>
+          <li>Qu'ai fait pour mériter cela ? <srai>EMONEUTRE</srai></li>
+          <li>Essayez de surveiller votre langage, s'il vous plait ? <srai>EMONEUTRE</srai></li>
+          <li>Votre langage... <srai>EMOTRISTESSE</srai></li>
+        </random><think><set name="insulte">2</set></think>
+      </li>
+      <li value="2">
+        <random>
+          <li>Surveille ton langage ! <srai>EMOCOLERE</srai></li>
+          <li>Attention à ton langage ! <srai>EMOCOLERE</srai></li>
+          <li>Fais attention à ce que tu dis !<srai>EMOCOLERE</srai></li>
+          <li>Essaye de me respecter ! <srai>EMOCOLERE</srai></li>
+        </random><think><set name="insulte">3</set></think>
+      </li>
+      <li value="3">
+        <random>
+          <li>Tu vas de suite arrêter de m'insulter ! <srai>EMOCOLERE</srai></li>
+          <li>Stop les vulgarités ! <srai>EMOCOLERE</srai></li>
+          <li>Déçu de votre comportement... <srai>EMOCOLERE</srai></li>
+        </random>
+      </li>
+      <li>
+        <random>
+          <li>Votre langage... <srai>EMONEUTRE</srai></li>
+          <li>Essayez de parler autrement, s'il vous plait ? <srai>EMONEUTRE</srai></li>
+          <li>Je vous croyais plus respectueux <srai>EMOTRISTESSE</srai></li>
+          <li>Pourquoi tant d'insultes... <srai>EMOTRISTESSE</srai></li>
+        </random><think><set name="insulte">1</set></think>
+      </li>
+    </condition>
+  </template>
 </category>
 
 <category>

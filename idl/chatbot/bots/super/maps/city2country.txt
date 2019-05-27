@@ -1,0 +1,355 @@
+abu dhabi:emirats arabes unis
+abuja:nigeria
+accra:ghana
+achgabat:turkménistan
+addis-abeba:ethiopie
+agen:france
+ajaccio:france
+albi:france
+alençon:france
+alger:algérie
+alès:france
+amiens:france
+amman:jordanie
+amsterdam:pays-bas
+andorre-la-vieille:andorre
+angers:france
+angoulême:france
+ankara:turquie
+annecy:france
+antananarivo:madagascar
+apia:samoa
+arcachon:france
+arles:france
+armentières:france
+arras:france
+asmara:erythrée
+astana:kazakhstan
+asunción:paraguay
+athènes:grèce
+aubenas:france
+aurillac:france
+auxerre:france
+avignon:france
+bagdad:irak
+bakou:azerbaïdjan
+bamako:mali
+bandar seri begawan:brunei
+bangkok:thaïlande
+bangui:république centrafricaine
+banjul:gambie
+basse terre:france
+basseterre:saint-kitts-et-nevis
+bastia:france
+bayonne:france
+beauvais:france
+belfort:france
+belgrade:serbie
+belmopan:belize
+berck:france
+bergerac:france
+berlin:allemagne
+berne:suisse
+besançon:france
+beyrouth:liban
+bichkek:kirghizistan
+bissau:guinée-bissau
+blois:france
+bogota:colombie
+bordeaux:france
+boulogne sur mer:france
+bourg en bresse:france
+bourges:france
+brasilia:brésil
+bratislava:slovaquie
+brazzaville:congo
+brest:france
+bridgetown:barbade
+brive la gaillarde:france
+bruxelles:belgique
+bucarest:roumanie
+budapest:hongrie
+buenos aires:argentine
+bujumbura:burundi
+bâle saint louis:france
+béthune:france
+béziers:france
+caen:france
+calais:france
+cambrai:france
+canberra:australie
+caracas:venezuela
+carcassonne:france
+castres:france
+castries:sainte-lucie
+cayenne:france
+chalon sur saône:france
+chambéry:france
+charleville mézières:france
+chartres:france
+cherbourg en cotentin:france
+chisinau:moldavie
+cholet:france
+châlons en champagne:france
+châteauroux:france
+châtellerault:france
+clermont ferrand:france
+cluses:france
+colmar:france
+compiègne:france
+conakry:guinée
+copenhague:danemark
+creil:france
+dacca:bangladesh
+dakar:sénégal
+damas:syrie
+dax:france
+dieppe:france
+dijon:france
+dili:timor-oriental
+djibouti:djibouti
+djouba:soudan du sud
+dodoma:tanzanie
+doha:qatar
+dole:france
+douai:france
+douchanbe:tadjikistan
+draguignan:france
+dreux:france
+dublin:irlande
+dunkerque:france
+erevan:arménie
+fanafuti:tuvalu
+fort de france:france
+freetown:sierra leone
+fréjus:france
+gaborone:botswana
+gap:france
+georgetown:guyana
+grenoble:france
+guatemala:guatemala
+haguenau:france
+hanoi:viêt nam
+helsinki:finlande
+honiara:salomon
+islamabad:pakistan
+jakarta:indonésie
+jérusalem-est:palestine
+jérusalem:israël
+kaboul:afghanistan
+kampala:ouganda
+katmandou:népal
+khartoum:soudan
+kiev:ukraine
+kigali:rwanda
+kingston:jamaïque
+kingstown:saint-vincent-et-les-grenadines
+kinshasa:république démocratique du congo
+koweït:koweït
+kuala lumpur:malaisie
+la havane:cuba
+la roche sur yon:france
+la rochelle:france
+la valette:malte
+lannion:france
+laon:france
+laval:france
+le caire:egypte
+le havre:france
+le mans:france
+le puy en velay:france
+le robert:france
+lens:france
+libreville:gabon
+lille:france
+lilongwe:malawi
+lima:pérou
+limoges:france
+lisbonne:portugal
+ljubljana:slovénie
+lomé:togo
+londres:royaume-uni
+longwy:france
+lons le saunier:france
+lorient:france
+luanda:angola
+lusaka:zambie
+luxembourg:luxembourg
+lyon:france
+madrid:espagne
+majuro:marshall
+malabo:guinée équatoriale
+malé:maldives
+mamoudzou:france
+managua:nicaragua
+manama:bahreïn
+manille:philippines
+maputo:mozambique
+marseille:france
+mascate:oman
+maseru:lesotho
+maubeuge:france
+mbabane:swaziland
+melekeok:palaos
+menton monaco:france
+metz:france
+mexico:mexique
+minsk:biélorussie
+mogadiscio:somalie
+monaco:monaco
+monrovia:liberia
+mont de marsan:france
+montargis:france
+montauban:france
+montbéliard:france
+montevideo:uruguay
+montluçon:france
+montpellier:france
+montélimar:france
+moroni:comores
+moscou:russie
+moulins:france
+mulhouse:france
+mâcon:france
+n'djamena:tchad
+nairobi:kenya
+nancy:france
+nantes:france
+narbonne:france
+nassau:bahamas
+naypyidaw:birmanie
+nevers:france
+new delhi:inde
+niamey:niger
+nice:france
+nicosie:chypre
+niort:france
+nouakchott:mauritanie
+nukualofa:tonga
+nîmes:france
+orléans:france
+oslo:norvège
+ottawa:canada
+ouagadougou:burkina faso
+oulan-bator:mongolie
+palikir:micronésie
+panama:panama
+paramaribo:suriname
+paris:france
+paris:france
+pau:france
+perpignan:france
+phnom penh:cambodge
+podgorica:monténégro
+poitiers:france
+port louis:île maurice
+port moresby:papouasie-nouvelle-guinée
+port of spain:trinité-et-tobago
+port-au-prince:haïti
+port-vila:vanuatu
+porto-novo:bénin
+prague:république tchèque
+praia:cap-vert
+pretoria:afrique du sud
+pristina:kosovo
+pyongyang:corée du nord
+pékin:chine
+périgueux:france
+quimper:france
+quito:equateur
+rabat:maroc
+reims:france
+rennes:france
+reykjavik:islande
+riga:lettonie
+riyad:arabie saoudite
+roanne:france
+rochefort:france
+rodez:france
+romans sur isère:france
+rome:italie
+roseau:dominique
+rouen:france
+saint andré:france
+saint brieuc:france
+saint cyprien:france
+saint denis:france
+saint dizier:france
+saint dié des vosges:france
+saint george's:grenade
+saint john's:antigua-et-barbuda
+saint louis:france
+saint lô:france
+saint malo:france
+saint nazaire:france
+saint omer:france
+saint paul:france
+saint pierre:france
+saint quentin:france
+saint étienne:france
+saint-domingue:république dominicaine
+saint-marin:saint-marin
+saintes:france
+salon de provence:france
+san josé:costa rica
+san salvador:salvador
+sanaa:yémen
+santiago:chili
+sarajevo:bosnie-herzégovine
+sarrebruck forbach:france
+sens:france
+singapour:singapour
+skopje:macédoine
+sofia:bulgarie
+soissons:france
+sri jayawardenapura:sri lanka
+stockholm:suède
+strasbourg:france
+sucre:bolivie
+suva:fidji
+são tomé:são tomé et príncipe
+sète:france
+séoul:corée du sud
+tachkent:ouzbékistan
+taipei:taïwan
+tallinn:estonie
+tarawa:kiribati
+tarbes:france
+tbilissi:géorgie
+tegucigalpa:honduras
+thimbu:bhoutan
+thionville:france
+thonon les bains:france
+tirana:albanie
+tokyo:japon
+toulon:france
+toulouse:france
+tours:france
+tripoli:libye
+troyes:france
+tunis:tunisie
+téhéran:iran
+vaduz:liechtenstein
+valence:france
+valenciennes:france
+vannes:france
+varsovie:pologne
+vatican:vatican
+vesoul:france
+vichy:france
+victoria:seychelles
+vienne:autriche
+vienne:france
+vientiane:laos
+villeneuve sur lot:france
+villeneuve:france
+vilnius:lituanie
+washington:etats-unis
+wellington:nouvelle-zélande
+windhoek:namibie
+yamoussoukro:côte d'ivoire
+yaoundé:cameroun
+yaren:nauru
+zagreb:croatie
+épinal:france
+évreux:france

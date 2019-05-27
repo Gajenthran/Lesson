@@ -38,6 +38,11 @@
       - peur
       - remarque
       - fonctionnalités
+      - aller retour
+      - humain
+      - handicap
+      - impot
+      - voiture
   -->
 
 <!-- DISPONIBILITE -->
@@ -1662,6 +1667,18 @@ X<category>
   </template>
 </category>
 <category>
+  <pattern>* DES IMPÔTS</pattern>
+  <template>
+    <srai>TAXI IMPOT</srai>
+  </template>
+</category>
+<category>
+  <pattern>* DES TAXES</pattern>
+  <template>
+    <srai>TAXI IMPOT</srai>
+  </template>
+</category>
+<category>
   <pattern>* TES IMPÔTS</pattern>
   <template>
     <srai>TAXI IMPOT</srai>
@@ -1756,10 +1773,6 @@ X<category>
     <srai>TAXI RETOUR</srai>
   </template>
 </category>
-
-
-<!-- MAPS GAZ, CAPITAL -->
-
 
 <!-- FONCTIONNALITÉS -->
 <category>
