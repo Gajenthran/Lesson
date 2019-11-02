@@ -2,18 +2,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #define MAX 1024
 
-typedef struct data_t data_t;
-struct data_t {
+typedef struct data data_t;
+struct data {
 	double * v;
 	char * name;
 	double norm;
 };
 
-typedef struct node_t node_t;
-struct node_t {
+typedef struct node node_t;
+struct node {
 	double * w;
 	char * etq;
 	double act;
@@ -22,15 +23,15 @@ struct node_t {
 char * readFile(char * f);
 data_t * tokenize(char * t, int * size);
 void printData(data_t * data, int size);
+int * initDraw(int n);
 
-// format suivant: slength(double), swidth(double), plength(double), pwidth(double), class(str)
 int main(int argc, char *argv[]) {
 	int size;
-	data_t * d = NULL;
+	data_t * data = NULL;
 
 	char * t = readFile(argv[1]);
-	d = tokenize(t, &size);
-	printData(d, size);
+	data = tokenize(t, &size);
+	int * draw = initDraw(size);
 	return 0;
 }
 
@@ -50,7 +51,37 @@ char * readFile(char * f) {
   return d;
 }
 
-data_t * tokenize(char * t, int *size) {
+int * initDraw(int n) {
+	srand(time(0));
+	int * draw = (int *)malloc(n * sizeof *draw);
+	int * seen = (int *)calloc(0, n * sizeof *draw);
+	assert(draw);
+
+	int i, offset, r;
+	for(i = 0; i < n; i++) {
+		r = rand() % n;
+		if(seen[r]) {
+			offset = 1;
+			while(1) {
+				if(r + offset < n && !seen[r + offset]) {
+					draw[i] = r + offset;
+					seen[n] = 1;
+					break;
+				} else if(r - offset >= 0 && seen[r - offset]) {
+					draw[i] = r - offset;
+					seen[n] = 1;
+					break;
+				}
+				offset++;
+			}
+		}
+		draw[i] = r;
+		seen[n] = 1;
+	}
+	return draw;
+}
+
+data_t * tokenize(char * t, int * size) {
 	int i = 0, j = 0, c = 1;
 	while(t[i]) {
 		if(t[i] == '\n') c++;
