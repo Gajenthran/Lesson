@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>adp: Référence du fichier ann.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">adp
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.14 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Recherche');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier ann.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="ll_8h_source.html">ll.h</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdata.html">data</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnode.html">node</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structnetwork.html">network</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:abddd017319db0cb4a98176cce8934db8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#abddd017319db0cb4a98176cce8934db8">NB_VAL</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:abddd017319db0cb4a98176cce8934db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a1d756f237acef91aa7ef4e6b87f52632"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structdata.html">data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a></td></tr>
+<tr class="separator:a1d756f237acef91aa7ef4e6b87f52632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c02633e18d6aa5f58539b75f08753d9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structnode.html">node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a></td></tr>
+<tr class="separator:a7c02633e18d6aa5f58539b75f08753d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0778429c5213da0820d96ef3b8423fbd"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structnetwork.html">network</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a0778429c5213da0820d96ef3b8423fbd">network_t</a></td></tr>
+<tr class="separator:a0778429c5213da0820d96ef3b8423fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a45b112871d235ebeb87fbb4887207eb6"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a45b112871d235ebeb87fbb4887207eb6">init_draw</a> (int n)</td></tr>
+<tr class="separator:a45b112871d235ebeb87fbb4887207eb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac098af64f32f66502a3c1e69efb4827d"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#ac098af64f32f66502a3c1e69efb4827d">read_file</a> (char *f)</td></tr>
+<tr class="memdesc:ac098af64f32f66502a3c1e69efb4827d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lire le fichiers de données et retourner son contenu sous forme de chaîne de caractère.  <a href="#ac098af64f32f66502a3c1e69efb4827d">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ac098af64f32f66502a3c1e69efb4827d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa673efe1753f44d4f14a7bfa8e4d0b4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#aa673efe1753f44d4f14a7bfa8e4d0b4f">tokenize</a> (char *t, int *size)</td></tr>
+<tr class="memdesc:aa673efe1753f44d4f14a7bfa8e4d0b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tokenize le contenu du fichiers en le coupant en lignes et en virgule pour récupérer les données utiles (valeurs + label)  <a href="#aa673efe1753f44d4f14a7bfa8e4d0b4f">Plus de détails...</a><br /></td></tr>
+<tr class="separator:aa673efe1753f44d4f14a7bfa8e4d0b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac407d5ddb5e6b9d45f6e0499fbb0cf83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#ac407d5ddb5e6b9d45f6e0499fbb0cf83">print_data</a> (<a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> *<a class="el" href="structdata.html">data</a>, int size)</td></tr>
+<tr class="separator:ac407d5ddb5e6b9d45f6e0499fbb0cf83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ef796d596fbe1652d0b23572ab0f1d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a4ef796d596fbe1652d0b23572ab0f1d2">normalize</a> (<a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> *<a class="el" href="structdata.html">data</a>, int size)</td></tr>
+<tr class="memdesc:a4ef796d596fbe1652d0b23572ab0f1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normaliser les données.  <a href="#a4ef796d596fbe1652d0b23572ab0f1d2">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a4ef796d596fbe1652d0b23572ab0f1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c5acbef5799560fa0d4e9922054cf6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a33c5acbef5799560fa0d4e9922054cf6">euclidean_distance_vec</a> (double *v, double *w, int size)</td></tr>
+<tr class="memdesc:a33c5acbef5799560fa0d4e9922054cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcule la distance euclidienne de deux vecteurs.  <a href="#a33c5acbef5799560fa0d4e9922054cf6">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a33c5acbef5799560fa0d4e9922054cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4a971d7d903d2b1110eacb80c05b2ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#aa4a971d7d903d2b1110eacb80c05b2ee">usage</a> (char *msg)</td></tr>
+<tr class="separator:aa4a971d7d903d2b1110eacb80c05b2ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85f36b5908857694313718cacaa0f2d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ann_8c.html#a0778429c5213da0820d96ef3b8423fbd">network_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ann_8c.html#a85f36b5908857694313718cacaa0f2d4">initNetwork</a> (<a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> *<a class="el" href="structdata.html">data</a>, int size)</td></tr>
+<tr class="separator:a85f36b5908857694313718cacaa0f2d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="abddd017319db0cb4a98176cce8934db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abddd017319db0cb4a98176cce8934db8">&#9670;&nbsp;</a></span>NB_VAL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NB_VAL&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Référencé par <a class="el" href="ann_8c.html#a85f36b5908857694313718cacaa0f2d4">initNetwork()</a>, <a class="el" href="ann_8c.html#a4ef796d596fbe1652d0b23572ab0f1d2">normalize()</a>, <a class="el" href="ann_8c.html#ac407d5ddb5e6b9d45f6e0499fbb0cf83">print_data()</a>, et <a class="el" href="ann_8c.html#aa673efe1753f44d4f14a7bfa8e4d0b4f">tokenize()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a1d756f237acef91aa7ef4e6b87f52632"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d756f237acef91aa7ef4e6b87f52632">&#9670;&nbsp;</a></span>data_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structdata.html">data</a> <a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0778429c5213da0820d96ef3b8423fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0778429c5213da0820d96ef3b8423fbd">&#9670;&nbsp;</a></span>network_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structnetwork.html">network</a> <a class="el" href="ann_8c.html#a0778429c5213da0820d96ef3b8423fbd">network_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c02633e18d6aa5f58539b75f08753d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c02633e18d6aa5f58539b75f08753d9">&#9670;&nbsp;</a></span>node_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structnode.html">node</a> <a class="el" href="ann_8c.html#a7c02633e18d6aa5f58539b75f08753d9">node_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a33c5acbef5799560fa0d4e9922054cf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33c5acbef5799560fa0d4e9922054cf6">&#9670;&nbsp;</a></span>euclidean_distance_vec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double euclidean_distance_vec </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcule la distance euclidienne de deux vecteurs. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>vecteur v </td></tr>
+    <tr><td class="paramname">w</td><td>vecteur w </td></tr>
+    <tr><td class="paramname">size</td><td>taille des vecteurs v et w (partageant la même taille)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la distance de l'ensemble des deux vecteurs. </dd></dl>
+
+</div>
+</div>
+<a id="a45b112871d235ebeb87fbb4887207eb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45b112871d235ebeb87fbb4887207eb6">&#9670;&nbsp;</a></span>init_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int * init_draw </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85f36b5908857694313718cacaa0f2d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85f36b5908857694313718cacaa0f2d4">&#9670;&nbsp;</a></span>initNetwork()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ann_8c.html#a0778429c5213da0820d96ef3b8423fbd">network_t</a>* initNetwork </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Références <a class="el" href="structnode.html#a77fefe896bf7384d2d00c9726f0f4a03">node::act</a>, <a class="el" href="structnode.html#ac22019358b2a8d1c3d3732f552e7e83b">node::etq</a>, <a class="el" href="ann_8c.html#abddd017319db0cb4a98176cce8934db8">NB_VAL</a>, et <a class="el" href="structnode.html#a7e31cf0dc8ac730acfac0a33487c309e">node::w</a>.</p>
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Références <a class="el" href="ann_8c.html#a4ef796d596fbe1652d0b23572ab0f1d2">normalize()</a>, <a class="el" href="ann_8c.html#ac407d5ddb5e6b9d45f6e0499fbb0cf83">print_data()</a>, <a class="el" href="ann_8c.html#ac098af64f32f66502a3c1e69efb4827d">read_file()</a>, <a class="el" href="ann_8c.html#aa673efe1753f44d4f14a7bfa8e4d0b4f">tokenize()</a>, et <a class="el" href="ann_8c.html#aa4a971d7d903d2b1110eacb80c05b2ee">usage()</a>.</p>
+
+</div>
+</div>
+<a id="a4ef796d596fbe1652d0b23572ab0f1d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ef796d596fbe1652d0b23572ab0f1d2">&#9670;&nbsp;</a></span>normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void normalize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Normaliser les données. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>ensemble de données </td></tr>
+    <tr><td class="paramname">size</td><td>nombres de données </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Références <a class="el" href="ann_8c.html#abddd017319db0cb4a98176cce8934db8">NB_VAL</a>, et <a class="el" href="structdata.html#a3061c6379dc99d870803d9b9130c4b2e">data::norm</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ann_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a id="ac407d5ddb5e6b9d45f6e0499fbb0cf83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac407d5ddb5e6b9d45f6e0499fbb0cf83">&#9670;&nbsp;</a></span>print_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Références <a class="el" href="ann_8c.html#abddd017319db0cb4a98176cce8934db8">NB_VAL</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ann_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a id="ac098af64f32f66502a3c1e69efb4827d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac098af64f32f66502a3c1e69efb4827d">&#9670;&nbsp;</a></span>read_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * read_file </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lire le fichiers de données et retourner son contenu sous forme de chaîne de caractère. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>fichier de données</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>le contenu des données sous forme de chaînes </dd></dl>
+
+<p class="reference">Références <a class="el" href="ann_8c.html#aa4a971d7d903d2b1110eacb80c05b2ee">usage()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ann_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a id="aa673efe1753f44d4f14a7bfa8e4d0b4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa673efe1753f44d4f14a7bfa8e4d0b4f">&#9670;&nbsp;</a></span>tokenize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ann_8c.html#a1d756f237acef91aa7ef4e6b87f52632">data_t</a> * tokenize </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tokenize le contenu du fichiers en le coupant en lignes et en virgule pour récupérer les données utiles (valeurs + label) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>fichier de données sous forme de chaîne de caractère </td></tr>
+    <tr><td class="paramname">size</td><td>taille du fichier de données</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>la structure de forme data_t qui représente les données formalisées </dd></dl>
+
+<p class="reference">Références <a class="el" href="structdata.html#aeba340558de793c440b540d65359a292">data::etq</a>, <a class="el" href="ann_8c.html#abddd017319db0cb4a98176cce8934db8">NB_VAL</a>, <a class="el" href="ann_8c.html#aa4a971d7d903d2b1110eacb80c05b2ee">usage()</a>, et <a class="el" href="structdata.html#a747444d90f8e329ed45f878bde6a8503">data::v</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="ann_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>.</p>
+
+</div>
+</div>
+<a id="aa4a971d7d903d2b1110eacb80c05b2ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4a971d7d903d2b1110eacb80c05b2ee">&#9670;&nbsp;</a></span>usage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usage </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Référencé par <a class="el" href="ann_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main()</a>, <a class="el" href="ann_8c.html#ac098af64f32f66502a3c1e69efb4827d">read_file()</a>, et <a class="el" href="ann_8c.html#aa673efe1753f44d4f14a7bfa8e4d0b4f">tokenize()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.14
+</small></address>
+</body>
+</html>
