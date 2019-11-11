@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall
-SRC=ann.c ll.c
+SRC=ann.c ll.c som.c parser.c
 OBJ=$(SRC:.c=.o)
 
 %.o:	%.c
