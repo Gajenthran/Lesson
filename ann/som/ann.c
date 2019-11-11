@@ -1,3 +1,12 @@
+/**
+ * NB_VAL à changer par variable
+ * size argument
+ * alpha, neigbor constantes
+ * liste chaînée + bmu
+ * result
+ * dimension des vecteurs en argv
+ * shuffle dans l'ordre premier fois ou chq iter
+ */
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,7 +15,20 @@
 #include <math.h>
 #include "ll.h"
 
-#define MAX 1024
+#define MAX(a,b) \
+  ({ __typeof__ (a) _a = (a); \
+      __typeof__ (b) _b = (b); \
+    _a > _b ? _a : _b; })
+
+#define MIN(a,b) \
+  ({ __typeof__ (a) _a = (a); \
+     __typeof__ (b) _b = (b); \
+     _a < _b ? _a : _b; })
+
+#define NB_ITER(a) \
+  ({ __typeof__ (a) _a = (a); \
+    _a > 1 ? 1500 : 500; })
+
 #define NB_VAL 4
 #define LINE 10
 #define COL 6
@@ -32,18 +54,28 @@ typedef struct network network_t;
 struct network {
   node_t ** map;     // réseau, map bidimensionnelle
   double alpha;      // coefficient d'activation
-  int neighbor_rad;  // rayon de voisinage
+  int nhd_rad;  // rayon de voisinage
 };
 
-// void read_(char * in);
-char *       read_file(char * f);
-data_t *     tokenize(char * t, int * size);
-void         normalize(data_t * data, int size);
-network_t *  init_network(data_t * data, int size);
-int *        init_draw(int n);
-double       euclidean_distance_vec(double * v, double * w, int size);
-void         print_data(data_t * data, int size);
-void         print_net(network_t * net);
+typedef struct bmu bmu_t;
+struct bmu {
+  double act;
+  int l, c;
+};
+
+char *       read_file(char *);
+data_t *     tokenize(char *, int *);
+void         normalize(data_t *, int);
+network_t *  init_network(data_t *, int);
+int *        init_shuffle(int);
+void         train(int, network_t *, data_t *, int);
+void         shuffle(int *, int);
+double       euclidean_dist(double *, double *, int);
+bmu_t        find_bmu(network_t * net, double * v);
+void         apply_nhd(network_t * net, double * v, bmu_t bmu);
+void         print_data(data_t *, int);
+void         print_net(network_t *);
+void         print_shuffle(int *, int);
 
 void usage(char * msg) {
   fprintf(stderr, "%s\n", msg);
@@ -59,15 +91,17 @@ int main(int argc, char *argv[]) {
   network_t * net = NULL;
 
   char * t = read_file(argv[1]);
-  read_file(argv[1]);
-
   data = tokenize(t, &size);
   normalize(data, size);
 
-  // int * draw = init_draw(size);
+  int * sh = init_shuffle(size);
   net = init_network(data, size);
-  
-  print_net(net);
+
+  train(NB_ITER(1), net, data, size);
+  train(NB_ITER(2), net, data, size);
+
+  // print_shuffle(sh, size);
+  // print_net(net);
   // print_data(data, size);
   return 0;
 }
@@ -79,13 +113,13 @@ int main(int argc, char *argv[]) {
  * 
  * \return le contenu des données sous forme de chaînes
  */
-char * read_file(char * in) {
+char * read_file(char * filename) {
   char * d = NULL;
   size_t size = 0;
 
-  FILE * fp = fopen(in, "r");
+  FILE * fp = fopen(filename, "r");
   if(!fp) {
-    fprintf(stderr, "Can't open file %s\n", in);
+    fprintf(stderr, "Can't open file %s\n", filename);
     exit(0);
   }
 
@@ -97,46 +131,43 @@ char * read_file(char * in) {
   fread(d, size, 1, fp);
 
   d[size] = '\0';
+  fclose(fp);
   return d;
 }
 
 /** \brief Initialise le vecteur représentant le mélange de l'ordre
  * de passage des données lors de la phase d'apprentissage
  *
- * \param n nombre de données
+ * \param size nombre de données
  * 
  * \return vecteur représentant l'ordre de passage des données.
  */
-int * init_draw(int n) {
+int * init_shuffle(int size) {
   srand(time(NULL));
-  int * draw = (int *)malloc(n * sizeof *draw);
-  assert(draw);
-  int * seen = (int *)calloc(0, n * sizeof *seen);
-  assert(seen);
+  int i;
+  int * sh = (int *)malloc(size * sizeof(*sh));
+  assert(sh);
 
-  int i, offset, r;
-  for(i = 0; i < n; i++) {
-    r = rand() % n;
-    if(seen[r]) {
-      offset = 1;
-      while(1) {
-        if(r + offset < n && !seen[r + offset]) {
-          draw[i] = r + offset;
-          seen[r + offset] = 1;
-          break;
-        } else if(r - offset >= 0 && !seen[r - offset]) {
-          draw[i] = r - offset;
-          seen[r - offset] = 1;
-          break;
-        }
-        offset++;
-      }
-    } else {
-      draw[i] = r;
-      seen[r] = 1;
+  for(i = 0; i < size; i++)
+    sh[i] = i;
+  shuffle(sh, size);
+  return sh;
+}
+
+void shuffle(int * sh, int size) {
+  int i, r;
+  for(i = 0; i < size; i++) {
+    r = rand() % size;
+    if(sh[i] != sh[r]) {
+      sh[i] ^= sh[r];
+      sh[r] ^= sh[i];
+      sh[i] ^= sh[r];
     }
   }
-  return draw;
+}
+
+double myRand(double min, double max) {
+  return (rand()/(double)RAND_MAX) * (max - min) + min;
 }
 
 /** \brief Tokenize le contenu du fichiers en le coupant
@@ -211,31 +242,6 @@ void normalize(data_t * data, int size) {
     for(j = 0; j < NB_VAL; j++)
       data[i].v[j] /= data[i].norm;
   }
-
-  // double avg[NB_VAL] = {0};
-  // sum = 0;
-  // for(i = 0; i < NB_VAL; i++) {
-  //   for(j = 0; j < size; j++)
-  //     sum += data[j].v[i];
-  //   avg[i] = sum / size;
-  // }
-  // (rand()/(double)RAND_MAX) * (b-a) + a;
-}
-
-/** \brief Calcule la distance euclidienne de deux vecteurs
- *
- * \param v vecteur v
- * \param w vecteur w
- * \param size taille des vecteurs v et w (partageant la même taille)
- * 
- * \return la distance de l'ensemble des deux vecteurs.
- */
-double euclidean_distance_vec(double * v, double * w, int size) {
-  double sum = 0;
-  int i;
-  for(i = 0; i < size; i++)
-    sum += pow(v[i] - w[i], 2.0);
-  return sqrt(sum);
 }
 
 network_t * init_network(data_t * data, int size) {
@@ -265,14 +271,78 @@ network_t * init_network(data_t * data, int size) {
 
     for(l = 0; l < LINE; l++)
       for(c = 0; c < COL; c++) {
-        net->map[l][c].w[i] = (rand()/(double)RAND_MAX) * 
-          ((avg + itvmax) - (avg - itvmin)) + (avg - itvmin);
+        net->map[l][c].w[i] = myRand(itvmin, itvmax);
       }
   }
 
   net->alpha = 0.7;
-  net->neighbor_rad = 3;
+  net->nhd_rad = 4;
   return net;
+}
+
+void train(int iterations, network_t * net, data_t * data, int size) {
+  // modulo, div, itération à faire
+  bmu_t bmu;
+  int i, it;
+  // nombre d'itérations
+  for(it = 0; it < iterations; it++) {
+    // pour tout i appartenant aux données v de la bd
+    for(i = 0; i < size; i++) {
+      bmu = find_bmu(net, data[i].v);
+      apply_nhd(net, data[i].v, bmu);
+    }
+    net->alpha = 1.0 - ((double)it / (double)iterations);
+  }
+}
+
+void apply_nhd(network_t * net, double * v, bmu_t bmu) {
+  int iv, l, c, l0, c0;
+  // pour tout node l, c appartenant à Nhd(i)
+  for(l = -(net->nhd_rad - 1); l < net->nhd_rad; l++) {
+    for(c = -(net->nhd_rad - 1); c < net->nhd_rad; c++) {
+      l0 = bmu.l + l;
+      c0 = bmu.c + c;
+      if(l0 < 0 || l0 >= LINE || c0 < 0 || c0 >= COL)
+        continue;
+      for(iv = 0; iv < NB_VAL; iv++) {
+        net->map[l0][c0].w[iv] = net->map[l0][c0].w[iv] +
+          net->alpha * (v[iv] - net->map[l0][c0].w[iv]);
+      }
+    }
+  }
+}
+
+bmu_t find_bmu(network_t * net, double * v) {
+  int l, c;
+  bmu_t bmu;
+  double dist;
+  bmu.act = euclidean_dist(v, net->map[0][0].w, NB_VAL);
+  for(l = 0; l < LINE; l++) {
+    for(c = 0; c < COL; c++) {
+      dist = euclidean_dist(v, net->map[l][c].w, NB_VAL);
+      if(bmu.act > dist) {
+        bmu.act = dist;
+        bmu.l = l; bmu.c = c;
+      }
+    }
+  }
+  return bmu;
+}
+
+/** \brief Calcule la distance euclidienne de deux vecteurs
+ *
+ * \param v vecteur v
+ * \param w vecteur w
+ * \param size taille des vecteurs v et w (partageant la même taille)
+ *
+ * \return la distance de l'ensemble des deux vecteurs.
+ */
+double euclidean_dist(double * v, double * w, int size) {
+  double sum = 0;
+  int i;
+  for(i = 0; i < size; i++)
+    sum += pow(v[i] - w[i], 2.0);
+  return sqrt(sum);
 }
 
 void print_data(data_t * data, int size) {
@@ -283,10 +353,17 @@ void print_data(data_t * data, int size) {
     printf("%s\n", data[i].etq);
 }
 
+void print_shuffle(int * sh, int size) {
+  int i;
+  for(i = 0; i < size; i++)
+    printf("%d - ", sh[i]);
+  printf("\n");
+}
+
 void print_net(network_t * net) {
   int l, c, i;
   printf("alpha:       %.2f\n", net->alpha);
-  printf("n.rad:       %d\n", net->neighbor_rad);
+  printf("n.rad:       %d\n", net->nhd_rad);
   for(l = 0; l < LINE; l++)
     for(c = 0; c < COL; c++)
       for(i = 0; i < NB_VAL; i++)
