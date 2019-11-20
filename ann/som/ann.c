@@ -7,6 +7,10 @@
  * dimension des vecteurs en argv
  * shuffle dans l'ordre premier fois ou chq iter
  * unsigned int
+ * fichier deconfig
+ * stat
+ * initialiser avec nblignes avec sqrt
+ * nhd
  */
 #include <assert.h>
 #include <stdio.h>

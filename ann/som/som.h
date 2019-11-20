@@ -2,16 +2,6 @@
 #define _SOM_H_
 #include "parser.h"
 
-#define MAX(a,b) \
-  ({ __typeof__ (a) _a = (a); \
-      __typeof__ (b) _b = (b); \
-    _a > _b ? _a : _b; })
-
-#define MIN(a,b) \
-  ({ __typeof__ (a) _a = (a); \
-     __typeof__ (b) _b = (b); \
-     _a < _b ? _a : _b; })
-
 #define NB_ITER(phase) \
   ({ __typeof__ (phase) _phase = (phase); \
     _phase > 1 ? 1500 : 500; })

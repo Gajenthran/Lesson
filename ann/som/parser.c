@@ -90,7 +90,7 @@ data_t * tokenize(char * t, int * size) {
   return data;
 }
 
-/** \brief Normaliser les données
+/** \brief Normalise les données
  *
  * \param data ensemble de données
  * \param size nombres de données
@@ -118,16 +118,18 @@ void print_data(data_t * data, int size) {
     printf("%s\n", data[i].label);
 }
 
-/* void read_(char * in) {
+/* char * read_(char * in) {
+  int MAX = 1024;
   FILE * fp = fopen(in, "r");
   if(!fp) {
     fprintf(stderr, "Can't open file %s\n", in);
     exit(0);
   }
 
-  unsigned int line = 0, size = MAX;
-  char * buf = (char *)malloc(size * sizeof(*buf)), * tok, * last;
+  unsigned int line = 0, size = MAX, j = 0;
+  char * buf = (char *)malloc(size * sizeof(*buf)), * tok, * end;
   assert(buf);
+  double v = 0.0;
   data_t * data = (data_t *)malloc(size * sizeof(*data));
   assert(data);
   while(!feof(fp)) {
@@ -136,19 +138,23 @@ void print_data(data_t * data, int size) {
       fprintf( stderr, "Error while reading file %s\n", in);
       exit(0);
     }
-
-    tok = last = strtok(buf, ",");
-    while(tok != NULL) {
-      tok = strtok(NULL, ",");
-      printf("%s\n", last);
-      last = tok;
+    j = 0;
+    // v = strtod(strtok(buf, ","), &end);
+    strtok(buf, ",");
+    // data[line].v[j] = v;
+    for(j = 1; j < NB_VAL; j++) {
+      printf("%s\n", strtok(buf, ","));
+      // v = strtod(strtok(buf, ","), &end);
+      // data[line].v[j] = v;
     }
-
-    if(line == size-1) {
-      data = (data_t *)realloc(data, (size *= 2) * sizeof(*data));
-      assert(data);
-    }
-
+    // data[line].label = strdup(strtok(NULL, "\n"));
+    // tok = last = strtok(buf, ",");
+    // while(tok != NULL) {
+    //   tok = strtok(NULL, ",");
+    //   last = tok;
+    // }
     line++;
   }
+  printf("%f\n", data[0].v[0]);
+  //print_data(data, size);
 } */

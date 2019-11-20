@@ -15,5 +15,6 @@ char *       read_file(char *);
 data_t *     tokenize(char *, int *);
 void         normalize(data_t *, int);
 void         print_data(data_t *, int);
+char *       read_(char *);
 
 #endif

@@ -5,6 +5,7 @@
 #include <time.h>
 #include <math.h>
 #include "som.h"
+#include "ll.h"
 
 /** \brief Initialise le vecteur représentant l'ordre
  * de passage des données lors de la phase d'apprentissage
@@ -66,9 +67,10 @@ network_t * init_network(data_t * data, int size) {
   for(l = 0; l < LINE; l++) {
     net->map[l] = (node_t *)malloc(COL * sizeof(*net->map[l]));
     assert(net->map[l]);
+
     for(c = 0; c < COL; c++) {
       for(i = 0; i < NB_VAL; i++) {
-        net->map[l][c].w = (double *)malloc(NB_VAL * sizeof(net->map[l][c].w));
+        net->map[l][c].w = (double *)malloc(NB_VAL * sizeof(*net->map[l][c].w));
         assert(net->map[l][c].w);
       }
     }
@@ -82,7 +84,7 @@ network_t * init_network(data_t * data, int size) {
 
     for(l = 0; l < LINE; l++)
       for(c = 0; c < COL; c++) {
-        net->map[l][c].w[i] = my_rand(itvmin, itvmax);
+        net->map[l][c].w[i] = my_rand(avg - itvmin, avg + itvmax);
       }
   }
 
@@ -108,13 +110,13 @@ void train(int iterations, network_t * net, int * sh, data_t * data, int size) {
   int i, it;
   // nombre d'itérations
   for(it = 0; it < iterations; it++) {
+    shuffle(sh, size);
     // pour tout i appartenant aux données v de la bd
     for(i = 0; i < size; i++) {
       bmu = find_bmu(net, data[i].v);
       apply_nhd(net, data[i].v, bmu);
     }
     net->alpha = 1.0 - ((double)it / (double)iterations);
-    shuffle(sh, size);
   }
 }
 
@@ -139,13 +141,8 @@ void label(network_t * net, data_t * data, int size) {
         }
       }
       net->map[l][c].label = strdup(data[min_i].label);
-      if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
-        printf(" A ");
-      } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
-        printf(" B ");
-      } else {
-        printf(" C ");
-      }
+      // setosa = 1, versicolor = 5, virginica = 4
+      printf(" %lu ", strlen(net->map[l][c].label) % 10);
     }
     printf("\n");
   }
@@ -189,20 +186,29 @@ void apply_nhd(network_t * net, double * v, bmu_t bmu) {
  *
  * \return structure réprésentant le bmu (best match unit)
  */
+
 bmu_t find_bmu(network_t * net, double * v) {
+  list_t * bmu_lis = init_list();
   int l, c;
   bmu_t bmu;
   double dist;
   bmu.act = euclidean_dist(v, net->map[0][0].w, NB_VAL);
+  insert_list(bmu_lis, 0, 0);
   for(l = 0; l < LINE; l++) {
     for(c = 0; c < COL; c++) {
       dist = euclidean_dist(v, net->map[l][c].w, NB_VAL);
       if(bmu.act > dist) {
+        reinit_list(bmu_lis, l, c);
         bmu.act = dist;
         bmu.l = l; bmu.c = c;
       }
+      if(bmu.act == dist)
+        insert_list(bmu_lis, l, c);
     }
   }
+
+  int * idx = get_index(bmu_lis);
+  bmu.l = idx[0]; bmu.c = idx[1];
   return bmu;
 }
 
