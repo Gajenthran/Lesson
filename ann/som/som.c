@@ -5,7 +5,11 @@
 #include <time.h>
 #include <math.h>
 #include "som.h"
-#include "ll.h"
+
+#define RED   "\x1B[31m"
+#define GREEN "\x1B[32m"
+#define BLUE  "\x1B[34m"
+#define RESET "\x1B[0m"
 
 /** \brief Initialise le vecteur représentant l'ordre
  * de passage des données lors de la phase d'apprentissage
@@ -104,19 +108,23 @@ network_t * init_network(data_t * data, int size) {
  * \param data       données
  * \param size       nombre de données
  */
-void train(int iterations, network_t * net, int * sh, data_t * data, int size) {
+void train(int iter_total, network_t * net, int * sh, data_t * data, int size) {
   // modulo, div, itération à faire
   bmu_t bmu;
-  int i, it;
-  // nombre d'itérations
-  for(it = 0; it < iterations; it++) {
-    shuffle(sh, size);
-    // pour tout i appartenant aux données v de la bd
-    for(i = 0; i < size; i++) {
-      bmu = find_bmu(net, data[i].v);
-      apply_nhd(net, data[i].v, bmu);
+  int i, it, iterations;
+  double ph;
+  for(ph = 0.25; ph < 1.0; ph += 0.5) {
+    iterations = iter_total * ph;
+    // nombre d'itérations
+    for(it = 0; it < iterations; it++) {
+      shuffle(sh, size);
+      // pour tout i appartenant aux données v de la bd
+      for(i = 0; i < size; i++) {
+        bmu = find_bmu(net, data[i].v);
+        apply_nhd(net, data[i].v, bmu);
+      }
+      net->alpha = 1.0 - ((double)it / (double)iterations);
     }
-    net->alpha = 1.0 - ((double)it / (double)iterations);
   }
 }
 
@@ -129,6 +137,10 @@ void train(int iterations, network_t * net, int * sh, data_t * data, int size) {
 void label(network_t * net, data_t * data, int size) {
   int l, c, i, min_i;
   double dist, min_dist;
+
+  printf("Iris-setosa:     "); printf(RED   " o \n"     RESET);
+  printf("Iris-versicolor: "); printf(BLUE  " o \n"     RESET);
+  printf("Iris-virginica:  "); printf(GREEN " o \n\n"     RESET);
   for(l = 0; l < LINE; l++) {
     for(c = 0; c < COL; c++) {
       // voir avec bmu structure
@@ -141,8 +153,16 @@ void label(network_t * net, data_t * data, int size) {
         }
       }
       net->map[l][c].label = strdup(data[min_i].label);
+
+      if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
+        printf(RED " o "     RESET);
+      } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
+        printf(BLUE " o "    RESET);
+      } else {
+        printf(GREEN " o "  RESET);
+      }
       // setosa = 1, versicolor = 5, virginica = 4
-      printf(" %lu ", strlen(net->map[l][c].label) % 10);
+      // printf(" %lu ", strlen(net->map[l][c].label) % 10);
     }
     printf("\n");
   }

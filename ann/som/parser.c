@@ -6,87 +6,55 @@
 #include "parser.h"
 
 
-/** \brief Lire le fichiers de données et retourner son contenu
- * sous forme de chaîne de caractère
+/** \brief Lire le fichiers de données, tokenizer son 
+ * contenu où chaque valeur est séparée par une virgule
+ * placer les éléments dans la struct data_t
  *
  * \param filename nom du fichier
  * 
- * \return le contenu des données sous forme de chaînes
+ * \return la structure de forme data_t qui représente 
+ * les données formalisées
  */
-char * read_file(char * filename) {
-  char * d = NULL;
-  size_t size = 0;
-
+data_t * read_file(char * filename, int * size) {
+  const int MAX = 1024;
   FILE * fp = fopen(filename, "r");
   if(!fp) {
     fprintf(stderr, "Can't open file %s\n", filename);
-    exit(0);
+    exit(1);
   }
 
-  fseek(fp, 0, SEEK_END);
-  size = ftell(fp);
-  rewind(fp);
-
-  d = (char *)malloc((size + 1) * sizeof *d);
-  fread(d, size, 1, fp);
-
-  d[size] = '\0';
-  fclose(fp);
-  return d;
-}
-
-/** \brief Tokenize le contenu du fichiers en le coupant
- * en lignes et en virgule pour récupérer les données 
- * utiles (valeurs + label)
- *
- * \param t fichier de données sous forme de chaîne de caractère
- * \param size taille du fichier de données
- * 
- * \return la structure de forme data_t qui représente les données 
- * formalisées
- */
-data_t * tokenize(char * t, int * size) {
-  int i = 0, j = 0, c = 1;
-  while(t[i]) {
-    if(t[i] == '\n') c++;
-    i++;
-  }
-
-  char * tok = strtok(t, "\n");
-  char ** lines = (char **)malloc(c * sizeof *lines);
-  i = 0;
-
-  while(tok != NULL) {
-    lines[i++] = strdup(tok);
-    tok = strtok(NULL, "\n");
-  }
-
-  data_t * data = (data_t *)malloc(c * sizeof *data);
+  int line = 0, j = 0;
+  char * buf = (char *)malloc(MAX * sizeof(*buf)), * tok, * end;
+  assert(buf);
+  data_t * data = (data_t *)malloc(MAX * sizeof(*data));
   assert(data);
-  char * end;
-  double v;
-  for(i = 0; i < c; i++) {
-    data[i].v = (double *)malloc(NB_VAL * sizeof *data[i].v);
-    assert(data[i].v);
-    tok = strtok(lines[i], ",");
+
+  while(!feof(fp)) {
+    fgets(buf, MAX, fp);
+    if(ferror(fp)) {
+      fprintf( stderr, "Error while reading file %s\n", filename);
+      exit(1);
+    }
+
+    // tokenizer la ligne récupérée par fgets
+    char * label;
+    tok = strtok(buf, ",");
+    data[line].v = (double *)malloc(NB_VAL * sizeof(*data[line].v));
+    assert(data[line].v);
+
     j = 0;
     while(tok != NULL) {
-      if(j & NB_VAL) {
-        data[i].label = strdup(tok);
-      } else {
-        v = strtod(tok, &end);
-        if(end == tok) {
-          fprintf(stderr, "Error while converting data.\n");
-          exit(0);
-        } else {
-          data[i].v[j] = v;
-        }
-      }
+      if(j < NB_VAL)
+        data[line].v[j++] = strtod(tok, &end);
+      label = tok;
       tok = strtok(NULL, ",");
-      j++;
     }
+
+    label = strtok(label, "\n");
+    data[line++].label = strdup(label);
   }
-  *size = c;
+
+  *size = line;
   return data;
 }
 
@@ -94,7 +62,6 @@ data_t * tokenize(char * t, int * size) {
  *
  * \param data ensemble de données
  * \param size nombres de données
- * 
  */
 void normalize(data_t * data, int size) {
   int i, j;
@@ -112,49 +79,10 @@ void normalize(data_t * data, int size) {
 
 void print_data(data_t * data, int size) {
   int i, j;
-  for(i = 0; i < size; i++)
-    for(j = 0; j < NB_VAL; j++)
+  for(i = 0; i < size; i++) {
+    for(j = 0; j < NB_VAL; j++) {
       printf("%.1f,", data[i].v[j]);
+    }
     printf("%s\n", data[i].label);
+  }
 }
-
-/* char * read_(char * in) {
-  int MAX = 1024;
-  FILE * fp = fopen(in, "r");
-  if(!fp) {
-    fprintf(stderr, "Can't open file %s\n", in);
-    exit(0);
-  }
-
-  unsigned int line = 0, size = MAX, j = 0;
-  char * buf = (char *)malloc(size * sizeof(*buf)), * tok, * end;
-  assert(buf);
-  double v = 0.0;
-  data_t * data = (data_t *)malloc(size * sizeof(*data));
-  assert(data);
-  while(!feof(fp)) {
-    fgets(buf, MAX, fp);
-    if(ferror(fp)) {
-      fprintf( stderr, "Error while reading file %s\n", in);
-      exit(0);
-    }
-    j = 0;
-    // v = strtod(strtok(buf, ","), &end);
-    strtok(buf, ",");
-    // data[line].v[j] = v;
-    for(j = 1; j < NB_VAL; j++) {
-      printf("%s\n", strtok(buf, ","));
-      // v = strtod(strtok(buf, ","), &end);
-      // data[line].v[j] = v;
-    }
-    // data[line].label = strdup(strtok(NULL, "\n"));
-    // tok = last = strtok(buf, ",");
-    // while(tok != NULL) {
-    //   tok = strtok(NULL, ",");
-    //   last = tok;
-    // }
-    line++;
-  }
-  printf("%f\n", data[0].v[0]);
-  //print_data(data, size);
-} */

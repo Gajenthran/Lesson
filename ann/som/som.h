@@ -1,6 +1,8 @@
 #ifndef _SOM_H_
 #define _SOM_H_
+
 #include "parser.h"
+#include "ll.h"
 
 #define NB_ITER(phase) \
   ({ __typeof__ (phase) _phase = (phase); \
