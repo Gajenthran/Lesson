@@ -15,7 +15,7 @@
  * \return la structure de forme data_t qui représente 
  * les données formalisées
  */
-data_t * read_file(char * filename, int * size) {
+data_t * read_file(char * filename, config_t * cfg) {
   const int MAX = 1024;
   FILE * fp = fopen(filename, "r");
   if(!fp) {
@@ -39,12 +39,12 @@ data_t * read_file(char * filename, int * size) {
     // tokenizer la ligne récupérée par fgets
     char * label;
     tok = strtok(buf, ",");
-    data[line].v = (double *)malloc(NB_VAL * sizeof(*data[line].v));
+    data[line].v = (double *)malloc(cfg->nb_val * sizeof(*data[line].v));
     assert(data[line].v);
 
     j = 0;
     while(tok != NULL) {
-      if(j < NB_VAL)
+      if(j < cfg->nb_val)
         data[line].v[j++] = strtod(tok, &end);
       label = tok;
       tok = strtok(NULL, ",");
@@ -54,7 +54,7 @@ data_t * read_file(char * filename, int * size) {
     data[line++].label = strdup(label);
   }
 
-  *size = line;
+  cfg->data_sz = line;
   return data;
 }
 
@@ -63,24 +63,24 @@ data_t * read_file(char * filename, int * size) {
  * \param data ensemble de données
  * \param size nombres de données
  */
-void normalize(data_t * data, int size) {
+void normalize(data_t * data, config_t * cfg) {
   int i, j;
   double sum;
 
-  for(i = 0; i < size; i++) {
+  for(i = 0; i < cfg->data_sz; i++) {
     sum = 0;
-    for(j = 0; j < NB_VAL; j++)
+    for(j = 0; j < cfg->nb_val; j++)
       sum += pow(data[i].v[j], 2.0);
     data[i].norm = sqrt(sum);
-    for(j = 0; j < NB_VAL; j++)
+    for(j = 0; j < cfg->nb_val; j++)
       data[i].v[j] /= data[i].norm;
   }
 }
 
-void print_data(data_t * data, int size) {
+void print_data(data_t * data, config_t * cfg) {
   int i, j;
-  for(i = 0; i < size; i++) {
-    for(j = 0; j < NB_VAL; j++) {
+  for(i = 0; i < cfg->data_sz; i++) {
+    for(j = 0; j < cfg->nb_val; j++) {
       printf("%.1f,", data[i].v[j]);
     }
     printf("%s\n", data[i].label);

@@ -1,10 +1,10 @@
 CC=gcc
-CFLAGS=-Wall
+CFLAGS = -c -Wall
 SRC=ann.c ll.c som.c parser.c
 OBJ=$(SRC:.c=.o)
 
 %.o:	%.c
-	$(CC) -c $(CFLAGS) $< 
+	$(CC) $(CFLAGS) $<
 
 ann: 	$(OBJ)
 	$(CC) $(LINK) $(OBJ) -o $@

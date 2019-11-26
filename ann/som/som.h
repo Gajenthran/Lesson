@@ -3,13 +3,7 @@
 
 #include "parser.h"
 #include "ll.h"
-
-#define NB_ITER(phase) \
-  ({ __typeof__ (phase) _phase = (phase); \
-    _phase > 1 ? 1500 : 500; })
-
-#define LINE 10
-#define COL 6
+#include "config.h"
 
 /** \brief Structure représentant les neurones */
 typedef struct node node_t;
@@ -34,16 +28,16 @@ struct bmu {
   int l, c;   // ligne, colonne
 };
 
-int *        init_shuffle(int);
-void         shuffle(int *, int);
-network_t *  init_network(data_t *, int);
-void         train(int, network_t *, int *, data_t *, int);
-void         label(network_t * net, data_t * data, int size);
-bmu_t        find_bmu(network_t * net, double * v);
-void         apply_nhd(network_t * net, double * v, bmu_t bmu);
-double       euclidean_dist(double *, double *, int);
-double       my_rand(double min, double max);
-void         print_net(network_t *);
-void         print_shuffle(int *, int);
+int *       init_shuffle(int);
+void        shuffle(int *, int);
+network_t * init_network(data_t *, config_t *);
+void        train(network_t *, int *, data_t *, config_t *);
+void        label(network_t * net, data_t * data, config_t *);
+bmu_t       find_bmu(network_t *, double *, config_t *);
+void        apply_nhd(network_t *, double *, bmu_t, config_t *);
+double      euclidean_dist(double *, double *, int);
+double      my_rand(double min, double max);
+void        print_net(network_t *, config_t *);
+void        print_shuffle(int *, int);
 
 #endif

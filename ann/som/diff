@@ -1,0 +1,446 @@
+diff --git a/ann/som/Makefile b/ann/som/Makefile
+index ffe3f88..42d1377 100644
+--- a/ann/som/Makefile
++++ b/ann/som/Makefile
+@@ -1,10 +1,10 @@
+ CC=gcc
+-CFLAGS=-Wall
++CFLAGS = -c -Wall
+ SRC=ann.c ll.c som.c parser.c
+ OBJ=$(SRC:.c=.o)
+ 
+ %.o:	%.c
+-	$(CC) -c $(CFLAGS) $< 
++	$(CC) $(CFLAGS) $<
+ 
+ ann: 	$(OBJ)
+ 	$(CC) $(LINK) $(OBJ) -o $@
+diff --git a/ann/som/ann b/ann/som/ann
+deleted file mode 100755
+index 1021394..0000000
+Binary files a/ann/som/ann and /dev/null differ
+diff --git a/ann/som/ann.c b/ann/som/ann.c
+index 9e68cba..064e51f 100644
+--- a/ann/som/ann.c
++++ b/ann/som/ann.c
+@@ -1,48 +1,57 @@
+ /**
+- * NB_VAL à changer par variable
+- * size argument
+- * alpha, neigbor constantes
+- * liste chaînée + bmu
+- * result
+  * dimension des vecteurs en argv
+- * shuffle dans l'ordre premier fois ou chq iter
+  * unsigned int
+- * fichier deconfig
++ * fichier de config
+  * stat
+  * initialiser avec nblignes avec sqrt
+  * nhd
+  * debugging print
+- * color printf
++ * free
+  */
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include "som.h"
+ #include "parser.h"
++#include "config.h"
+ 
+ void usage(char * msg) {
+   fprintf(stderr, "%s\n", msg);
+   exit(1);
+ }
+ 
++config_t * init_config(void) {
++  config_t * cfg = (config_t *)malloc(sizeof(*cfg));
++  cfg->alpha = _ALPHA;
++  cfg->nhd_rad = _NHD_RAD;
++  cfg->iter = _ITER;
++  cfg->w_avg_min = _WAVG_MIN;
++  cfg->w_avg_min = _WAVG_MAX;
++  cfg->map_c = _MAP_C;
++  cfg->map_l = _MAP_L;
++  cfg->nb_val = _NB_VAL;
++  return cfg;
++}
++
+ int main(int argc, char *argv[]) {
+   if(argc != 2)
+     usage("Usage: ./ann <file>.");
+ 
+-  int size;
++  config_t * cfg = NULL;
+   data_t * data = NULL;
+   network_t * net = NULL;
+ 
+-  data = read_file(argv[1], &size);
+-  normalize(data, size);
++  cfg = init_config();
++  data = read_file(argv[1], cfg);
++  normalize(data, cfg);
+ 
+-  int * sh = init_shuffle(size);
+-  net = init_network(data, size);
++  int * sh = init_shuffle(cfg->data_sz);
++  net = init_network(data, cfg); 
+ 
+-  train(2000, net, sh, data, size);
+-  label(net, data, size);
++  train(net, sh, data, cfg);
++  label(net, data, cfg);
+ 
+-  // print_shuffle(sh, size);
++  // print_shuffle(sh, cfg->data_sz);
+   // print_net(net);
+-  // print_data(data, size);
++  // print_data(data, cfg->data_sz);
+   return 0;
+ }
+\ No newline at end of file
+diff --git a/ann/som/ann.o b/ann/som/ann.o
+deleted file mode 100644
+index c0a4c69..0000000
+Binary files a/ann/som/ann.o and /dev/null differ
+diff --git a/ann/som/ll.o b/ann/som/ll.o
+deleted file mode 100644
+index 218f67c..0000000
+Binary files a/ann/som/ll.o and /dev/null differ
+diff --git a/ann/som/parser.c b/ann/som/parser.c
+index d82bf10..a1994c6 100644
+--- a/ann/som/parser.c
++++ b/ann/som/parser.c
+@@ -15,7 +15,7 @@
+  * \return la structure de forme data_t qui représente 
+  * les données formalisées
+  */
+-data_t * read_file(char * filename, int * size) {
++data_t * read_file(char * filename, config_t * cfg) {
+   const int MAX = 1024;
+   FILE * fp = fopen(filename, "r");
+   if(!fp) {
+@@ -39,12 +39,12 @@ data_t * read_file(char * filename, int * size) {
+     // tokenizer la ligne récupérée par fgets
+     char * label;
+     tok = strtok(buf, ",");
+-    data[line].v = (double *)malloc(NB_VAL * sizeof(*data[line].v));
++    data[line].v = (double *)malloc(cfg->nb_val * sizeof(*data[line].v));
+     assert(data[line].v);
+ 
+     j = 0;
+     while(tok != NULL) {
+-      if(j < NB_VAL)
++      if(j < cfg->nb_val)
+         data[line].v[j++] = strtod(tok, &end);
+       label = tok;
+       tok = strtok(NULL, ",");
+@@ -54,7 +54,7 @@ data_t * read_file(char * filename, int * size) {
+     data[line++].label = strdup(label);
+   }
+ 
+-  *size = line;
++  cfg->data_sz = line;
+   return data;
+ }
+ 
+@@ -63,24 +63,24 @@ data_t * read_file(char * filename, int * size) {
+  * \param data ensemble de données
+  * \param size nombres de données
+  */
+-void normalize(data_t * data, int size) {
++void normalize(data_t * data, config_t * cfg) {
+   int i, j;
+   double sum;
+ 
+-  for(i = 0; i < size; i++) {
++  for(i = 0; i < cfg->data_sz; i++) {
+     sum = 0;
+-    for(j = 0; j < NB_VAL; j++)
++    for(j = 0; j < cfg->nb_val; j++)
+       sum += pow(data[i].v[j], 2.0);
+     data[i].norm = sqrt(sum);
+-    for(j = 0; j < NB_VAL; j++)
++    for(j = 0; j < cfg->nb_val; j++)
+       data[i].v[j] /= data[i].norm;
+   }
+ }
+ 
+-void print_data(data_t * data, int size) {
++void print_data(data_t * data, config_t * cfg) {
+   int i, j;
+-  for(i = 0; i < size; i++) {
+-    for(j = 0; j < NB_VAL; j++) {
++  for(i = 0; i < cfg->data_sz; i++) {
++    for(j = 0; j < cfg->nb_val; j++) {
+       printf("%.1f,", data[i].v[j]);
+     }
+     printf("%s\n", data[i].label);
+diff --git a/ann/som/parser.h b/ann/som/parser.h
+index 22fa9dd..3f0a07d 100644
+--- a/ann/som/parser.h
++++ b/ann/som/parser.h
+@@ -1,7 +1,7 @@
+ #ifndef _PARSER_H_
+ #define _PARSER_H_
+ 
+-#define NB_VAL 4
++#include "config.h"
+ 
+ /** \brief Structure représentant les données */
+ typedef struct data data_t;
+@@ -11,9 +11,9 @@ struct data {
+   double norm;  // norme
+ };
+ 
+-data_t * read_file(char *, int *);
+-data_t * tokenize(char *, int *);
+-void     normalize(data_t *, int);
+-void     print_data(data_t *, int);
++data_t * read_file(char *, config_t *);
++data_t * tokenize(char *, config_t *);
++void     normalize(data_t *, config_t *);
++void     print_data(data_t *, config_t *);
+ 
+ #endif
+\ No newline at end of file
+diff --git a/ann/som/parser.o b/ann/som/parser.o
+deleted file mode 100644
+index e0bd12a..0000000
+Binary files a/ann/som/parser.o and /dev/null differ
+diff --git a/ann/som/som.c b/ann/som/som.c
+index 522d57a..b9c6ce6 100644
+--- a/ann/som/som.c
++++ b/ann/som/som.c
+@@ -59,41 +59,41 @@ void shuffle(int * sh, int size) {
+  * \return structure de type network_t représentant le 
+  * réseau de neurones.
+  */
+-network_t * init_network(data_t * data, int size) {
++network_t * init_network(data_t * data, config_t *cfg) {
+   int i, j, l, c;
+-  double avg, itvmax = 0.05, itvmin = 0.02, sum;
++  double avg, sum;
+ 
+   network_t * net = (network_t *)malloc(sizeof *net);
+   assert(net);
+-  net->map = (node_t **)malloc(LINE * sizeof(*net->map));
++  net->map = (node_t **)malloc(cfg->map_l * sizeof(*net->map));
+   assert(net->map);
+ 
+-  for(l = 0; l < LINE; l++) {
+-    net->map[l] = (node_t *)malloc(COL * sizeof(*net->map[l]));
++  for(l = 0; l < cfg->map_l; l++) {
++    net->map[l] = (node_t *)malloc(cfg->map_c * sizeof(*net->map[l]));
+     assert(net->map[l]);
+ 
+-    for(c = 0; c < COL; c++) {
+-      for(i = 0; i < NB_VAL; i++) {
+-        net->map[l][c].w = (double *)malloc(NB_VAL * sizeof(*net->map[l][c].w));
++    for(c = 0; c < cfg->map_c; c++) {
++      for(i = 0; i < cfg->nb_val; i++) {
++        net->map[l][c].w = (double *)malloc(cfg->nb_val * sizeof(*net->map[l][c].w));
+         assert(net->map[l][c].w);
+       }
+     }
+   }
+ 
+-  for(i = 0; i < NB_VAL; i++) {
++  for(i = 0; i < cfg->nb_val; i++) {
+     sum = 0;
+-    for(j = 0; j < size; j++) 
++    for(j = 0; j < cfg->data_sz; j++) 
+       sum += data[j].v[i];
+-    avg = sum / size;
++    avg = sum / cfg->data_sz;
+ 
+-    for(l = 0; l < LINE; l++)
+-      for(c = 0; c < COL; c++) {
+-        net->map[l][c].w[i] = my_rand(avg - itvmin, avg + itvmax);
++    for(l = 0; l < cfg->map_l; l++)
++      for(c = 0; c < cfg->map_c; c++) {
++        net->map[l][c].w[i] = my_rand(avg - cfg->w_avg_min, avg + cfg->w_avg_max);
+       }
+   }
+ 
+-  net->alpha = 0.7;
+-  net->nhd_rad = 4;
++  net->alpha = cfg->alpha;
++  net->nhd_rad = cfg->nhd_rad;
+   return net;
+ }
+ 
+@@ -108,20 +108,20 @@ network_t * init_network(data_t * data, int size) {
+  * \param data       données
+  * \param size       nombre de données
+  */
+-void train(int iter_total, network_t * net, int * sh, data_t * data, int size) {
++void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
+   // modulo, div, itération à faire
+   bmu_t bmu;
+   int i, it, iterations;
+   double ph;
+   for(ph = 0.25; ph < 1.0; ph += 0.5) {
+-    iterations = iter_total * ph;
+     // nombre d'itérations
++    iterations = cfg->iter * ph;
+     for(it = 0; it < iterations; it++) {
+-      shuffle(sh, size);
++      shuffle(sh, cfg->data_sz);
+       // pour tout i appartenant aux données v de la bd
+-      for(i = 0; i < size; i++) {
+-        bmu = find_bmu(net, data[i].v);
+-        apply_nhd(net, data[i].v, bmu);
++      for(i = 0; i < cfg->data_sz; i++) {
++        bmu = find_bmu(net, data[i].v, cfg);
++        apply_nhd(net, data[i].v, bmu, cfg);
+       }
+       net->alpha = 1.0 - ((double)it / (double)iterations);
+     }
+@@ -134,19 +134,19 @@ void train(int iter_total, network_t * net, int * sh, data_t * data, int size) {
+  * \param data données
+  * \param size nombre de données
+  */
+-void label(network_t * net, data_t * data, int size) {
++void label(network_t * net, data_t * data, config_t *cfg) {
+   int l, c, i, min_i;
+   double dist, min_dist;
+ 
+   printf("Iris-setosa:     "); printf(RED   " o \n"     RESET);
+   printf("Iris-versicolor: "); printf(BLUE  " o \n"     RESET);
+   printf("Iris-virginica:  "); printf(GREEN " o \n\n"     RESET);
+-  for(l = 0; l < LINE; l++) {
+-    for(c = 0; c < COL; c++) {
++  for(l = 0; l < cfg->map_l; l++) {
++    for(c = 0; c < cfg->map_c; c++) {
+       // voir avec bmu structure
+-      min_dist = euclidean_dist(net->map[l][c].w, data[0].v, NB_VAL);
+-      for(i = 0; i < size; i++) {
+-        dist = euclidean_dist(net->map[l][c].w, data[i].v, NB_VAL);
++      min_dist = euclidean_dist(net->map[l][c].w, data[0].v, cfg->nb_val);
++      for(i = 0; i < cfg->data_sz; i++) {
++        dist = euclidean_dist(net->map[l][c].w, data[i].v, cfg->nb_val);
+         if(min_dist > dist) {
+           min_dist = dist;
+           min_i = i;
+@@ -161,8 +161,6 @@ void label(network_t * net, data_t * data, int size) {
+       } else {
+         printf(GREEN " o "  RESET);
+       }
+-      // setosa = 1, versicolor = 5, virginica = 4
+-      // printf(" %lu ", strlen(net->map[l][c].label) % 10);
+     }
+     printf("\n");
+   }
+@@ -178,16 +176,16 @@ void label(network_t * net, data_t * data, int size) {
+  * \param v   vecteur de données de la bd
+  * \param bmu structure représentant le bmu (best match unit)
+  */
+-void apply_nhd(network_t * net, double * v, bmu_t bmu) {
++void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
+   int iv, l, c, l0, c0;
+   // pour tout node l, c appartenant à Nhd(i)
+   for(l = -(net->nhd_rad - 1); l < net->nhd_rad; l++) {
+     for(c = -(net->nhd_rad - 1); c < net->nhd_rad; c++) {
+       l0 = bmu.l + l;
+       c0 = bmu.c + c;
+-      if(l0 < 0 || l0 >= LINE || c0 < 0 || c0 >= COL)
++      if(l0 < 0 || l0 >= cfg->map_l || c0 < 0 || c0 >= cfg->map_c)
+         continue;
+-      for(iv = 0; iv < NB_VAL; iv++) {
++      for(iv = 0; iv < cfg->nb_val; iv++) {
+         net->map[l0][c0].w[iv] = net->map[l0][c0].w[iv] +
+           net->alpha * (v[iv] - net->map[l0][c0].w[iv]);
+       }
+@@ -207,16 +205,16 @@ void apply_nhd(network_t * net, double * v, bmu_t bmu) {
+  * \return structure réprésentant le bmu (best match unit)
+  */
+ 
+-bmu_t find_bmu(network_t * net, double * v) {
++bmu_t find_bmu(network_t * net, double * v, config_t *cfg) {
+   list_t * bmu_lis = init_list();
+   int l, c;
+   bmu_t bmu;
+   double dist;
+-  bmu.act = euclidean_dist(v, net->map[0][0].w, NB_VAL);
++  bmu.act = euclidean_dist(v, net->map[0][0].w, cfg->nb_val);
+   insert_list(bmu_lis, 0, 0);
+-  for(l = 0; l < LINE; l++) {
+-    for(c = 0; c < COL; c++) {
+-      dist = euclidean_dist(v, net->map[l][c].w, NB_VAL);
++  for(l = 0; l < cfg->map_l; l++) {
++    for(c = 0; c < cfg->map_c; c++) {
++      dist = euclidean_dist(v, net->map[l][c].w, cfg->nb_val);
+       if(bmu.act > dist) {
+         reinit_list(bmu_lis, l, c);
+         bmu.act = dist;
+@@ -268,13 +266,13 @@ void print_shuffle(int * sh, int size) {
+   printf("\n");
+ }
+ 
+-void print_net(network_t * net) {
++void print_net(network_t * net, config_t *cfg) {
+   int l, c, i;
+   printf("alpha:       %.2f\n", net->alpha);
+   printf("n.rad:       %d\n", net->nhd_rad);
+-  for(l = 0; l < LINE; l++)
+-    for(c = 0; c < COL; c++)
+-      for(i = 0; i < NB_VAL; i++)
++  for(l = 0; l < cfg->map_l; l++)
++    for(c = 0; c < cfg->map_c; c++)
++      for(i = 0; i < cfg->nb_val; i++)
+         printf("[%d][%d].w[%d]: %.2f\n", l, c, i, net->map[l][c].w[i]);
+ }
+ 
+diff --git a/ann/som/som.h b/ann/som/som.h
+index adfbdb3..8878fd3 100644
+--- a/ann/som/som.h
++++ b/ann/som/som.h
+@@ -3,13 +3,7 @@
+ 
+ #include "parser.h"
+ #include "ll.h"
+-
+-#define NB_ITER(phase) \
+-  ({ __typeof__ (phase) _phase = (phase); \
+-    _phase > 1 ? 1500 : 500; })
+-
+-#define LINE 10
+-#define COL 6
++#include "config.h"
+ 
+ /** \brief Structure représentant les neurones */
+ typedef struct node node_t;
+@@ -34,16 +28,16 @@ struct bmu {
+   int l, c;   // ligne, colonne
+ };
+ 
+-int *        init_shuffle(int);
+-void         shuffle(int *, int);
+-network_t *  init_network(data_t *, int);
+-void         train(int, network_t *, int *, data_t *, int);
+-void         label(network_t * net, data_t * data, int size);
+-bmu_t        find_bmu(network_t * net, double * v);
+-void         apply_nhd(network_t * net, double * v, bmu_t bmu);
+-double       euclidean_dist(double *, double *, int);
+-double       my_rand(double min, double max);
+-void         print_net(network_t *);
+-void         print_shuffle(int *, int);
++int *       init_shuffle(int);
++void        shuffle(int *, int);
++network_t * init_network(data_t *, config_t *);
++void        train(network_t *, int *, data_t *, config_t *);
++void        label(network_t * net, data_t * data, config_t *);
++bmu_t       find_bmu(network_t *, double *, config_t *);
++void        apply_nhd(network_t *, double *, bmu_t, config_t *);
++double      euclidean_dist(double *, double *, int);
++double      my_rand(double min, double max);
++void        print_net(network_t *, config_t *);
++void        print_shuffle(int *, int);
+ 
+ #endif
+\ No newline at end of file
+diff --git a/ann/som/som.o b/ann/som/som.o
+deleted file mode 100644
+index 652a406..0000000
+Binary files a/ann/som/som.o and /dev/null differ

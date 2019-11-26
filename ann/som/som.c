@@ -59,41 +59,41 @@ void shuffle(int * sh, int size) {
  * \return structure de type network_t représentant le 
  * réseau de neurones.
  */
-network_t * init_network(data_t * data, int size) {
+network_t * init_network(data_t * data, config_t *cfg) {
   int i, j, l, c;
-  double avg, itvmax = 0.05, itvmin = 0.02, sum;
+  double avg, sum;
 
   network_t * net = (network_t *)malloc(sizeof *net);
   assert(net);
-  net->map = (node_t **)malloc(LINE * sizeof(*net->map));
+  net->map = (node_t **)malloc(cfg->map_l * sizeof(*net->map));
   assert(net->map);
 
-  for(l = 0; l < LINE; l++) {
-    net->map[l] = (node_t *)malloc(COL * sizeof(*net->map[l]));
+  for(l = 0; l < cfg->map_l; l++) {
+    net->map[l] = (node_t *)malloc(cfg->map_c * sizeof(*net->map[l]));
     assert(net->map[l]);
 
-    for(c = 0; c < COL; c++) {
-      for(i = 0; i < NB_VAL; i++) {
-        net->map[l][c].w = (double *)malloc(NB_VAL * sizeof(*net->map[l][c].w));
+    for(c = 0; c < cfg->map_c; c++) {
+      for(i = 0; i < cfg->nb_val; i++) {
+        net->map[l][c].w = (double *)malloc(cfg->nb_val * sizeof(*net->map[l][c].w));
         assert(net->map[l][c].w);
       }
     }
   }
 
-  for(i = 0; i < NB_VAL; i++) {
+  for(i = 0; i < cfg->nb_val; i++) {
     sum = 0;
-    for(j = 0; j < size; j++) 
+    for(j = 0; j < cfg->data_sz; j++) 
       sum += data[j].v[i];
-    avg = sum / size;
+    avg = sum / cfg->data_sz;
 
-    for(l = 0; l < LINE; l++)
-      for(c = 0; c < COL; c++) {
-        net->map[l][c].w[i] = my_rand(avg - itvmin, avg + itvmax);
+    for(l = 0; l < cfg->map_l; l++)
+      for(c = 0; c < cfg->map_c; c++) {
+        net->map[l][c].w[i] = my_rand(avg - cfg->w_avg_min, avg + cfg->w_avg_max);
       }
   }
 
-  net->alpha = 0.7;
-  net->nhd_rad = 4;
+  net->alpha = cfg->alpha;
+  net->nhd_rad = cfg->nhd_rad;
   return net;
 }
 
@@ -108,20 +108,20 @@ network_t * init_network(data_t * data, int size) {
  * \param data       données
  * \param size       nombre de données
  */
-void train(int iter_total, network_t * net, int * sh, data_t * data, int size) {
+void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
   // modulo, div, itération à faire
   bmu_t bmu;
   int i, it, iterations;
   double ph;
   for(ph = 0.25; ph < 1.0; ph += 0.5) {
-    iterations = iter_total * ph;
     // nombre d'itérations
+    iterations = cfg->iter * ph;
     for(it = 0; it < iterations; it++) {
-      shuffle(sh, size);
+      shuffle(sh, cfg->data_sz);
       // pour tout i appartenant aux données v de la bd
-      for(i = 0; i < size; i++) {
-        bmu = find_bmu(net, data[i].v);
-        apply_nhd(net, data[i].v, bmu);
+      for(i = 0; i < cfg->data_sz; i++) {
+        bmu = find_bmu(net, data[i].v, cfg);
+        apply_nhd(net, data[i].v, bmu, cfg);
       }
       net->alpha = 1.0 - ((double)it / (double)iterations);
     }
@@ -134,19 +134,19 @@ void train(int iter_total, network_t * net, int * sh, data_t * data, int size) {
  * \param data données
  * \param size nombre de données
  */
-void label(network_t * net, data_t * data, int size) {
+void label(network_t * net, data_t * data, config_t *cfg) {
   int l, c, i, min_i;
   double dist, min_dist;
 
   printf("Iris-setosa:     "); printf(RED   " o \n"     RESET);
   printf("Iris-versicolor: "); printf(BLUE  " o \n"     RESET);
   printf("Iris-virginica:  "); printf(GREEN " o \n\n"     RESET);
-  for(l = 0; l < LINE; l++) {
-    for(c = 0; c < COL; c++) {
+  for(l = 0; l < cfg->map_l; l++) {
+    for(c = 0; c < cfg->map_c; c++) {
       // voir avec bmu structure
-      min_dist = euclidean_dist(net->map[l][c].w, data[0].v, NB_VAL);
-      for(i = 0; i < size; i++) {
-        dist = euclidean_dist(net->map[l][c].w, data[i].v, NB_VAL);
+      min_dist = euclidean_dist(net->map[l][c].w, data[0].v, cfg->nb_val);
+      for(i = 0; i < cfg->data_sz; i++) {
+        dist = euclidean_dist(net->map[l][c].w, data[i].v, cfg->nb_val);
         if(min_dist > dist) {
           min_dist = dist;
           min_i = i;
@@ -161,8 +161,6 @@ void label(network_t * net, data_t * data, int size) {
       } else {
         printf(GREEN " o "  RESET);
       }
-      // setosa = 1, versicolor = 5, virginica = 4
-      // printf(" %lu ", strlen(net->map[l][c].label) % 10);
     }
     printf("\n");
   }
@@ -178,16 +176,16 @@ void label(network_t * net, data_t * data, int size) {
  * \param v   vecteur de données de la bd
  * \param bmu structure représentant le bmu (best match unit)
  */
-void apply_nhd(network_t * net, double * v, bmu_t bmu) {
+void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
   int iv, l, c, l0, c0;
   // pour tout node l, c appartenant à Nhd(i)
   for(l = -(net->nhd_rad - 1); l < net->nhd_rad; l++) {
     for(c = -(net->nhd_rad - 1); c < net->nhd_rad; c++) {
       l0 = bmu.l + l;
       c0 = bmu.c + c;
-      if(l0 < 0 || l0 >= LINE || c0 < 0 || c0 >= COL)
+      if(l0 < 0 || l0 >= cfg->map_l || c0 < 0 || c0 >= cfg->map_c)
         continue;
-      for(iv = 0; iv < NB_VAL; iv++) {
+      for(iv = 0; iv < cfg->nb_val; iv++) {
         net->map[l0][c0].w[iv] = net->map[l0][c0].w[iv] +
           net->alpha * (v[iv] - net->map[l0][c0].w[iv]);
       }
@@ -207,16 +205,16 @@ void apply_nhd(network_t * net, double * v, bmu_t bmu) {
  * \return structure réprésentant le bmu (best match unit)
  */
 
-bmu_t find_bmu(network_t * net, double * v) {
+bmu_t find_bmu(network_t * net, double * v, config_t *cfg) {
   list_t * bmu_lis = init_list();
   int l, c;
   bmu_t bmu;
   double dist;
-  bmu.act = euclidean_dist(v, net->map[0][0].w, NB_VAL);
+  bmu.act = euclidean_dist(v, net->map[0][0].w, cfg->nb_val);
   insert_list(bmu_lis, 0, 0);
-  for(l = 0; l < LINE; l++) {
-    for(c = 0; c < COL; c++) {
-      dist = euclidean_dist(v, net->map[l][c].w, NB_VAL);
+  for(l = 0; l < cfg->map_l; l++) {
+    for(c = 0; c < cfg->map_c; c++) {
+      dist = euclidean_dist(v, net->map[l][c].w, cfg->nb_val);
       if(bmu.act > dist) {
         reinit_list(bmu_lis, l, c);
         bmu.act = dist;
@@ -268,13 +266,13 @@ void print_shuffle(int * sh, int size) {
   printf("\n");
 }
 
-void print_net(network_t * net) {
+void print_net(network_t * net, config_t *cfg) {
   int l, c, i;
   printf("alpha:       %.2f\n", net->alpha);
   printf("n.rad:       %d\n", net->nhd_rad);
-  for(l = 0; l < LINE; l++)
-    for(c = 0; c < COL; c++)
-      for(i = 0; i < NB_VAL; i++)
+  for(l = 0; l < cfg->map_l; l++)
+    for(c = 0; c < cfg->map_c; c++)
+      for(i = 0; i < cfg->nb_val; i++)
         printf("[%d][%d].w[%d]: %.2f\n", l, c, i, net->map[l][c].w[i]);
 }
 
