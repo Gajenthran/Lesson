@@ -9,16 +9,19 @@
 #define _MAP_L 10
 #define _MAP_C 6
 #define _NB_VAL 4
+#define _MARG_ERR 0.015
 
+/* Structure représentant la configuration du programme */
 typedef struct config config_t;
 struct config {
-  double alpha;
-  int nhd_rad;
-  int iter;
-  int map_l, map_c;
-  double w_avg_min, w_avg_max;
-  int nb_val;
-  int data_sz;
+  double alpha;                // coefficient d'apprentissage
+  int nhd_rad;                 // rayon de voisinage
+  int iter;                    // nombre d'itérations
+  int map_l, map_c;            // dimension de la map
+  double w_avg_min, w_avg_max; // interval pour w
+  int nb_val;                  // nombre de valeurs dans les données
+  int data_sz;                 // nombre de données
+  float margin_err;            // marge d'erreur
 };
 
 #endif

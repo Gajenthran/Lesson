@@ -4,6 +4,10 @@
 #include <time.h>
 #include "ll.h"
 
+/** \brief Initialise la liste chaînée.
+ *
+ * \return liste chaînée de type list_t
+ */
 list_t * init_list(void) {
   list_t * l = (list_t *)malloc(sizeof *l);
   assert(l);
@@ -12,7 +16,13 @@ list_t * init_list(void) {
   return l;
 }
 
-int * get_index(list_t * l) {
+/** \brief Retourne de manière aléatoire un bmu de 
+ * la liste.
+ *
+ * \param l liste chaînée
+ * \return bmu (best match unit)
+ */
+bmu_t get_bmu_from_list(list_t * l) {
   srand(time(NULL));
   int r = (rand() % l->size), it = 0;
   lnode_t * n;
@@ -23,29 +33,38 @@ int * get_index(list_t * l) {
     if(it == r) break;
   }
 
-  int * idx = (int *)malloc(2 * sizeof *idx);
-  idx[0] = n->index_l;
-  idx[1] = n->index_c;
-  return idx;
+  bmu_t bmu = n->bmu;
+  return bmu;
 }
 
-void insert_list(list_t * l, int i_l, int i_c) {
+/** \brief Insérer un élément dans la liste
+ *
+ * \param l   liste chaînée
+ * \param bmu bmu (best match unit)
+ */
+void insert_list(list_t * l, bmu_t bmu) {
   lnode_t * n = (lnode_t *)malloc(sizeof *n);
-  n->index_l = i_l;
-  n->index_c = i_c;
+  assert(n);
+  n->bmu = bmu;
   n->next = l->head;
   l->head = n;
   l->size++;
 }
 
-void reinit_list(list_t * l, int i_l, int i_c) {
+/** \brief Modifier la liste en supprimer tous les 
+ * éléments de la liste chaînée, excepté le premier
+ * élément qui sera remplacé par le nouveau bmu donné
+ * en paramètre.
+ *
+ * \param l   liste chaînée
+ * \param bmu bmu (best match unit)
+ */
+void modify_list(list_t * l, bmu_t bmu) {
   if(!l)
     return;
 
-  if(l->head) {
-    l->head->index_l = i_l;
-    l->head->index_c = i_c;
-  }
+  if(l->head)
+    l->head->bmu = bmu;
 
   while(l->head) {
     lnode_t * n = l->head;
@@ -55,18 +74,10 @@ void reinit_list(list_t * l, int i_l, int i_c) {
   l->size = 1;
 }
 
-void print_list(list_t * l) {
-  if(!l || !l->head)
-    return;
-
-  lnode_t * h = l->head;
-  while(h) {
-    printf("%d,%d -> ", h->index_l, h->index_c);
-    h = h->next;
-  }
-  printf("NULL\n");
-}
-
+/** \brief Libère la liste chaînée
+ *
+ * \param l liste chaînée
+ */
 void free_list(list_t * l) {
   if(!l)
     return;
@@ -77,6 +88,23 @@ void free_list(list_t * l) {
     free(n);
   }
   l->size = 0;
+  l = NULL;
+}
+
+/** \brief Affiche la liste chaînée.
+ *
+ * \param l liste chaînée
+ */
+void print_list(list_t * l) {
+  if(!l || !l->head)
+    return;
+
+  lnode_t * h = l->head;
+  while(h) {
+    printf("%d, %d -> ", h->bmu.l, h->bmu.c);
+    h = h->next;
+  }
+  printf("NULL\n");
 }
 
 /* int main(void) {

@@ -11,6 +11,7 @@
  * placer les éléments dans la struct data_t
  *
  * \param filename nom du fichier
+ * \param cfg      données de configuration
  * 
  * \return la structure de forme data_t qui représente 
  * les données formalisées
@@ -61,7 +62,7 @@ data_t * read_file(char * filename, config_t * cfg) {
 /** \brief Normalise les données
  *
  * \param data ensemble de données
- * \param size nombres de données
+ * \param cfg  données de configuration
  */
 void normalize(data_t * data, config_t * cfg) {
   int i, j;

@@ -7,7 +7,9 @@
  * nhd
  * debugging print
  * free
+ * bmu_lis
  */
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "som.h"
@@ -21,6 +23,7 @@ void usage(char * msg) {
 
 config_t * init_config(void) {
   config_t * cfg = (config_t *)malloc(sizeof(*cfg));
+  assert(cfg);
   cfg->alpha = _ALPHA;
   cfg->nhd_rad = _NHD_RAD;
   cfg->iter = _ITER;
@@ -29,6 +32,7 @@ config_t * init_config(void) {
   cfg->map_c = _MAP_C;
   cfg->map_l = _MAP_L;
   cfg->nb_val = _NB_VAL;
+  cfg->margin_err = _MARG_ERR;
   return cfg;
 }
 
@@ -53,5 +57,10 @@ int main(int argc, char *argv[]) {
   // print_shuffle(sh, cfg->data_sz);
   // print_net(net);
   // print_data(data, cfg->data_sz);
+
+  // free_data(data);
+  // free_shuffle(shuffle);
+  // free_network(net);
+  // free_cfg(cfg);
   return 0;
 }

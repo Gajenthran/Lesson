@@ -2,7 +2,6 @@
 #define _SOM_H_
 
 #include "parser.h"
-#include "ll.h"
 #include "config.h"
 
 /** \brief Structure représentant les neurones */

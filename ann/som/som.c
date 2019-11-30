@@ -5,10 +5,12 @@
 #include <time.h>
 #include <math.h>
 #include "som.h"
+#include "ll.h"
 
 #define RED   "\x1B[31m"
 #define GREEN "\x1B[32m"
 #define BLUE  "\x1B[34m"
+#define WHITE "\x1B[37m"
 #define RESET "\x1B[0m"
 
 /** \brief Initialise le vecteur représentant l'ordre
@@ -54,7 +56,7 @@ void shuffle(int * sh, int size) {
  * de voisinage.
  *
  * \param data données de la bd
- * \param size nombre de données
+ * \param cfg  données de configuration
  * 
  * \return structure de type network_t représentant le 
  * réseau de neurones.
@@ -102,11 +104,10 @@ network_t * init_network(data_t * data, config_t *cfg) {
  * et partie coopérative avec la diffusion des règles
  * d'apprentissage au voisinage.
  *
- * \param iterations nombre d'itérations
- * \param net        réseau de neurones
- * \param sh         vecteur représentant l'ordre de passage des données
- * \param data       données
- * \param size       nombre de données
+ * \param net  réseau de neurones
+ * \param sh   vecteur représentant l'ordre de passage des données
+ * \param data données
+ * \param cfg  données de configuration
  */
 void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
   // modulo, div, itération à faire
@@ -120,10 +121,12 @@ void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
       shuffle(sh, cfg->data_sz);
       // pour tout i appartenant aux données v de la bd
       for(i = 0; i < cfg->data_sz; i++) {
-        bmu = find_bmu(net, data[i].v, cfg);
-        apply_nhd(net, data[i].v, bmu, cfg);
+        bmu = find_bmu(net, data[sh[i]].v, cfg);
+        apply_nhd(net, data[sh[i]].v, bmu, cfg);
       }
-      net->alpha = 1.0 - ((double)it / (double)iterations);
+
+      net->nhd_rad = cfg->nhd_rad * exp(-(double)it / (double)iterations);
+      net->alpha = cfg->alpha * (1.0 - ((double)it / (double)iterations));
     }
   }
 }
@@ -132,7 +135,7 @@ void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
  *
  * \param net  réseau de neurones
  * \param data données
- * \param size nombre de données
+ * \param cfg  données de configuration
  */
 void label(network_t * net, data_t * data, config_t *cfg) {
   int l, c, i, min_i;
@@ -154,15 +157,19 @@ void label(network_t * net, data_t * data, config_t *cfg) {
       }
       net->map[l][c].label = strdup(data[min_i].label);
 
-      if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
-        printf(RED " o "     RESET);
-      } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
-        printf(BLUE " o "    RESET);
+      if(min_dist > cfg->margin_err) {
+        printf(WHITE " x "  RESET);        
       } else {
-        printf(GREEN " o "  RESET);
+        if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
+          printf(RED   " o "  RESET);
+        } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
+          printf(BLUE  " o "  RESET);
+        } else {
+          printf(GREEN " o "  RESET);
+        }
       }
     }
-    printf("\n");
+    printf(RESET "\n"  RESET);
   }
 }
 
@@ -175,9 +182,10 @@ void label(network_t * net, data_t * data, config_t *cfg) {
  * \param net réseau de neurones
  * \param v   vecteur de données de la bd
  * \param bmu structure représentant le bmu (best match unit)
+ * \param cfg données de configuration
  */
 void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
-  int iv, l, c, l0, c0;
+  int i, l, c, l0, c0;
   // pour tout node l, c appartenant à Nhd(i)
   for(l = -(net->nhd_rad - 1); l < net->nhd_rad; l++) {
     for(c = -(net->nhd_rad - 1); c < net->nhd_rad; c++) {
@@ -185,9 +193,9 @@ void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
       c0 = bmu.c + c;
       if(l0 < 0 || l0 >= cfg->map_l || c0 < 0 || c0 >= cfg->map_c)
         continue;
-      for(iv = 0; iv < cfg->nb_val; iv++) {
-        net->map[l0][c0].w[iv] = net->map[l0][c0].w[iv] +
-          net->alpha * (v[iv] - net->map[l0][c0].w[iv]);
+      for(i = 0; i < cfg->nb_val; i++) {
+        net->map[l0][c0].w[i] = net->map[l0][c0].w[i] +
+          net->alpha * (v[i] - net->map[l0][c0].w[i]);
       }
     }
   }
@@ -196,37 +204,38 @@ void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
 /** \brief Trouver le bmu (best match unit) en comparant les 
  * neurones aux valeurs des données de la bd.
  *
- * \param iterations nombre d'itérations
- * \param net        réseau de neurones
- * \param sh         vecteur représentant l'ordre de passage des données
- * \param data       données
- * \param size       nombre de données
+ * \param net réseau de neurones
+ * \param v   vecteur de données
+ * \param cfg données de configuration
  *
  * \return structure réprésentant le bmu (best match unit)
  */
 
 bmu_t find_bmu(network_t * net, double * v, config_t *cfg) {
-  list_t * bmu_lis = init_list();
   int l, c;
-  bmu_t bmu;
   double dist;
-  bmu.act = euclidean_dist(v, net->map[0][0].w, cfg->nb_val);
-  insert_list(bmu_lis, 0, 0);
+  list_t * bmu_lis = init_list();
+  bmu_t bmu = {euclidean_dist(v, net->map[0][0].w, cfg->nb_val), 0, 0};
+  insert_list(bmu_lis, bmu);
   for(l = 0; l < cfg->map_l; l++) {
     for(c = 0; c < cfg->map_c; c++) {
       dist = euclidean_dist(v, net->map[l][c].w, cfg->nb_val);
+
       if(bmu.act > dist) {
-        reinit_list(bmu_lis, l, c);
         bmu.act = dist;
         bmu.l = l; bmu.c = c;
+        modify_list(bmu_lis, bmu);
       }
-      if(bmu.act == dist)
-        insert_list(bmu_lis, l, c);
+
+      if(bmu.act == dist) {
+        bmu.l = l; bmu.c = c;
+        insert_list(bmu_lis, bmu);
+      }
     }
   }
 
-  int * idx = get_index(bmu_lis);
-  bmu.l = idx[0]; bmu.c = idx[1];
+  bmu = get_bmu_from_list(bmu_lis);
+  free_list(bmu_lis);
   return bmu;
 }
 
@@ -250,8 +259,8 @@ double euclidean_dist(double * v, double * w, int size) {
 /** \brief Fonction retournant un nombre aléatoire entre deux
  * intervalles.
  *
- * \param min intervalle minimal
- * \param max intervalle maximal
+ * \param min interval minimal
+ * \param max interval maximal
  * 
  * \return Nombre aléatoire entre les intervalles min-max.
  */
