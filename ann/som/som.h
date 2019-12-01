@@ -36,6 +36,7 @@ bmu_t       find_bmu(network_t *, double *, config_t *);
 void        apply_nhd(network_t *, double *, bmu_t, config_t *);
 double      euclidean_dist(double *, double *, int);
 double      my_rand(double min, double max);
+void        print_map(network_t * net, config_t * cfg);
 void        print_net(network_t *, config_t *);
 void        print_shuffle(int *, int);
 

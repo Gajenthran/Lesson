@@ -1,5 +1,4 @@
 /**
- * dimension des vecteurs en argv
  * unsigned int
  * fichier de config
  * stat
@@ -7,7 +6,6 @@
  * nhd
  * debugging print
  * free
- * bmu_lis
  */
 #include <assert.h>
 #include <stdio.h>
@@ -38,7 +36,7 @@ config_t * init_config(void) {
 
 int main(int argc, char *argv[]) {
   if(argc != 2)
-    usage("Usage: ./ann <file>.");
+    usage("Usage: ./som <file>.");
 
   config_t * cfg = NULL;
   data_t * data = NULL;
@@ -53,10 +51,13 @@ int main(int argc, char *argv[]) {
 
   train(net, sh, data, cfg);
   label(net, data, cfg);
+  print_map(net, cfg);
 
-  // print_shuffle(sh, cfg->data_sz);
-  // print_net(net);
-  // print_data(data, cfg->data_sz);
+#ifdef DEBUG
+  print_shuffle(sh, cfg->data_sz);
+  print_net(net, cfg);
+  print_data(data, cfg);
+#endif
 
   // free_data(data);
   // free_shuffle(shuffle);

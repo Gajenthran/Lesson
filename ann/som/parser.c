@@ -78,6 +78,7 @@ void normalize(data_t * data, config_t * cfg) {
   }
 }
 
+#ifdef DEBUG
 void print_data(data_t * data, config_t * cfg) {
   int i, j;
   for(i = 0; i < cfg->data_sz; i++) {
@@ -87,3 +88,4 @@ void print_data(data_t * data, config_t * cfg) {
     printf("%s\n", data[i].label);
   }
 }
+#endif

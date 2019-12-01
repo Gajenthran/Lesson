@@ -4,7 +4,7 @@
 #define _ALPHA 0.7
 #define _WAVG_MIN 0.02
 #define _WAVG_MAX 0.05
-#define _NHD_RAD 4
+#define _NHD_RAD 3
 #define _ITER 2000
 #define _MAP_L 10
 #define _MAP_C 6

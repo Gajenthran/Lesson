@@ -110,7 +110,6 @@ network_t * init_network(data_t * data, config_t *cfg) {
  * \param cfg  données de configuration
  */
 void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
-  // modulo, div, itération à faire
   bmu_t bmu;
   int i, it, iterations;
   double ph;
@@ -138,38 +137,25 @@ void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
  * \param cfg  données de configuration
  */
 void label(network_t * net, data_t * data, config_t *cfg) {
-  int l, c, i, min_i;
-  double dist, min_dist;
+  int l, c, i;
+  bmu_t bmu;
+  double dist;
 
-  printf("Iris-setosa:     "); printf(RED   " o \n"     RESET);
-  printf("Iris-versicolor: "); printf(BLUE  " o \n"     RESET);
-  printf("Iris-virginica:  "); printf(GREEN " o \n\n"     RESET);
   for(l = 0; l < cfg->map_l; l++) {
     for(c = 0; c < cfg->map_c; c++) {
       // voir avec bmu structure
-      min_dist = euclidean_dist(net->map[l][c].w, data[0].v, cfg->nb_val);
+      bmu.act = euclidean_dist(net->map[l][c].w, data[0].v, cfg->nb_val);
+      bmu.l = 0;
       for(i = 0; i < cfg->data_sz; i++) {
         dist = euclidean_dist(net->map[l][c].w, data[i].v, cfg->nb_val);
-        if(min_dist > dist) {
-          min_dist = dist;
-          min_i = i;
+        if(bmu.act > dist) {
+          bmu.act = dist;
+          bmu.l = i;
         }
       }
-      net->map[l][c].label = strdup(data[min_i].label);
-
-      if(min_dist > cfg->margin_err) {
-        printf(WHITE " x "  RESET);        
-      } else {
-        if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
-          printf(RED   " o "  RESET);
-        } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
-          printf(BLUE  " o "  RESET);
-        } else {
-          printf(GREEN " o "  RESET);
-        }
-      }
+      net->map[l][c].label = strdup(data[bmu.l].label);
+      net->map[l][c].act = bmu.act;
     }
-    printf(RESET "\n"  RESET);
   }
 }
 
@@ -187,12 +173,15 @@ void label(network_t * net, data_t * data, config_t *cfg) {
 void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
   int i, l, c, l0, c0;
   // pour tout node l, c appartenant à Nhd(i)
-  for(l = -(net->nhd_rad - 1); l < net->nhd_rad; l++) {
-    for(c = -(net->nhd_rad - 1); c < net->nhd_rad; c++) {
+  // for(l = -(net->nhd_rad - 1); l < net->nhd_rad; l++) {
+  //   for(c = -(net->nhd_rad - 1); c < net->nhd_rad; c++) {
+  for(l = -net->nhd_rad; l <= net->nhd_rad; l++) {
+    for(c = -net->nhd_rad; c <= net->nhd_rad; c++) {
       l0 = bmu.l + l;
       c0 = bmu.c + c;
       if(l0 < 0 || l0 >= cfg->map_l || c0 < 0 || c0 >= cfg->map_c)
         continue;
+
       for(i = 0; i < cfg->nb_val; i++) {
         net->map[l0][c0].w[i] = net->map[l0][c0].w[i] +
           net->alpha * (v[i] - net->map[l0][c0].w[i]);
@@ -275,13 +264,47 @@ void print_shuffle(int * sh, int size) {
   printf("\n");
 }
 
+/** \brief Affiche la map avec les neurones étiquetés.
+ *
+ * \param net réseau de neurones
+ * \param cfg données de configuration
+ */
+void print_map(network_t * net, config_t * cfg) {
+  int l, c;
+  printf("Iris-setosa:     "); printf(RED   " o \n"     RESET);
+  printf("Iris-versicolor: "); printf(BLUE  " o \n"     RESET);
+  printf("Iris-virginica:  "); printf(GREEN " o \n\n"     RESET);
+  for(l = 0; l < cfg->map_l; l++) {
+    for(c = 0; c < cfg->map_c; c++) {
+      if(net->map[l][c].act > cfg->margin_err) {
+        printf(WHITE " x "  RESET);        
+      } else {
+        if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
+          printf(RED   " o "  RESET);
+        } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
+          printf(BLUE  " o "  RESET);
+        } else {
+          printf(GREEN " o "  RESET);
+        }
+      }
+    }
+    printf(RESET "\n"  RESET);
+  }
+  printf("\n");
+}
+
+#ifdef DEBUG
 void print_net(network_t * net, config_t *cfg) {
   int l, c, i;
   printf("alpha:       %.2f\n", net->alpha);
   printf("n.rad:       %d\n", net->nhd_rad);
-  for(l = 0; l < cfg->map_l; l++)
-    for(c = 0; c < cfg->map_c; c++)
+  for(l = 0; l < cfg->map_l; l++) {
+    for(c = 0; c < cfg->map_c; c++) {
       for(i = 0; i < cfg->nb_val; i++)
         printf("[%d][%d].w[%d]: %.2f\n", l, c, i, net->map[l][c].w[i]);
+      printf("\n");
+    }
+    printf("\n");
+  }
 }
-
+#endif

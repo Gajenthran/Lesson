@@ -1,13 +1,58 @@
-CC=gcc
-CFLAGS = -c -Wall -O3
-SRC=ann.c som.c parser.c ll.c 
-OBJ=$(SRC:.c=.o)
+SHELL = /bin/sh
 
-%.o:	%.c
-	$(CC) $(CFLAGS) $<
+CC = gcc
+CHMOD = chmod
+ECHO = echo
+RM = rm -f
+TAR = tar
+MKDIR = mkdir
+CHMOD = chmod
+CP = rsync -R
 
-ann: 	$(OBJ)
-	$(CC) $(LINK) $(OBJ) -o $@
+DEBUG ?= 0
+TEST = $(shell n=0; while [[ $n -lt 1000 ]]; do ./ann iris.data; n=$((n+1)); done)
 
+CFLAGS = -Wall -O3
+
+PROGNAME = som
+FILENAME = iris.data
+distdir = $(PROGNAME)
+HEADERS = som.h parser.h ll.h config.h
+SOURCES = ann.c som.c parser.c ll.c
+OBJ = $(SOURCES:.c=.o)
+
+DOXYFILE = documentation/Doxyfile
+DISTFILES = $(SOURCES) Makefile $(HEADERS) $(DOXYFILE) $(FILENAME)
+
+all: $(PROGNAME)
+
+ifeq ($(DEBUG), 1) 
+    CFLAGS += -DDEBUG
+endif
+
+$(PROGNAME): $(OBJ)
+	$(CC) $(OBJ) -o $(PROGNAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+dist: distdir
+	$(CHMOD) -R a+r $(distdir)
+	$(TAR) zcvf $(distdir).tgz $(distdir)
+	$(RM) -r $(distdir)
+
+distdir: $(DISTFILES)
+	$(RM) -r $(distdir)
+	$(MKDIR) $(distdir)
+	$(CHMOD) 777 $(distdir)
+	$(CP) $(DISTFILES) $(distdir)
+
+doc: $(DOXYFILE)
+	cd documentation && doxygen && cd ..
+
+dbg:
+	for number in {1..1000} ; do \
+	    ./som $(FILENAME) ; \
+	done
 clean:
-	rm *.o ann
+	@$(RM) -r $(PROGNAME) $(OBJ) *~ $(distdir).tgz documentation/*~ documentation/html

@@ -91,10 +91,7 @@ void free_list(list_t * l) {
   l = NULL;
 }
 
-/** \brief Affiche la liste chaînée.
- *
- * \param l liste chaînée
- */
+#ifdef DEBUG
 void print_list(list_t * l) {
   if(!l || !l->head)
     return;
@@ -106,12 +103,4 @@ void print_list(list_t * l) {
   }
   printf("NULL\n");
 }
-
-/* int main(void) {
-  list_t * l = init_list();
-  insert_list(l, 10);
-  insert_list(l, 12);
-  print_list(l);
-  free_list(l);
-  return 0;
-} */
+#endif
