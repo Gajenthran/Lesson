@@ -50,7 +50,7 @@ distdir: $(DISTFILES)
 doc: $(DOXYFILE)
 	cd documentation && doxygen && cd ..
 
-dbg:
+test:
 	for number in {1..1000} ; do \
 	    ./som $(FILENAME) ; \
 	done

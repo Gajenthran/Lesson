@@ -1,11 +1,10 @@
 /**
- * unsigned int
- * fichier de config
- * stat
- * initialiser avec nblignes avec sqrt
- * nhd
- * debugging print
  * free
+ * 5 * data_sz ^ 0.5
+ * nhd_rad qui diminue + learning rules
+ * stats
+ * gsom
+ * adding a conscience to competititve learning Desieno
  */
 #include <assert.h>
 #include <stdio.h>
@@ -19,21 +18,6 @@ void usage(char * msg) {
   exit(1);
 }
 
-config_t * init_config(void) {
-  config_t * cfg = (config_t *)malloc(sizeof(*cfg));
-  assert(cfg);
-  cfg->alpha = _ALPHA;
-  cfg->nhd_rad = _NHD_RAD;
-  cfg->iter = _ITER;
-  cfg->w_avg_min = _WAVG_MIN;
-  cfg->w_avg_min = _WAVG_MAX;
-  cfg->map_c = _MAP_C;
-  cfg->map_l = _MAP_L;
-  cfg->nb_val = _NB_VAL;
-  cfg->margin_err = _MARG_ERR;
-  return cfg;
-}
-
 int main(int argc, char *argv[]) {
   if(argc != 2)
     usage("Usage: ./som <file>.");
@@ -42,10 +26,9 @@ int main(int argc, char *argv[]) {
   data_t * data = NULL;
   network_t * net = NULL;
 
-  cfg = init_config();
+  cfg = init_cfg(CONFIG_FILE);
   data = read_file(argv[1], cfg);
   normalize(data, cfg);
-
   int * sh = init_shuffle(cfg->data_sz);
   net = init_network(data, cfg); 
 
@@ -54,14 +37,14 @@ int main(int argc, char *argv[]) {
   print_map(net, cfg);
 
 #ifdef DEBUG
+  print_config(cfg);
   print_shuffle(sh, cfg->data_sz);
   print_net(net, cfg);
   print_data(data, cfg);
 #endif
 
-  // free_data(data);
-  // free_shuffle(shuffle);
-  // free_network(net);
-  // free_cfg(cfg);
+  free(cfg);
+  free(data);
+  free(net);
   return 0;
 }

@@ -11,9 +11,12 @@ struct data {
   double norm;  // norme
 };
 
-data_t * read_file(char *, config_t *);
-data_t * tokenize(char *, config_t *);
-void     normalize(data_t *, config_t *);
-void     print_data(data_t *, config_t *);
-
+data_t *   read_file(char *, config_t *);
+data_t *   tokenize(char *, config_t *);
+void       normalize(data_t *, config_t *);
+config_t * init_cfg(char * filename);
+#ifdef DEBUG
+void       print_data(data_t *, config_t *);
+void       print_config(config_t *);
+#endif
 #endif

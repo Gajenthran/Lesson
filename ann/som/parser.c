@@ -78,6 +78,76 @@ void normalize(data_t * data, config_t * cfg) {
   }
 }
 
+config_t * init_cfg(char * filename) {
+  const int MAX = 1024;
+  FILE * fp = fopen(filename, "r");
+  if(!fp) {
+    fprintf(stderr, "Can't open file %s\n", filename);
+    exit(1);
+  }
+
+  char * buf = (char *)malloc(MAX * sizeof(*buf)), * tok, * end;
+  assert(buf);
+  config_t * cfg = (config_t *)malloc(sizeof *cfg);
+  assert(cfg);
+
+  while(!feof(fp)) {
+    fgets(buf, MAX, fp);
+    if(ferror(fp)) {
+      fprintf( stderr, "Error while reading file %s\n", filename);
+      exit(1);
+    }
+
+    tok = strtok(buf, "=");
+    while(tok != NULL) {
+      if(tok != NULL && tok[0] > 64 && tok[0] < 123) {
+        if(!strcmp(tok, "ALPHA")) {
+          tok = strtok(NULL, "=");
+          cfg->alpha = strtod(tok, &end);
+        } else if(!strcmp(tok, "WAVG_MIN")) {
+          tok = strtok(NULL, "=");
+          cfg->w_avg_min = strtod(tok, &end);
+        } else if(!strcmp(tok, "WAVG_MAX")) {
+          tok = strtok(NULL, "=");
+          cfg->w_avg_max = strtod(tok, &end);
+        } else if(!strcmp(tok, "NHD_RAD")) {
+          tok = strtok(NULL, "=");
+          cfg->nhd_rad = atoi(tok);
+        } else if(!strcmp(tok, "ITER")) {
+          tok = strtok(NULL, "=");
+          cfg->iter = atoi(tok);
+        } else if(!strcmp(tok, "MAP_L")) {
+          tok = strtok(NULL, "=");
+          cfg->map_l = atoi(tok);
+        } else if(!strcmp(tok, "MAP_C")) {
+          tok = strtok(NULL, "=");
+          cfg->map_c = atoi(tok);
+        } else if(!strcmp(tok, "NB_VAL")) {
+          tok = strtok(NULL, "=");
+          cfg->nb_val = atoi(tok);
+        } else if(!strcmp(tok, "MARG_ERR")) {
+          tok = strtok(NULL, "=");
+          cfg->margin_err = strtod(tok, &end);
+        } else if(!strcmp(tok, "PH_1")) {
+          tok = strtok(NULL, "=");
+          cfg->ph_1 = strtod(tok, &end);
+        } else if(!strcmp(tok, "PH_2")) {
+          tok = strtok(NULL, "=");
+          cfg->ph_2 = strtod(tok, &end);
+        } else if(!strcmp(tok, "NB_LABEL")) {
+          tok = strtok(NULL, "=");
+          cfg->nb_label = atoi(tok);
+        } else {
+          fprintf( stderr, "Error while reading file %s\n", filename);
+          exit(1);
+        }
+      }
+      tok = strtok(NULL, "=");
+    }
+  }
+  return cfg;
+}
+
 #ifdef DEBUG
 void print_data(data_t * data, config_t * cfg) {
   int i, j;
@@ -87,5 +157,19 @@ void print_data(data_t * data, config_t * cfg) {
     }
     printf("%s\n", data[i].label);
   }
+}
+
+void print_config(config_t * cfg) {
+  printf("alpha: %.2f\n", cfg->alpha);
+  printf("a_min: %.2f\n", cfg->w_avg_min);
+  printf("a_max: %.2f\n", cfg->w_avg_max);
+  printf("nhd:   %d\n", cfg->nhd_rad);
+  printf("iter:  %d\n", cfg->iter);
+  printf("map_l: %d\n", cfg->map_l);
+  printf("map_c: %d\n", cfg->map_c);
+  printf("n_val: %d\n", cfg->nb_val);
+  printf("err:   %.2f\n", cfg->margin_err);
+  printf("ph1:   %.2f\n", cfg->ph_1);
+  printf("ph2:   %.2f\n", cfg->ph_2);
 }
 #endif

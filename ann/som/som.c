@@ -113,9 +113,12 @@ void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
   bmu_t bmu;
   int i, it, iterations;
   double ph;
-  for(ph = 0.25; ph < 1.0; ph += 0.5) {
+  // char * label[] = 
+  for(ph = cfg->ph_1; ph < 1.0; ph += (cfg->ph_2 - cfg->ph_1)) {
     // nombre d'itérations
     iterations = cfg->iter * ph;
+    cfg->nhd_rad = ph == cfg->ph_1 ? cfg->nhd_rad : 2;
+    cfg->alpha = ph == cfg->ph_1 ? cfg->alpha : cfg->alpha / 10;
     for(it = 0; it < iterations; it++) {
       shuffle(sh, cfg->data_sz);
       // pour tout i appartenant aux données v de la bd
@@ -124,6 +127,7 @@ void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
         apply_nhd(net, data[sh[i]].v, bmu, cfg);
       }
 
+      // printf("%d - %d\n", it, net->nhd_rad);
       net->nhd_rad = cfg->nhd_rad * exp(-(double)it / (double)iterations);
       net->alpha = cfg->alpha * (1.0 - ((double)it / (double)iterations));
     }
@@ -257,13 +261,6 @@ double my_rand(double min, double max) {
   return (rand()/(double)RAND_MAX) * (max - min) + min;
 }
 
-void print_shuffle(int * sh, int size) {
-  int i;
-  for(i = 0; i < size; i++)
-    printf("%d - ", sh[i]);
-  printf("\n");
-}
-
 /** \brief Affiche la map avec les neurones étiquetés.
  *
  * \param net réseau de neurones
@@ -306,5 +303,12 @@ void print_net(network_t * net, config_t *cfg) {
     }
     printf("\n");
   }
+}
+
+void print_shuffle(int * sh, int size) {
+  int i;
+  for(i = 0; i < size; i++)
+    printf("%d - ", sh[i]);
+  printf("\n");
 }
 #endif
