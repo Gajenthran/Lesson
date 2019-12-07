@@ -17,7 +17,7 @@
  * de passage des données lors de la phase d'apprentissage
  *
  * \param size nombre de données
- * 
+ *
  * \return vecteur représentant l'ordre de passage des données.
  */
 int * init_shuffle(int size) {
@@ -57,8 +57,8 @@ void shuffle(int * sh, int size) {
  *
  * \param data données de la bd
  * \param cfg  données de configuration
- * 
- * \return structure de type network_t représentant le 
+ *
+ * \return structure de type network_t représentant le
  * réseau de neurones.
  */
 network_t * init_network(data_t * data, config_t *cfg) {
@@ -79,12 +79,15 @@ network_t * init_network(data_t * data, config_t *cfg) {
         net->map[l][c].w = (double *)malloc(cfg->nb_val * sizeof(*net->map[l][c].w));
         assert(net->map[l][c].w);
       }
+
+      net->map[l][c].freq = (int *)calloc(0, cfg->nb_label * sizeof(*net->map[l][c].freq));
+      assert(net->map[l][c].freq);
     }
   }
 
   for(i = 0; i < cfg->nb_val; i++) {
     sum = 0;
-    for(j = 0; j < cfg->data_sz; j++) 
+    for(j = 0; j < cfg->data_sz; j++)
       sum += data[j].v[i];
     avg = sum / cfg->data_sz;
 
@@ -100,7 +103,7 @@ network_t * init_network(data_t * data, config_t *cfg) {
 }
 
 /** \brief Phase d'apprentissage des neurones coupé en deux
- * parties: partie compétitive avec la recherche du bmu 
+ * parties: partie compétitive avec la recherche du bmu
  * et partie coopérative avec la diffusion des règles
  * d'apprentissage au voisinage.
  *
@@ -111,9 +114,9 @@ network_t * init_network(data_t * data, config_t *cfg) {
  */
 void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
   bmu_t bmu;
-  int i, it, iterations;
+  int i, l, it, iterations;
   double ph;
-  // char * label[] = 
+  char * label[] = {"Iris-setosa", "Iris-versicolor", "Iris-virginica"};
   for(ph = cfg->ph_1; ph < 1.0; ph += (cfg->ph_2 - cfg->ph_1)) {
     // nombre d'itérations
     iterations = cfg->iter * ph;
@@ -125,9 +128,14 @@ void train(network_t * net, int * sh, data_t * data, config_t *cfg) {
       for(i = 0; i < cfg->data_sz; i++) {
         bmu = find_bmu(net, data[sh[i]].v, cfg);
         apply_nhd(net, data[sh[i]].v, bmu, cfg);
+
+        for(l = 0; l < cfg->nb_label; l++) {
+          if(!strcmp(label[l], data[sh[i]].label)) {
+            net->map[bmu.l][bmu.c].freq[l]++;
+          }
+        }
       }
 
-      // printf("%d - %d\n", it, net->nhd_rad);
       net->nhd_rad = cfg->nhd_rad * exp(-(double)it / (double)iterations);
       net->alpha = cfg->alpha * (1.0 - ((double)it / (double)iterations));
     }
@@ -147,7 +155,6 @@ void label(network_t * net, data_t * data, config_t *cfg) {
 
   for(l = 0; l < cfg->map_l; l++) {
     for(c = 0; c < cfg->map_c; c++) {
-      // voir avec bmu structure
       bmu.act = euclidean_dist(net->map[l][c].w, data[0].v, cfg->nb_val);
       bmu.l = 0;
       for(i = 0; i < cfg->data_sz; i++) {
@@ -157,7 +164,19 @@ void label(network_t * net, data_t * data, config_t *cfg) {
           bmu.l = i;
         }
       }
-      net->map[l][c].label = strdup(data[bmu.l].label);
+
+      // vérifie si le neurone sélectionné n'oscille pas entre deux classes
+      int sum = net->map[l][c].freq[0] + net->map[l][c].freq[1] + net->map[l][c].freq[2];
+      int find = 0;
+      for(i = 0; i < cfg->nb_label; i++) {
+        if(net->map[l][c].freq[i] * 100 / (double)sum > cfg->margin_err) {
+          net->map[l][c].label = strdup(data[bmu.l].label);
+          find = 1;
+          break;
+        }
+      }
+
+      if(!find) { net->map[l][c].label = strdup("not_find"); }
       net->map[l][c].act = bmu.act;
     }
   }
@@ -177,8 +196,6 @@ void label(network_t * net, data_t * data, config_t *cfg) {
 void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
   int i, l, c, l0, c0;
   // pour tout node l, c appartenant à Nhd(i)
-  // for(l = -(net->nhd_rad - 1); l < net->nhd_rad; l++) {
-  //   for(c = -(net->nhd_rad - 1); c < net->nhd_rad; c++) {
   for(l = -net->nhd_rad; l <= net->nhd_rad; l++) {
     for(c = -net->nhd_rad; c <= net->nhd_rad; c++) {
       l0 = bmu.l + l;
@@ -194,7 +211,7 @@ void apply_nhd(network_t * net, double * v, bmu_t bmu, config_t *cfg) {
   }
 }
 
-/** \brief Trouver le bmu (best match unit) en comparant les 
+/** \brief Trouver le bmu (best match unit) en comparant les
  * neurones aux valeurs des données de la bd.
  *
  * \param net réseau de neurones
@@ -254,7 +271,7 @@ double euclidean_dist(double * v, double * w, int size) {
  *
  * \param min interval minimal
  * \param max interval maximal
- * 
+ *
  * \return Nombre aléatoire entre les intervalles min-max.
  */
 double my_rand(double min, double max) {
@@ -273,21 +290,41 @@ void print_map(network_t * net, config_t * cfg) {
   printf("Iris-virginica:  "); printf(GREEN " o \n\n"     RESET);
   for(l = 0; l < cfg->map_l; l++) {
     for(c = 0; c < cfg->map_c; c++) {
-      if(net->map[l][c].act > cfg->margin_err) {
-        printf(WHITE " x "  RESET);        
+      if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
+        printf(RED   " o "  RESET);
+      } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
+        printf(BLUE  " o "  RESET);
+      } else if(!strcmp(net->map[l][c].label, "Iris-virginica")) {
+        printf(GREEN " o "  RESET);
       } else {
-        if(!strcmp(net->map[l][c].label, "Iris-setosa")) {
-          printf(RED   " o "  RESET);
-        } else if(!strcmp(net->map[l][c].label, "Iris-versicolor")) {
-          printf(BLUE  " o "  RESET);
-        } else {
-          printf(GREEN " o "  RESET);
-        }
+        printf(WHITE   " x "  RESET);
       }
     }
     printf(RESET "\n"  RESET);
   }
   printf("\n");
+}
+
+/** \brief Libère la mémoire pour le shuffle.
+ *
+ * \param sh vecteur représentant l'ordre de passage des données
+ */
+void free_shuffle(int *sh) {
+  if(sh) {
+    free(sh);
+    sh = NULL;
+  }
+}
+
+/** \brief Libère la mémoire pour le réseau de neurones.
+ *
+ * \param net réseau de neurones
+ */
+void free_network(network_t *net) {
+  if(net) {
+    free(net);
+    net = NULL;
+  }
 }
 
 #ifdef DEBUG

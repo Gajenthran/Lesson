@@ -6,14 +6,14 @@
 #include "parser.h"
 
 
-/** \brief Lire le fichiers de données, tokenizer son 
+/** \brief Lire le fichiers de données, tokenizer son
  * contenu où chaque valeur est séparée par une virgule
  * placer les éléments dans la struct data_t
  *
  * \param filename nom du fichier
  * \param cfg      données de configuration
- * 
- * \return la structure de forme data_t qui représente 
+ *
+ * \return la structure de forme data_t qui représente
  * les données formalisées
  */
 data_t * read_file(char * filename, config_t * cfg) {
@@ -50,7 +50,6 @@ data_t * read_file(char * filename, config_t * cfg) {
       label = tok;
       tok = strtok(NULL, ",");
     }
-
     label = strtok(label, "\n");
     data[line++].label = strdup(label);
   }
@@ -78,7 +77,14 @@ void normalize(data_t * data, config_t * cfg) {
   }
 }
 
-config_t * init_cfg(char * filename) {
+/** \brief Initialise les données de
+ * configuration
+ *
+ * \param filename fichier de configuration
+ * \return return la structure de configuration
+ * config_t
+ */
+config_t * init_config(char * filename) {
   const int MAX = 1024;
   FILE * fp = fopen(filename, "r");
   if(!fp) {
@@ -146,6 +152,29 @@ config_t * init_cfg(char * filename) {
     }
   }
   return cfg;
+}
+
+/** \brief Libère la mémoire pour la configuration.
+ *
+ * \param cfg données de configuration
+ */
+void free_config(config_t * cfg) {
+  if(cfg) {
+    free(cfg);
+    cfg = NULL;
+  }
+}
+
+/** \brief Libère les données de la bd.
+ *
+ * \param filename données de la bd
+ * config_t
+ */
+void free_data(data_t * data) {
+  if(data) {
+    free(data);
+    data = NULL;
+  }
 }
 
 #ifdef DEBUG

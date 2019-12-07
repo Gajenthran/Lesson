@@ -16,7 +16,7 @@ list_t * init_list(void) {
   return l;
 }
 
-/** \brief Retourne de manière aléatoire un bmu de 
+/** \brief Retourne de manière aléatoire un bmu de
  * la liste.
  *
  * \param l liste chaînée
@@ -34,6 +34,9 @@ bmu_t get_bmu_from_list(list_t * l) {
   }
 
   bmu_t bmu = n->bmu;
+
+  // dernière utilisation de la liste chaînée
+  free_list(l);
   return bmu;
 }
 
@@ -51,7 +54,7 @@ void insert_list(list_t * l, bmu_t bmu) {
   l->size++;
 }
 
-/** \brief Modifier la liste en supprimer tous les 
+/** \brief Modifier la liste en supprimer tous les
  * éléments de la liste chaînée, excepté le premier
  * élément qui sera remplacé par le nouveau bmu donné
  * en paramètre.

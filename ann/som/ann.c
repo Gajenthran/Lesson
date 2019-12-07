@@ -1,5 +1,4 @@
 /**
- * free
  * 5 * data_sz ^ 0.5
  * nhd_rad qui diminue + learning rules
  * stats
@@ -26,11 +25,11 @@ int main(int argc, char *argv[]) {
   data_t * data = NULL;
   network_t * net = NULL;
 
-  cfg = init_cfg(CONFIG_FILE);
+  cfg = init_config(CONFIG_FILE);
   data = read_file(argv[1], cfg);
   normalize(data, cfg);
   int * sh = init_shuffle(cfg->data_sz);
-  net = init_network(data, cfg); 
+  net = init_network(data, cfg);
 
   train(net, sh, data, cfg);
   label(net, data, cfg);
@@ -43,8 +42,8 @@ int main(int argc, char *argv[]) {
   print_data(data, cfg);
 #endif
 
-  free(cfg);
-  free(data);
-  free(net);
+  free_config(cfg);
+  free_data(data);
+  free_network(net);
   return 0;
 }
