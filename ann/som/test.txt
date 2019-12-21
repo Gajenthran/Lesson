@@ -1,0 +1,18 @@
+for number in {1..1000} ; do \
+	    ./som iris.data ; \
+	done
+Iris-setosa:     [31m o 
+[0mIris-versicolor: [34m o 
+[0mIris-virginica:  [32m o 
+
+[0m[32m o [0m[32m o [0m[32m o [0m[37m x [0m[37m x [0m[32m o [0m[0m
+[0m[32m o [0m[32m o [0m[32m o [0m[37m x [0m[37m x [0m[37m x [0m[0m
+[0m[32m o [0m[37m x [0m[32m o [0m[37m x [0m[37m x [0m[37m x [0m[0m
+[0m[37m x [0m[37m x [0m[37m x [0m[37m x [0m[34m o [0m[34m o [0m[0m
+[0m[37m x [0m[37m x [0m[37m x [0m[34m o [0m[34m o [0m[34m o [0m[0m
+[0m[34m o [0m[34m o [0m[34m o [0m[34m o [0m[34m o [0m[34m o [0m[0m
+[0m[37m x [0m[37m x [0m[37m x [0m[37m x [0m[37m x [0m[37m x [0m[0m
+[0m[37m x [0m[37m x [0m[31m o [0m[31m o [0m[31m o [0m[31m o [0m[0m
+[0m[31m o [0m[31m o [0m[31m o [0m[31m o [0m[31m o [0m[31m o [0m[0m
+[0m[31m o [0m[31m o [0m[31m o [0m[31m o [0m[31m o [0m[31m o [0m[0m
+[0m

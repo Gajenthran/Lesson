@@ -1,0 +1,22 @@
+TD1:
+1-2. Pour connaître le nombre de coeurs, il suffit de lancer la commande suivante:
+"$ cat /proc/cpuinfo" pour GNU/Linux, et "sysctl hw.physicalcpu" (coeurs physiques) et
+"sysctl hw.logicalcpu" (coeurs logiques) pour MacOS.
+
+3. Pour connaître le nombre de threads max pouvant s'exécuter simultanément, il suffit
+de lancer la commande suivante:
+"$ cat /proc/sys/kernel/threads-max".
+
+4. Fait (voir td1-4.cpp). Pour compiler : g++ -Wall -std=c++14 -pthread td1-4.cpp -o td1-4
+
+5. La méthode "join" attend la fin du thread en question avant de passer à la suite 
+(https://fr.cppreference.com/w/cpp/thread/thread).
+
+6. Fait (voir td1-6.cpp). Pour compiler : g++ -Wall -std=c++14 -pthread td1-6.cpp -o td1-6
+
+7. Fait (voir td1-7.cpp). Pour compiler : g++ -Wall -std=c++14 -pthread td1-7.cpp -o td1-7
+
+8. Fait (voir dossier benchmark/).
+
+9. 
+
