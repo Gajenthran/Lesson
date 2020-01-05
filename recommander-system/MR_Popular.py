@@ -1,6 +1,5 @@
-
 class MR_Popular:
-	def __init__(self, data, n):
+	def __init__(self, data, n=5):
 		self.data = data;
 		self.avg_votes = 0;
 		self.vote_counts = 0;
@@ -15,12 +14,12 @@ class MR_Popular:
 		votes_c = self.data[self.data['vote_count'].notnull()]['vote_count'].astype('int');
 		self.vote_counts = votes_c.quantile(pourcentage);
 
-	def set_nb_popular(self, n):
+	def set_nb_recommandations(self, n):
 		self.n = n;
 
-	def rating(self, pop):
-		vc = pop['vote_count'];
-		va = pop['vote_average'];
+	def rating(self, row):
+		vc = row['vote_count'];
+		va = row['vote_average'];
 		return (vc / (vc + self.vote_counts) * va) + \
 		       (self.vote_counts / (self.vote_counts + vc) * self.avg_votes);
 
