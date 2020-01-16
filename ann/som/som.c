@@ -1,3 +1,11 @@
+/*!
+ * \file som.c
+ * \brief Fichier comprenant les fonctionnalités
+ * de parsing pour exécuter le modèle de SOM: 
+ * la phase d'apprentissage et la phase
+ * d'étiquetage.
+ * \author PANCHALINGAMOORTHY Gajenthran
+ */
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

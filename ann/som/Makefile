@@ -16,13 +16,15 @@ CFLAGS = -Wall -O3
 
 PROGNAME = som
 FILENAME = iris.data
+CONFIGF = som.cfg
+README = README.md
 distdir = $(PROGNAME)
 HEADERS = som.h parser.h ll.h config.h
 SOURCES = ann.c som.c parser.c ll.c
 OBJ = $(SOURCES:.c=.o)
 
 DOXYFILE = documentation/Doxyfile
-DISTFILES = $(SOURCES) Makefile $(HEADERS) $(DOXYFILE) $(FILENAME)
+DISTFILES = $(SOURCES) Makefile $(HEADERS) $(DOXYFILE) $(FILENAME) $(CONFIGF) $(README)
 
 all: $(PROGNAME)
 

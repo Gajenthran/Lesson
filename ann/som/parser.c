@@ -1,3 +1,10 @@
+/*!
+ * \file parser.c
+ * \brief Fichier comprenant les fonctionnalités
+ * de parsing pour parser les données en entrée et
+ * le fichier config
+ * \author PANCHALINGAMOORTHY Gajenthran
+ */
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>

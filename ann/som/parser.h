@@ -1,3 +1,8 @@
+/*!
+ * \file parser.h
+ * \brief Fichier header du fichier parser.c
+ * \author PANCHALINGAMOORTHY Gajenthran
+ */
 #ifndef _PARSER_H_
 #define _PARSER_H_
 

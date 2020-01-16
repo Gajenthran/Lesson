@@ -1,3 +1,8 @@
+/*!
+ * \file config.h
+ * \brief Fichier header du fichier config.c
+ * \author PANCHALINGAMOORTHY Gajenthran
+ */
 #ifndef __CONFIG_H__
 #define __CONFIG_H__
 
@@ -15,8 +20,8 @@ struct config {
   int nb_val;                  // nombre de valeurs dans les données
   int data_sz;                 // nombre de données
   float margin_err;            // marge d'erreur
-  int nb_label;
-  float ph_1, ph_2;
+  int nb_label;                // nombre de labels
+  float ph_1, ph_2;            // phase 1 et phase 2 (rapport de la phase pour les itérations)
 };
 
 #endif

@@ -1,9 +1,8 @@
-/**
- * 5 * data_sz ^ 0.5
- * nhd_rad qui diminue + learning rules
- * stats
- * gsom
- * adding a conscience to competititve learning Desieno
+/*!
+ * \file ann.c
+ * \brief Fichier principale concernant 
+ * l'application de SOM
+ * \author PANCHALINGAMOORTHY Gajenthran
  */
 #include <assert.h>
 #include <stdio.h>

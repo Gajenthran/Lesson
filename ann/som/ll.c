@@ -1,3 +1,9 @@
+/*!
+ * \file ll.c
+ * \brief Fichier comprenant les fonctionnalités
+ * de la liste chaînée
+ * \author PANCHALINGAMOORTHY Gajenthran
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>

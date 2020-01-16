@@ -1,3 +1,8 @@
+/*!
+ * \file som.h
+ * \brief Fichier header de som.c
+ * \author PANCHALINGAMOORTHY Gajenthran
+ */
 #ifndef _SOM_H_
 #define _SOM_H_
 
@@ -17,7 +22,7 @@ struct node {
 typedef struct network network_t;
 struct network {
   node_t ** map; // réseau, map bidimensionnelle
-  double alpha;  // coefficient d'activation
+  double alpha;  // coefficient d'apprentissage
   int nhd_rad;   // rayon de voisinage
 };
 
