@@ -1,0 +1,8 @@
+-- Filtrer les films les plus populaires par catégorie
+
+SELECT * FROM rs_movies m join genres g ON g.movieId = m.movieId join table3 ON table2.primarykey =table3.foreignkey;
+SELECT m.title, v.vote_average FROM
+rs_movies m JOIN vote v ON (m.movieId = v.movieId)
+JOIN genres g ON (v.movieId = g.movieId)
+WHERE g.genres LIKE '%Romance%' AND v.vote_count > 500.0
+ORDER BY v.vote_average DESC;

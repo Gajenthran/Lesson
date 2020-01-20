@@ -1,0 +1,7 @@
+-- Trouver les films les plus populaires
+
+SELECT m.title, v.vote_average 
+FROM rs_movies m 
+	JOIN vote v ON (m.movieId = v.movieId) 
+ORDER BY vote_average DESC LIMIT 5;
+

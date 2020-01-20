@@ -1,0 +1,41 @@
+-- Initialisation des tables
+
+-- Table rs_movies
+CREATE EXTERNAL TABLE IF NOT EXISTS rs_movies
+(movieId int,
+imdbId int,
+year int,
+title string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+ALTER TABLE rs_movies ADD PARTITION (year='2017');
+
+-- load data inpath '/user/hadoop/movies.csv' into table rs_movies; --
+
+-- Table vote
+CREATE EXTERNAL TABLE IF NOT EXISTS vote
+(movieId int,
+imdbId int,
+vote_average float,
+vote_count float)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+-- load data inpath '/user/hadoop/votes.csv' into table vote; --
+
+-- Table genres
+CREATE EXTERNAL TABLE IF NOT EXISTS genres
+(movieId int,
+genres string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+-- load data inpath '/user/hadoop/genres.csv' into table genres; --
+
+-- Table keywords
+CREATE EXTERNAL TABLE IF NOT EXISTS keywords
+(movieId int,
+keywords string)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+
+-- load data inpath '/user/hadoop/keywords.csv' into table keywords; --
+
+

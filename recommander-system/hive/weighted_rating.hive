@@ -1,0 +1,17 @@
+-- Calculer une note mesurée
+
+-- Création d'une nouvelle colonne
+-- ALTER TABLE vote add columns (wr float);
+
+-- Calcul de la moyenne des notes moyennes des films
+SET avg_votes = percentile(vote.vote_average, 0.5);
+SET vote_counts = percentile(vote.vote_count, 0.90);
+
+-- Mis à jour de la nouvelle colonne wr
+UPDATE vote 
+SET wr=(vote.vote_count / (vote_count + '${hiveconf:vote_counts}') * vote.vote_average) + (vote_counts / (vote_counts + vote.vote_count)$
+
+SELECT m.title, v.wr 
+FROM rs_movies m 
+	JOIN vote v ON (m.movieId = v.movieId) 
+ORDER BY wr DESC LIMIT 5;
