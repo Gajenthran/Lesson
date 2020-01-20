@@ -5,4 +5,10 @@
 \contentsline {section}{\numberline {3.1}Service S3}{4}{section.3.1}
 \contentsline {section}{\numberline {3.2}Service EMR}{5}{section.3.2}
 \contentsline {chapter}{\numberline {4}Analyse des donn\IeC {\'e}es (Hive)}{9}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclusion}{10}{chapter.5}
+\contentsline {section}{\numberline {4.1}Initialisation des tables}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}Hive}{10}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Simple syst\IeC {\`e}me de recommendation}{10}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Syst\IeC {\`e}me de recommendation bas\IeC {\'e} sur une note mesur\IeC {\'e}e}{11}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Syst\IeC {\`e}me de recommendation bas\IeC {\'e} sur la cat\IeC {\'e}gorie}{12}{subsection.4.2.3}
+\contentsline {chapter}{\numberline {5}Comparaison de Hive et Python}{13}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{15}{chapter.6}

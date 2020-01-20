@@ -187,10 +187,87 @@ La connexion étant établie, il nous reste à transférer les fichiers stockés
 Désormais, il nous reste plus qu'à exploiter \texttt{Hive} afin d'analyser les données que nous venons de récupérer. Pour tester si le logiciel fonctionne correctement, il suffit de taper la commande \texttt{hive}, ou \texttt{hive -f <fichier.hive>}.
 
 \chapter{Analyse des données (Hive)}
+Pour l'analyse de données, comme nous l'avons dit, nous nous focaliserons sur le langage \texttt{Hive}. Le système de recommendation d'un film peut prendre plusieurs formes, il peut être simple comme assez complexe. Il peut se baser sur les notes, sur le contenu d'un film, sur les goûts de l'utilisateur...
 
-\chapter{Comparaison de \texttt{Hive} et \texttt{Python}}
+\section{Initialisation des tables}
+Avant toute chose, commençons par créer les tables à partir de la base de données. Les créations des tables se trouveront dans \textit{init\_rs.hive}. À l'aide de \texttt{CREATE EXTERNAL TABLE IF NOT EXISTS} (fig.\ref{fig:hive-init}) pour créer une table, nous préciserons le même nombre de colonne que les fichiers \textit{.csv}. D'ailleurs, nous préciserons à la fin de l'instruction que les tuples des fichiers \textit{.csv} sont délimités par des virgules comme suit \texttt{ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';}. Les types que nous utiliserons principalement concerneront les entiers \texttt{INT}, les chaînes de caractères \texttt{STRING}, les flottants \texttt{FLOAT}. 
+\newline
+Nous tenons également à mentionner l'ajout de la partition sur l'année de sortie des films qui va avoir un rôle déterminant vu qu'il s'agit de films repris des années 2017 principalement. Pour récupérer les fichiers \textit{.csv} de \texttt{/user/hadoop/}, \texttt{LOAD DATA INPATH <path> INTO TABLE <table>;} se chargera de mettre en place les table pour pouvoir exploiter la base de données.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{images/hive-init}
+  \caption{Création des tables sur \texttt{Hive}}
+  \label{fig:hive-init}
+\end{figure}
+
+\section[Hive]{Système de recommendation}
+Plusieurs systèmes de recommendation seront étudiés afin de tester l'efficacité que cela soit en terme de temps ou encore de la pertinence des résultats obtenus.
+\subsection{Simple système de recommendation}
+Un simple système de recommendation qui se base uniquement sur les votes moyens des utilisateurs d'un film. Nous nous contentons de classer par ordre décroissant les votes des films et établir une liste des films les plus populaires de cette manière (fig.\ref{fig:hive-popular}). 
+\newline
+Pour cela, nous devons réaliser une jointure entre les tables \texttt{rs\_movies} et \texttt{vote} afin de mélanger les colonnes \texttt{titre} et \texttt{vote\_average}. La jointure se reposera sur la clé \texttt{movieId} (des deux côtés). Pour ranger les enregistrements par ordre décroissant, \texttt{ORDER BY ... DESC} nous sera utile. Pour finir, on affichera seulement les 5 films les plus populaire avec \texttt{LIMIT 5}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{images/hive-popular}
+  \caption{Requête pour un simple système de recommendation}
+  \label{fig:hive-popular}
+\end{figure}
+
+\subsection{Système de recommendation basé sur une note mesurée}
+Pour obtenir un système plus fiable, nous allons effectuer quelques ajustements au premier système. Tout d'abord, pour obtenir des résultats optimaux, les films n'ayant pas dépassé un certain seuil de vote $ \tau $ ne pourront pas faire partis de cette liste. Ensuite, nous ajouterons à la table \texttt{vote}, une nouvelle colonne \texttt{wr} qui représentera une note mesurée qui se réfère à la formule suivante: $ (\frac{vc}{vc + \tau} * avg) + (\frac{\tau}{\tau + vc} * \mu) $ où \textit{vc} correspond à nombre de vote d'un film, \textit{avg} à la note moyenne d'un film, $ \tau $ au seuil minimal pour accepter un film et $ \mu $ au vote moyen des films. Une fois toutes les lignes de la colonne \texttt{wr} remplies, nous choisirons les 5 premiers films.
+Pour cela, \texttt{ALTER TABLE ... ADD COLUMNS} ajoutera une nouvelle colonne \texttt{wr} sur la table \texttt{vote}. Nous calculerons $ \mu $ et $ \tau $ et les stockeront respectivement dans les variables \texttt{avg\_votes} et \texttt{vote\_counts} en utilisant la fonction \texttt{percentile}. En ajoutant la colonne, il nous reste simplement à remplir chaque case avec \texttt{UPDATE ... SET} de la colonne grâce la formule vue précédemment. Les variables initialisées au départ seront exploitées à l'aide de la notation suivante: \texttt{\${hiveconf:<variable>}}. Désormais, il nous suffit de retirer de la table les enregistrements ayant les plus grandes valeurs \texttt{wr}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{images/hive-wr}
+  \caption{Requête pour un système de recommendation plus sophistiqué}
+  \label{fig:hive-wr}
+\end{figure}
+
+\subsection{Système de recommendation basé sur la catégorie}
+Par ailleurs, il est également possible de renforcer le système actuel par un filtrage concernant le genre des films (fig.\ref{fig:hive-categorie}). En effet, il est légèrement compliqué de parser un objet JSON via \texttt{Hive} mais il est possible de contourner le problème d'une manière différente. Cela nécessite, dans un premier lieu, la jointure de 3 tables \texttt{vote}, \texttt{rs\_movies} et \texttt{genres} en utilisant des \texttt{JOIN}. Dès que les liaisons faites, il faudra filtrer les tuples en se basant sur la colonne \texttt{genres}. La condition \texttt{g.genres LIKE '\%Romance\%'} fera l'affaire pour conserver seulement les films romantiques dans notre table. Nous essayerons pas de parser les objets afin de distinguer les différents genres d'un film, nous nous contenterons de vérifier si l'objet (considéré comme une chaîne de caractère) contient le mot demandé (en l'occurence "Romance" dans notre cas).
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{images/hive-categorie}
+  \caption{Requête pour un système de recommendation ajoutant les genres}
+  \label{fig:hive-categorie}
+\end{figure}
+
+\chapter{Comparaison de Hive et Python}
+Pour comparer l'importance des clusters et d'\texttt{Hive}, nous allons comparer les résultats obtenus lors de la réalisation de \texttt{Python}. Le fichier \textit{MR\_Popular.py} contient plus ou moins la même fonctionnalité proposées par le système plus sophistiqué d'\texttt{Hive} avec une note mesurée (fig.\ref{fig:python-wr}). 
+\newline
+Si nous comparons en termes de code les deux systèmes, il y a très peu de différence que l'on peut remarquer (fig.\ref{fig:python-hive})). La différence se manifeste surtout au niveau de l'exécution des tâches et du temps consacré. \texttt{Hive} semble avoir une longueur d'avance notamment grâce à \texttt{EMR} qui le rend plus efficace.
+% \chapter{Conclusion}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{images/python-wr}
+  \caption{Méthode retournant la note mesurée d'un film}
+  \label{fig:python-wr}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{images/python-hive}
+  \caption{Comparaison entre le programme \texttt{Python} et \texttt{Hive}}
+  \label{fig:python-hive}
+\end{figure}
+
+Cependant, il est possible de rencontrer quelques difficultés lorsque nous souhaitons réaliser un système plus complexe avec \texttt{Hive} comme un système basé sur le contenu du film. C'est pourquoi, nous avons décidé de réaliser cela en \texttt{Python}. Le but est de matcher les films ayant le plus de ressemblance  avec le film passé en paramètre. Le taux de ressemblance sera calculé à l'aide des descriptions, des tags, du titre des films, en utilisant la similarité cosinus $ cos \theta = \frac{A * B}{||A|| * ||B||} $ (fig.\ref{fig:python-cosine}). Puis il suffit de prendre les films pour lesquelles la valeur de la similarité cosinus est la plus élevé par rapport au film choisi pour avoir une bonne recommendation. A noter que nous utiliserons plutôt \texttt{linear\_kernel} lorsque nous utilisons l'objet \texttt{TfidfVectorizer} afin de gagner du temps.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.0\textwidth]{images/python-cosine}
+  \caption{L'utilisation de la similarité de cosinus pour calculer la similarité entre les films}
+  \label{fig:python-cosine}
+\end{figure}
 
 \chapter{Conclusion}
+
+Poru conclure, l'architecture distribuée représente une conception différente de la programmation dont nous avions pas l'habitude lors des années précédentes. Les services AWS représente de nombreux avantages: ils sont très maniables, faciles à utiliser, flexibles, très sécurisés les rendant ainsi fiables. Par ailleurs, ils peuvent êre exploités dans de nombreux cas, ce qui souligne un peu plus leur flexibilité. Et ce n'est d'ailleurs pas une surprise si ils sont utilisés par les plus grandes entreprises telles que Netflix, Expedia, Sysco ou encore Airbnb.
 
 \bibliographystyle{alpha}
 % \bibliography{memoire}
