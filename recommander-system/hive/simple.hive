@@ -1,0 +1,49 @@
+-- Vérifier si les identifiants des films sont différents
+-- Nous devrons avoir le même résultat pour toutes les requêtes
+SELECT count(DISTINCT(movieId)) 
+FROM movies;
+SELECT count(movieId) 
+FROM movies;
+SELECT count(imdb_id) 
+FROM movies;
+SELECT count(DISTINCT(imdb_id)) 
+FROM movies;
+
+-- Récupérer les films d'animations ayant une note de plus de 7.5/10.
+SELECT * 
+FROM movies 
+  WHERE genres 
+    LIKE '%Animation%' 
+      AND vote_average > '7.5';
+
+-- Calculer le nombre de films selon le budget des films
+SELECT COUNT(movieId), budget 
+FROM movies 
+  GROUP BY budget 
+    HAVING COUNT(movieId) > 5
+  ORDER BY COUNT(movieId) DESC;
+
+-- Calculer la note moyenne pour les films comiques, en comptant le revenue total et le budget
+SELECT count(movieId), SUM(revenue), SUM(budget), AVG(vote_average) 
+FROM movies 
+  WHERE genres 
+    LIKE '%Animation%' 
+      AND budget > 0;
+
+-- Récupérer la somme des notes de chaque utilisateur et considérer seulement les utilisateurs
+-- ayant votés plus de 5 fois avec des notes supérieures à 4
+SELECT userId, AVG(rating) 
+FROM ratings 
+  GROUP BY userId 
+    HAVING COUNT(movieId) > 5 
+      AND AVG(rating) > 4;
+
+-- Calculer le nombre de votants dans ratings
+SELECT count(DISTINCT(userId)) 
+FROM ratings;
+
+-- Compter le nombre de votes pour chaque films dans ratings
+SELECT count(movieId), movieId 
+FROM ratings 
+  GROUP BY movieId 
+    ORDER BY count(movieId) DESC;

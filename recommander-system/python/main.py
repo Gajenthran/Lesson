@@ -7,9 +7,9 @@ from MR_KNN import MR_KNN
 
 # L'ensemble des fichiers en entrée
 FILES = {
-	"movies"  : "../files/movies_metadata.csv",
-	"ratings" : "../files/ratings.csv",
-	"links"   : "../files/links_small.csv"
+	"movies"  : "files/movies_metadata.csv",
+	"ratings" : "files/ratings.csv",
+	"links"   : "files/links_small.csv"
 };
 
 # Le nombre de recommendations
@@ -35,9 +35,12 @@ def main():
 	movies = csv_reader(FILES["movies"]);
 	links = csv_reader(FILES["links"]);
 	ratings = csv_reader(FILES["ratings"]);
+	
+	# mrub = MR_KNN(movies, ratings);
+	# mrub.knn();
 
-	mrp = MR_Popular(movies, POPULAR_N);
-	mrp.get_popular_movies();
+	# mrp = MR_Popular(movies, POPULAR_N);
+	# mrp.get_popular_movies();
 
 	# mrcb = MR_ContentBased(movies, links);
 	# mrcb.get_content_based_movies();

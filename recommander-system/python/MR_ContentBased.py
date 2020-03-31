@@ -11,8 +11,8 @@ class MR_ContentBased:
 		links_db = links_db[links_db['tmdbId'].notnull()]['tmdbId'].astype('int')
 		movies_db = movies_db.drop([19730, 29503, 35587])
 		movies_db['movieId'] = movies_db['movieId'].astype('int')
-		self.data = movies_db[movies_db['movieId'].isin(links_db)];
-		self.n = n;
+		self.data = movies_db[movies_db['movieId'].isin(links_db)]
+		self.n = n
 
 	def set_indices(self):
 		"""
@@ -21,10 +21,13 @@ class MR_ContentBased:
 		"""
 		self.data = self.data.reset_index()
 		titles = self.data['title']
-		return pd.Series(self.data.index, index=self.data['title']);
+		return pd.Series(self.data.index, index=self.data['title'])
 
 	def set_nb_recommandations(self, n):
-		self.n = n;
+		"""
+			Mettre à jour le nombre de recommendations.
+		"""
+		self.n = n
 
 	def get_content_based_movies(self, movie='Batman Forever', tfid=True):
 		"""
@@ -35,21 +38,22 @@ class MR_ContentBased:
 			:param tfid: Vrai par défaut, permet de choisir la méthode de similarité entre les films
 		"""
 		self.data['tagline'] = self.data['tagline'].fillna('')
-		self.data['content_based'] = (self.data['overview'] + self.data['tagline']).fillna('');
-		cs = None;
+		self.data['content_based'] = (self.data['overview'] + self.data['tagline']).fillna('')
+		cs = None
 		if(tfid):
 			tfid = TfidfVectorizer(analyzer='word',ngram_range=(1, 2),min_df=0, stop_words='english')
-			tfidm = tfid.fit_transform(self.data['content_based']);
+			tfidm = tfid.fit_transform(self.data['content_based'])
 			cs = linear_kernel(tfidm, tfidm)
 		else:
-			cv = CountVectorizer();
-			cm = cv.fit_transform(self.data["content_based"]);
-			cs = cosine_similarity(cm);
+			cv = CountVectorizer()
+			cm = cv.fit_transform(self.data["content_based"])
+			cs = cosine_similarity(cm)
 
-		indices = self.set_indices();
-		index = indices[movie];
-		similar_mv = list(enumerate(cs[index]));
-		sorted_mv = sorted(similar_mv, key=lambda x: x[1], reverse=True);
-		movie_indices = [i[0] for i in sorted_mv];
-		res = self.data.iloc[movie_indices][['title']].head(self.n);
-		print(res);
+		indices = self.set_indices()
+		index = indices[movie]
+		similar_mv = list(enumerate(cs[index]))
+		sorted_mv = sorted(similar_mv, key=lambda x: x[1], reverse=True)
+		movie_indices = [i[0] for i in sorted_mv]
+		res = self.data.iloc[movie_indices][['title']].head(self.n)
+		print("Les films recommandés pour " + movie)
+		print(res)
