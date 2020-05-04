@@ -1,62 +1,24 @@
 import os
-import re
-import nltk
+import numpy as np
+import pandas as pd
+
+from sklearn import tree, metrics, datasets
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.model_selection import train_test_split
+
 from sklearn.naive_bayes import MultinomialNB
-import sklearn.datasets
+from sklearn.linear_model import SGDClassifier
+from sklearn.neighbors import KNeighborsClassifier
 
-"""
-def bag_of_words(data):
-	words = {}
-	words_id = 0
+from sklearn.utils.extmath import randomized_svd
+from sklearn.decomposition import TruncatedSVD
+import umap
+import matplotlib.pyplot as plt
+import seaborn as sns
 
-	for i in range(0, len(data)):
-		data[i] = data[i].lower()
-		data[i] = re.sub(r'\W',' ', data[i])
-		data[i] = re.sub(r'\s+',' ', data[i])
-
-		tokens = nltk.word_tokenize(data[i])
-
-		for token in tokens:
-			if token not in words.keys():
-				words[token] = words_id
-				words_id += 1
-
-	occ = [0] * len(data)
-
-	for i in range(0, len(data)):
-		tokens = nltk.word_tokenize(data[i])
-		occ[i] = [0] * len(words)
-
-		for token in tokens:
-			occ[i][words[token]] += 1
-
-	return words, occ
-"""
-
-"""
-def word_frequencies(data, words, occ, tf_idf=False):
-	t_occ = [0] * len(words)
-
-	print(occ)
-	if(tf_idf == True):
-		print('Rien')
-	else:
-		for row in occ:
-			for i in range(0, len(row)):
-				t_occ[i] += row[i]
-
-	freq = [[]] * len(occ)
-
-	for i in range(0, len(freq)):
-		freq[i] = [0.0] * len(occ[i])
-
-		for j in range(0, len(freq[i])):
-			freq[i][j] = (float)(occ[i][j] / t_occ[j])
-
-	return freq
-"""
+def myMAE(predict,target):
+	return (abs(predict-target)).mean()
 
 def load_files():
 	files = []
@@ -66,7 +28,7 @@ def load_files():
 
 	for file in os.listdir("20-newsgroups"):
 		if file.endswith(".txt"):
-			c = os.path.splitext(file)[0] # .split('.')[0]
+			c = os.path.splitext(file)[0]
 			categories.append(c)
 			files.append("20-newsgroups/" + file)
 			cat.append(catId)
@@ -88,25 +50,61 @@ def tf_idf(occ, use_idf=True):
 	tf = TfidfTransformer(smooth_idf=True, use_idf=use_idf)
 	return tf.fit_transform(occ)
 
-def classifier(clf, train, test, files):
-	clf.fit(train, files.target)
+def classifier(clf, train, test, target):
+	clf.fit(train, target)
 	return clf.predict(test)
 
 def main():
-	files = sklearn.datasets.load_files('20-newsgroups', encoding="utf8", decode_error='ignore');
-	
+	# Charger les données 20-newsgroups
+	files = datasets.load_files('20-newsgroups', encoding="utf8", decode_error='ignore')
+
+	# Pré-traitement des données
 	occ, vocabulary = bow(files.data)
 	tfidf = tf_idf(occ)
 
-	docs_new = [
-		'The ball is remind me a sport', 
-		'NASA will wait until 2040 to launch their fuse'
-	]
+	# Split des données en 2: apprentissage, test
+	X_train, X_test, y_train, y_test = train_test_split(
+		tfidf, files.target, test_size=0.0025)
 
-	occ_test, _ = bow(docs_new, vocabulary)
-	tfidf_test = tf_idf(occ_test)
+	# Apprentissage
+	clf = KNeighborsClassifier(n_neighbors=3, weights='uniform')
+	"""
+	clf = KNeighborsClassifier(n_neighbors=3, weights='uniform')
+	clf = SGDClassifier(
+		loss='hinge', penalty='l2', alpha=1e-3, random_state=42,
+		max_iter=5, tol=None)
+	clf = MultinomialNB(), X_train, X_test, y_train
+	"""
+	clf.fit(X_train, y_train)
+	pred_train = clf.predict(X_train)
+	pred_test = clf.predict(X_test)
 
-	print(classifier(MultinomialNB(), tfidf, tfidf_test, files))
+	# Erreur quadratiques moyennes
+	err_train = metrics.mean_squared_error(pred_train, y_train)
+	err_test = metrics.mean_squared_error(pred_test, y_test)
+
+	"""
+	err_train = metrics.mean_squared_log_error(pred_train, y_train)
+	err_test = metrics.mean_squared_log_error(pred_test, y_test)
+
+	err_train = metrics.mean_absolute_error(pred_train, y_train)
+	err_test = metrics.mean_absolute_error(pred_test, y_test)
+
+	err_train = myMAE(pred_train, y_train)
+	err_test = myMAE(pred_test, y_test)
+	"""
+
+	print("Mean square error (train): %.3f " % err_train)
+	print("Mean square error (test):  %.3f " % err_test)
+
+	# Visualisation
+	U, Sigma, VT = randomized_svd(X_test, n_components=2, n_iter=10, random_state=122)
+	X_topics = U * Sigma
+	embedding = umap.UMAP().fit_transform(X_topics)
+	plt.title('UMAP projection of 20-newsgroups datasets', fontsize=12);
+	plt.scatter(embedding[:, 0], embedding[:, 1], c=files.target[:len(embedding)], edgecolor='none')
+	plt.show()
+
 
 if __name__ == '__main__':
 	main()

@@ -1,0 +1,9 @@
+id -- date -- refProduit -- quantité -- adresse de livraison
+c1 -- 12/03/2019 -- voiture -- 3 -- PARIS, France
+c2 -- 22/02/2018 -- moto -- 5 -- paris, FRANCE
+c3 -- 08/05/2019 -- MOTO -- 2 -- berlin, Allemagne
+c4 -- 30/01/2018 -- voiture -- 10 -- paris, France
+c5 -- 30/01/2018 -- VELO -- 4 -- BERLin, Allemagne
+c6 -- 08/05/2019 -- Voiture -- 3 -- Londres, Angleterre
+c7 -- 08/05/2019 -- Voiture -- 1 -- BERLIN, Allemagne
+c8 -- 24/07/2019 -- velo -- 6 -- Paris, France

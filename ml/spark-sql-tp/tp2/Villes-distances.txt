@@ -1,0 +1,5 @@
+ville, pays, distance de livraison
+Rome, Italie, 150
+Paris, France, 200
+Londres, Angleterre, 150
+Berlin, Allemagne, 300

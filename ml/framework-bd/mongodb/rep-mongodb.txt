@@ -1,0 +1,353 @@
+>db.media.find() => retourne tous les éléments de la collection "media".
+
+{ "_id" : ObjectId("5dd4f7bf13d17bc4425062ea"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "987-1-4302-3051-9", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+
+__
+
+>db.media.find ( { Artist : "Nirvana" } ) => retourne tous les éléments de la collection "media" dont l'artiste s'appelle "Nirvana".
+
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+
+__
+
+>db.media.find ( {Artist : "Nirvana"}, {Title: 1} ) => retourne tous les éléments de la collection "media" dont l'artiste s'appelle "Nirvana" et le deuxième titre, en affichant seulement le titre.
+
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Title" : "Nevermind" }
+
+__
+
+>db.media.find ( {Artist : "Nirvana"}, {Title: 0} ) => retourne tous les éléments de la collection "media" dont l'artiste s'appelle "Nirvana" et le premier titre, en n'affichant pas le titre.
+
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+
+__
+
+>db.media.find( { "Tracklist.Title" : "In Bloom" } ) => retourne tous les éléments de la collection "media" dont le titre de la tracklist contient le titre "In bloom" (tracklist étant un tableau contenant deux titres).
+
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+
+__
+
+>db.media.findOne() => retourne un élément satisfaisant les critères de la requête (en l'occurence ici, il n'y a pas d'argument).
+
+{
+	"_id" : ObjectId("5dd4f7bf13d17bc4425062ea"),
+	"Type" : "Book",
+	"Title" : "Definitive Guide to MongoDB",
+	"ISBN" : "987-1-4302-3051-9",
+	"Publisher" : "Apress",
+	"Author" : [
+		"Membrey, Peter",
+		"Plugge, Eelco",
+		"Hawkins, Tim"
+	]
+}
+
+__
+
+>db.media.find().pretty() => permet d'avoir un affichage qui est plus facile à lire pour l'utilisateur (en faisant des indentations)
+
+{
+	"_id" : ObjectId("5dd4f7bf13d17bc4425062ea"),
+	"Type" : "Book",
+	"Title" : "Definitive Guide to MongoDB",
+	"ISBN" : "987-1-4302-3051-9",
+	"Publisher" : "Apress",
+	"Author" : [
+		"Membrey, Peter",
+		"Plugge, Eelco",
+		"Hawkins, Tim"
+	]
+}
+{
+	"_id" : ObjectId("5dd4f7c413d17bc4425062eb"),
+	"Type" : "CD",
+	"Artist" : "Nirvana",
+	"Title" : "Nevermind",
+	"Tracklist" : [
+		{
+			"Track" : "1 ",
+			"Title" : "Smells like teen spirit",
+			"Length" : "5:02 "
+		},
+		{
+			"Track" : "2 ",
+			"Title" : "In Bloom",
+			"Length" : "4:15 "
+		}
+	]
+}
+
+__
+
+>db.media.find().sort( { Title: 1 }) => retourne tous les éléments de la collection "media"et trie les éléments avec "sort" selon l'argument donné (ici il s'agit de trier selon le titre dans l'odre croissant (alphabétique) vu que la valeur vaut 1).
+
+{ "_id" : ObjectId("5dd4f7bf13d17bc4425062ea"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "987-1-4302-3051-9", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+
+__
+
+>db.media.find().sort( { Title: -1 }) => retourne tous les éléments de la collection "media" et trie les éléments avec "sort" selon l'argument donné (ici il s'agit de trier selon le titre dans l'odre décroissant (alphabétique) vu que la valeur vaut -1).
+
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+{ "_id" : ObjectId("5dd4f7bf13d17bc4425062ea"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "987-1-4302-3051-9", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+
+__
+
+>db.media.find().limit( 10 ) => retourne les 10 premiers éléments de la collection "media".
+
+{ "_id" : ObjectId("5dd4f7bf13d17bc4425062ea"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "987-1-4302-3051-9", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+
+__
+
+>db.media.find().skip( 20 ) => retourne tous les éléments de la collection "media" en ignorant les 20 premiers éléments. Ici il n'y a que deux éléments, donc tous les éléments vont être ignorés: la requête n'affichera rien.
+
+
+
+__
+
+>db.media.find().sort ( { Title : -1 } ).limit ( 10 ).skip ( 20 ) => retourne tous les éléments de la collection "media" et trie les éléments avec "sort" selon l'argument donné (ici il s'agit de trier selon le titre dans l'odre décroissant (alphabétique) vu que la valeur vaut -1). Il affichera les 10 premiers éléments de ce que va retourner la première sous-requête. Et il ignorera les 20 élements de la deuxième sous-requête (vu qu'il s'agit d'un limit(10), forcément il n'affichera rien car on ignore 20 éléments sur seulement 10 qui sont retournés.
+
+
+__
+
+>db.media.count() => retourne le nombre d'éléments de la collection "media"
+
+2
+
+__
+
+>db.media.find( { Publisher : "Apress", Type: "Book" } ).count() => retourne le nombre d'éléments dont le type correspond à un livre et l'auteur est "Apress". Ici il y en a qu'un.
+
+1
+
+__
+
+>db.media.find( { Publisher: "Apress", Type: "Book" }).skip(2).count(true) => retourne le nombre d'éléments dont le type correspond à un livre et l'auteur est "Apress" en ignorant les deux premiers éléments. Ici, vu que la première sous-requête retourne un élément en ignorant les deux premiers, on revient à ce qu'il y ait plus d'éléments donc le "count" retournera 0
+
+0
+
+__
+
+>db.media.distinct( "Title") => retourne tous les titres sous la forme d'un tableau en retirant les doublons de la collection "media". Par, exemple, nous avons deux éléments avec le titre "Definitive Guide to MongoDB", pourtant il est affiché qu'une seule fois.
+
+[ "Definitive Guide to MongoDB", "Nevermind" ]
+
+__
+
+>db.media.distinct ("ISBN") => retourne tous les numéros ISBN sous la forme d'un tableau en retirant les doublons (ici il y en a pas donc on le remarque pas) de la collection "media".
+
+[ "987-1-4302-3051-9", "1- 4302-3051-7" ]
+
+__
+
+>db.media.distinct ("Tracklist.Title") => retourne tous les titres de la tracklist de la collection "media".
+
+[ "In Bloom", "Smells like teen spirit" ]
+
+__
+
+>db.media.group ( { key: {Title : true}, initial: {Total : 0}, reduce : function (items,prev) { prev.Total += 1 }})
+
+
+__
+
+>db.media.find ( { Released : {$gt : 2000} }, { "Cast" : 0 } ) => retourne tous éléments dont la sortie des dvd est supérieur à 2000 (qui sont sortie après 200 car $gt = greater than = supérieur à...).
+
+{ "_id" : ObjectId("5dd501a913d17bc4425062ee"), "Type" : "DVD", "Title" : "Toy Story 3", "Released" : 2010 }
+
+__
+
+>db.media.find( {Released : {$gte: 1990, $lt : 2010}}, { "Cast" : 0 }) => retourne tous éléments dont la sortie des dvd est supérieur ou égale à 1990 et en dessous de 2010.
+
+{ "_id" : ObjectId("5dd5019d13d17bc4425062ed"), "Type" : "DVD", "Title" : "Matrix, The", "Released" : 1999 }
+
+__
+
+>db.media.find( { Type : "Book", Author: {$ne : "Plugge, Eelco"}}) => retourne tous éléments dont le type est un livre et l'auteur est différents de "Plugge" et "Eelco".
+
+
+__
+
+>db.media.find( {Released : {$in : ["1999","2008","2009"] } }, { "Cast" : 0}) => retourne tous les éléments contenant les dates "1999", "2008", "2009" dans la date de sortie.
+
+__
+
+> db.media.find( {Released : {$nin : ["1999","2008","2009"] },Type : "DVD" }, { "Cast" : 0 } ) => retourne tous les éléments ne contenant pas les dates "1999", "2008" et "2009".
+
+{ "_id" : ObjectId("5dd5019d13d17bc4425062ed"), "Type" : "DVD", "Title" : "Matrix, The", "Released" : 1999 }
+{ "_id" : ObjectId("5dd501a913d17bc4425062ee"), "Type" : "DVD", "Title" : "Toy Story 3", "Released" : 2010 }
+{ "_id" : ObjectId("5dd501c913d17bc4425062ef"), "Type" : "DVD", "Title" : "Blade Runner", "Released" : 1982 }
+
+__
+
+>db.media.find({ $or : [ { "Title" : "Toy Story 3" }, { "ISBN" : "987-1-4302-3051-9" } ]}) => retourne tous les éléments tous éléments qui répondent à un des deux critères: soit le titre se nomme "Toy Story 3", soit le numéro d'ISN vaut "987-1-4302-3051-9".
+
+{ "_id" : ObjectId("5dd4f7bf13d17bc4425062ea"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "987-1-4302-3051-9", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+{ "_id" : ObjectId("5dd501a913d17bc4425062ee"), "Type" : "DVD", "Title" : "Toy Story 3", "Released" : 2010 }
+
+__
+
+>db.media.find({ "Type" : "DVD", $or : [ { "Title" : "Toy Story 3" }, { "ISBN" : "987-1- 4302-3051-9" } ] }) => retourne tous les éléments qui sont de type "DVD" et qui répondent à un des deux critères: soit le titre se nomme "Toy Story 3", soit le numéro d'ISN vaut "987-1-4302-3051-9".
+
+{ "_id" : ObjectId("5dd501a913d17bc4425062ee"), "Type" : "DVD", "Title" : "Toy Story 3", "Released" : 2010 }
+
+__
+
+>db.media.find({"Title" : "Matrix, The"}, {"Cast" : {$slice: 3}}) => retourne tous éléments dont le titre est "Matrix, The" en affichant seulement les 3 premiers éléments du tableau "Cast".
+
+{ "_id" : ObjectId("5dd5019d13d17bc4425062ed"), "Type" : "DVD", "Title" : "Matrix, The", "Released" : 1999, "Cast" : [ "Keanu Reeves", "Carry-Anne Moss", "Laurence Fishburne" ] }
+
+__
+
+>db.media.find({"Title" : "Matrix, The"}, {"Cast" : {$slice: -3}}) => retourne tous éléments dont le titre est "Matrix, The" en affichant seulement les 3 derniers éléments du tableau "Cast".
+
+{ "_id" : ObjectId("5dd5019d13d17bc4425062ed"), "Type" : "DVD", "Title" : "Matrix, The", "Released" : 1999, "Cast" : [ "Hugo Weaving", "Gloria Foster", "Joe Pantoliano" ] }
+
+__
+
+>db.media.find ( { Tracklist : {$size : 2} } ) => retourne tous éléments dont la tracklist contient seulement 2 éléments (un tableau de deux éléments)
+
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+
+__
+
+>db.media.find ( { Author : {$exists : true } } ) => retourne tous éléments dont le champs "Author" existe (où il existe un auteur, ce que nous allons "logiquement" voir dans les livres),
+
+{ "_id" : ObjectId("5dd4f7bf13d17bc4425062ea"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "987-1-4302-3051-9", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+{ "_id" : ObjectId("5dd4ffc313d17bc4425062ec"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "1- 4302-3051-7", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+
+__
+
+>db.media.find ( { Author : {$exists : false } } ) => retourne tous éléments dont le champs "Author" n'existe pas (où il n'existe pas d'auteur, on parlera plus d'artiste ou de casting pour les CD ou les DVD)
+
+{ "_id" : ObjectId("5dd4f7c413d17bc4425062eb"), "Type" : "CD", "Artist" : "Nirvana", "Title" : "Nevermind", "Tracklist" : [ { "Track" : "1 ", "Title" : "Smells like teen spirit", "Length" : "5:02 " }, { "Track" : "2 ", "Title" : "In Bloom", "Length" : "4:15 " } ] }
+{ "_id" : ObjectId("5dd5019d13d17bc4425062ed"), "Type" : "DVD", "Title" : "Matrix, The", "Released" : 1999, "Cast" : [ "Keanu Reeves", "Carry-Anne Moss", "Laurence Fishburne", "Hugo Weaving", "Gloria Foster", "Joe Pantoliano" ] }
+{ "_id" : ObjectId("5dd501a913d17bc4425062ee"), "Type" : "DVD", "Title" : "Toy Story 3", "Released" : 2010 }
+{ "_id" : ObjectId("5dd501c913d17bc4425062ef"), "Type" : "DVD", "Title" : "Blade Runner", "Released" : 1982 }
+
+__
+
+>db.media.ensureIndex( { Title :1 } ) => créer un indice sur le champs précisé dans l'ordre croissant
+
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 1,
+	"numIndexesAfter" : 2,
+	"ok" : 1
+}
+
+__
+
+>db.media.ensureIndex( { Title :-1 } ) => créer un indice sur le champs précisé dans l'ordre décroissant 
+
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 2,
+	"numIndexesAfter" : 3,
+	"ok" : 1
+}
+
+__
+
+>db.media.ensureIndex( { "Tracklist.Title" : 1 } ) => créer un indice sur le champs précisé dans l'ordre croissant  
+
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 3,
+	"numIndexesAfter" : 4,
+	"ok" : 1
+}
+
+__
+
+>db.media.find( { ISBN: "987-1-4302-3051-9"} ) . hint ( { ISBN: -1 } ) => retourne les éléments dont l'ISBN vaut "987-1-4302-3051-9" et force également à ce que l'ISN soit aussi "-1", ce qui renvoie évidemment une erreur car cela ne correspond à aucun indice existant.
+
+Error: error: {
+	"ok" : 0,
+	"errmsg" : "error processing query: ns=library.mediaTree: ISBN $eq \"987-1-4302-3051-9\"\nSort: {}\nProj: {}\n planner returned error :: caused by :: hint provided does not correspond to an existing index",
+	"code" : 2,
+	"codeName" : "BadValue"
+}
+__
+
+>db.media.ensureIndex({ISBN: 1}) => créer un indice sur le champs précisé dans l'ordre ascendant 
+
+{
+	"createdCollectionAutomatically" : false,
+	"numIndexesBefore" : 4,
+	"numIndexesAfter" : 5,
+	"ok" : 1
+}
+
+__
+
+>db.media.find( { ISBN: "987-1-4302-3051-9"} ) . hint ( { ISBN: 1 } ) => retourne les éléments dont l'ISBN vaut "987-1-4302-3051-9" et force également à ce que l'ISN soit aussi "1"
+
+
+{ "_id" : ObjectId("5dd4f7bf13d17bc4425062ea"), "Type" : "Book", "Title" : "Definitive Guide to MongoDB", "ISBN" : "987-1-4302-3051-9", "Publisher" : "Apress", "Author" : [ "Membrey, Peter", "Plugge, Eelco", "Hawkins, Tim" ] }
+
+__
+
+>db.media.getIndexes() => récupérer tous les indices de la collection de "media"
+
+[
+	{
+		"v" : 2,
+		"key" : {
+			"_id" : 1
+		},
+		"name" : "_id_",
+		"ns" : "library.media"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"Title" : 1
+		},
+		"name" : "Title_1",
+		"ns" : "library.media"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"Title" : -1
+		},
+		"name" : "Title_-1",
+		"ns" : "library.media"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"Tracklist.Title" : 1
+		},
+		"name" : "Tracklist.Title_1",
+		"ns" : "library.media"
+	},
+	{
+		"v" : 2,
+		"key" : {
+			"ISBN" : 1
+		},
+		"name" : "ISBN_1",
+		"ns" : "library.media"
+	}
+]
+
+__
+
+1) Count the number of documents => db.earthquakes.find().count();
+
+2) Show first 5 => db.earthquakes.find().limit(5);
+
+3) View the 6th document => db.earthquakes.find.skip(5).limit(1);
+
+4) How many separate statuses exist in the DB? => db.earthquakes
+
+__
+
+db.earthquakes.find().forEach( function(eq){
+var str = new String(eq.properties.types); eq.properties.types_as_array = str.split(","); db.earthquakes.save(eq); } );
+
