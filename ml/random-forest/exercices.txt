@@ -42,7 +42,10 @@ Outre la spécification de l'estimator, en l'occurence ici notre Random Forest, 
 
 On remarque grâce à cette valeur, on obtient souvent la même valeur (en répétant cette action plusieurs, nous pouvons plus ou moins arrivé à cette conclusion). Ainsi la différence entre la moyenne des taux d'errreur des deux estimators et le taux d'erreur de notre modèle peut se percevoir sur le fait que le taux d'erreur du modèle correspond plus à une moyenne de l'ensemble des arbres plutôt qu'un de ces deux estimators.
 
-8) 
+8) Voici les deux arbres correspondants au deux estimators: [worst_tree.png, best_tree.png]
+
+9) Les règles permettant d'améliorer un mauvais estimator sont principalement le choix des premiers attributs pour la racine de l'arbre; cela va aider à ce que la structure de l'arbre soit la plus optimale posible. De plus le pruning de certaines peut permettent d'obtenir un estimator plus efficace.
+
 
 
 

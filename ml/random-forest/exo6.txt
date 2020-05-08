@@ -1,3 +1,0 @@
-0.999327 (0.000146) with: {'max_depth': 5, 'min_samples_leaf': 10, 'min_samples_split': 5, 'n_estimators': 10}
-0.999567 (0.000109) with: {'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 50}
-0.999567 (0.000088) with: {'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100}
