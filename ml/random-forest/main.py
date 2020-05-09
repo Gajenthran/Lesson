@@ -1,7 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.tree import export_graphviz, _tree
 
 from subprocess import call
@@ -11,10 +10,26 @@ import pandas as pd
 from sklearn.metrics import mean_squared_error
 
 def read_file(filename):
+    """
+        Lire le fichier donné en paramètre.
+
+        :param filename: nom du fichier
+    """
+
     cb = pd.read_csv("files/CarteBancaire.csv")
     return cb.drop(['Class'], axis=1), cb['Class']
 
 def calculate_estimators_errors(rfc, X, y, debug=True):
+    """
+        Calculer le taux d'erreur des estimators de notre
+        Random Forest.
+
+        :param rfc: Random Forest Classifier
+        :param X: données d'apprentissage
+        :param y: classe des données
+        :PARAM debug: afficher les print
+    """
+
     estimator_errors = []
     for tree in rfc.estimators_:
         pred = tree.predict(X)
@@ -52,6 +67,17 @@ def calculate_estimators_errors(rfc, X, y, debug=True):
     return error_min, error_max
 
 def vizualize_estimators(estimators, out_files, feature_names, class_names):
+    """
+        Visualiser l'arbre le plus performant et le moins performant
+        de notre Random Forest.
+
+        :param estimators: l'arbre le plus performant et 
+        le moins performant
+        :param out_files: fichiers de sortie
+        :param feature_names: fonctionnalités des données
+        :param class_names: classe des données
+    """
+
     for i in range(0, len(estimators)):
         export_graphviz(
             estimators[i],
@@ -64,6 +90,13 @@ def vizualize_estimators(estimators, out_files, feature_names, class_names):
     call(['dot', '-Tpng', 'best_tree.dot', '-o', 'best_tree.png'])
 
 def show_rules(tree, feature_names):
+    """
+        Afficher les règles de decision de l'arbre donné.
+
+        :param tree: arbre de décision
+        :param feature_names: les fonctionnalités des données
+    """
+
     tree_ = tree.tree_
     feature_name = [
         feature_names[i] if i != _tree.TREE_UNDEFINED else "undefined!"
@@ -86,6 +119,17 @@ def show_rules(tree, feature_names):
     recurse(0, 1)
 
 def tuning_rfc_param(param_grid, rfc, X, y):
+    """
+        Trouver les meilleurs paramètres pour avoir un 
+        RFC performant.
+
+        :param param_grid: les paramètres que l'on veut
+        tester pour le RFC
+        :param rfc: Random Forest Classifier
+        :param X: données d'apprentissage
+        :param y: classe des données
+    """
+
     CV_rfc = GridSearchCV(
         estimator=rfc, 
         param_grid=param_grid,
@@ -102,12 +146,14 @@ def tuning_rfc_param(param_grid, rfc, X, y):
         print("{} - {}".format(mean, stdev, param))
 
 def main():
+    # Lecture du fichier CarteBancaire.csv
     X, y = read_file("files/CarteBancaire.csv")
 
+    # Séparation des fichiers en données d'apprentissage
+    # et données d'entraînement
     X_train, X_test, y_train, y_test = \
         train_test_split(X, y, test_size=0.4)
 
-    print(X_train.columns)
     """
     param_grid = {
         "n_estimators": [10, 50, 100],
@@ -124,6 +170,7 @@ def main():
     tuning_rfc_param(param_grid, rfc, X_train, y_train)
     """
 
+    # Random Forest Classifier 
     rfc = RandomForestClassifier(
         n_estimators=50,
         max_depth=15,
@@ -133,14 +180,17 @@ def main():
 
     rfc.fit(X_train, y_train)
 
+    # Calculer le taux d'erreur des estimators du RFC
     error_min, error_max = calculate_estimators_errors(rfc, X_test, y_test)
 
+    # Visualiser les arbres du RFC
     vizualize_estimators(
         [rfc.estimators_[error_min], rfc.estimators_[error_max]],
         ['best_tree.dot', 'worst_tree.dot'],
         X_train.columns,
         ['0', '1'])
 
+    # Afficher les règles de decision des estimators
     show_rules(rfc.estimators_[error_min], X.columns)
     show_rules(rfc.estimators_[error_max], X.columns)
 
