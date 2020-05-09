@@ -1,10 +1,11 @@
+import argparse
+
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.tree import export_graphviz, _tree
 
 from subprocess import call
-import csv
 import pandas as pd
 
 from sklearn.metrics import mean_squared_error
@@ -18,6 +19,7 @@ def read_file(filename):
 
     cb = pd.read_csv("files/CarteBancaire.csv")
     return cb.drop(['Class'], axis=1), cb['Class']
+
 
 def calculate_estimators_errors(rfc, X, y, debug=True):
     """
@@ -66,6 +68,7 @@ def calculate_estimators_errors(rfc, X, y, debug=True):
 
     return error_min, error_max
 
+
 def vizualize_estimators(estimators, out_files, feature_names, class_names):
     """
         Visualiser l'arbre le plus performant et le moins performant
@@ -88,6 +91,7 @@ def vizualize_estimators(estimators, out_files, feature_names, class_names):
 
     call(['dot', '-Tpng', 'worst_tree.dot', '-o', 'worst_tree.png'])
     call(['dot', '-Tpng', 'best_tree.dot', '-o', 'best_tree.png'])
+
 
 def show_rules(tree, feature_names):
     """
@@ -118,6 +122,7 @@ def show_rules(tree, feature_names):
 
     recurse(0, 1)
 
+
 def tuning_rfc_param(param_grid, rfc, X, y):
     """
         Trouver les meilleurs paramètres pour avoir un 
@@ -145,7 +150,30 @@ def tuning_rfc_param(param_grid, rfc, X, y):
     for mean, param in zip(means, params):
         print("{} - {}".format(mean, stdev, param))
 
+
+def argument_parser(filename):
+    """
+        Parser les arguments de la ligne de commande
+        pour récupérer le fichier et l'option debugging
+        :param filename: nom du fichier
+        :param debug: debugging
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--filename", type=str, default=filename)
+    parser.add_argument("-d", "--debug", default=True)
+    args = parser.parse_args()
+
+    args.debug = False if args.debug == "False" else True
+    return args.filename, args.debug
+
+
 def main():
+    # Constante
+    FILE_OPT = "files/CarteBancaire.csv"
+
+    # Parser les arguments 
+    filename, debug = argument_parser(FILE_OPT)
+
     # Lecture du fichier CarteBancaire.csv
     X, y = read_file("files/CarteBancaire.csv")
 
@@ -181,7 +209,8 @@ def main():
     rfc.fit(X_train, y_train)
 
     # Calculer le taux d'erreur des estimators du RFC
-    error_min, error_max = calculate_estimators_errors(rfc, X_test, y_test)
+    error_min, error_max = calculate_estimators_errors(
+        rfc, X_test, y_test, debug)
 
     # Visualiser les arbres du RFC
     vizualize_estimators(
@@ -191,8 +220,11 @@ def main():
         ['0', '1'])
 
     # Afficher les règles de decision des estimators
-    show_rules(rfc.estimators_[error_min], X.columns)
-    show_rules(rfc.estimators_[error_max], X.columns)
+    if(debug == True):
+        print("Règle de décision pour l'estimator le plus performant: \n")
+        show_rules(rfc.estimators_[error_min], X.columns)
+        print("Règle de décision pour l'estimator le moins performant: \n")
+        show_rules(rfc.estimators_[error_max], X.columns)
 
     return 0
 
