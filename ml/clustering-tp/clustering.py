@@ -1,3 +1,5 @@
+import argparse
+
 from sklearn.datasets import make_blobs
 from sklearn.datasets import load_iris
 from sklearn.cluster import KMeans
@@ -326,22 +328,40 @@ class ClusteringIris:
 
     plt.show()
 
+def argument_parser():
+    """
+      Parser les arguments de la ligne de commande
+      pour choisir l'exercice. Par défaut "iris" mais on
+      peut choisir de tester blob avec l'option -b ou --blob.
+    """
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-b", "--blob", help="clustering blobs",
+                        action="store_true")
+    args = parser.parse_args()
 
+    print(args.blob)
+    return args.blob
 
 def main():
-  ci = ClusteringIris(
-    n_clusters=3
-  )
+  # par défaut à iris
+  CLUSTER_OPT = "iris"
 
-  ci.plt_iris()
-  ci.plt_kmeans()
-  ci.plt_hierarchy_classification()
-  ci.silhouette_clusters()
-  ci.plt_acp()
-  ci.plt_adl()
+  cluster_iris = argument_parser(CLUSTER_OPT)
 
-  """ 
+  if(cluster_iris):
+    ci = ClusteringIris(
+      n_clusters=3
+    )
+
+    ci.plt_iris()
+    ci.plt_kmeans()
+    ci.plt_hierarchy_classification()
+    ci.silhouette_clusters()
+    ci.plt_acp()
+    ci.plt_adl()
+
+  else:
     cb = ClusteringBlob(
       n_samples=300,
       n_features=2,
@@ -354,7 +374,7 @@ def main():
     cb.plt_adl()
     cb.plt_ahc()
     cb.silhouette_clusters(draw=False)
-  """
+
   return 0
 
 if __name__ == '__main__':

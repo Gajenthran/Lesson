@@ -34,8 +34,8 @@ def calculate_estimators_errors(rfc, X, y, debug=True):
 
     estimator_errors = []
     for tree in rfc.estimators_:
-        pred = tree.predict(X)
-        estimator_errors.append(mean_squared_error(y, pred))
+        pred = 1.0 - tree.score(X, y)
+        estimator_errors.append(pred)
 
     error_min = estimator_errors.index(min(estimator_errors))
     error_max = estimator_errors.index(max(estimator_errors))
@@ -50,8 +50,7 @@ def calculate_estimators_errors(rfc, X, y, debug=True):
         print('E2 = Taux d\'erreur de l\'estimator le moins performant: \
             {} (indice {}).'.format(estimator_errors[error_max], error_max))
 
-        pred_rfc = rfc.predict(X)
-        error_rfc = mean_squared_error(y, pred_rfc)
+        error_rfc = 1.0 - rfc.score(X, y)
 
         print('RFC = Taux d\'erreur du modèle RandomForestClassifier: \
             {}.'.format(error_rfc))
@@ -148,7 +147,7 @@ def tuning_rfc_param(param_grid, rfc, X, y):
     means = CV_rfc.cv_results_['mean_test_score']
     params = CV_rfc.cv_results_['params']
     for mean, param in zip(means, params):
-        print("{} - {}".format(mean, stdev, param))
+        print("{} - {}".format(mean, param))
 
 
 def argument_parser(filename):
@@ -158,6 +157,7 @@ def argument_parser(filename):
         :param filename: nom du fichier
         :param debug: debugging
     """
+
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--filename", type=str, default=filename)
     parser.add_argument("-d", "--debug", default=True)

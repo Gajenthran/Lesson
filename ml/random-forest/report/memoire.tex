@@ -148,10 +148,11 @@ Pour récupérer les estimators de notre Random Forest, il faut d'abord connaît
 def calculate_estimators_errors(rfc, X, y, debug=True):
     estimator_errors = []
     for tree in rfc.estimators_:
-        pred = tree.predict(X)
-        estimator_errors.append(mean_squared_error(y, pred))
+        pred = 1.0 - tree.score(X, y)
+        estimator_errors.append(pred)
 
-    return estimator_errors.index(max(estimator_errors))
+    error_min = estimator_errors.index(min(estimator_errors))
+    error_max = estimator_errors.index(max(estimator_errors))
 \end{verbatim}
 On obtient ainsi l'estimator le plus performant à l'indice 35 avec un taux d'erreur de 0.0006056722523107713.
 \newline \newline
@@ -196,11 +197,11 @@ Il s'agit du même procédé que pour chercher l'estimator le plus performant
 def calculate_estimators_errors(rfc, X, y, debug=True):
     estimator_errors = []
     for tree in rfc.estimators_:
-        pred = tree.predict(X)
-        estimator_errors.append(mean_squared_error(y, pred))
+        pred = 1.0 - tree.score(X, y)
+        estimator_errors.append(pred)
 
-    return estimator_errors.index(min(estimator_errors)),
-           estimator_errors.index(max(estimator_errors))
+    error_min = estimator_errors.index(min(estimator_errors))
+    error_max = estimator_errors.index(max(estimator_errors))
 \end{verbatim}
 On obtient donc un taux d'erreur de 0.0006056722523107713 pour l'estimator le plus performant contre 0.0009918980363930023 pour l'estimator le moins performant
 

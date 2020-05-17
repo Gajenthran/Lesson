@@ -1,4 +1,5 @@
 import argparse
+import re
 import numpy as np
 
 from sklearn import metrics, datasets
@@ -13,7 +14,7 @@ from sklearn.utils.extmath import randomized_svd
 import umap
 import matplotlib.pyplot as plt
 
-def bow(data, vocabulary=None):
+def bow(data, stop_words=None):
 	"""
 		Bag of words pour calculer les occurences des mots
 		:param data: 20-newsgroups textes.
@@ -21,9 +22,32 @@ def bow(data, vocabulary=None):
 		à None pour utiliser CountVectorizer
 	"""
 
-	cv = CountVectorizer(vocabulary=vocabulary)
+	cv = CountVectorizer(vocabulary=None, stop_words=stop_words)
 	occ = cv.fit_transform(data)
 	return occ, cv.vocabulary_
+
+
+def histogram(files, nb_words=75):
+	"""
+		Histogramme pour calculer les mots les
+		plus utilisés dans chaque thème.
+		:param files: l'ensemble des données
+		:param nb_words: le nombre de mots les plus
+		utilisés à afficher
+	"""
+
+	print("Histogramme des mots utilisés dans 20-ng par catégorie:\n")
+	for i in range(0, len(files.target_names)):
+		class_20ng = []
+		for j in range(0, len(files.data)):
+			if files.target[j] == i:
+				class_20ng.append(files.data[j])
+
+		occ, vocabulary = bow(list(class_20ng), 'english')
+		sum_words = occ.sum(axis=0)
+		words_freq = [(word, sum_words[0, idx]) for word, idx in vocabulary.items()]
+		words_freq = sorted(words_freq, key = lambda x: x[1], reverse=True)[:nb_words]
+		print("{}: \n {}\n\n".format(files.target_names[i], words_freq))
 
 
 def tf_idf(occ, use_idf=True):
@@ -201,10 +225,19 @@ def argument_parser(test_size, threshold):
 	parser.add_argument("-g", "--grid",  action="store_true")
 	parser.add_argument("-ts", "--test_size", type=float, default=0.3)
 	parser.add_argument("-th", "--threshold", type=float, default=threshold)
+	parser.add_argument("-hist", "--histogram",  action="store_true")
+	parser.add_argument("-eval", "--eval_k",  action="store_true")
+
 	args = parser.parse_args()
 
 	print(args)
-	return args.filename, args.grid, args.test_size, args.threshold
+	return \
+		args.filename, \
+		args.grid, \
+		args.test_size, \
+		args.threshold, \
+		args.histogram, \
+		args.eval_k
 
 
 def main():
@@ -216,14 +249,17 @@ def main():
 	files = None
 
 	# Parser les arguments
-	filename, grid_opt, test_size, threshold = argument_parser(
-		test_size, threshold)
+	filename, grid_opt, test_size, threshold, histogram_, eval_k = \
+		argument_parser(test_size, threshold)
 
 	# Charger les données 20-newsgroups
 	if filename != '':
 		files = datasets.load_files(filename, encoding="utf8", decode_error='ignore')
 	else:
-		files = datasets.fetch_20newsgroups()
+		files = datasets.fetch_20newsgroups(subset='all')
+
+	if histogram_:
+		histogram(files)
 
 	# Pré-traitement des données
 	occ, vocabulary = bow(files.data)
@@ -251,7 +287,8 @@ def main():
 	find_confusion_names(cm, files.target_names, threshold)
 
 	# Evaluer les erreurs selon le nombre de voisins K
-	evaluate_k_value(X_train, X_test, y_train, y_test)
+	if eval_k:
+		evaluate_k_value(X_train, X_test, y_train, y_test)
 
 	tuned_clf = None
 	print("-- Improving kNN model...")
