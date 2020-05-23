@@ -33,7 +33,7 @@ class ClusteringBlob:
     )
 
     self.acp = PCA(
-      n_components=2).fit(self.X).transform(self.X)
+      n_components=n_features).fit(self.X).transform(self.X)
 
     self.adl = LinearDiscriminantAnalysis(
       n_components=n_features).fit(self.X, self.y).transform(self.X)
@@ -227,7 +227,7 @@ class ClusteringIris:
 
   def plt_iris(self):
     plt.figure()
-    plt.title('Blobs (modèle original)')
+    plt.title('Iris (modèle original)')
     plt.scatter(
       self.X[:, 0], self.X[:, 1], 
       c=self.y, edgecolor='k'
@@ -340,28 +340,14 @@ def argument_parser():
                         action="store_true")
     args = parser.parse_args()
 
-    print(args.blob)
+    print(args)
     return args.blob
 
 def main():
-  # par défaut à iris
-  CLUSTER_OPT = "iris"
+  cluster_blob = argument_parser()
 
-  cluster_iris = argument_parser(CLUSTER_OPT)
-
-  if(cluster_iris):
-    ci = ClusteringIris(
-      n_clusters=3
-    )
-
-    ci.plt_iris()
-    ci.plt_kmeans()
-    ci.plt_hierarchy_classification()
-    ci.silhouette_clusters()
-    ci.plt_acp()
-    ci.plt_adl()
-
-  else:
+  # Exercice (1 à 4) pour Blob
+  if cluster_blob:
     cb = ClusteringBlob(
       n_samples=300,
       n_features=2,
@@ -374,6 +360,19 @@ def main():
     cb.plt_adl()
     cb.plt_ahc()
     cb.silhouette_clusters(draw=False)
+
+  # Exercice 5 pour Iris
+  else:
+    ci = ClusteringIris(
+      n_clusters=2
+    )
+
+    ci.plt_iris()
+    ci.plt_kmeans()
+    ci.plt_hierarchy_classification()
+    ci.silhouette_clusters()
+    ci.plt_acp()
+    ci.plt_adl()
 
   return 0
 

@@ -1,5 +1,4 @@
 import argparse
-import re
 import numpy as np
 
 from sklearn import metrics, datasets
@@ -13,6 +12,7 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.utils.extmath import randomized_svd
 import umap
 import matplotlib.pyplot as plt
+
 
 def bow(data, stop_words=None):
 	"""
@@ -167,6 +167,7 @@ def plot_confusion_matrix(cm, target_names, y_test, pred):
 	plt.yticks(tick_marks, target_names)
 
 	plt.show()
+
 
 def plot_model_label(X_test, y_test, pred):
 	"""
